@@ -1,0 +1,137 @@
+name: Microsoft Purview
+description: Microsoft Purview is a comprehensive data governance service that helps organizations discover, catalog, classify, and manage their data estate across on-premises, multi-cloud, and SaaS environments.
+image: https://www.microsoft.com/en-us/microsoft-365/blog/wp-content/uploads/sites/2/2021/04/Microsoft-Purview-logo.png
+url: https://www.microsoft.com/en-us/security/business/microsoft-purview
+created: 2024-01-15 00:00:00+00:00
+modified: 2024-01-15 00:00:00+00:00
+specificationVersion: '0.18'
+tags:
+- Data Governance
+- Data Catalog
+- Data Classification
+- Compliance
+- Data Loss Prevention
+- Information Protection
+apis:
+- name: Microsoft Purview Catalog API
+  description: APIs for discovering, cataloging, and managing metadata for data assets across your data estate
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/purview/catalog-api
+  baseURL: https://{account-name}.purview.azure.com
+  tags:
+  - Data Catalog
+  - Metadata
+  - Data Discovery
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/purview/
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.Catalog/stable/2022-08-01-preview/purviewcatalog.json
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+  - type: Pricing
+    url: https://azure.microsoft.com/en-us/pricing/details/purview/
+- name: Microsoft Purview Scanning API
+  description: APIs for configuring and managing scans of data sources to automatically discover and catalog data assets
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/purview/scanning-api
+  baseURL: https://{account-name}.purview.azure.com
+  tags:
+  - Data Scanning
+  - Data Sources
+  - Automated Discovery
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/purview/scanning
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.Scanning/stable/2022-07-01-preview/scanningService.json
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+- name: Microsoft Purview Account API
+  description: APIs for managing Purview accounts, configurations, and administrative settings
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/purview/account-api
+  baseURL: https://management.azure.com
+  tags:
+  - Account Management
+  - Configuration
+  - Administration
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/purview/account
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/resource-manager/Microsoft.Purview/stable/2021-07-01/purview.json
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
+- name: Microsoft Purview Data Map API
+  description: APIs for accessing and managing the unified data map that provides a holistic view of your data estate
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/purview/data-map-api
+  baseURL: https://{account-name}.purview.azure.com
+  tags:
+  - Data Map
+  - Lineage
+  - Relationships
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/purview/datamap
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.DataMap/preview/2023-09-01-preview/purviewDataMap.json
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+- name: Microsoft Purview Metadata Policies API
+  description: APIs for creating and managing data access policies based on metadata attributes
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/purview/metadata-policies
+  baseURL: https://{account-name}.purview.azure.com
+  tags:
+  - Access Policies
+  - Data Governance
+  - Metadata
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/purview/metadatapolicies
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.MetadataPolicies/preview/2021-07-01-preview/purviewMetadataPolicy.json
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+- name: Microsoft Purview Workflow API
+  description: APIs for managing workflows and approval processes for data governance tasks
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/purview/workflow-api
+  baseURL: https://{account-name}.purview.azure.com
+  tags:
+  - Workflows
+  - Approvals
+  - Automation
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/purview/workflow
+  - type: OpenAPI
+    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.Workflow/preview/2022-05-01-preview/purviewWorkflow.json
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+common:
+- type: Getting Started
+  url: https://learn.microsoft.com/en-us/purview/use-azure-purview-studio
+- type: SDKs
+  url: https://learn.microsoft.com/en-us/purview/tutorial-using-python-sdk
+- type: Best Practices
+  url: https://learn.microsoft.com/en-us/purview/concept-best-practices-accounts
+- type: Support
+  url: https://learn.microsoft.com/en-us/answers/topics/azure-purview.html
+- type: Blog
+  url: https://techcommunity.microsoft.com/t5/microsoft-purview-blog/bg-p/MicrosoftPurviewBlog
+- type: Status
+  url: https://status.azure.com/
+- type: Terms of Service
+  url: https://azure.microsoft.com/en-us/support/legal/
+- type: Privacy Policy
+  url: https://privacy.microsoft.com/en-us/privacystatement
+- type: Change Log
+  url: https://learn.microsoft.com/en-us/purview/whats-new
+maintainers:
+- FN: Microsoft
+  email: azurepurview@microsoft.com
+  url: https://www.microsoft.com
+include: []
