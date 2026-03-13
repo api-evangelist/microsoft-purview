@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-search/microsoft-purview/json-schema/microsoft-purview-retention-label-schema.json",
+  "title": "Microsoft Purview Retention Label",
+  "description": "Represents a retention label for records management in Microsoft Purview. Retention labels define how long data should be retained and what happens after the retention period.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier of the retention label",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string",
+      "description": "The display name of the retention label"
+    },
+    "descriptionForAdmins": {
+      "type": "string",
+      "description": "Description visible to administrators"
+    },
+    "descriptionForUsers": {
+      "type": "string",
+      "description": "Description visible to end users"
+    },
+    "isInUse": {
+      "type": "boolean",
+      "description": "Whether the label is currently in use",
+      "readOnly": true
+    },
+    "retentionTrigger": {
+      "type": "string",
+      "description": "What triggers the start of the retention period",
+      "enum": ["dateLabeled", "dateCreated", "dateModified", "dateOfEvent"]
+    },
+    "behaviorDuringRetentionPeriod": {
+      "type": "string",
+      "description": "The behavior during the retention period",
+      "enum": ["doNotRetain", "retain", "retainAsRecord", "retainAsRegulatoryRecord"]
+    },
+    "actionAfterRetentionPeriod": {
+      "type": "string",
+      "description": "What happens after the retention period ends",
+      "enum": ["none", "delete", "startDispositionReview"]
+    },
+    "retentionDuration": {
+      "type": "object",
+      "description": "The duration of the retention period",
+      "properties": {
+        "@odata.type": {
+          "type": "string"
+        },
+        "days": {
+          "type": "integer",
+          "description": "The retention duration in days"
+        }
+      }
+    },
+    "defaultRecordBehavior": {
+      "type": "string",
+      "description": "The default record behavior",
+      "enum": ["startLocked", "startUnlocked"]
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    }
+  },
+  "required": ["displayName", "behaviorDuringRetentionPeriod", "actionAfterRetentionPeriod", "retentionDuration", "retentionTrigger"]
+}

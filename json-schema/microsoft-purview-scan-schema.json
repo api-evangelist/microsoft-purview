@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-search/microsoft-purview/json-schema/microsoft-purview-scan-schema.json",
+  "title": "Microsoft Purview Scan",
+  "description": "Represents a scan configuration in the Microsoft Purview scanning service. Scans define how data sources are analyzed to discover and classify data assets.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The resource identifier of the scan",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the scan"
+    },
+    "kind": {
+      "type": "string",
+      "description": "The type of scan matching the data source kind"
+    },
+    "properties": {
+      "type": "object",
+      "description": "Scan configuration properties",
+      "properties": {
+        "scanRulesetName": {
+          "type": "string",
+          "description": "The name of the scan ruleset to use"
+        },
+        "scanRulesetType": {
+          "type": "string",
+          "description": "Whether the ruleset is custom or system-defined",
+          "enum": ["Custom", "System"]
+        },
+        "collection": {
+          "type": "object",
+          "description": "The collection to store discovered assets in",
+          "properties": {
+            "referenceName": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "connectedVia": {
+          "type": "object",
+          "description": "The integration runtime connection information",
+          "properties": {
+            "referenceName": {
+              "type": "string"
+            },
+            "integrationRuntimeType": {
+              "type": "string"
+            }
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastScheduled": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "required": ["name", "kind"]
+}

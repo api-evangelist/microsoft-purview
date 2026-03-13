@@ -1,0 +1,501 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "purview": "https://purview.azure.com/vocab#",
+    "atlas": "https://atlas.apache.org/vocab#",
+    "schema": "https://schema.org/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "dqv": "http://www.w3.org/ns/dqv#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+
+    "AtlasEntity": {
+      "@id": "purview:AtlasEntity",
+      "@context": {
+        "guid": {
+          "@id": "dcterms:identifier",
+          "@type": "xsd:string"
+        },
+        "typeName": {
+          "@id": "purview:typeName",
+          "@type": "xsd:string"
+        },
+        "qualifiedName": {
+          "@id": "dcterms:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "owner": {
+          "@id": "schema:maintainer",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "purview:entityStatus",
+          "@type": "xsd:string"
+        },
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "updateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "createdBy": {
+          "@id": "dcterms:creator",
+          "@type": "xsd:string"
+        },
+        "updatedBy": {
+          "@id": "purview:updatedBy",
+          "@type": "xsd:string"
+        },
+        "classifications": {
+          "@id": "purview:hasClassification",
+          "@type": "@id",
+          "@container": "@set"
+        },
+        "labels": {
+          "@id": "purview:hasLabel",
+          "@container": "@set"
+        },
+        "meanings": {
+          "@id": "purview:hasGlossaryTermAssignment",
+          "@type": "@id",
+          "@container": "@set"
+        },
+        "collectionId": {
+          "@id": "purview:belongsToCollection",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "AtlasGlossaryTerm": {
+      "@id": "purview:GlossaryTerm",
+      "@context": {
+        "guid": {
+          "@id": "dcterms:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "skos:prefLabel",
+          "@type": "xsd:string"
+        },
+        "shortDescription": {
+          "@id": "skos:definition",
+          "@type": "xsd:string"
+        },
+        "longDescription": {
+          "@id": "skos:note",
+          "@type": "xsd:string"
+        },
+        "abbreviation": {
+          "@id": "skos:altLabel",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "purview:termStatus",
+          "@type": "xsd:string"
+        },
+        "categories": {
+          "@id": "skos:broader",
+          "@type": "@id",
+          "@container": "@set"
+        },
+        "synonyms": {
+          "@id": "skos:exactMatch",
+          "@type": "@id",
+          "@container": "@set"
+        },
+        "antonyms": {
+          "@id": "purview:antonym",
+          "@type": "@id",
+          "@container": "@set"
+        },
+        "seeAlso": {
+          "@id": "skos:related",
+          "@type": "@id",
+          "@container": "@set"
+        },
+        "assignedEntities": {
+          "@id": "purview:appliedToEntity",
+          "@type": "@id",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "AtlasGlossaryCategory": {
+      "@id": "purview:GlossaryCategory",
+      "@context": {
+        "guid": {
+          "@id": "dcterms:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "skos:prefLabel",
+          "@type": "xsd:string"
+        },
+        "shortDescription": {
+          "@id": "skos:definition",
+          "@type": "xsd:string"
+        },
+        "parentCategory": {
+          "@id": "skos:broader",
+          "@type": "@id"
+        },
+        "childrenCategories": {
+          "@id": "skos:narrower",
+          "@type": "@id",
+          "@container": "@set"
+        },
+        "terms": {
+          "@id": "skos:hasTopConcept",
+          "@type": "@id",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "AtlasGlossary": {
+      "@id": "purview:Glossary",
+      "@context": {
+        "guid": {
+          "@id": "dcterms:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "shortDescription": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "language": {
+          "@id": "dcterms:language",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "AtlasClassification": {
+      "@id": "purview:Classification",
+      "@context": {
+        "typeName": {
+          "@id": "purview:classificationType",
+          "@type": "xsd:string"
+        },
+        "entityGuid": {
+          "@id": "purview:classifiedEntity",
+          "@type": "xsd:string"
+        },
+        "propagate": {
+          "@id": "purview:propagates",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "DataSource": {
+      "@id": "dcat:DataService",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "kind": {
+          "@id": "purview:dataSourceKind",
+          "@type": "xsd:string"
+        },
+        "endpoint": {
+          "@id": "dcat:endpointURL",
+          "@type": "xsd:anyURI"
+        },
+        "location": {
+          "@id": "schema:location",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Scan": {
+      "@id": "purview:Scan",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "kind": {
+          "@id": "purview:scanKind",
+          "@type": "xsd:string"
+        },
+        "scanRulesetName": {
+          "@id": "purview:usesScanRuleset",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "ScanResult": {
+      "@id": "purview:ScanResult",
+      "@context": {
+        "status": {
+          "@id": "purview:scanStatus",
+          "@type": "xsd:string"
+        },
+        "startTime": {
+          "@id": "schema:startDate",
+          "@type": "xsd:dateTime"
+        },
+        "endTime": {
+          "@id": "schema:endDate",
+          "@type": "xsd:dateTime"
+        },
+        "assetsDiscovered": {
+          "@id": "purview:assetsDiscovered",
+          "@type": "xsd:integer"
+        },
+        "assetsClassified": {
+          "@id": "purview:assetsClassified",
+          "@type": "xsd:integer"
+        }
+      }
+    },
+
+    "AtlasLineageInfo": {
+      "@id": "purview:LineageInfo",
+      "@context": {
+        "baseEntityGuid": {
+          "@id": "purview:lineageRoot",
+          "@type": "xsd:string"
+        },
+        "lineageDirection": {
+          "@id": "purview:lineageDirection",
+          "@type": "xsd:string"
+        },
+        "lineageDepth": {
+          "@id": "purview:lineageDepth",
+          "@type": "xsd:integer"
+        },
+        "relations": {
+          "@id": "prov:wasDerivedFrom",
+          "@type": "@id",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "AtlasRelationship": {
+      "@id": "purview:Relationship",
+      "@context": {
+        "guid": {
+          "@id": "dcterms:identifier",
+          "@type": "xsd:string"
+        },
+        "typeName": {
+          "@id": "purview:relationshipType",
+          "@type": "xsd:string"
+        },
+        "end1": {
+          "@id": "purview:sourceEntity",
+          "@type": "@id"
+        },
+        "end2": {
+          "@id": "purview:targetEntity",
+          "@type": "@id"
+        },
+        "status": {
+          "@id": "purview:relationshipStatus",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "PurviewAccount": {
+      "@id": "purview:Account",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "location": {
+          "@id": "schema:location",
+          "@type": "xsd:string"
+        },
+        "provisioningState": {
+          "@id": "purview:provisioningState",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "SensitivityLabel": {
+      "@id": "purview:SensitivityLabel",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "sensitivity": {
+          "@id": "purview:sensitivityOrder",
+          "@type": "xsd:integer"
+        },
+        "isActive": {
+          "@id": "purview:isActive",
+          "@type": "xsd:boolean"
+        },
+        "hasProtection": {
+          "@id": "purview:hasProtection",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "RetentionLabel": {
+      "@id": "purview:RetentionLabel",
+      "@context": {
+        "displayName": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "retentionTrigger": {
+          "@id": "purview:retentionTrigger",
+          "@type": "xsd:string"
+        },
+        "behaviorDuringRetentionPeriod": {
+          "@id": "purview:retentionBehavior",
+          "@type": "xsd:string"
+        },
+        "actionAfterRetentionPeriod": {
+          "@id": "purview:postRetentionAction",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "MetadataPolicy": {
+      "@id": "purview:MetadataPolicy",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Workflow": {
+      "@id": "purview:Workflow",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "isEnabled": {
+          "@id": "purview:isEnabled",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "DataQualityScore": {
+      "@id": "dqv:QualityMeasurement",
+      "@context": {
+        "overallScore": {
+          "@id": "dqv:value",
+          "@type": "xsd:float"
+        },
+        "assetId": {
+          "@id": "dqv:computedOn",
+          "@type": "xsd:string"
+        },
+        "evaluatedAt": {
+          "@id": "dcterms:date",
+          "@type": "xsd:dateTime"
+        }
+      }
+    },
+
+    "BusinessDomain": {
+      "@id": "purview:BusinessDomain",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "parentDomainId": {
+          "@id": "schema:isPartOf",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "DataProduct": {
+      "@id": "dcat:Dataset",
+      "@context": {
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "businessDomainId": {
+          "@id": "purview:belongsToBusinessDomain",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "EdiscoveryCase": {
+      "@id": "purview:EdiscoveryCase",
+      "@context": {
+        "displayName": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "purview:caseStatus",
+          "@type": "xsd:string"
+        },
+        "createdDateTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

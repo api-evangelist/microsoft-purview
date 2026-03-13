@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-search/microsoft-purview/json-schema/microsoft-purview-sensitivity-label-schema.json",
+  "title": "Microsoft Purview Sensitivity Label",
+  "description": "Represents a sensitivity label in the Microsoft Purview Information Protection service. Sensitivity labels classify and protect organizational data.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The unique identifier of the sensitivity label",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the sensitivity label"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the sensitivity label"
+    },
+    "color": {
+      "type": "string",
+      "description": "The color associated with the label"
+    },
+    "sensitivity": {
+      "type": "integer",
+      "description": "The sensitivity order value, higher means more sensitive"
+    },
+    "tooltip": {
+      "type": "string",
+      "description": "The tooltip text shown to users"
+    },
+    "isActive": {
+      "type": "boolean",
+      "description": "Whether the label is currently active"
+    },
+    "isAppliable": {
+      "type": "boolean",
+      "description": "Whether the label can be applied by users"
+    },
+    "contentFormats": {
+      "type": "array",
+      "description": "The content formats the label applies to",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hasProtection": {
+      "type": "boolean",
+      "description": "Whether the label applies protection (encryption, rights management)"
+    },
+    "parent": {
+      "type": "object",
+      "description": "The parent label (for sub-labels)",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": ["name"]
+}

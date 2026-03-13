@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-search/microsoft-purview/json-schema/microsoft-purview-account-schema.json",
+  "title": "Microsoft Purview Account",
+  "description": "Represents a Microsoft Purview account resource managed through Azure Resource Manager.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The Azure resource ID",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the Purview account",
+      "readOnly": true
+    },
+    "type": {
+      "type": "string",
+      "description": "The resource type (Microsoft.Purview/accounts)",
+      "readOnly": true
+    },
+    "location": {
+      "type": "string",
+      "description": "The Azure region where the account is deployed"
+    },
+    "tags": {
+      "type": "object",
+      "description": "Resource tags",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "identity": {
+      "type": "object",
+      "description": "The managed identity for the account",
+      "properties": {
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "type": {
+          "type": "string",
+          "enum": ["None", "SystemAssigned", "UserAssigned"]
+        }
+      }
+    },
+    "sku": {
+      "type": "object",
+      "description": "The SKU of the account",
+      "properties": {
+        "capacity": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string",
+          "enum": ["Standard"]
+        }
+      }
+    },
+    "properties": {
+      "type": "object",
+      "description": "Account properties",
+      "properties": {
+        "provisioningState": {
+          "type": "string",
+          "description": "The current provisioning state",
+          "enum": ["Unknown", "Creating", "Moving", "Deleting", "SoftDeleting", "SoftDeleted", "Failed", "Succeeded", "Canceled"],
+          "readOnly": true
+        },
+        "publicNetworkAccess": {
+          "type": "string",
+          "description": "Whether public network access is enabled",
+          "enum": ["NotSpecified", "Enabled", "Disabled"]
+        },
+        "managedResourceGroupName": {
+          "type": "string",
+          "description": "The managed resource group name"
+        },
+        "endpoints": {
+          "type": "object",
+          "description": "The service endpoints",
+          "readOnly": true,
+          "properties": {
+            "catalog": {
+              "type": "string",
+              "description": "The catalog endpoint URL"
+            },
+            "guardian": {
+              "type": "string",
+              "description": "The guardian endpoint URL"
+            },
+            "scan": {
+              "type": "string",
+              "description": "The scan endpoint URL"
+            }
+          }
+        },
+        "friendlyName": {
+          "type": "string",
+          "description": "The friendly name of the account",
+          "readOnly": true
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "readOnly": true
+        },
+        "createdBy": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    }
+  },
+  "required": ["location"]
+}

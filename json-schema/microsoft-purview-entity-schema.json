@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-search/microsoft-purview/json-schema/microsoft-purview-entity-schema.json",
+  "title": "Microsoft Purview Atlas Entity",
+  "description": "Represents a data entity in the Microsoft Purview Data Map, based on the Apache Atlas entity model. Entities are the core building blocks of the data catalog.",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "type": "object",
+      "description": "The attributes of the entity, defined by its type definition",
+      "additionalProperties": true,
+      "properties": {
+        "qualifiedName": {
+          "type": "string",
+          "description": "The unique qualified name of the entity"
+        },
+        "name": {
+          "type": "string",
+          "description": "The display name of the entity"
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the entity"
+        },
+        "owner": {
+          "type": "string",
+          "description": "The owner of the entity"
+        }
+      }
+    },
+    "typeName": {
+      "type": "string",
+      "description": "The name of the entity type (e.g., azure_sql_table, azure_blob_path)"
+    },
+    "lastModifiedTS": {
+      "type": "string",
+      "description": "ETag for concurrency control"
+    },
+    "businessAttributes": {
+      "type": "object",
+      "description": "Business metadata attributes attached to the entity",
+      "additionalProperties": true
+    },
+    "classifications": {
+      "type": "array",
+      "description": "Classifications applied to the entity",
+      "items": {
+        "$ref": "#/$defs/AtlasClassification"
+      }
+    },
+    "createTime": {
+      "type": "integer",
+      "description": "The creation time of the entity in epoch milliseconds"
+    },
+    "createdBy": {
+      "type": "string",
+      "description": "The user who created the entity"
+    },
+    "guid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The globally unique identifier of the entity"
+    },
+    "homeId": {
+      "type": "string",
+      "description": "The home identifier"
+    },
+    "labels": {
+      "type": "array",
+      "description": "Labels applied to the entity",
+      "items": {
+        "type": "string"
+      }
+    },
+    "meanings": {
+      "type": "array",
+      "description": "Glossary term assignments for the entity",
+      "items": {
+        "$ref": "#/$defs/AtlasTermAssignmentHeader"
+      }
+    },
+    "provenanceType": {
+      "type": "integer",
+      "description": "The provenance type of the entity"
+    },
+    "proxy": {
+      "type": "boolean",
+      "description": "Whether the entity is a proxy"
+    },
+    "relationshipAttributes": {
+      "type": "object",
+      "description": "Relationship attributes of the entity",
+      "additionalProperties": true
+    },
+    "status": {
+      "type": "string",
+      "description": "The status of the entity",
+      "enum": ["ACTIVE", "DELETED"]
+    },
+    "updateTime": {
+      "type": "integer",
+      "description": "The last update time of the entity in epoch milliseconds"
+    },
+    "updatedBy": {
+      "type": "string",
+      "description": "The user who last updated the entity"
+    },
+    "version": {
+      "type": "integer",
+      "description": "The version number of the entity"
+    },
+    "collectionId": {
+      "type": "string",
+      "description": "The collection the entity belongs to"
+    }
+  },
+  "required": ["typeName"],
+  "$defs": {
+    "AtlasClassification": {
+      "type": "object",
+      "description": "A classification applied to an entity",
+      "properties": {
+        "attributes": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "typeName": {
+          "type": "string",
+          "description": "The name of the classification type"
+        },
+        "lastModifiedTS": {
+          "type": "string"
+        },
+        "entityGuid": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "entityStatus": {
+          "type": "string",
+          "enum": ["ACTIVE", "DELETED"]
+        },
+        "propagate": {
+          "type": "boolean",
+          "description": "Whether the classification propagates to sub-entities"
+        },
+        "removePropagationsOnEntityDelete": {
+          "type": "boolean"
+        },
+        "validityPeriods": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "endTime": { "type": "string" },
+              "startTime": { "type": "string" },
+              "timeZone": { "type": "string" }
+            }
+          }
+        }
+      },
+      "required": ["typeName"]
+    },
+    "AtlasTermAssignmentHeader": {
+      "type": "object",
+      "description": "A glossary term assignment header",
+      "properties": {
+        "confidence": {
+          "type": "integer"
+        },
+        "createdBy": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "displayText": {
+          "type": "string"
+        },
+        "expression": {
+          "type": "string"
+        },
+        "relationGuid": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["DISCOVERED", "PROPOSED", "IMPORTED", "VALIDATED", "DEPRECATED", "OBSOLETE", "OTHER"]
+        },
+        "steward": {
+          "type": "string"
+        },
+        "termGuid": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    }
+  }
+}

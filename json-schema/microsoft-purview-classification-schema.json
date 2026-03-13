@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-search/microsoft-purview/json-schema/microsoft-purview-classification-schema.json",
+  "title": "Microsoft Purview Classification",
+  "description": "Represents a classification (tag) applied to data entities in Microsoft Purview. Classifications are used for data sensitivity labeling and categorization.",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "type": "object",
+      "description": "The attributes of the classification instance",
+      "additionalProperties": true
+    },
+    "typeName": {
+      "type": "string",
+      "description": "The name of the classification type (e.g., MICROSOFT.PERSONAL.NAME, MICROSOFT.FINANCIAL.CREDIT_CARD_NUMBER)"
+    },
+    "lastModifiedTS": {
+      "type": "string",
+      "description": "ETag for concurrency control"
+    },
+    "entityGuid": {
+      "type": "string",
+      "format": "uuid",
+      "description": "The GUID of the entity this classification is applied to"
+    },
+    "entityStatus": {
+      "type": "string",
+      "description": "The status of the associated entity",
+      "enum": ["ACTIVE", "DELETED"]
+    },
+    "propagate": {
+      "type": "boolean",
+      "description": "Whether the classification propagates to child entities",
+      "default": true
+    },
+    "removePropagationsOnEntityDelete": {
+      "type": "boolean",
+      "description": "Whether propagated classifications are removed when the source entity is deleted",
+      "default": false
+    },
+    "validityPeriods": {
+      "type": "array",
+      "description": "Time-bounded validity periods for the classification",
+      "items": {
+        "type": "object",
+        "properties": {
+          "endTime": {
+            "type": "string",
+            "description": "The end time of the validity period"
+          },
+          "startTime": {
+            "type": "string",
+            "description": "The start time of the validity period"
+          },
+          "timeZone": {
+            "type": "string",
+            "description": "The time zone"
+          }
+        }
+      }
+    }
+  },
+  "required": ["typeName"]
+}

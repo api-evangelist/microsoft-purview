@@ -1,0 +1,453 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Information Protection API
+  description: >-
+    APIs for accessing and managing sensitivity labels through Microsoft Graph.
+    Enables applications to apply, update, and delete sensitivity labels,
+    evaluate label actions, and enforce information protection policies
+    programmatically.
+  version: v1.0
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/graph/security-information-protection-overview
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+  - url: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph v1.0 endpoint
+security:
+  - oauth2: []
+tags:
+  - name: Sensitivity Labels
+    description: Operations for managing sensitivity labels
+  - name: Label Policy Settings
+    description: Operations for managing label policy settings
+paths:
+  /security/informationProtection/sensitivityLabels:
+    get:
+      operationId: listSensitivityLabels
+      summary: List sensitivity labels
+      description: >-
+        Get a list of sensitivity labels available to the signed-in user or
+        the organization.
+      tags:
+        - Sensitivity Labels
+      parameters:
+        - name: $top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: $skip
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: $filter
+          in: query
+          schema:
+            type: string
+        - name: $select
+          in: query
+          schema:
+            type: string
+        - name: $orderby
+          in: query
+          schema:
+            type: string
+        - name: $count
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Sensitivity labels listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SensitivityLabel'
+                  '@odata.nextLink':
+                    type: string
+                  '@odata.count':
+                    type: integer
+                    format: int64
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /security/informationProtection/sensitivityLabels/{sensitivityLabelId}:
+    get:
+      operationId: getSensitivityLabel
+      summary: Get a sensitivity label
+      description: Get a sensitivity label by its identifier.
+      tags:
+        - Sensitivity Labels
+      parameters:
+        - name: sensitivityLabelId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sensitivity label retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SensitivityLabel'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Sensitivity label not found
+  /users/{userId}/security/informationProtection/sensitivityLabels:
+    get:
+      operationId: listUserSensitivityLabels
+      summary: List sensitivity labels for user
+      description: Get a list of sensitivity labels available to a specific user.
+      tags:
+        - Sensitivity Labels
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: $top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: $filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User sensitivity labels listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SensitivityLabel'
+        '401':
+          description: Unauthorized
+  /me/security/informationProtection/sensitivityLabels:
+    get:
+      operationId: listMySensitivityLabels
+      summary: List my sensitivity labels
+      description: Get a list of sensitivity labels available to the signed-in user.
+      tags:
+        - Sensitivity Labels
+      parameters:
+        - name: $top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: $filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sensitivity labels listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SensitivityLabel'
+        '401':
+          description: Unauthorized
+  /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateApplication:
+    post:
+      operationId: evaluateApplication
+      summary: Evaluate sensitivity label application
+      description: >-
+        Compute the sensitivity label that should be applied and return the set
+        of actions that must be taken to correctly label the information.
+      tags:
+        - Sensitivity Labels
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contentInfo:
+                  $ref: '#/components/schemas/ContentInfo'
+                labelingOptions:
+                  $ref: '#/components/schemas/LabelingOptions'
+      responses:
+        '200':
+          description: Evaluation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InformationProtectionAction'
+        '401':
+          description: Unauthorized
+  /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateRemoval:
+    post:
+      operationId: evaluateRemoval
+      summary: Evaluate sensitivity label removal
+      description: >-
+        Indicate to the consuming application what actions should be taken to
+        remove the label information.
+      tags:
+        - Sensitivity Labels
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contentInfo:
+                  $ref: '#/components/schemas/ContentInfo'
+                downgradeJustification:
+                  $ref: '#/components/schemas/DowngradeJustification'
+      responses:
+        '200':
+          description: Removal evaluation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InformationProtectionAction'
+        '401':
+          description: Unauthorized
+  /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateClassificationResults:
+    post:
+      operationId: evaluateClassificationResults
+      summary: Evaluate classification results
+      description: >-
+        Using classification results, compute the sensitivity label that should
+        be applied and the set of actions that must be taken.
+      tags:
+        - Sensitivity Labels
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contentInfo:
+                  $ref: '#/components/schemas/ContentInfo'
+                classificationResults:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ClassificationResult'
+      responses:
+        '200':
+          description: Classification evaluation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InformationProtectionAction'
+        '401':
+          description: Unauthorized
+  /drives/{driveId}/items/{driveItemId}/assignSensitivityLabel:
+    post:
+      operationId: assignSensitivityLabelToDriveItem
+      summary: Assign sensitivity label to drive item
+      description: Asynchronously assign a sensitivity label to a file in SharePoint or OneDrive.
+      tags:
+        - Sensitivity Labels
+      parameters:
+        - name: driveId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: driveItemId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sensitivityLabelId:
+                  type: string
+                assignmentMethod:
+                  type: string
+                  enum: [standard, privileged, auto]
+                justificationText:
+                  type: string
+      responses:
+        '202':
+          description: Label assignment accepted
+          headers:
+            Location:
+              description: URL for checking the status of the operation
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+  /security/informationProtection/labelPolicySettings:
+    get:
+      operationId: getLabelPolicySettings
+      summary: Get label policy settings
+      description: Read the properties and relationships of an informationProtectionPolicySetting object.
+      tags:
+        - Label Policy Settings
+      responses:
+        '200':
+          description: Label policy settings retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InformationProtectionPolicySetting'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Identity Platform OAuth2
+      flows:
+        authorizationCode:
+          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+          scopes:
+            InformationProtectionPolicy.Read: Read information protection policies
+            InformationProtectionPolicy.Read.All: Read all information protection policies
+  schemas:
+    SensitivityLabel:
+      type: object
+      description: A sensitivity label for information protection
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        color:
+          type: string
+        sensitivity:
+          type: integer
+          format: int32
+        tooltip:
+          type: string
+        isActive:
+          type: boolean
+        isAppliable:
+          type: boolean
+        contentFormats:
+          type: array
+          items:
+            type: string
+        hasProtection:
+          type: boolean
+        parent:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+    ContentInfo:
+      type: object
+      properties:
+        contentFormat:
+          type: string
+        identifier:
+          type: string
+        state:
+          type: string
+          enum: [rest, motion, use]
+        metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+    KeyValuePair:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+    LabelingOptions:
+      type: object
+      properties:
+        assignmentMethod:
+          type: string
+          enum: [standard, privileged, auto]
+        labelId:
+          type: string
+          format: uuid
+        downgradeJustification:
+          $ref: '#/components/schemas/DowngradeJustification'
+    DowngradeJustification:
+      type: object
+      properties:
+        isDowngradeJustified:
+          type: boolean
+        justificationMessage:
+          type: string
+    ClassificationResult:
+      type: object
+      properties:
+        sensitiveTypeId:
+          type: string
+        confidenceLevel:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+    InformationProtectionAction:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
+    InformationProtectionPolicySetting:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        moreInfoUrl:
+          type: string
+        isMandatory:
+          type: boolean
+        isDowngradeJustificationRequired:
+          type: boolean
+        defaultLabelId:
+          type: string

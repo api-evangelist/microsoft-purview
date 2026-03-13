@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/api-search/microsoft-purview/json-schema/microsoft-purview-data-source-schema.json",
+  "title": "Microsoft Purview Data Source",
+  "description": "Represents a registered data source in the Microsoft Purview scanning service. Data sources are the foundation for automated scanning and data discovery.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The resource identifier of the data source",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the data source"
+    },
+    "kind": {
+      "type": "string",
+      "description": "The type of data source",
+      "enum": [
+        "AzureSubscription",
+        "AzureResourceGroup",
+        "AzureSynapseWorkspace",
+        "AzureSynapse",
+        "AdlsGen1",
+        "AdlsGen2",
+        "AmazonAccount",
+        "AmazonS3",
+        "AmazonSql",
+        "AzureCosmosDb",
+        "AzureDataExplorer",
+        "AzureFileService",
+        "AzureSqlDatabase",
+        "AzureSqlDatabaseManagedInstance",
+        "AzureSqlDataWarehouse",
+        "AzureMySql",
+        "AzurePostgreSql",
+        "AzureStorage",
+        "Teradata",
+        "Oracle",
+        "SapS4Hana",
+        "SapEcc",
+        "PowerBI"
+      ]
+    },
+    "properties": {
+      "type": "object",
+      "description": "Data source properties specific to its kind",
+      "properties": {
+        "endpoint": {
+          "type": "string",
+          "description": "The endpoint URL of the data source"
+        },
+        "resourceGroup": {
+          "type": "string",
+          "description": "The Azure resource group"
+        },
+        "subscriptionId": {
+          "type": "string",
+          "format": "uuid",
+          "description": "The Azure subscription ID"
+        },
+        "location": {
+          "type": "string",
+          "description": "The geographic location of the data source"
+        },
+        "resourceName": {
+          "type": "string",
+          "description": "The Azure resource name"
+        },
+        "resourceId": {
+          "type": "string",
+          "description": "The Azure resource ID"
+        },
+        "collection": {
+          "type": "object",
+          "description": "The collection reference",
+          "properties": {
+            "referenceName": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            }
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The creation date"
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The last modification date"
+        }
+      }
+    }
+  },
+  "required": ["name", "kind"]
+}

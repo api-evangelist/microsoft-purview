@@ -1,0 +1,1214 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Scanning API
+  description: >-
+    APIs for configuring and managing scans of data sources to automatically
+    discover and catalog data assets. Supports registering data sources and
+    scheduling automated scans across your data estate.
+  version: 2023-09-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+  - url: https://{accountName}.scan.purview.azure.com
+    description: Microsoft Purview Scanning API endpoint
+    variables:
+      accountName:
+        description: The name of the Microsoft Purview account
+        default: myaccount
+security:
+  - oauth2: []
+tags:
+  - name: Data Sources
+    description: Operations for managing data source registrations
+  - name: Scans
+    description: Operations for managing scan configurations
+  - name: Scan Result
+    description: Operations for running scans and viewing scan results
+  - name: Triggers
+    description: Operations for managing scan triggers and schedules
+  - name: Classification Rules
+    description: Operations for managing classification rules
+  - name: Scan Rulesets
+    description: Operations for managing scan rulesets
+paths:
+  /scan/datasources/{dataSourceName}:
+    put:
+      operationId: createOrReplaceDataSource
+      summary: Create or replace a data source
+      description: Creates or replaces a data source registration in the Purview account.
+      tags:
+        - Data Sources
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          description: The name of the data source
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataSource'
+      responses:
+        '200':
+          description: Data source updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSource'
+        '201':
+          description: Data source created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSource'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getDataSource
+      summary: Get a data source
+      description: Gets a data source by name.
+      tags:
+        - Data Sources
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          description: The name of the data source
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Data source retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSource'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Data source not found
+    delete:
+      operationId: deleteDataSource
+      summary: Delete a data source
+      description: Deletes a data source registration.
+      tags:
+        - Data Sources
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          description: The name of the data source
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Data source deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSource'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Data source not found
+  /scan/datasources:
+    get:
+      operationId: listDataSources
+      summary: List data sources
+      description: Lists data sources in Data catalog.
+      tags:
+        - Data Sources
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Data sources listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSourceList'
+        '401':
+          description: Unauthorized
+  /scan/datasources/{dataSourceName}/scans/{scanName}:
+    put:
+      operationId: createOrReplaceScan
+      summary: Create or replace a scan
+      description: Creates or replaces an instance of a scan for a given data source.
+      tags:
+        - Scans
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          description: The name of the data source
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          description: The name of the scan
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Scan'
+      responses:
+        '200':
+          description: Scan updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '201':
+          description: Scan created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getScan
+      summary: Get a scan
+      description: Gets a scan information for a given data source.
+      tags:
+        - Scans
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Scan not found
+    delete:
+      operationId: deleteScan
+      summary: Delete a scan
+      description: Deletes the scan associated with the data source.
+      tags:
+        - Scans
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Scan not found
+  /scan/datasources/{dataSourceName}/scans:
+    get:
+      operationId: listScansByDataSource
+      summary: List scans by data source
+      description: Lists scans in a data source.
+      tags:
+        - Scans
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Scans listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanList'
+        '401':
+          description: Unauthorized
+  /scan/datasources/{dataSourceName}/scans/{scanName}/runs/{runId}:
+    put:
+      operationId: runScan
+      summary: Run a scan
+      description: Runs the scan for a data source.
+      tags:
+        - Scan Result
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: runId
+          in: path
+          required: true
+          description: The unique identifier for the scan run
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+        - name: scanLevel
+          in: query
+          description: The level of scan (Full or Incremental)
+          schema:
+            type: string
+            enum: [Full, Incremental]
+      responses:
+        '202':
+          description: Scan run accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '401':
+          description: Unauthorized
+  /scan/datasources/{dataSourceName}/scans/{scanName}/runs/{runId}/:cancel:
+    post:
+      operationId: cancelScan
+      summary: Cancel a scan run
+      description: Cancels a running scan.
+      tags:
+        - Scan Result
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: runId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '202':
+          description: Scan cancellation accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '401':
+          description: Unauthorized
+  /scan/datasources/{dataSourceName}/scans/{scanName}/runs:
+    get:
+      operationId: listScanHistory
+      summary: List scan history
+      description: Lists the scan history of a scan.
+      tags:
+        - Scan Result
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan history retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanResultList'
+        '401':
+          description: Unauthorized
+  /scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default:
+    put:
+      operationId: createOrReplaceTrigger
+      summary: Create or replace a scan trigger
+      description: Creates or replaces an instance of a trigger for scheduling scans.
+      tags:
+        - Triggers
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Trigger'
+      responses:
+        '200':
+          description: Trigger updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+        '201':
+          description: Trigger created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getTrigger
+      summary: Get a scan trigger
+      description: Gets trigger information for a scan.
+      tags:
+        - Triggers
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Trigger retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Trigger not found
+    delete:
+      operationId: deleteTrigger
+      summary: Delete a scan trigger
+      description: Deletes the trigger associated with the scan.
+      tags:
+        - Triggers
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Trigger deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Trigger not found
+  /scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default/:enable:
+    post:
+      operationId: enableTrigger
+      summary: Enable a scan trigger
+      description: Enables a trigger for scheduled scanning.
+      tags:
+        - Triggers
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Trigger enabled successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+        '401':
+          description: Unauthorized
+  /scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default/:disable:
+    post:
+      operationId: disableTrigger
+      summary: Disable a scan trigger
+      description: Disables a trigger for scheduled scanning.
+      tags:
+        - Triggers
+      parameters:
+        - name: dataSourceName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: scanName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Trigger disabled successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Trigger'
+        '401':
+          description: Unauthorized
+  /scan/classificationrules/{classificationRuleName}:
+    put:
+      operationId: createOrReplaceClassificationRule
+      summary: Create or replace a classification rule
+      description: Creates or replaces a classification rule.
+      tags:
+        - Classification Rules
+      parameters:
+        - name: classificationRuleName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationRule'
+      responses:
+        '200':
+          description: Classification rule updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRule'
+        '201':
+          description: Classification rule created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRule'
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getClassificationRule
+      summary: Get a classification rule
+      description: Gets a classification rule by name.
+      tags:
+        - Classification Rules
+      parameters:
+        - name: classificationRuleName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Classification rule retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRule'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Classification rule not found
+    delete:
+      operationId: deleteClassificationRule
+      summary: Delete a classification rule
+      description: Deletes a classification rule.
+      tags:
+        - Classification Rules
+      parameters:
+        - name: classificationRuleName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Classification rule deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Classification rule not found
+  /scan/classificationrules:
+    get:
+      operationId: listClassificationRules
+      summary: List classification rules
+      description: Lists classification rules in the account.
+      tags:
+        - Classification Rules
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Classification rules listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRuleList'
+        '401':
+          description: Unauthorized
+  /scan/scanrulesets/{scanRulesetName}:
+    put:
+      operationId: createOrReplaceScanRuleset
+      summary: Create or replace a scan ruleset
+      description: Creates or replaces a scan ruleset.
+      tags:
+        - Scan Rulesets
+      parameters:
+        - name: scanRulesetName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScanRuleset'
+      responses:
+        '200':
+          description: Scan ruleset updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanRuleset'
+        '201':
+          description: Scan ruleset created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanRuleset'
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getScanRuleset
+      summary: Get a scan ruleset
+      description: Gets a scan ruleset by name.
+      tags:
+        - Scan Rulesets
+      parameters:
+        - name: scanRulesetName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan ruleset retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanRuleset'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Scan ruleset not found
+    delete:
+      operationId: deleteScanRuleset
+      summary: Delete a scan ruleset
+      description: Deletes a scan ruleset.
+      tags:
+        - Scan Rulesets
+      parameters:
+        - name: scanRulesetName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan ruleset deleted successfully
+        '401':
+          description: Unauthorized
+  /scan/scanrulesets:
+    get:
+      operationId: listScanRulesets
+      summary: List scan rulesets
+      description: Lists scan rulesets in the account.
+      tags:
+        - Scan Rulesets
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan rulesets listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanRulesetList'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://purview.azure.net/.default: Access Microsoft Purview
+  schemas:
+    DataSource:
+      type: object
+      description: A registered data source
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        kind:
+          type: string
+          description: The data source type
+          enum:
+            - AzureSubscription
+            - AzureResourceGroup
+            - AzureSynapseWorkspace
+            - AzureSynapse
+            - AdlsGen1
+            - AdlsGen2
+            - AmazonAccount
+            - AmazonS3
+            - AmazonSql
+            - AzureCosmosDb
+            - AzureDataExplorer
+            - AzureFileService
+            - AzureSqlDatabase
+            - AzureSqlDatabaseManagedInstance
+            - AzureSqlDataWarehouse
+            - AzureMySql
+            - AzurePostgreSql
+            - AzureStorage
+            - Teradata
+            - Oracle
+            - SapS4Hana
+            - SapEcc
+            - PowerBI
+        properties:
+          type: object
+          description: Data source properties
+          properties:
+            endpoint:
+              type: string
+            resourceGroup:
+              type: string
+            subscriptionId:
+              type: string
+            location:
+              type: string
+            resourceName:
+              type: string
+            resourceId:
+              type: string
+            collection:
+              $ref: '#/components/schemas/CollectionReference'
+            dataSourceCollectionMovingState:
+              type: integer
+              format: int32
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+        scans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scan'
+    DataSourceList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSource'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    Scan:
+      type: object
+      description: A scan configuration
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        kind:
+          type: string
+          description: The scan type
+        properties:
+          type: object
+          properties:
+            scanRulesetName:
+              type: string
+            scanRulesetType:
+              type: string
+              enum: [Custom, System]
+            collection:
+              $ref: '#/components/schemas/CollectionReference'
+            connectedVia:
+              $ref: '#/components/schemas/ConnectedVia'
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+            lastScheduled:
+              type: string
+              format: date-time
+    ScanList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scan'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    ScanResult:
+      type: object
+      description: The result of a scan run
+      properties:
+        parentId:
+          type: string
+        id:
+          type: string
+        resourceId:
+          type: string
+        status:
+          type: string
+          enum: [Accepted, InProgress, TransientFailure, Succeeded, Failed, Canceled]
+        assetsDiscovered:
+          type: integer
+          format: int64
+        assetsClassified:
+          type: integer
+          format: int64
+        diagnostics:
+          type: object
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        scanRulesetVersion:
+          type: integer
+          format: int32
+        scanRulesetType:
+          type: string
+          enum: [Custom, System]
+        scanLevelType:
+          type: string
+          enum: [Full, Incremental]
+        errorMessage:
+          type: string
+    ScanResultList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScanResult'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    Trigger:
+      type: object
+      description: A scan trigger for scheduling automated scans
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        properties:
+          type: object
+          properties:
+            recurrence:
+              $ref: '#/components/schemas/TriggerRecurrence'
+            recurrenceInterval:
+              type: string
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+            lastScheduled:
+              type: string
+              format: date-time
+            scanLevel:
+              type: string
+              enum: [Full, Incremental]
+            incrementalScanStartTime:
+              type: string
+              format: date-time
+    TriggerRecurrence:
+      type: object
+      properties:
+        frequency:
+          type: string
+          enum: [Week, Month, Day]
+        interval:
+          type: integer
+          format: int32
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        schedule:
+          $ref: '#/components/schemas/RecurrenceSchedule'
+        timeZone:
+          type: string
+    RecurrenceSchedule:
+      type: object
+      properties:
+        hours:
+          type: array
+          items:
+            type: integer
+            format: int32
+        minutes:
+          type: array
+          items:
+            type: integer
+            format: int32
+        weekDays:
+          type: array
+          items:
+            type: string
+            enum: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+        monthDays:
+          type: array
+          items:
+            type: integer
+            format: int32
+    ClassificationRule:
+      type: object
+      description: A classification rule definition
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        kind:
+          type: string
+          enum: [Custom, System]
+        properties:
+          type: object
+          properties:
+            description:
+              type: string
+            classificationName:
+              type: string
+            ruleStatus:
+              type: string
+              enum: [Enabled, Disabled]
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+            version:
+              type: integer
+              format: int32
+            dataPatterns:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationRulePattern'
+            columnPatterns:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationRulePattern'
+    ClassificationRuleList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationRule'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    ClassificationRulePattern:
+      type: object
+      properties:
+        kind:
+          type: string
+          enum: [Regex]
+        pattern:
+          type: string
+    ScanRuleset:
+      type: object
+      description: A scan ruleset configuration
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        kind:
+          type: string
+        properties:
+          type: object
+          properties:
+            description:
+              type: string
+            includedCustomClassificationRuleNames:
+              type: array
+              items:
+                type: string
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+    ScanRulesetList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScanRuleset'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    CollectionReference:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        type:
+          type: string
+    ConnectedVia:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        integrationRuntimeType:
+          type: string
+    OperationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string

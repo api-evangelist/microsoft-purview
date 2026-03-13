@@ -1,0 +1,604 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Records Management API
+  description: >-
+    APIs for managing retention labels, retention policies, and disposition
+    review through Microsoft Graph. Helps organizations manage data retention and
+    deletion to meet legal obligations and compliance regulations.
+  version: v1.0
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/graph/api/resources/security-recordsmanagement-overview
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+  - url: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph v1.0 endpoint
+security:
+  - oauth2: []
+tags:
+  - name: Retention Labels
+    description: Operations for managing retention labels
+  - name: Retention Events
+    description: Operations for managing retention events
+  - name: Retention Event Types
+    description: Operations for managing retention event types
+paths:
+  /security/labels/retentionLabels:
+    get:
+      operationId: listRetentionLabels
+      summary: List retention labels
+      description: Get a list of retention labels configured in the organization.
+      tags:
+        - Retention Labels
+      parameters:
+        - name: $top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: $skip
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: $filter
+          in: query
+          schema:
+            type: string
+        - name: $select
+          in: query
+          schema:
+            type: string
+        - name: $orderby
+          in: query
+          schema:
+            type: string
+        - name: $expand
+          in: query
+          description: Expand related entities (e.g., retentionEventType, descriptors)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retention labels listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RetentionLabel'
+                  '@odata.nextLink':
+                    type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+    post:
+      operationId: createRetentionLabel
+      summary: Create a retention label
+      description: Create a new retention label for data lifecycle management.
+      tags:
+        - Retention Labels
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetentionLabel'
+      responses:
+        '201':
+          description: Retention label created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionLabel'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /security/labels/retentionLabels/{retentionLabelId}:
+    get:
+      operationId: getRetentionLabel
+      summary: Get a retention label
+      description: Get a retention label by its identifier.
+      tags:
+        - Retention Labels
+      parameters:
+        - name: retentionLabelId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: $expand
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retention label retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionLabel'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Retention label not found
+    patch:
+      operationId: updateRetentionLabel
+      summary: Update a retention label
+      description: Update the properties of a retention label.
+      tags:
+        - Retention Labels
+      parameters:
+        - name: retentionLabelId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetentionLabel'
+      responses:
+        '200':
+          description: Retention label updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionLabel'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteRetentionLabel
+      summary: Delete a retention label
+      description: Delete a retention label that is no longer needed.
+      tags:
+        - Retention Labels
+      parameters:
+        - name: retentionLabelId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Retention label deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Retention label not found
+  /security/triggers/retentionEvents:
+    get:
+      operationId: listRetentionEvents
+      summary: List retention events
+      description: Get a list of retention events.
+      tags:
+        - Retention Events
+      parameters:
+        - name: $top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: $filter
+          in: query
+          schema:
+            type: string
+        - name: $expand
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retention events listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RetentionEvent'
+                  '@odata.nextLink':
+                    type: string
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createRetentionEvent
+      summary: Create a retention event
+      description: Create a new retention event to trigger event-based retention.
+      tags:
+        - Retention Events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetentionEvent'
+      responses:
+        '201':
+          description: Retention event created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionEvent'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /security/triggers/retentionEvents/{retentionEventId}:
+    get:
+      operationId: getRetentionEvent
+      summary: Get a retention event
+      description: Get a retention event by its identifier.
+      tags:
+        - Retention Events
+      parameters:
+        - name: retentionEventId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: $expand
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retention event retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionEvent'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Retention event not found
+    delete:
+      operationId: deleteRetentionEvent
+      summary: Delete a retention event
+      description: Delete a retention event.
+      tags:
+        - Retention Events
+      parameters:
+        - name: retentionEventId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Retention event deleted successfully
+        '401':
+          description: Unauthorized
+  /security/triggerTypes/retentionEventTypes:
+    get:
+      operationId: listRetentionEventTypes
+      summary: List retention event types
+      description: Get a list of retention event types.
+      tags:
+        - Retention Event Types
+      parameters:
+        - name: $top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: $filter
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retention event types listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RetentionEventType'
+                  '@odata.nextLink':
+                    type: string
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createRetentionEventType
+      summary: Create a retention event type
+      description: Create a new retention event type.
+      tags:
+        - Retention Event Types
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetentionEventType'
+      responses:
+        '201':
+          description: Retention event type created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionEventType'
+        '401':
+          description: Unauthorized
+  /security/triggerTypes/retentionEventTypes/{retentionEventTypeId}:
+    get:
+      operationId: getRetentionEventType
+      summary: Get a retention event type
+      description: Get a retention event type by its identifier.
+      tags:
+        - Retention Event Types
+      parameters:
+        - name: retentionEventTypeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Retention event type retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionEventType'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+    patch:
+      operationId: updateRetentionEventType
+      summary: Update a retention event type
+      description: Update the properties of a retention event type.
+      tags:
+        - Retention Event Types
+      parameters:
+        - name: retentionEventTypeId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetentionEventType'
+      responses:
+        '200':
+          description: Retention event type updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionEventType'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteRetentionEventType
+      summary: Delete a retention event type
+      description: Delete a retention event type.
+      tags:
+        - Retention Event Types
+      parameters:
+        - name: retentionEventTypeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Retention event type deleted successfully
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Identity Platform OAuth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            RecordsManagement.Read.All: Read records management settings
+            RecordsManagement.ReadWrite.All: Read and write records management settings
+  schemas:
+    RetentionLabel:
+      type: object
+      description: A retention label for records management
+      properties:
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+        descriptionForAdmins:
+          type: string
+        descriptionForUsers:
+          type: string
+        isInUse:
+          type: boolean
+          readOnly: true
+        retentionTrigger:
+          type: string
+          enum: [dateLabeled, dateCreated, dateModified, dateOfEvent]
+        behaviorDuringRetentionPeriod:
+          type: string
+          enum: [doNotRetain, retain, retainAsRecord, retainAsRegulatoryRecord]
+        actionAfterRetentionPeriod:
+          type: string
+          enum: [none, delete, startDispositionReview]
+        retentionDuration:
+          type: object
+          properties:
+            '@odata.type':
+              type: string
+            days:
+              type: integer
+              format: int32
+        defaultRecordBehavior:
+          type: string
+          enum: [startLocked, startUnlocked]
+        labelToBeApplied:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+        lastModifiedBy:
+          $ref: '#/components/schemas/IdentitySet'
+        retentionEventType:
+          $ref: '#/components/schemas/RetentionEventType'
+        descriptors:
+          type: object
+          properties:
+            authorityTemplate:
+              $ref: '#/components/schemas/AuthorityTemplate'
+            categoryTemplate:
+              $ref: '#/components/schemas/CategoryTemplate'
+            citationTemplate:
+              $ref: '#/components/schemas/CitationTemplate'
+            departmentTemplate:
+              $ref: '#/components/schemas/DepartmentTemplate'
+            filePlanReferenceTemplate:
+              $ref: '#/components/schemas/FilePlanReferenceTemplate'
+    RetentionEvent:
+      type: object
+      description: A retention event that triggers event-based retention
+      properties:
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+        description:
+          type: string
+        eventTriggerDateTime:
+          type: string
+          format: date-time
+        eventQueries:
+          type: array
+          items:
+            type: object
+            properties:
+              queryType:
+                type: string
+              query:
+                type: string
+        retentionEventType:
+          $ref: '#/components/schemas/RetentionEventType'
+        eventStatus:
+          type: object
+          properties:
+            error:
+              type: object
+              properties:
+                code:
+                  type: string
+                message:
+                  type: string
+            status:
+              type: string
+              enum: [pending, error, success, unknownFutureValue]
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+        lastModifiedBy:
+          $ref: '#/components/schemas/IdentitySet'
+    RetentionEventType:
+      type: object
+      description: A retention event type
+      properties:
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+        description:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+        lastModifiedBy:
+          $ref: '#/components/schemas/IdentitySet'
+    IdentitySet:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            displayName:
+              type: string
+            id:
+              type: string
+    AuthorityTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+    CategoryTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+    CitationTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        citationUrl:
+          type: string
+          format: uri
+        citationJurisdiction:
+          type: string
+    DepartmentTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+    FilePlanReferenceTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string

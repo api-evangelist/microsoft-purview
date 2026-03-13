@@ -3,7 +3,7 @@ description: Microsoft Purview is a comprehensive data governance service that h
 image: https://www.microsoft.com/en-us/microsoft-365/blog/wp-content/uploads/sites/2/2021/04/Microsoft-Purview-logo.png
 url: https://www.microsoft.com/en-us/security/business/microsoft-purview
 created: 2024-01-15 00:00:00+00:00
-modified: 2024-01-15 00:00:00+00:00
+modified: 2026-03-04 00:00:00+00:00
 specificationVersion: '0.18'
 tags:
 - Data Governance
@@ -14,7 +14,7 @@ tags:
 - Information Protection
 apis:
 - name: Microsoft Purview Catalog API
-  description: APIs for discovering, cataloging, and managing metadata for data assets across your data estate
+  description: APIs for discovering, cataloging, and managing metadata for data assets across your data estate. The catalog is built on Apache Atlas and provides searchable inventory of data assets with classifications and glossary terms.
   image: https://www.microsoft.com/en-us/security/business/microsoft-purview
   humanURL: https://learn.microsoft.com/en-us/purview/catalog-api
   baseURL: https://{account-name}.purview.azure.com
@@ -22,17 +22,21 @@ apis:
   - Data Catalog
   - Metadata
   - Data Discovery
+  - Classifications
+  - Glossary
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/purview/
   - type: OpenAPI
-    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.Catalog/stable/2022-08-01-preview/purviewcatalog.json
+    url: openapi/microsoft-purview-catalog-openapi.yml
   - type: Authentication
     url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/purview/
+  - type: Getting Started
+    url: https://learn.microsoft.com/en-us/purview/data-gov-api-create-assets
 - name: Microsoft Purview Scanning API
-  description: APIs for configuring and managing scans of data sources to automatically discover and catalog data assets
+  description: APIs for configuring and managing scans of data sources to automatically discover and catalog data assets. Supports registering data sources and scheduling automated scans across your data estate.
   image: https://www.microsoft.com/en-us/security/business/microsoft-purview
   humanURL: https://learn.microsoft.com/en-us/purview/scanning-api
   baseURL: https://{account-name}.purview.azure.com
@@ -40,15 +44,19 @@ apis:
   - Data Scanning
   - Data Sources
   - Automated Discovery
+  - Classification Rules
+  - Scan Triggers
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/purview/scanning
   - type: OpenAPI
-    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.Scanning/stable/2022-07-01-preview/scanningService.json
+    url: openapi/microsoft-purview-scanning-openapi.yml
   - type: Authentication
     url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/purview/data-map-data-sources
 - name: Microsoft Purview Account API
-  description: APIs for managing Purview accounts, configurations, and administrative settings
+  description: APIs for managing Purview accounts, configurations, and administrative settings. Provides resource management operations for creating, updating, and deleting Purview accounts through Azure Resource Manager.
   image: https://www.microsoft.com/en-us/security/business/microsoft-purview
   humanURL: https://learn.microsoft.com/en-us/purview/account-api
   baseURL: https://management.azure.com
@@ -56,15 +64,16 @@ apis:
   - Account Management
   - Configuration
   - Administration
+  - Resource Manager
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/purview/account
   - type: OpenAPI
-    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/resource-manager/Microsoft.Purview/stable/2021-07-01/purview.json
+    url: openapi/microsoft-purview-account-openapi.yml
   - type: Authentication
     url: https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
 - name: Microsoft Purview Data Map API
-  description: APIs for accessing and managing the unified data map that provides a holistic view of your data estate
+  description: APIs for accessing and managing the unified data map that provides a holistic view of your data estate. Supports entity management, lineage tracking, relationship mapping, and discovery queries across cataloged assets.
   image: https://www.microsoft.com/en-us/security/business/microsoft-purview
   humanURL: https://learn.microsoft.com/en-us/purview/data-map-api
   baseURL: https://{account-name}.purview.azure.com
@@ -72,15 +81,19 @@ apis:
   - Data Map
   - Lineage
   - Relationships
+  - Entity Management
+  - Data Discovery
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/purview/datamap
   - type: OpenAPI
-    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.DataMap/preview/2023-09-01-preview/purviewDataMap.json
+    url: openapi/microsoft-purview-data-map-openapi.yml
   - type: Authentication
     url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+  - type: Getting Started
+    url: https://learn.microsoft.com/en-us/purview/legacy/how-to-purview-custom-lineage-api-user-guide
 - name: Microsoft Purview Metadata Policies API
-  description: APIs for creating and managing data access policies based on metadata attributes
+  description: APIs for creating and managing data access policies based on metadata attributes. Enables programmatic management of collection-level permissions and role assignments.
   image: https://www.microsoft.com/en-us/security/business/microsoft-purview
   humanURL: https://learn.microsoft.com/en-us/purview/metadata-policies
   baseURL: https://{account-name}.purview.azure.com
@@ -88,15 +101,19 @@ apis:
   - Access Policies
   - Data Governance
   - Metadata
+  - Collections
+  - Role Assignments
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/purview/metadatapolicies
   - type: OpenAPI
-    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.MetadataPolicies/preview/2021-07-01-preview/purviewMetadataPolicy.json
+    url: openapi/microsoft-purview-metadata-policies-openapi.yml
   - type: Authentication
     url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+  - type: Getting Started
+    url: https://learn.microsoft.com/en-us/purview/legacy/tutorial-metadata-policy-collections-apis
 - name: Microsoft Purview Workflow API
-  description: APIs for managing workflows and approval processes for data governance tasks
+  description: APIs for managing workflows and approval processes for data governance tasks. Supports defining custom approval workflows for glossary term management and other governance operations.
   image: https://www.microsoft.com/en-us/security/business/microsoft-purview
   humanURL: https://learn.microsoft.com/en-us/purview/workflow-api
   baseURL: https://{account-name}.purview.azure.com
@@ -104,34 +121,165 @@ apis:
   - Workflows
   - Approvals
   - Automation
+  - Governance Tasks
   properties:
   - type: Documentation
     url: https://learn.microsoft.com/en-us/rest/api/purview/workflow
   - type: OpenAPI
-    url: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/main/specification/purview/data-plane/Azure.Analytics.Purview.Workflow/preview/2022-05-01-preview/purviewWorkflow.json
+    url: openapi/microsoft-purview-workflow-openapi.yml
   - type: Authentication
     url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
+- name: Microsoft Purview Unified Catalog API
+  description: APIs for programmatically integrating and managing the Microsoft Purview Unified Catalog. Supports operations on business domains, glossary terms, data products, OKRs, critical data elements, and data access policies.
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview
+  baseURL: https://{account-name}.purview.azure.com
+  tags:
+  - Unified Catalog
+  - Business Domains
+  - Data Products
+  - Glossary Terms
+  - Data Governance
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview
+  - type: OpenAPI
+    url: openapi/microsoft-purview-unified-catalog-openapi.yml
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/purview/data-gov-api-rest-data-plane
+- name: Microsoft Purview Data Quality API
+  description: APIs for programmatically interacting with data quality rules, measuring data quality, and retrieving data quality scores for data assets. Supports data profiling, rule management, and quality assessment operations.
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-data-quality
+  baseURL: https://{account-name}.purview.azure.com
+  tags:
+  - Data Quality
+  - Data Profiling
+  - Quality Rules
+  - Data Assessment
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-data-quality
+  - type: OpenAPI
+    url: openapi/microsoft-purview-data-quality-openapi.yml
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/purview/unified-catalog-data-quality
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/purview/data-gov-api-rest-data-plane
+- name: Microsoft Purview eDiscovery API
+  description: APIs for automating eDiscovery operations through Microsoft Graph, including managing cases, custodians, review sets, searches, and exports for litigation, investigation, and regulatory requests.
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/graph/api/resources/security-ediscovery-apioverview
+  baseURL: https://graph.microsoft.com
+  tags:
+  - eDiscovery
+  - Compliance
+  - Legal Hold
+  - Litigation
+  - Investigations
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/api/resources/security-ediscovery-apioverview?view=graph-rest-1.0
+  - type: OpenAPI
+    url: openapi/microsoft-purview-ediscovery-openapi.yml
+  - type: Authentication
+    url: https://learn.microsoft.com/en-us/graph/security-ediscovery-appauthsetup
+  - type: Getting Started
+    url: https://learn.microsoft.com/en-us/purview/edisc-ref-api-guide
+- name: Microsoft Purview Information Protection API
+  description: APIs for accessing and managing sensitivity labels through Microsoft Graph. Enables applications to apply, update, and delete sensitivity labels, evaluate label actions, and enforce information protection policies programmatically.
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/graph/security-information-protection-overview
+  baseURL: https://graph.microsoft.com
+  tags:
+  - Information Protection
+  - Sensitivity Labels
+  - Data Classification
+  - Encryption
+  - Rights Management
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/security-information-protection-overview
+  - type: OpenAPI
+    url: openapi/microsoft-purview-information-protection-openapi.yml
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/purview/sensitivity-labels
+- name: Microsoft Purview Data Security and Governance API
+  description: APIs for integrating data loss prevention and compliance policy enforcement into applications through Microsoft Graph. Provides compute protection scopes and process content operations to evaluate and enforce DLP policies at runtime.
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/graph/security-datasecurityandgovernance-overview
+  baseURL: https://graph.microsoft.com
+  tags:
+  - Data Loss Prevention
+  - Policy Enforcement
+  - Data Security
+  - Compliance
+  - AI Security
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/security-datasecurityandgovernance-overview
+  - type: OpenAPI
+    url: openapi/microsoft-purview-data-security-governance-openapi.yml
+  - type: Getting Started
+    url: https://learn.microsoft.com/en-us/purview/developer/use-the-api
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/purview/developer/
+- name: Microsoft Purview Records Management API
+  description: APIs for managing retention labels, retention policies, and disposition review through Microsoft Graph. Helps organizations manage data retention and deletion to meet legal obligations and compliance regulations.
+  image: https://www.microsoft.com/en-us/security/business/microsoft-purview
+  humanURL: https://learn.microsoft.com/en-us/graph/api/resources/security-recordsmanagement-overview
+  baseURL: https://graph.microsoft.com
+  tags:
+  - Records Management
+  - Retention Labels
+  - Compliance
+  - Data Lifecycle
+  properties:
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/graph/api/resources/security-recordsmanagement-overview?view=graph-rest-1.0
+  - type: OpenAPI
+    url: openapi/microsoft-purview-records-management-openapi.yml
+  - type: Reference
+    url: https://learn.microsoft.com/en-us/graph/compliance-concept-overview
 common:
+- type: Portal
+  url: https://purview.microsoft.com
+- type: Documentation
+  url: https://learn.microsoft.com/en-us/purview/
 - type: Getting Started
   url: https://learn.microsoft.com/en-us/purview/use-azure-purview-studio
+- type: Authentication
+  url: https://learn.microsoft.com/en-us/purview/data-gov-api-rest-data-plane
+- type: Reference
+  url: https://learn.microsoft.com/en-us/rest/api/purview/
 - type: SDKs
-  url: https://learn.microsoft.com/en-us/purview/tutorial-using-python-sdk
+  url: https://learn.microsoft.com/en-us/purview/data-gov-python-sdk
 - type: Best Practices
   url: https://learn.microsoft.com/en-us/purview/concept-best-practices-accounts
-- type: Support
-  url: https://learn.microsoft.com/en-us/answers/topics/azure-purview.html
+- type: Change Log
+  url: https://learn.microsoft.com/en-us/purview/whats-new
 - type: Blog
   url: https://techcommunity.microsoft.com/t5/microsoft-purview-blog/bg-p/MicrosoftPurviewBlog
+- type: Support
+  url: https://learn.microsoft.com/en-us/answers/topics/azure-purview.html
 - type: Status
   url: https://status.azure.com/
 - type: Terms of Service
   url: https://azure.microsoft.com/en-us/support/legal/
 - type: Privacy Policy
   url: https://privacy.microsoft.com/en-us/privacystatement
-- type: Change Log
-  url: https://learn.microsoft.com/en-us/purview/whats-new
-maintainers:
-- FN: Microsoft
-  email: azurepurview@microsoft.com
-  url: https://www.microsoft.com
-include: []
+- type: GitHub Organization
+  url: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/purview
+- type: Community
+  url: https://techcommunity.microsoft.com/t5/microsoft-purview/ct-p/MicrosoftPurview
+- type: Website
+  url: https://www.microsoft.com/en-us/security/business/microsoft-purview
+- type: Login
+  url: https://purview.microsoft.com
+- type: Sign Up
+  url: https://azure.microsoft.com/en-us/products/purview/
+- type: JSON-LD
+  url: json-ld/microsoft-purview-context.jsonld
+maintainer:
+  FN: Kin Lane
+  email: kin@apievangelist.com

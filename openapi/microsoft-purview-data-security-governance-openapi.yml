@@ -1,0 +1,327 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Data Security and Governance API
+  description: >-
+    APIs for integrating data loss prevention and compliance policy enforcement
+    into applications through Microsoft Graph. Provides compute protection
+    scopes and process content operations to evaluate and enforce DLP policies
+    at runtime.
+  version: v1.0
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/graph/security-datasecurityandgovernance-overview
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+  - url: https://graph.microsoft.com/v1.0
+    description: Microsoft Graph v1.0 endpoint
+security:
+  - oauth2: []
+tags:
+  - name: Sensitivity Labels
+    description: Operations for accessing tenant-level sensitivity labels
+  - name: DLP Policies
+    description: Operations for evaluating DLP policies on content
+  - name: Protection Scopes
+    description: Operations for computing protection scopes
+paths:
+  /security/dataSecurityAndGovernance/sensitivityLabels:
+    get:
+      operationId: listTenantSensitivityLabels
+      summary: List tenant sensitivity labels
+      description: >-
+        List the sensitivity labels available for the entire tenant. When using
+        application permissions, returns all labels for the tenant by default.
+      tags:
+        - Sensitivity Labels
+      parameters:
+        - name: $top
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: $filter
+          in: query
+          schema:
+            type: string
+        - name: $select
+          in: query
+          schema:
+            type: string
+        - name: $count
+          in: query
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Sensitivity labels listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SensitivityLabel'
+                  '@odata.nextLink':
+                    type: string
+                  '@odata.count':
+                    type: integer
+                    format: int64
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /security/dataSecurityAndGovernance/sensitivityLabels/{sensitivityLabelId}:
+    get:
+      operationId: getTenantSensitivityLabel
+      summary: Get a tenant sensitivity label
+      description: Get a sensitivity label by its identifier at the tenant level.
+      tags:
+        - Sensitivity Labels
+      parameters:
+        - name: sensitivityLabelId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Sensitivity label retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SensitivityLabel'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /security/dataSecurityAndGovernance/sensitivityLabels/microsoft.graph.security.evaluateApplication:
+    post:
+      operationId: evaluateDlpApplication
+      summary: Evaluate DLP application for content
+      description: >-
+        Evaluate which DLP policies apply to the given content and compute
+        the set of actions that should be taken.
+      tags:
+        - DLP Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contentInfo:
+                  $ref: '#/components/schemas/ContentInfo'
+                labelingOptions:
+                  $ref: '#/components/schemas/LabelingOptions'
+      responses:
+        '200':
+          description: DLP evaluation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InformationProtectionAction'
+        '401':
+          description: Unauthorized
+  /security/dataSecurityAndGovernance/protectionScopes/microsoft.graph.security.computeProtectionScopes:
+    post:
+      operationId: computeProtectionScopes
+      summary: Compute protection scopes
+      description: >-
+        Compute the protection scopes applicable to content to determine which
+        DLP policies should be enforced.
+      tags:
+        - Protection Scopes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contentInfo:
+                  $ref: '#/components/schemas/ContentInfo'
+      responses:
+        '200':
+          description: Protection scopes computed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProtectionScope'
+        '401':
+          description: Unauthorized
+  /security/dataSecurityAndGovernance/processContent:
+    post:
+      operationId: processContent
+      summary: Process content for DLP
+      description: >-
+        Process content through DLP pipeline to evaluate and enforce data loss
+        prevention policies at runtime.
+      tags:
+        - DLP Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contentInfo:
+                  $ref: '#/components/schemas/ContentInfo'
+                classificationResults:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ClassificationResult'
+      responses:
+        '200':
+          description: Content processed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  actions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DlpAction'
+                  matchedRules:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DlpMatchedRule'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Microsoft Identity Platform OAuth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            InformationProtectionPolicy.Read.All: Read all information protection policies
+  schemas:
+    SensitivityLabel:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        color:
+          type: string
+        sensitivity:
+          type: integer
+          format: int32
+        tooltip:
+          type: string
+        isActive:
+          type: boolean
+        isAppliable:
+          type: boolean
+        contentFormats:
+          type: array
+          items:
+            type: string
+        hasProtection:
+          type: boolean
+    ContentInfo:
+      type: object
+      properties:
+        contentFormat:
+          type: string
+        identifier:
+          type: string
+        state:
+          type: string
+          enum: [rest, motion, use]
+        metadata:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    LabelingOptions:
+      type: object
+      properties:
+        assignmentMethod:
+          type: string
+          enum: [standard, privileged, auto]
+        labelId:
+          type: string
+          format: uuid
+    ClassificationResult:
+      type: object
+      properties:
+        sensitiveTypeId:
+          type: string
+        confidenceLevel:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+    InformationProtectionAction:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
+    ProtectionScope:
+      type: object
+      properties:
+        id:
+          type: string
+        scopeType:
+          type: string
+        policyId:
+          type: string
+        policyName:
+          type: string
+    DlpAction:
+      type: object
+      properties:
+        actionType:
+          type: string
+          enum: [notifyUser, blockAccess, auditOnly, encrypt, applyLabel]
+        description:
+          type: string
+        policyId:
+          type: string
+    DlpMatchedRule:
+      type: object
+      properties:
+        ruleId:
+          type: string
+        ruleName:
+          type: string
+        policyId:
+          type: string
+        policyName:
+          type: string
+        severity:
+          type: string
+          enum: [low, medium, high]
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DlpAction'
