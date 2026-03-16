@@ -1,10 +1,11 @@
+aid: microsoft-purview
 name: Microsoft Purview
 description: Microsoft Purview is a comprehensive data governance service that helps organizations discover, catalog, classify, and manage their data estate across on-premises, multi-cloud, and SaaS environments.
 image: https://www.microsoft.com/en-us/microsoft-365/blog/wp-content/uploads/sites/2/2021/04/Microsoft-Purview-logo.png
 url: https://www.microsoft.com/en-us/security/business/microsoft-purview
 created: 2024-01-15 00:00:00+00:00
-modified: 2026-03-04 00:00:00+00:00
-specificationVersion: '0.18'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 tags:
 - Data Governance
 - Data Catalog
@@ -280,6 +281,6 @@ common:
   url: https://azure.microsoft.com/en-us/products/purview/
 - type: JSON-LD
   url: json-ld/microsoft-purview-context.jsonld
-maintainer:
-  FN: Kin Lane
-  email: kin@apievangelist.com
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
