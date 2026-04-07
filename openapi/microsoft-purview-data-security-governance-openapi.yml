@@ -29,7 +29,7 @@ paths:
   /security/dataSecurityAndGovernance/sensitivityLabels:
     get:
       operationId: listTenantSensitivityLabels
-      summary: List tenant sensitivity labels
+      summary: Microsoft Purview List tenant sensitivity labels
       description: >-
         List the sensitivity labels available for the entire tenant. When using
         application permissions, returns all labels for the tenant by default.
@@ -77,7 +77,7 @@ paths:
   /security/dataSecurityAndGovernance/sensitivityLabels/{sensitivityLabelId}:
     get:
       operationId: getTenantSensitivityLabel
-      summary: Get a tenant sensitivity label
+      summary: Microsoft Purview Get a tenant sensitivity label
       description: Get a sensitivity label by its identifier at the tenant level.
       tags:
         - Sensitivity Labels
@@ -101,7 +101,7 @@ paths:
   /security/dataSecurityAndGovernance/sensitivityLabels/microsoft.graph.security.evaluateApplication:
     post:
       operationId: evaluateDlpApplication
-      summary: Evaluate DLP application for content
+      summary: Microsoft Purview Evaluate DLP application for content
       description: >-
         Evaluate which DLP policies apply to the given content and compute
         the set of actions that should be taken.
@@ -135,7 +135,7 @@ paths:
   /security/dataSecurityAndGovernance/protectionScopes/microsoft.graph.security.computeProtectionScopes:
     post:
       operationId: computeProtectionScopes
-      summary: Compute protection scopes
+      summary: Microsoft Purview Compute protection scopes
       description: >-
         Compute the protection scopes applicable to content to determine which
         DLP policies should be enforced.
@@ -167,7 +167,7 @@ paths:
   /security/dataSecurityAndGovernance/processContent:
     post:
       operationId: processContent
-      summary: Process content for DLP
+      summary: Microsoft Purview Process content for DLP
       description: >-
         Process content through DLP pipeline to evaluate and enforce data loss
         prevention policies at runtime.

@@ -28,7 +28,7 @@ paths:
   /security/labels/retentionLabels:
     get:
       operationId: listRetentionLabels
-      summary: List retention labels
+      summary: Microsoft Purview List retention labels
       description: Get a list of retention labels configured in the organization.
       tags:
         - Retention Labels
@@ -80,7 +80,7 @@ paths:
           description: Forbidden
     post:
       operationId: createRetentionLabel
-      summary: Create a retention label
+      summary: Microsoft Purview Create a retention label
       description: Create a new retention label for data lifecycle management.
       tags:
         - Retention Labels
@@ -104,7 +104,7 @@ paths:
   /security/labels/retentionLabels/{retentionLabelId}:
     get:
       operationId: getRetentionLabel
-      summary: Get a retention label
+      summary: Microsoft Purview Get a retention label
       description: Get a retention label by its identifier.
       tags:
         - Retention Labels
@@ -131,7 +131,7 @@ paths:
           description: Retention label not found
     patch:
       operationId: updateRetentionLabel
-      summary: Update a retention label
+      summary: Microsoft Purview Update a retention label
       description: Update the properties of a retention label.
       tags:
         - Retention Labels
@@ -158,7 +158,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteRetentionLabel
-      summary: Delete a retention label
+      summary: Microsoft Purview Delete a retention label
       description: Delete a retention label that is no longer needed.
       tags:
         - Retention Labels
@@ -178,7 +178,7 @@ paths:
   /security/triggers/retentionEvents:
     get:
       operationId: listRetentionEvents
-      summary: List retention events
+      summary: Microsoft Purview List retention events
       description: Get a list of retention events.
       tags:
         - Retention Events
@@ -214,7 +214,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createRetentionEvent
-      summary: Create a retention event
+      summary: Microsoft Purview Create a retention event
       description: Create a new retention event to trigger event-based retention.
       tags:
         - Retention Events
@@ -238,7 +238,7 @@ paths:
   /security/triggers/retentionEvents/{retentionEventId}:
     get:
       operationId: getRetentionEvent
-      summary: Get a retention event
+      summary: Microsoft Purview Get a retention event
       description: Get a retention event by its identifier.
       tags:
         - Retention Events
@@ -265,7 +265,7 @@ paths:
           description: Retention event not found
     delete:
       operationId: deleteRetentionEvent
-      summary: Delete a retention event
+      summary: Microsoft Purview Delete a retention event
       description: Delete a retention event.
       tags:
         - Retention Events
@@ -283,7 +283,7 @@ paths:
   /security/triggerTypes/retentionEventTypes:
     get:
       operationId: listRetentionEventTypes
-      summary: List retention event types
+      summary: Microsoft Purview List retention event types
       description: Get a list of retention event types.
       tags:
         - Retention Event Types
@@ -315,7 +315,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createRetentionEventType
-      summary: Create a retention event type
+      summary: Microsoft Purview Create a retention event type
       description: Create a new retention event type.
       tags:
         - Retention Event Types
@@ -337,7 +337,7 @@ paths:
   /security/triggerTypes/retentionEventTypes/{retentionEventTypeId}:
     get:
       operationId: getRetentionEventType
-      summary: Get a retention event type
+      summary: Microsoft Purview Get a retention event type
       description: Get a retention event type by its identifier.
       tags:
         - Retention Event Types
@@ -360,7 +360,7 @@ paths:
           description: Not found
     patch:
       operationId: updateRetentionEventType
-      summary: Update a retention event type
+      summary: Microsoft Purview Update a retention event type
       description: Update the properties of a retention event type.
       tags:
         - Retention Event Types
@@ -387,7 +387,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteRetentionEventType
-      summary: Delete a retention event type
+      summary: Microsoft Purview Delete a retention event type
       description: Delete a retention event type.
       tags:
         - Retention Event Types

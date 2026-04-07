@@ -30,7 +30,7 @@ paths:
   /metadataPolicies/{policyId}:
     get:
       operationId: getMetadataPolicy
-      summary: Get a metadata policy
+      summary: Microsoft Purview Get a metadata policy
       description: Gets a metadata policy by its identifier.
       tags:
         - Metadata Policy
@@ -60,7 +60,7 @@ paths:
           description: Policy not found
     put:
       operationId: updateMetadataPolicy
-      summary: Update a metadata policy
+      summary: Microsoft Purview Update a metadata policy
       description: Updates a metadata policy with the given identifier.
       tags:
         - Metadata Policy
@@ -97,7 +97,7 @@ paths:
   /metadataPolicies:
     get:
       operationId: listAllMetadataPolicies
-      summary: List all metadata policies
+      summary: Microsoft Purview List all metadata policies
       description: List or get metadata policies for the Purview account.
       tags:
         - Metadata Policy
@@ -125,7 +125,7 @@ paths:
   /metadataRoles:
     get:
       operationId: listMetadataRoles
-      summary: List metadata roles
+      summary: Microsoft Purview List metadata roles
       description: Lists the metadata roles available in the Purview account.
       tags:
         - Metadata Roles

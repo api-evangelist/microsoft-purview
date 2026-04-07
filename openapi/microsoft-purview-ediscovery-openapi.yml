@@ -32,7 +32,7 @@ paths:
   /security/cases/ediscoveryCases:
     get:
       operationId: listEdiscoveryCases
-      summary: List eDiscovery cases
+      summary: Microsoft Purview List eDiscovery cases
       description: Get a list of eDiscovery cases in the organization.
       tags:
         - Cases
@@ -79,7 +79,7 @@ paths:
           description: Forbidden
     post:
       operationId: createEdiscoveryCase
-      summary: Create an eDiscovery case
+      summary: Microsoft Purview Create an eDiscovery case
       description: Create a new eDiscovery case for investigation or litigation.
       tags:
         - Cases
@@ -103,7 +103,7 @@ paths:
   /security/cases/ediscoveryCases/{ediscoveryCaseId}:
     get:
       operationId: getEdiscoveryCase
-      summary: Get an eDiscovery case
+      summary: Microsoft Purview Get an eDiscovery case
       description: Get an eDiscovery case by its identifier.
       tags:
         - Cases
@@ -126,7 +126,7 @@ paths:
           description: Not found
     patch:
       operationId: updateEdiscoveryCase
-      summary: Update an eDiscovery case
+      summary: Microsoft Purview Update an eDiscovery case
       description: Update the properties of an eDiscovery case.
       tags:
         - Cases
@@ -153,7 +153,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteEdiscoveryCase
-      summary: Delete an eDiscovery case
+      summary: Microsoft Purview Delete an eDiscovery case
       description: Delete an eDiscovery case and all associated data.
       tags:
         - Cases
@@ -171,7 +171,7 @@ paths:
   /security/cases/ediscoveryCases/{ediscoveryCaseId}/custodians:
     get:
       operationId: listCustodians
-      summary: List custodians in a case
+      summary: Microsoft Purview List custodians in a case
       description: Get the list of custodians associated with an eDiscovery case.
       tags:
         - Custodians
@@ -197,7 +197,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createCustodian
-      summary: Add a custodian to a case
+      summary: Microsoft Purview Add a custodian to a case
       description: Create a new custodian and add them to an eDiscovery case.
       tags:
         - Custodians
@@ -225,7 +225,7 @@ paths:
   /security/cases/ediscoveryCases/{ediscoveryCaseId}/reviewSets:
     get:
       operationId: listReviewSets
-      summary: List review sets in a case
+      summary: Microsoft Purview List review sets in a case
       description: Get the list of review sets associated with an eDiscovery case.
       tags:
         - Review Sets
@@ -251,7 +251,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createReviewSet
-      summary: Create a review set
+      summary: Microsoft Purview Create a review set
       description: Create a new review set in an eDiscovery case.
       tags:
         - Review Sets
@@ -279,7 +279,7 @@ paths:
   /security/cases/ediscoveryCases/{ediscoveryCaseId}/searches:
     get:
       operationId: listEdiscoverySearches
-      summary: List searches in a case
+      summary: Microsoft Purview List searches in a case
       description: Get the list of searches associated with an eDiscovery case.
       tags:
         - Searches
@@ -305,7 +305,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createEdiscoverySearch
-      summary: Create a search in a case
+      summary: Microsoft Purview Create a search in a case
       description: Create a new eDiscovery search within a case.
       tags:
         - Searches
@@ -333,7 +333,7 @@ paths:
   /security/cases/ediscoveryCases/{ediscoveryCaseId}/legalHolds:
     get:
       operationId: listLegalHolds
-      summary: List legal holds
+      summary: Microsoft Purview List legal holds
       description: Get the list of legal holds associated with an eDiscovery case.
       tags:
         - Legal Holds
@@ -359,7 +359,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createLegalHold
-      summary: Create a legal hold
+      summary: Microsoft Purview Create a legal hold
       description: Create a legal hold policy within an eDiscovery case.
       tags:
         - Legal Holds

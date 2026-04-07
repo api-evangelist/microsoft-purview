@@ -38,7 +38,7 @@ paths:
   /workflows:
     get:
       operationId: listWorkflows
-      summary: List all workflows
+      summary: Microsoft Purview List all workflows
       description: List all workflows in the Purview account.
       tags:
         - Workflows
@@ -61,7 +61,7 @@ paths:
   /workflows/{workflowId}:
     put:
       operationId: createOrReplaceWorkflow
-      summary: Create or replace a workflow
+      summary: Microsoft Purview Create or replace a workflow
       description: Create or replace a workflow definition.
       tags:
         - Workflow
@@ -98,7 +98,7 @@ paths:
           description: Unauthorized
     get:
       operationId: getWorkflow
-      summary: Get a workflow
+      summary: Microsoft Purview Get a workflow
       description: Get a specific workflow by its identifier.
       tags:
         - Workflow
@@ -128,7 +128,7 @@ paths:
           description: Workflow not found
     delete:
       operationId: deleteWorkflow
-      summary: Delete a workflow
+      summary: Microsoft Purview Delete a workflow
       description: Delete a workflow by its identifier.
       tags:
         - Workflow
@@ -155,7 +155,7 @@ paths:
   /workflows/{workflowId}/validate:
     post:
       operationId: validateWorkflow
-      summary: Validate a workflow
+      summary: Microsoft Purview Validate a workflow
       description: Validate a workflow definition without creating it.
       tags:
         - Workflow
@@ -190,7 +190,7 @@ paths:
   /workflowruns/{workflowRunId}:
     get:
       operationId: getWorkflowRun
-      summary: Get a workflow run
+      summary: Microsoft Purview Get a workflow run
       description: Get a workflow run by its identifier.
       tags:
         - Workflow Run
@@ -221,7 +221,7 @@ paths:
   /workflowruns/{workflowRunId}/cancel:
     post:
       operationId: cancelWorkflowRun
-      summary: Cancel a workflow run
+      summary: Microsoft Purview Cancel a workflow run
       description: Cancel a running workflow run.
       tags:
         - Workflow Run
@@ -256,7 +256,7 @@ paths:
   /workflowtasks/{taskId}:
     get:
       operationId: getWorkflowTask
-      summary: Get a workflow task
+      summary: Microsoft Purview Get a workflow task
       description: Get a workflow task by its identifier.
       tags:
         - Workflow Task
@@ -287,7 +287,7 @@ paths:
   /workflowtasks/{taskId}/reassign:
     post:
       operationId: reassignWorkflowTask
-      summary: Reassign a workflow task
+      summary: Microsoft Purview Reassign a workflow task
       description: Reassign a workflow task to a different user.
       tags:
         - Workflow Task
@@ -330,7 +330,7 @@ paths:
   /approvals/{taskId}/approve:
     post:
       operationId: approveApproval
-      summary: Approve a workflow approval task
+      summary: Microsoft Purview Approve a workflow approval task
       description: Approve an approval task in a workflow.
       tags:
         - Approval
@@ -365,7 +365,7 @@ paths:
   /approvals/{taskId}/reject:
     post:
       operationId: rejectApproval
-      summary: Reject a workflow approval task
+      summary: Microsoft Purview Reject a workflow approval task
       description: Reject an approval task in a workflow.
       tags:
         - Approval
@@ -400,7 +400,7 @@ paths:
   /userrequests:
     post:
       operationId: submitUserRequest
-      summary: Submit a user request
+      summary: Microsoft Purview Submit a user request
       description: Submit a user request to trigger a workflow.
       tags:
         - User Requests

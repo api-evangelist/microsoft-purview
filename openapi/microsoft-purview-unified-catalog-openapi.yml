@@ -38,7 +38,7 @@ paths:
   /businessdomains:
     get:
       operationId: listBusinessDomains
-      summary: List business domains
+      summary: Microsoft Purview List business domains
       description: List all business domains in the Purview unified catalog.
       tags:
         - Business Domains
@@ -69,7 +69,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createBusinessDomain
-      summary: Create a business domain
+      summary: Microsoft Purview Create a business domain
       description: Create a new business domain in the unified catalog.
       tags:
         - Business Domains
@@ -100,7 +100,7 @@ paths:
   /businessdomains/{businessDomainId}:
     get:
       operationId: getBusinessDomain
-      summary: Get a business domain
+      summary: Microsoft Purview Get a business domain
       description: Get a business domain by its identifier.
       tags:
         - Business Domains
@@ -129,7 +129,7 @@ paths:
           description: Not found
     patch:
       operationId: updateBusinessDomain
-      summary: Update a business domain
+      summary: Microsoft Purview Update a business domain
       description: Update a business domain by its identifier.
       tags:
         - Business Domains
@@ -162,7 +162,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteBusinessDomain
-      summary: Delete a business domain
+      summary: Microsoft Purview Delete a business domain
       description: Delete a business domain by its identifier.
       tags:
         - Business Domains
@@ -186,7 +186,7 @@ paths:
   /dataproducts:
     get:
       operationId: listDataProducts
-      summary: List data products
+      summary: Microsoft Purview List data products
       description: List all data products in the Purview unified catalog.
       tags:
         - Data Products
@@ -213,7 +213,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createDataProduct
-      summary: Create a data product
+      summary: Microsoft Purview Create a data product
       description: Create a new data product in the unified catalog.
       tags:
         - Data Products
@@ -242,7 +242,7 @@ paths:
   /dataproducts/{dataProductId}:
     get:
       operationId: getDataProduct
-      summary: Get a data product
+      summary: Microsoft Purview Get a data product
       description: Get a data product by its identifier.
       tags:
         - Data Products
@@ -271,7 +271,7 @@ paths:
           description: Not found
     patch:
       operationId: updateDataProduct
-      summary: Update a data product
+      summary: Microsoft Purview Update a data product
       description: Update a data product by its identifier.
       tags:
         - Data Products
@@ -304,7 +304,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteDataProduct
-      summary: Delete a data product
+      summary: Microsoft Purview Delete a data product
       description: Delete a data product by its identifier.
       tags:
         - Data Products
@@ -328,7 +328,7 @@ paths:
   /glossaryterms:
     get:
       operationId: listUnifiedGlossaryTerms
-      summary: List glossary terms
+      summary: Microsoft Purview List glossary terms
       description: List glossary terms in the Purview unified catalog.
       tags:
         - Glossary Terms
@@ -356,7 +356,7 @@ paths:
   /okrs:
     get:
       operationId: listOKRs
-      summary: List OKRs
+      summary: Microsoft Purview List OKRs
       description: List all Objectives and Key Results in the Purview unified catalog.
       tags:
         - OKRs
@@ -383,7 +383,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createOKR
-      summary: Create an OKR
+      summary: Microsoft Purview Create an OKR
       description: Create a new Objective and Key Result.
       tags:
         - OKRs
@@ -412,7 +412,7 @@ paths:
   /criticaldataelements:
     get:
       operationId: listCriticalDataElements
-      summary: List critical data elements
+      summary: Microsoft Purview List critical data elements
       description: List all critical data elements in the Purview unified catalog.
       tags:
         - Critical Data Elements
@@ -439,7 +439,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createCriticalDataElement
-      summary: Create a critical data element
+      summary: Microsoft Purview Create a critical data element
       description: Create a new critical data element definition.
       tags:
         - Critical Data Elements

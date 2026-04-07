@@ -38,7 +38,7 @@ paths:
   /scan/datasources/{dataSourceName}:
     put:
       operationId: createOrReplaceDataSource
-      summary: Create or replace a data source
+      summary: Microsoft Purview Create or replace a data source
       description: Creates or replaces a data source registration in the Purview account.
       tags:
         - Data Sources
@@ -80,7 +80,7 @@ paths:
           description: Unauthorized
     get:
       operationId: getDataSource
-      summary: Get a data source
+      summary: Microsoft Purview Get a data source
       description: Gets a data source by name.
       tags:
         - Data Sources
@@ -110,7 +110,7 @@ paths:
           description: Data source not found
     delete:
       operationId: deleteDataSource
-      summary: Delete a data source
+      summary: Microsoft Purview Delete a data source
       description: Deletes a data source registration.
       tags:
         - Data Sources
@@ -141,7 +141,7 @@ paths:
   /scan/datasources:
     get:
       operationId: listDataSources
-      summary: List data sources
+      summary: Microsoft Purview List data sources
       description: Lists data sources in Data catalog.
       tags:
         - Data Sources
@@ -164,7 +164,7 @@ paths:
   /scan/datasources/{dataSourceName}/scans/{scanName}:
     put:
       operationId: createOrReplaceScan
-      summary: Create or replace a scan
+      summary: Microsoft Purview Create or replace a scan
       description: Creates or replaces an instance of a scan for a given data source.
       tags:
         - Scans
@@ -212,7 +212,7 @@ paths:
           description: Unauthorized
     get:
       operationId: getScan
-      summary: Get a scan
+      summary: Microsoft Purview Get a scan
       description: Gets a scan information for a given data source.
       tags:
         - Scans
@@ -246,7 +246,7 @@ paths:
           description: Scan not found
     delete:
       operationId: deleteScan
-      summary: Delete a scan
+      summary: Microsoft Purview Delete a scan
       description: Deletes the scan associated with the data source.
       tags:
         - Scans
@@ -281,7 +281,7 @@ paths:
   /scan/datasources/{dataSourceName}/scans:
     get:
       operationId: listScansByDataSource
-      summary: List scans by data source
+      summary: Microsoft Purview List scans by data source
       description: Lists scans in a data source.
       tags:
         - Scans
@@ -309,7 +309,7 @@ paths:
   /scan/datasources/{dataSourceName}/scans/{scanName}/runs/{runId}:
     put:
       operationId: runScan
-      summary: Run a scan
+      summary: Microsoft Purview Run a scan
       description: Runs the scan for a data source.
       tags:
         - Scan Result
@@ -355,7 +355,7 @@ paths:
   /scan/datasources/{dataSourceName}/scans/{scanName}/runs/{runId}/:cancel:
     post:
       operationId: cancelScan
-      summary: Cancel a scan run
+      summary: Microsoft Purview Cancel a scan run
       description: Cancels a running scan.
       tags:
         - Scan Result
@@ -394,7 +394,7 @@ paths:
   /scan/datasources/{dataSourceName}/scans/{scanName}/runs:
     get:
       operationId: listScanHistory
-      summary: List scan history
+      summary: Microsoft Purview List scan history
       description: Lists the scan history of a scan.
       tags:
         - Scan Result
@@ -427,7 +427,7 @@ paths:
   /scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default:
     put:
       operationId: createOrReplaceTrigger
-      summary: Create or replace a scan trigger
+      summary: Microsoft Purview Create or replace a scan trigger
       description: Creates or replaces an instance of a trigger for scheduling scans.
       tags:
         - Triggers
@@ -471,7 +471,7 @@ paths:
           description: Unauthorized
     get:
       operationId: getTrigger
-      summary: Get a scan trigger
+      summary: Microsoft Purview Get a scan trigger
       description: Gets trigger information for a scan.
       tags:
         - Triggers
@@ -505,7 +505,7 @@ paths:
           description: Trigger not found
     delete:
       operationId: deleteTrigger
-      summary: Delete a scan trigger
+      summary: Microsoft Purview Delete a scan trigger
       description: Deletes the trigger associated with the scan.
       tags:
         - Triggers
@@ -536,7 +536,7 @@ paths:
   /scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default/:enable:
     post:
       operationId: enableTrigger
-      summary: Enable a scan trigger
+      summary: Microsoft Purview Enable a scan trigger
       description: Enables a trigger for scheduled scanning.
       tags:
         - Triggers
@@ -569,7 +569,7 @@ paths:
   /scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default/:disable:
     post:
       operationId: disableTrigger
-      summary: Disable a scan trigger
+      summary: Microsoft Purview Disable a scan trigger
       description: Disables a trigger for scheduled scanning.
       tags:
         - Triggers
@@ -602,7 +602,7 @@ paths:
   /scan/classificationrules/{classificationRuleName}:
     put:
       operationId: createOrReplaceClassificationRule
-      summary: Create or replace a classification rule
+      summary: Microsoft Purview Create or replace a classification rule
       description: Creates or replaces a classification rule.
       tags:
         - Classification Rules
@@ -641,7 +641,7 @@ paths:
           description: Unauthorized
     get:
       operationId: getClassificationRule
-      summary: Get a classification rule
+      summary: Microsoft Purview Get a classification rule
       description: Gets a classification rule by name.
       tags:
         - Classification Rules
@@ -670,7 +670,7 @@ paths:
           description: Classification rule not found
     delete:
       operationId: deleteClassificationRule
-      summary: Delete a classification rule
+      summary: Microsoft Purview Delete a classification rule
       description: Deletes a classification rule.
       tags:
         - Classification Rules
@@ -696,7 +696,7 @@ paths:
   /scan/classificationrules:
     get:
       operationId: listClassificationRules
-      summary: List classification rules
+      summary: Microsoft Purview List classification rules
       description: Lists classification rules in the account.
       tags:
         - Classification Rules
@@ -719,7 +719,7 @@ paths:
   /scan/scanrulesets/{scanRulesetName}:
     put:
       operationId: createOrReplaceScanRuleset
-      summary: Create or replace a scan ruleset
+      summary: Microsoft Purview Create or replace a scan ruleset
       description: Creates or replaces a scan ruleset.
       tags:
         - Scan Rulesets
@@ -758,7 +758,7 @@ paths:
           description: Unauthorized
     get:
       operationId: getScanRuleset
-      summary: Get a scan ruleset
+      summary: Microsoft Purview Get a scan ruleset
       description: Gets a scan ruleset by name.
       tags:
         - Scan Rulesets
@@ -787,7 +787,7 @@ paths:
           description: Scan ruleset not found
     delete:
       operationId: deleteScanRuleset
-      summary: Delete a scan ruleset
+      summary: Microsoft Purview Delete a scan ruleset
       description: Deletes a scan ruleset.
       tags:
         - Scan Rulesets
@@ -811,7 +811,7 @@ paths:
   /scan/scanrulesets:
     get:
       operationId: listScanRulesets
-      summary: List scan rulesets
+      summary: Microsoft Purview List scan rulesets
       description: Lists scan rulesets in the account.
       tags:
         - Scan Rulesets

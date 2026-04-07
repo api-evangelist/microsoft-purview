@@ -27,7 +27,7 @@ paths:
   /security/informationProtection/sensitivityLabels:
     get:
       operationId: listSensitivityLabels
-      summary: List sensitivity labels
+      summary: Microsoft Purview List sensitivity labels
       description: >-
         Get a list of sensitivity labels available to the signed-in user or
         the organization.
@@ -84,7 +84,7 @@ paths:
   /security/informationProtection/sensitivityLabels/{sensitivityLabelId}:
     get:
       operationId: getSensitivityLabel
-      summary: Get a sensitivity label
+      summary: Microsoft Purview Get a sensitivity label
       description: Get a sensitivity label by its identifier.
       tags:
         - Sensitivity Labels
@@ -108,7 +108,7 @@ paths:
   /users/{userId}/security/informationProtection/sensitivityLabels:
     get:
       operationId: listUserSensitivityLabels
-      summary: List sensitivity labels for user
+      summary: Microsoft Purview List sensitivity labels for user
       description: Get a list of sensitivity labels available to a specific user.
       tags:
         - Sensitivity Labels
@@ -144,7 +144,7 @@ paths:
   /me/security/informationProtection/sensitivityLabels:
     get:
       operationId: listMySensitivityLabels
-      summary: List my sensitivity labels
+      summary: Microsoft Purview List my sensitivity labels
       description: Get a list of sensitivity labels available to the signed-in user.
       tags:
         - Sensitivity Labels
@@ -175,7 +175,7 @@ paths:
   /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateApplication:
     post:
       operationId: evaluateApplication
-      summary: Evaluate sensitivity label application
+      summary: Microsoft Purview Evaluate sensitivity label application
       description: >-
         Compute the sensitivity label that should be applied and return the set
         of actions that must be taken to correctly label the information.
@@ -209,7 +209,7 @@ paths:
   /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateRemoval:
     post:
       operationId: evaluateRemoval
-      summary: Evaluate sensitivity label removal
+      summary: Microsoft Purview Evaluate sensitivity label removal
       description: >-
         Indicate to the consuming application what actions should be taken to
         remove the label information.
@@ -243,7 +243,7 @@ paths:
   /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateClassificationResults:
     post:
       operationId: evaluateClassificationResults
-      summary: Evaluate classification results
+      summary: Microsoft Purview Evaluate classification results
       description: >-
         Using classification results, compute the sensitivity label that should
         be applied and the set of actions that must be taken.
@@ -279,7 +279,7 @@ paths:
   /drives/{driveId}/items/{driveItemId}/assignSensitivityLabel:
     post:
       operationId: assignSensitivityLabelToDriveItem
-      summary: Assign sensitivity label to drive item
+      summary: Microsoft Purview Assign sensitivity label to drive item
       description: Asynchronously assign a sensitivity label to a file in SharePoint or OneDrive.
       tags:
         - Sensitivity Labels
@@ -321,7 +321,7 @@ paths:
   /security/informationProtection/labelPolicySettings:
     get:
       operationId: getLabelPolicySettings
-      summary: Get label policy settings
+      summary: Microsoft Purview Get label policy settings
       description: Read the properties and relationships of an informationProtectionPolicySetting object.
       tags:
         - Label Policy Settings

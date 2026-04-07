@@ -34,7 +34,7 @@ paths:
   /dataquality/rules:
     get:
       operationId: listDataQualityRules
-      summary: List data quality rules
+      summary: Microsoft Purview List data quality rules
       description: List all data quality rules configured in the Purview account.
       tags:
         - Data Quality Rules
@@ -65,7 +65,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createDataQualityRule
-      summary: Create a data quality rule
+      summary: Microsoft Purview Create a data quality rule
       description: Create a new data quality rule for evaluating data assets.
       tags:
         - Data Quality Rules
@@ -96,7 +96,7 @@ paths:
   /dataquality/rules/{ruleId}:
     get:
       operationId: getDataQualityRule
-      summary: Get a data quality rule
+      summary: Microsoft Purview Get a data quality rule
       description: Get a data quality rule by its identifier.
       tags:
         - Data Quality Rules
@@ -125,7 +125,7 @@ paths:
           description: Rule not found
     patch:
       operationId: updateDataQualityRule
-      summary: Update a data quality rule
+      summary: Microsoft Purview Update a data quality rule
       description: Update an existing data quality rule.
       tags:
         - Data Quality Rules
@@ -158,7 +158,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteDataQualityRule
-      summary: Delete a data quality rule
+      summary: Microsoft Purview Delete a data quality rule
       description: Delete a data quality rule by its identifier.
       tags:
         - Data Quality Rules
@@ -182,7 +182,7 @@ paths:
   /dataquality/scores:
     get:
       operationId: listDataQualityScores
-      summary: List data quality scores
+      summary: Microsoft Purview List data quality scores
       description: Retrieve data quality scores for data assets.
       tags:
         - Data Quality Scores
@@ -215,7 +215,7 @@ paths:
   /dataquality/scores/{scoreId}:
     get:
       operationId: getDataQualityScore
-      summary: Get a data quality score
+      summary: Microsoft Purview Get a data quality score
       description: Get a specific data quality score by its identifier.
       tags:
         - Data Quality Scores
@@ -245,7 +245,7 @@ paths:
   /dataquality/profiling/{assetId}:
     post:
       operationId: runDataProfiling
-      summary: Run data profiling
+      summary: Microsoft Purview Run data profiling
       description: Initiate data profiling for a specific data asset.
       tags:
         - Data Profiling
@@ -278,7 +278,7 @@ paths:
           description: Unauthorized
     get:
       operationId: getDataProfilingResult
-      summary: Get data profiling result
+      summary: Microsoft Purview Get data profiling result
       description: Get data profiling results for a specific data asset.
       tags:
         - Data Profiling
@@ -308,7 +308,7 @@ paths:
   /dataquality/scans:
     post:
       operationId: runDataQualityScan
-      summary: Run a data quality scan
+      summary: Microsoft Purview Run a data quality scan
       description: Initiate a data quality scan to evaluate rules against data assets.
       tags:
         - Data Quality Scans

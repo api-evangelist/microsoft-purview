@@ -38,7 +38,7 @@ paths:
   /api/atlas/v2/entity:
     post:
       operationId: createOrUpdateEntity
-      summary: Create or update an entity
+      summary: Microsoft Purview Create or update an entity
       description: >-
         Create or update an entity. Existing entity is matched using its unique
         guid if supplied or by its unique attributes such as qualifiedName.
@@ -66,7 +66,7 @@ paths:
   /api/atlas/v2/entity/guid/{guid}:
     get:
       operationId: getEntityByGuid
-      summary: Get entity by GUID
+      summary: Microsoft Purview Get entity by GUID
       description: Get complete definition of an entity given its GUID.
       tags:
         - Entity
@@ -103,7 +103,7 @@ paths:
           description: Entity not found
     delete:
       operationId: deleteEntityByGuid
-      summary: Delete an entity by GUID
+      summary: Microsoft Purview Delete an entity by GUID
       description: Delete an entity identified by its GUID.
       tags:
         - Entity
@@ -129,7 +129,7 @@ paths:
   /api/atlas/v2/entity/bulk:
     get:
       operationId: listEntitiesByGuids
-      summary: List entities by GUIDs
+      summary: Microsoft Purview List entities by GUIDs
       description: List entities in bulk identified by their GUIDs.
       tags:
         - Entity
@@ -165,7 +165,7 @@ paths:
           description: Unauthorized
     post:
       operationId: bulkCreateOrUpdateEntities
-      summary: Create or update entities in bulk
+      summary: Microsoft Purview Create or update entities in bulk
       description: >-
         Create or update entities in bulk. Existing entity is matched using its
         unique guid if supplied or by its unique attributes.
@@ -190,7 +190,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: bulkDeleteEntities
-      summary: Delete entities in bulk
+      summary: Microsoft Purview Delete entities in bulk
       description: Delete a list of entities in bulk identified by their GUIDs or unique attributes.
       tags:
         - Entity
@@ -215,7 +215,7 @@ paths:
   /api/atlas/v2/entity/guid/{guid}/classification/{classificationName}:
     get:
       operationId: getEntityClassification
-      summary: Get classification for entity
+      summary: Microsoft Purview Get classification for entity
       description: Get classification for a given entity represented by a GUID.
       tags:
         - Entity
@@ -246,7 +246,7 @@ paths:
           description: Not found
     delete:
       operationId: removeEntityClassification
-      summary: Remove classification from entity
+      summary: Microsoft Purview Remove classification from entity
       description: Delete a given classification from an existing entity represented by a GUID.
       tags:
         - Entity
@@ -272,7 +272,7 @@ paths:
   /api/atlas/v2/entity/guid/{guid}/classifications:
     get:
       operationId: listEntityClassifications
-      summary: List classifications for entity
+      summary: Microsoft Purview List classifications for entity
       description: List classifications for a given entity represented by a GUID.
       tags:
         - Entity
@@ -297,7 +297,7 @@ paths:
           description: Not found
     post:
       operationId: addEntityClassifications
-      summary: Add classifications to entity
+      summary: Microsoft Purview Add classifications to entity
       description: Add classifications to an existing entity represented by a GUID.
       tags:
         - Entity
@@ -325,7 +325,7 @@ paths:
           description: Unauthorized
     put:
       operationId: updateEntityClassifications
-      summary: Update classifications on entity
+      summary: Microsoft Purview Update classifications on entity
       description: Update classifications to an existing entity represented by a GUID.
       tags:
         - Entity
@@ -354,7 +354,7 @@ paths:
   /api/atlas/v2/entity/guid/{guid}/labels:
     post:
       operationId: addEntityLabels
-      summary: Add labels to entity
+      summary: Microsoft Purview Add labels to entity
       description: Add given labels to a given entity identified by its GUID.
       tags:
         - Entity
@@ -380,7 +380,7 @@ paths:
           description: Unauthorized
     put:
       operationId: setEntityLabels
-      summary: Set labels on entity
+      summary: Microsoft Purview Set labels on entity
       description: Set labels to a given entity identified by its GUID.
       tags:
         - Entity
@@ -406,7 +406,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: removeEntityLabels
-      summary: Remove labels from entity
+      summary: Microsoft Purview Remove labels from entity
       description: Delete given labels from a given entity identified by its GUID.
       tags:
         - Entity
@@ -432,7 +432,7 @@ paths:
   /api/atlas/v2/entity/bulk/setClassifications:
     post:
       operationId: bulkSetClassifications
-      summary: Set classifications on entities in bulk
+      summary: Microsoft Purview Set classifications on entities in bulk
       description: Set classifications on entities in bulk.
       tags:
         - Entity
@@ -456,7 +456,7 @@ paths:
   /api/atlas/v2/entity/guid/{guid}/businessmetadata:
     post:
       operationId: addOrUpdateBusinessMetadata
-      summary: Add or update business metadata on entity
+      summary: Microsoft Purview Add or update business metadata on entity
       description: Add business metadata to an entity.
       tags:
         - Entity
@@ -488,7 +488,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: removeBusinessMetadata
-      summary: Remove business metadata from entity
+      summary: Microsoft Purview Remove business metadata from entity
       description: Remove business metadata from an entity.
       tags:
         - Entity
@@ -514,7 +514,7 @@ paths:
   /api/atlas/v2/entity/bulk/collection/{collectionId}:
     post:
       operationId: moveEntitiesToCollection
-      summary: Move entities to collection
+      summary: Microsoft Purview Move entities to collection
       description: Move existing entities to the target collection.
       tags:
         - Entity
@@ -543,7 +543,7 @@ paths:
   /api/atlas/v2/glossary:
     get:
       operationId: listGlossaries
-      summary: List all glossaries
+      summary: Microsoft Purview List all glossaries
       description: >-
         Get all glossaries. Recommend using limit/offset to get pagination result.
       tags:
@@ -586,7 +586,7 @@ paths:
           description: Unauthorized
     post:
       operationId: createGlossary
-      summary: Create a glossary
+      summary: Microsoft Purview Create a glossary
       description: Create a glossary.
       tags:
         - Glossary
@@ -610,7 +610,7 @@ paths:
   /api/atlas/v2/glossary/{glossaryId}:
     get:
       operationId: getGlossary
-      summary: Get glossary by GUID
+      summary: Microsoft Purview Get glossary by GUID
       description: Get a specific Glossary by its GUID.
       tags:
         - Glossary
@@ -634,7 +634,7 @@ paths:
           description: Glossary not found
     put:
       operationId: updateGlossary
-      summary: Update a glossary
+      summary: Microsoft Purview Update a glossary
       description: Update the given glossary.
       tags:
         - Glossary
@@ -662,7 +662,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteGlossary
-      summary: Delete a glossary
+      summary: Microsoft Purview Delete a glossary
       description: >-
         Delete a glossary. Will delete underlying terms/categories together.
       tags:
@@ -684,7 +684,7 @@ paths:
   /api/atlas/v2/glossary/{glossaryId}/terms:
     get:
       operationId: listGlossaryTerms
-      summary: List terms in glossary
+      summary: Microsoft Purview List terms in glossary
       description: Get terms belonging to a specific glossary.
       tags:
         - Glossary
@@ -724,7 +724,7 @@ paths:
   /api/atlas/v2/glossary/{glossaryId}/categories:
     get:
       operationId: listGlossaryCategories
-      summary: List categories in glossary
+      summary: Microsoft Purview List categories in glossary
       description: Get the categories belonging to a specific glossary.
       tags:
         - Glossary
@@ -764,7 +764,7 @@ paths:
   /api/atlas/v2/glossary/term:
     post:
       operationId: createGlossaryTerm
-      summary: Create a glossary term
+      summary: Microsoft Purview Create a glossary term
       description: Create a glossary term.
       tags:
         - Glossary
@@ -795,7 +795,7 @@ paths:
   /api/atlas/v2/glossary/term/{termId}:
     get:
       operationId: getGlossaryTerm
-      summary: Get glossary term by GUID
+      summary: Microsoft Purview Get glossary term by GUID
       description: Get a specific glossary term by its GUID.
       tags:
         - Glossary
@@ -819,7 +819,7 @@ paths:
           description: Term not found
     put:
       operationId: updateGlossaryTerm
-      summary: Update a glossary term
+      summary: Microsoft Purview Update a glossary term
       description: Update the given glossary term by its GUID.
       tags:
         - Glossary
@@ -852,7 +852,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteGlossaryTerm
-      summary: Delete a glossary term
+      summary: Microsoft Purview Delete a glossary term
       description: Delete a glossary term.
       tags:
         - Glossary
@@ -871,7 +871,7 @@ paths:
   /api/atlas/v2/glossary/terms:
     post:
       operationId: createGlossaryTerms
-      summary: Create glossary terms in bulk
+      summary: Microsoft Purview Create glossary terms in bulk
       description: Create glossary terms in bulk.
       tags:
         - Glossary
@@ -899,7 +899,7 @@ paths:
   /api/atlas/v2/glossary/category:
     post:
       operationId: createGlossaryCategory
-      summary: Create a glossary category
+      summary: Microsoft Purview Create a glossary category
       description: Create a glossary category.
       tags:
         - Glossary
@@ -923,7 +923,7 @@ paths:
   /api/atlas/v2/glossary/category/{categoryId}:
     get:
       operationId: getGlossaryCategory
-      summary: Get glossary category by GUID
+      summary: Microsoft Purview Get glossary category by GUID
       description: Get specific glossary category by its GUID.
       tags:
         - Glossary
@@ -947,7 +947,7 @@ paths:
           description: Category not found
     put:
       operationId: updateGlossaryCategory
-      summary: Update a glossary category
+      summary: Microsoft Purview Update a glossary category
       description: Update the given glossary category by its GUID.
       tags:
         - Glossary
@@ -975,7 +975,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteGlossaryCategory
-      summary: Delete a glossary category
+      summary: Microsoft Purview Delete a glossary category
       description: Delete a glossary category.
       tags:
         - Glossary
@@ -994,7 +994,7 @@ paths:
   /api/atlas/v2/glossary/terms/{termId}/assignedEntities:
     get:
       operationId: listEntitiesAssignedWithTerm
-      summary: List entities assigned with term
+      summary: Microsoft Purview List entities assigned with term
       description: List all related objects assigned with the specified term.
       tags:
         - Glossary
@@ -1033,7 +1033,7 @@ paths:
           description: Unauthorized
     post:
       operationId: assignTermToEntities
-      summary: Assign term to entities
+      summary: Microsoft Purview Assign term to entities
       description: Assign the given term to the provided list of related objects.
       tags:
         - Glossary
@@ -1059,7 +1059,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: deleteTermAssignmentFromEntities
-      summary: Remove term assignment from entities
+      summary: Microsoft Purview Remove term assignment from entities
       description: Delete the term assignment for the given list of related objects.
       tags:
         - Glossary
@@ -1085,7 +1085,7 @@ paths:
   /api/search/query:
     post:
       operationId: searchQuery
-      summary: Search data assets
+      summary: Microsoft Purview Search data assets
       description: Get data using search.
       tags:
         - Discovery
@@ -1109,7 +1109,7 @@ paths:
   /api/search/suggest:
     post:
       operationId: searchSuggest
-      summary: Get search suggestions
+      summary: Microsoft Purview Get search suggestions
       description: Get search suggestions by query criteria.
       tags:
         - Discovery
@@ -1133,7 +1133,7 @@ paths:
   /api/search/autocomplete:
     post:
       operationId: searchAutoComplete
-      summary: Get auto complete options
+      summary: Microsoft Purview Get auto complete options
       description: Get auto complete options for search.
       tags:
         - Discovery
@@ -1157,7 +1157,7 @@ paths:
   /api/atlas/v2/lineage/{guid}:
     get:
       operationId: getLineageByGuid
-      summary: Get lineage by GUID
+      summary: Microsoft Purview Get lineage by GUID
       description: Get lineage info of the entity specified by GUID.
       tags:
         - Lineage
@@ -1196,7 +1196,7 @@ paths:
   /api/atlas/v2/lineage/{guid}/next:
     get:
       operationId: getLineageNextPage
-      summary: Get next page of lineage
+      summary: Microsoft Purview Get next page of lineage
       description: Return immediate next page lineage info about entity with pagination.
       tags:
         - Lineage
@@ -1235,7 +1235,7 @@ paths:
   /api/atlas/v2/relationship:
     post:
       operationId: createRelationship
-      summary: Create a relationship
+      summary: Microsoft Purview Create a relationship
       description: Create a new relationship between entities.
       tags:
         - Relationship
@@ -1258,7 +1258,7 @@ paths:
           description: Unauthorized
     put:
       operationId: updateRelationship
-      summary: Update a relationship
+      summary: Microsoft Purview Update a relationship
       description: Update an existing relationship between entities.
       tags:
         - Relationship
@@ -1282,7 +1282,7 @@ paths:
   /api/atlas/v2/relationship/guid/{guid}:
     get:
       operationId: getRelationship
-      summary: Get relationship by GUID
+      summary: Microsoft Purview Get relationship by GUID
       description: Get relationship information between entities by its GUID.
       tags:
         - Relationship
@@ -1312,7 +1312,7 @@ paths:
           description: Relationship not found
     delete:
       operationId: deleteRelationship
-      summary: Delete a relationship
+      summary: Microsoft Purview Delete a relationship
       description: Delete a relationship between entities by its GUID.
       tags:
         - Relationship
@@ -1333,7 +1333,7 @@ paths:
   /api/atlas/v2/types/typedefs:
     get:
       operationId: listTypeDefinitions
-      summary: List all type definitions
+      summary: Microsoft Purview List all type definitions
       description: List all type definitions in bulk.
       tags:
         - Type
@@ -1361,7 +1361,7 @@ paths:
           description: Unauthorized
     post:
       operationId: bulkCreateTypeDefinitions
-      summary: Create type definitions in bulk
+      summary: Microsoft Purview Create type definitions in bulk
       description: Create all atlas type definitions in bulk.
       tags:
         - Type
@@ -1384,7 +1384,7 @@ paths:
           description: Unauthorized
     put:
       operationId: bulkUpdateTypeDefinitions
-      summary: Update type definitions in bulk
+      summary: Microsoft Purview Update type definitions in bulk
       description: Update all types in bulk.
       tags:
         - Type
@@ -1405,7 +1405,7 @@ paths:
           description: Unauthorized
     delete:
       operationId: bulkDeleteTypeDefinitions
-      summary: Delete type definitions in bulk
+      summary: Microsoft Purview Delete type definitions in bulk
       description: Delete API for all types in bulk.
       tags:
         - Type
@@ -1423,7 +1423,7 @@ paths:
   /api/atlas/v2/types/typedefs/headers:
     get:
       operationId: listTypeDefinitionHeaders
-      summary: List type definition headers
+      summary: Microsoft Purview List type definition headers
       description: List all type definitions returned as a list of minimal information header.
       tags:
         - Type
@@ -1452,7 +1452,7 @@ paths:
   /api/atlas/v2/types/typedef/guid/{guid}:
     get:
       operationId: getTypeDefinitionByGuid
-      summary: Get type definition by GUID
+      summary: Microsoft Purview Get type definition by GUID
       description: Get the type definition for the given GUID.
       tags:
         - Type
@@ -1477,7 +1477,7 @@ paths:
   /api/atlas/v2/types/typedef/name/{name}:
     get:
       operationId: getTypeDefinitionByName
-      summary: Get type definition by name
+      summary: Microsoft Purview Get type definition by name
       description: Get the type definition by its name (unique).
       tags:
         - Type
@@ -1500,7 +1500,7 @@ paths:
           description: Type definition not found
     delete:
       operationId: deleteTypeDefinitionByName
-      summary: Delete type definition by name
+      summary: Microsoft Purview Delete type definition by name
       description: Delete API for type identified by its name.
       tags:
         - Type
