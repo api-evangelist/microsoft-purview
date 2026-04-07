@@ -22,18 +22,18 @@ servers:
 security:
   - oauth2: []
 tags:
-  - name: Workflows
-    description: Operations for listing workflows
+  - name: Approval
+    description: Operations for approving or rejecting workflow tasks
+  - name: User Requests
+    description: Operations for submitting user requests
   - name: Workflow
     description: Operations for managing individual workflows
   - name: Workflow Run
     description: Operations for managing workflow runs
   - name: Workflow Task
     description: Operations for managing workflow tasks
-  - name: Approval
-    description: Operations for approving or rejecting workflow tasks
-  - name: User Requests
-    description: Operations for submitting user requests
+  - name: Workflows
+    description: Operations for listing workflows
 paths:
   /workflows:
     get:

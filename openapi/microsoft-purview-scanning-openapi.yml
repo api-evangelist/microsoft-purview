@@ -22,18 +22,18 @@ servers:
 security:
   - oauth2: []
 tags:
-  - name: Data Sources
-    description: Operations for managing data source registrations
-  - name: Scans
-    description: Operations for managing scan configurations
-  - name: Scan Result
-    description: Operations for running scans and viewing scan results
-  - name: Triggers
-    description: Operations for managing scan triggers and schedules
   - name: Classification Rules
     description: Operations for managing classification rules
+  - name: Data Sources
+    description: Operations for managing data source registrations
+  - name: Scan Result
+    description: Operations for running scans and viewing scan results
   - name: Scan Rulesets
     description: Operations for managing scan rulesets
+  - name: Scans
+    description: Operations for managing scan configurations
+  - name: Triggers
+    description: Operations for managing scan triggers and schedules
 paths:
   /scan/datasources/{dataSourceName}:
     put:

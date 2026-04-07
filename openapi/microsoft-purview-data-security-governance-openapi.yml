@@ -19,12 +19,12 @@ servers:
 security:
   - oauth2: []
 tags:
-  - name: Sensitivity Labels
-    description: Operations for accessing tenant-level sensitivity labels
   - name: DLP Policies
     description: Operations for evaluating DLP policies on content
   - name: Protection Scopes
     description: Operations for computing protection scopes
+  - name: Sensitivity Labels
+    description: Operations for accessing tenant-level sensitivity labels
 paths:
   /security/dataSecurityAndGovernance/sensitivityLabels:
     get:

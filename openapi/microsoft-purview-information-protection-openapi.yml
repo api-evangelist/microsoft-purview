@@ -19,10 +19,10 @@ servers:
 security:
   - oauth2: []
 tags:
-  - name: Sensitivity Labels
-    description: Operations for managing sensitivity labels
   - name: Label Policy Settings
     description: Operations for managing label policy settings
+  - name: Sensitivity Labels
+    description: Operations for managing sensitivity labels
 paths:
   /security/informationProtection/sensitivityLabels:
     get:

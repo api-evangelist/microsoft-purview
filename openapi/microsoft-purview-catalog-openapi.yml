@@ -22,12 +22,12 @@ servers:
 security:
   - oauth2: []
 tags:
+  - name: Discovery
+    description: Operations for searching and discovering data assets
   - name: Entity
     description: Operations for managing catalog entities
   - name: Glossary
     description: Operations for managing glossary terms, categories, and assignments
-  - name: Discovery
-    description: Operations for searching and discovering data assets
   - name: Lineage
     description: Operations for tracking data lineage
   - name: Relationship

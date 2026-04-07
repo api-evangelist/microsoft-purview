@@ -18,12 +18,12 @@ servers:
 security:
   - oauth2: []
 tags:
-  - name: Retention Labels
-    description: Operations for managing retention labels
-  - name: Retention Events
-    description: Operations for managing retention events
   - name: Retention Event Types
     description: Operations for managing retention event types
+  - name: Retention Events
+    description: Operations for managing retention events
+  - name: Retention Labels
+    description: Operations for managing retention labels
 paths:
   /security/labels/retentionLabels:
     get:

@@ -24,16 +24,14 @@ security:
 tags:
   - name: Business Domains
     description: Operations for managing business domains
+  - name: Critical Data Elements
+    description: Operations for managing critical data elements
   - name: Data Products
     description: Operations for managing data products
   - name: Glossary Terms
     description: Operations for managing glossary terms in the unified catalog
   - name: OKRs
     description: Operations for managing Objectives and Key Results
-  - name: Critical Data Elements
-    description: Operations for managing critical data elements
-  - name: Health
-    description: Operations for managing data health metrics
 paths:
   /businessdomains:
     get:

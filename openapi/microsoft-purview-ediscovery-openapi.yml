@@ -22,12 +22,12 @@ tags:
     description: Operations for managing eDiscovery cases
   - name: Custodians
     description: Operations for managing custodians within cases
+  - name: Legal Holds
+    description: Operations for managing legal holds
   - name: Review Sets
     description: Operations for managing review sets
   - name: Searches
     description: Operations for managing eDiscovery searches
-  - name: Legal Holds
-    description: Operations for managing legal holds
 paths:
   /security/cases/ediscoveryCases:
     get:

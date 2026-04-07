@@ -23,20 +23,18 @@ servers:
 security:
   - oauth2: []
 tags:
+  - name: Discovery
+    description: Search, suggest, and auto-complete operations
   - name: Entity
     description: Entity management operations based on Apache Atlas
   - name: Glossary
     description: Glossary management for business terms and categories
-  - name: Discovery
-    description: Search, suggest, and auto-complete operations
   - name: Lineage
     description: Data lineage tracking operations
   - name: Relationship
     description: Relationship management between entities
   - name: Type
     description: Type definition management operations
-  - name: Collection
-    description: Collection management operations
 paths:
   /api/atlas/v2/entity:
     post:

@@ -20,10 +20,10 @@ security:
 tags:
   - name: Accounts
     description: Operations for managing Purview accounts
-  - name: Private Endpoint Connections
-    description: Operations for managing private endpoint connections
   - name: Operations
     description: Operations available on the Purview resource provider
+  - name: Private Endpoint Connections
+    description: Operations for managing private endpoint connections
 paths:
   /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}:
     put:

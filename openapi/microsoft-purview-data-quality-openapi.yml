@@ -22,14 +22,14 @@ servers:
 security:
   - oauth2: []
 tags:
-  - name: Data Quality Rules
-    description: Operations for managing data quality rules
-  - name: Data Quality Scores
-    description: Operations for retrieving data quality scores
   - name: Data Profiling
     description: Operations for data profiling operations
+  - name: Data Quality Rules
+    description: Operations for managing data quality rules
   - name: Data Quality Scans
     description: Operations for running data quality scans
+  - name: Data Quality Scores
+    description: Operations for retrieving data quality scores
 paths:
   /dataquality/rules:
     get:
