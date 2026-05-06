@@ -1,241 +1,103 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Microsoft Purview
+providerId: microsoft-purview
+created: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Cost Management
+  - Compliance
+  - Microsoft
+  - Data Governance
+description: 'FOCUS-aligned FinOps for Microsoft Purview: dual model — user-based Microsoft 365 commerce
+  for the Purview Suite ($12/user/month) and Azure-billed pay-as-you-go meters for data-plane features
+  (Data Map, scanning, classification, Data Estate Insights, Data Security Investigations).'
+sources:
+  - https://www.microsoft.com/en-us/security/business/microsoft-purview
+  - https://www.microsoft.com/en-us/security/business/purview-suite-pricing
+  - https://azure.microsoft.com/en-us/pricing/details/purview/
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: Microsoft Purview
-providerId: microsoft-purview
-publisherName: Microsoft Purview
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - Compliance
-  - Data Catalog
-  - Data Classification
-  - Data Governance
-  - Data Loss Prevention
-  - Information Protection
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the Microsoft Purview API surface. Provides a FOCUS-aligned
-  mapping for cost allocation, usage measurement, and unit-economics reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+publisherName: Microsoft Corporation
+serviceCategory: Compliance / Data Governance
 billingModel:
-  pricingCategory: Usage-Based
+  pricingCategory: Subscription + Pay-As-You-Go
   billingFrequency: Monthly
   billingCurrency: USD
   chargeCategories:
     - Usage
     - Purchase
     - Tax
-    - Credit
     - Adjustment
-  chargeFrequency: Recurring
+    - Credit
 focusColumns:
   ServiceName: Microsoft Purview
-  ServiceCategory: Developer Tools / API
-  ProviderName: Microsoft Purview
-  PublisherName: Microsoft Purview
-  InvoiceIssuerName: Microsoft Purview
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceCategory: Security
+  ServiceSubcategory: Data Governance
+  ProviderName: Microsoft
+  PublisherName: Microsoft Corporation
+  InvoiceIssuerName: Microsoft Corporation
   BillingCurrency: USD
   ChargeCategory: Usage
 meters:
-  - name: api_requests
-    description: Count of billable API requests
-    unit: request
+  - name: purview_suite_seats
+    unit: seat-month
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
+      - tenant
+      - assigned_user
+  - name: data_map_capacity_units
+    unit: capacity-unit-hour
+    aggregation: sum
+    dimensions:
       - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+      - account
+  - name: scan_vcore_hours
+    unit: vCore-hour
     aggregation: sum
     dimensions:
-      - api
       - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
-    aggregation: sum
+      - source_type
+  - name: classified_assets
+    unit: asset
+    aggregation: count
     dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: Microsoft Purview Catalog API
-    baseURL: https://{account-name}.purview.azure.com
-    tags:
-      - Classifications
-      - Data Catalog
-      - Data Discovery
-      - Glossary
-      - Metadata
-    serviceName: Microsoft Purview Catalog API
-    serviceCategory: API
-  - name: Microsoft Purview Scanning API
-    baseURL: https://{account-name}.purview.azure.com
-    tags:
-      - Automated Discovery
-      - Classification Rules
-      - Data Scanning
-      - Data Sources
-      - Scan Triggers
-    serviceName: Microsoft Purview Scanning API
-    serviceCategory: API
-  - name: Microsoft Purview Account API
-    baseURL: https://management.azure.com
-    tags:
-      - Account Management
-      - Administration
-      - Configuration
-      - Resource Manager
-    serviceName: Microsoft Purview Account API
-    serviceCategory: API
-  - name: Microsoft Purview Data Map API
-    baseURL: https://{account-name}.purview.azure.com
-    tags:
-      - Data Discovery
-      - Data Map
-      - Entity Management
-      - Lineage
-      - Relationships
-    serviceName: Microsoft Purview Data Map API
-    serviceCategory: API
-  - name: Microsoft Purview Metadata Policies API
-    baseURL: https://{account-name}.purview.azure.com
-    tags:
-      - Access Policies
-      - Collections
-      - Data Governance
-      - Metadata
-      - Role Assignments
-    serviceName: Microsoft Purview Metadata Policies API
-    serviceCategory: API
-  - name: Microsoft Purview Workflow API
-    baseURL: https://{account-name}.purview.azure.com
-    tags:
-      - Approvals
-      - Automation
-      - Governance Tasks
-      - Workflows
-    serviceName: Microsoft Purview Workflow API
-    serviceCategory: API
-  - name: Microsoft Purview Unified Catalog API
-    baseURL: https://{account-name}.purview.azure.com
-    tags:
-      - Business Domains
-      - Data Governance
-      - Data Products
-      - Glossary Terms
-      - Unified Catalog
-    serviceName: Microsoft Purview Unified Catalog API
-    serviceCategory: API
-  - name: Microsoft Purview Data Quality API
-    baseURL: https://{account-name}.purview.azure.com
-    tags:
-      - Data Assessment
-      - Data Profiling
-      - Data Quality
-      - Quality Rules
-    serviceName: Microsoft Purview Data Quality API
-    serviceCategory: API
-  - name: Microsoft Purview eDiscovery API
-    baseURL: https://graph.microsoft.com
-    tags:
-      - Compliance
-      - eDiscovery
-      - Investigations
-      - Legal Hold
-      - Litigation
-    serviceName: Microsoft Purview eDiscovery API
-    serviceCategory: API
-  - name: Microsoft Purview Information Protection API
-    baseURL: https://graph.microsoft.com
-    tags:
-      - Data Classification
-      - Encryption
-      - Information Protection
-      - Rights Management
-      - Sensitivity Labels
-    serviceName: Microsoft Purview Information Protection API
-    serviceCategory: API
-  - name: Microsoft Purview Data Security and Governance API
-    baseURL: https://graph.microsoft.com
-    tags:
-      - AI Security
-      - Compliance
-      - Data Loss Prevention
-      - Data Security
-      - Policy Enforcement
-    serviceName: Microsoft Purview Data Security and Governance API
-    serviceCategory: API
-  - name: Microsoft Purview Records Management API
-    baseURL: https://graph.microsoft.com
-    tags:
-      - Compliance
-      - Data Lifecycle
-      - Records Management
-      - Retention Labels
-    serviceName: Microsoft Purview Records Management API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - region
+      - source_type
+  - name: data_estate_insights_assets
+    unit: asset-month
+    aggregation: max
+    dimensions:
+      - region
+  - name: data_security_investigations
+    unit: investigation
+    aggregation: count
+    dimensions:
+      - region
+      - investigator
+principles:
+  - name: Visibility
+    description: Use Azure Cost Management exports plus the Purview governance portal to surface Data
+      Map, scan, and classification consumption; cross-reference Microsoft 365 admin center seat usage
+      for the Suite SKU.
+  - name: Allocation
+    description: Tag Purview accounts and scans with cost-center / data-domain tags; allocate Suite
+      seats via Microsoft 365 license groups; map Data Estate Insights cost back to data-domain owners.
+  - name: Optimization
+    description: Tune scan frequency to actual data-change rates; deallocate idle Data Map capacity
+      units between scans; consolidate Purview accounts within a tenant; combine M365 Suite + Azure
+      pay-as-you-go to avoid double-charging users for governance modules already covered.
+  - name: Accountability
+    description: Assign a data-governance budget owner per Purview account; review Cost Management
+      dashboards monthly; alert when scan-vCore-hours exceed forecast by 20%.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

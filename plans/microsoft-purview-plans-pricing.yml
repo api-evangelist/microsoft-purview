@@ -4,189 +4,153 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Microsoft Purview
 providerId: microsoft-purview
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
   - Compliance
-  - Data Catalog
-  - Data Classification
   - Data Governance
+  - Data Catalog
   - Data Loss Prevention
   - Information Protection
-description: Machine-readable plans and pricing scaffold for this API provider. Conforms to the API Commons
-  Plans schema. Tier limits and prices are scaffold defaults; replace with provider-published values.
+  - Microsoft
+description: Microsoft Purview is sold under two parallel commercial models. Microsoft Purview Suite is
+  user-based ($12/user/month with annual commitment, paid via M365 commerce; requires M365 E3 / EMS+E3
+  prerequisite). Pay-As-You-Go pricing covers data-estate features (data map, scanning, policy enforcement,
+  data security investigations) and is metered through an Azure subscription. Per-meter Azure prices vary
+  by region and are listed on the Azure Purview pricing detail page.
+sources:
+  - https://www.microsoft.com/en-us/security/business/microsoft-purview
+  - https://www.microsoft.com/en-us/security/business/purview-suite-pricing
+  - https://azure.microsoft.com/en-us/pricing/details/purview/
 plans:
-  - id: microsoft-purview-free
-    name: Free
-    type: freemium
-    description: Free entry tier for the Microsoft Purview API surface. Intended for evaluation, prototyping,
-      and low-volume integrations. Real limits and pricing must be reconciled with the provider's published
-      plan documentation.
+  - id: microsoft-purview-suite
+    name: Microsoft Purview Suite
+    type: subscription
+    description: User-based suite covering data security, governance and compliance modules tied to
+      Microsoft 365 user identity. Requires M365 E3 / EMS+E3.
     entries:
-      - label: API Requests
-        description: Monthly API request quota across all included endpoints
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 1000
+      - label: Per-user license
+        name: suite_seat
+        type: subscription
+        metric: seat
+        limit: -1
         timeFrame: month
         geo: global
-        domains:
-          - https://{account-name}.purview.azure.com
-          - https://management.azure.com
-          - https://graph.microsoft.com
         unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the free tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 10
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://{account-name}.purview.azure.com
-          - https://management.azure.com
-          - https://graph.microsoft.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
+        price: '12.00'
+        userMultiplied: true
     elements:
-      - name: Public Documentation
-      - name: Community Support
-      - name: Sandbox Access
-      - name: Microsoft Purview Catalog API
-      - name: Microsoft Purview Scanning API
-      - name: Microsoft Purview Account API
-      - name: Microsoft Purview Data Map API
-      - name: Microsoft Purview Metadata Policies API
-      - name: Microsoft Purview Workflow API
-      - name: Microsoft Purview Unified Catalog API
-      - name: Microsoft Purview Data Quality API
-  - id: microsoft-purview-pro
-    name: Professional
-    type: paid
-    description: Production tier for Microsoft Purview. Provides higher quotas, priority support, and
-      access to the broader API portfolio. Pricing placeholder; align with the provider's pricing page.
+      - name: Data Security Posture Management
+      - name: Information Protection
+      - name: Data Loss Prevention
+      - name: Insider Risk Management
+      - name: Audit
+      - name: eDiscovery
+      - name: Data Lifecycle Management
+      - name: Compliance Manager
+      - name: Communication Compliance
+      - name: Annual commitment, paid yearly
+  - id: microsoft-purview-suite-business-premium
+    name: Microsoft Purview Suite for Business Premium
+    type: subscription
+    description: SMB-targeted variant of the Suite for Microsoft 365 Business Premium customers.
     entries:
-      - label: API Requests
-        description: Monthly API request quota
-        name: api_requests
-        type: quota
-        metric: requests
-        limit: 100000
+      - label: Per-user license
+        name: suite_bp_seat
+        type: subscription
+        metric: seat
+        limit: -1
         timeFrame: month
         geo: global
-        domains:
-          - https://{account-name}.purview.azure.com
-          - https://management.azure.com
-          - https://graph.microsoft.com
         unit: 1
-        price: TBD
-        userMultiplied: false
-      - label: Rate Limit
-        description: Maximum requests per minute on the professional tier
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 100
-        timeFrame: minute
-        geo: global
-        domains:
-          - https://{account-name}.purview.azure.com
-          - https://management.azure.com
-          - https://graph.microsoft.com
-        unit: 1
-        price: '0.00'
-        userMultiplied: false
-      - label: Overage
-        description: Per-request price after monthly quota is exceeded
-        name: overage
+        price: contact sales
+        userMultiplied: true
+    elements:
+      - name: Bundled with Business Premium prerequisite
+      - name: Suite modules tailored to SMB scope
+  - id: microsoft-purview-payg
+    name: Microsoft Purview Pay-As-You-Go (Azure)
+    type: pay-as-you-go
+    description: Azure-billed consumption pricing for Purview data-estate features; per-meter prices
+      vary by region. Includes Data Map, Data Estate Insights, scanning, classification, and policy
+      enforcement.
+    entries:
+      - label: Data Map capacity unit (active)
+        name: data_map_capacity
         type: metered
-        metric: requests
+        metric: capacity-unit-hour
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: see Azure pricing detail page
+        userMultiplied: false
+      - label: Scan vCore (managed scan)
+        name: scan_vcore
+        type: metered
+        metric: vCore-hour
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: see Azure pricing detail page
+        userMultiplied: false
+      - label: Resource set / classification
+        name: classification
+        type: metered
+        metric: asset
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: see Azure pricing detail page
+        userMultiplied: false
+      - label: Data Estate Insights
+        name: insights
+        type: metered
+        metric: asset
         limit: -1
         timeFrame: month
         geo: global
-        domains:
-          - https://{account-name}.purview.azure.com
-          - https://management.azure.com
-          - https://graph.microsoft.com
-        unit: 1000
-        price: TBD
+        unit: 1
+        price: see Azure pricing detail page
+        userMultiplied: false
+      - label: Data Security Investigations
+        name: dsi
+        type: metered
+        metric: investigation
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: see Azure pricing detail page
         userMultiplied: false
     elements:
-      - name: All Production Endpoints
-      - name: Email Support
-      - name: SLA Targets
-      - name: Webhook Subscriptions
-      - name: Microsoft Purview Catalog API
-      - name: Microsoft Purview Scanning API
-      - name: Microsoft Purview Account API
-      - name: Microsoft Purview Data Map API
-      - name: Microsoft Purview Metadata Policies API
-      - name: Microsoft Purview Workflow API
-      - name: Microsoft Purview Unified Catalog API
-      - name: Microsoft Purview Data Quality API
-      - name: Microsoft Purview eDiscovery API
-      - name: Microsoft Purview Information Protection API
-      - name: Microsoft Purview Data Security and Governance API
-      - name: Microsoft Purview Records Management API
-  - id: microsoft-purview-enterprise
-    name: Enterprise
-    type: enterprise
-    description: Custom-negotiated tier for Microsoft Purview. Includes dedicated capacity, contractual
-      SLAs, security review, data residency options, and named technical account management.
+      - name: Data Map
+      - name: Data Estate Insights
+      - name: Data scanning and classification
+      - name: Policy enforcement
+      - name: Data Security Investigations
+      - name: Region-dependent meter rates
+  - id: microsoft-purview-addons
+    name: Module Add-ons
+    type: subscription
+    description: Individual Purview modules (e.g. Audit (Premium), Insider Risk Management) available as
+      add-ons to existing Microsoft 365 subscriptions; pricing varies by SKU.
     entries:
-      - label: API Requests
-        description: Negotiated request volume; -1 indicates uncapped subject to fair use
-        name: api_requests
-        type: quota
-        metric: requests
+      - label: Per-user add-on
+        name: addon_seat
+        type: subscription
+        metric: seat
         limit: -1
         timeFrame: month
-        geo: configurable
-        domains:
-          - https://{account-name}.purview.azure.com
-          - https://management.azure.com
-          - https://graph.microsoft.com
+        geo: global
         unit: 1
-        price: custom
-        userMultiplied: false
-      - label: Rate Limit
-        description: Negotiated burst and steady-state rate
-        name: rate_limit
-        type: rate
-        metric: requests_per_minute
-        limit: 1000
-        timeFrame: minute
-        geo: configurable
-        domains:
-          - https://{account-name}.purview.azure.com
-          - https://management.azure.com
-          - https://graph.microsoft.com
-        unit: 1
-        price: custom
-        userMultiplied: false
+        price: contact sales
+        userMultiplied: true
     elements:
-      - name: Unlimited / Negotiated Volume
-      - name: 24/7 Dedicated Support
-      - name: Contractual SLA
-      - name: Security & Compliance Review
-      - name: Dedicated Account Manager
-      - name: Custom Data Residency
-      - name: Microsoft Purview Catalog API
-      - name: Microsoft Purview Scanning API
-      - name: Microsoft Purview Account API
-      - name: Microsoft Purview Data Map API
-      - name: Microsoft Purview Metadata Policies API
-      - name: Microsoft Purview Workflow API
-      - name: Microsoft Purview Unified Catalog API
-      - name: Microsoft Purview Data Quality API
-      - name: Microsoft Purview eDiscovery API
-      - name: Microsoft Purview Information Protection API
-      - name: Microsoft Purview Data Security and Governance API
-      - name: Microsoft Purview Records Management API
+      - name: Standalone module licensing
+      - name: Mix-and-match with M365
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

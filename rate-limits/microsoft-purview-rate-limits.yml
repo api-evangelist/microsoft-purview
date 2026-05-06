@@ -4,142 +4,65 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: Microsoft Purview
 providerId: microsoft-purview
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: false
 tags:
-  - Compliance
-  - Data Catalog
-  - Data Classification
-  - Data Governance
-  - Data Loss Prevention
-  - Information Protection
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the Microsoft Purview API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
+  - Compliance
+  - Data Governance
+  - Microsoft
+description: Microsoft Purview APIs sit on the Azure Resource Manager and Microsoft Graph control planes,
+  inheriting their throttling models. ARM control-plane requests are subject to subscription-level read
+  / write limits (12,000 reads, 1,200 writes per hour per subscription per region); Graph compliance
+  endpoints follow Graph throttling. Purview-specific data-plane limits are not separately published
+  per-tier — they degrade based on Data Map capacity-unit allocation. Limits are enforced via 429 with
+  Retry-After.
+sources:
+  - https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/request-limits-and-throttling
+  - https://learn.microsoft.com/en-us/graph/throttling
+notes: Purview-specific per-second numbers are not consistently published. Captures documented Azure
+  Resource Manager and Microsoft Graph baselines; raise via Azure support for higher caps.
 headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
   retryAfter: Retry-After
-  policy: RateLimit-Policy
+  ratelimitRemaining: x-ms-ratelimit-remaining-subscription-reads
+  ratelimitRemainingWrites: x-ms-ratelimit-remaining-subscription-writes
 responseCodes:
   throttled: 429
-  quotaExceeded: 429
   serviceUnavailable: 503
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - Microsoft Purview Catalog API
-      - Microsoft Purview Scanning API
-      - Microsoft Purview Account API
-      - Microsoft Purview Data Map API
-      - Microsoft Purview Metadata Policies API
-      - Microsoft Purview Workflow API
-      - Microsoft Purview Unified Catalog API
-      - Microsoft Purview Data Quality API
-      - Microsoft Purview eDiscovery API
-      - Microsoft Purview Information Protection API
-      - Microsoft Purview Data Security and Governance API
-      - Microsoft Purview Records Management API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - Microsoft Purview Catalog API
-      - Microsoft Purview Scanning API
-      - Microsoft Purview Account API
-      - Microsoft Purview Data Map API
-      - Microsoft Purview Metadata Policies API
-      - Microsoft Purview Workflow API
-      - Microsoft Purview Unified Catalog API
-      - Microsoft Purview Data Quality API
-      - Microsoft Purview eDiscovery API
-      - Microsoft Purview Information Protection API
-      - Microsoft Purview Data Security and Governance API
-      - Microsoft Purview Records Management API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - Microsoft Purview Catalog API
-      - Microsoft Purview Scanning API
-      - Microsoft Purview Account API
-      - Microsoft Purview Data Map API
-      - Microsoft Purview Metadata Policies API
-      - Microsoft Purview Workflow API
-      - Microsoft Purview Unified Catalog API
-      - Microsoft Purview Data Quality API
-      - Microsoft Purview eDiscovery API
-      - Microsoft Purview Information Protection API
-      - Microsoft Purview Data Security and Governance API
-      - Microsoft Purview Records Management API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - Microsoft Purview Catalog API
-      - Microsoft Purview Scanning API
-      - Microsoft Purview Account API
-      - Microsoft Purview Data Map API
-      - Microsoft Purview Metadata Policies API
-      - Microsoft Purview Workflow API
-      - Microsoft Purview Unified Catalog API
-      - Microsoft Purview Data Quality API
-      - Microsoft Purview eDiscovery API
-      - Microsoft Purview Information Protection API
-      - Microsoft Purview Data Security and Governance API
-      - Microsoft Purview Records Management API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - Microsoft Purview Catalog API
-      - Microsoft Purview Scanning API
-      - Microsoft Purview Account API
-      - Microsoft Purview Data Map API
-      - Microsoft Purview Metadata Policies API
-      - Microsoft Purview Workflow API
-      - Microsoft Purview Unified Catalog API
-      - Microsoft Purview Data Quality API
-      - Microsoft Purview eDiscovery API
-      - Microsoft Purview Information Protection API
-      - Microsoft Purview Data Security and Governance API
-      - Microsoft Purview Records Management API
+  - name: Azure Resource Manager reads (subscription / region)
+    scope: account/region
+    metric: requests_per_hour
+    limit: 12000
+    timeFrame: hour
+    notes: Default ARM control-plane read budget per subscription per region.
+  - name: Azure Resource Manager writes (subscription / region)
+    scope: account/region
+    metric: requests_per_hour
+    limit: 1200
+    timeFrame: hour
+    notes: Default ARM control-plane write budget per subscription per region.
+  - name: Microsoft Graph (Purview compliance endpoints)
+    scope: account
+    metric: varies
+    limit: 'See Microsoft Graph throttling guidance — service- and tenant-specific'
+  - name: Purview Data Map / scanning
+    scope: account
+    metric: varies
+    limit: 'Capacity bound by allocated Data Map capacity units; degrades when capacity is exhausted'
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: Honor Retry-After
+    description: All 429 responses include Retry-After. Implement exponential backoff with jitter on
+      top of the header value.
+  - name: Use ARM rate-limit headers
+    description: Inspect x-ms-ratelimit-remaining-subscription-reads / -writes to back off proactively
+      before hitting the cap.
+  - name: Capacity scaling
+    description: Increase allocated Data Map capacity units to raise effective Purview data-plane
+      throughput.
+  - name: Service principal scoping
+    description: Use a dedicated service principal per ETL pipeline to isolate throttling impact and
+      improve diagnosability.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
