@@ -34,7 +34,7 @@ apis:
         url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
       - type: Pricing
         url: https://azure.microsoft.com/en-us/pricing/details/purview/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/purview/data-gov-api-create-assets
   - name: Microsoft Purview Scanning API
     description: APIs for configuring and managing scans of data sources to automatically discover and catalog data assets. Supports registering data sources and scheduling automated scans across your data estate.
@@ -91,7 +91,7 @@ apis:
         url: openapi/microsoft-purview-data-map-openapi.yml
       - type: Authentication
         url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/purview/legacy/how-to-purview-custom-lineage-api-user-guide
   - name: Microsoft Purview Metadata Policies API
     description: APIs for creating and managing data access policies based on metadata attributes. Enables programmatic management of collection-level permissions and role assignments.
@@ -111,7 +111,7 @@ apis:
         url: openapi/microsoft-purview-metadata-policies-openapi.yml
       - type: Authentication
         url: https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/purview/legacy/tutorial-metadata-policy-collections-apis
   - name: Microsoft Purview Workflow API
     description: APIs for managing workflows and approval processes for data governance tasks. Supports defining custom approval workflows for glossary term management and other governance operations.
@@ -185,7 +185,7 @@ apis:
         url: openapi/microsoft-purview-ediscovery-openapi.yml
       - type: Authentication
         url: https://learn.microsoft.com/en-us/graph/security-ediscovery-appauthsetup
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/purview/edisc-ref-api-guide
   - name: Microsoft Purview Information Protection API
     description: APIs for accessing and managing sensitivity labels through Microsoft Graph. Enables applications to apply, update, and delete sensitivity labels, evaluate label actions, and enforce information protection policies programmatically.
@@ -221,7 +221,7 @@ apis:
         url: https://learn.microsoft.com/en-us/graph/security-datasecurityandgovernance-overview
       - type: OpenAPI
         url: openapi/microsoft-purview-data-security-governance-openapi.yml
-      - type: Getting Started
+      - type: GettingStarted
         url: https://learn.microsoft.com/en-us/purview/developer/use-the-api
       - type: Reference
         url: https://learn.microsoft.com/en-us/purview/developer/
@@ -247,7 +247,7 @@ common:
     url: https://purview.microsoft.com
   - type: Documentation
     url: https://learn.microsoft.com/en-us/purview/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://learn.microsoft.com/en-us/purview/use-azure-purview-studio
   - type: Authentication
     url: https://learn.microsoft.com/en-us/purview/data-gov-api-rest-data-plane
@@ -257,19 +257,19 @@ common:
     url: https://learn.microsoft.com/en-us/purview/data-gov-python-sdk
   - type: Best Practices
     url: https://learn.microsoft.com/en-us/purview/concept-best-practices-accounts
-  - type: Change Log
+  - type: ChangeLog
     url: https://learn.microsoft.com/en-us/purview/whats-new
   - type: Blog
     url: https://techcommunity.microsoft.com/t5/microsoft-purview-blog/bg-p/MicrosoftPurviewBlog
   - type: Support
     url: https://learn.microsoft.com/en-us/answers/topics/azure-purview.html
-  - type: Status
+  - type: StatusPage
     url: https://status.azure.com/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://azure.microsoft.com/en-us/support/legal/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://privacy.microsoft.com/en-us/privacystatement
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/purview
   - type: Community
     url: https://techcommunity.microsoft.com/t5/microsoft-purview/ct-p/MicrosoftPurview
@@ -277,9 +277,9 @@ common:
     url: https://www.microsoft.com/en-us/security/business/microsoft-purview
   - type: Login
     url: https://purview.microsoft.com
-  - type: Sign Up
+  - type: SignUp
     url: https://azure.microsoft.com/en-us/products/purview/
-  - type: JSON-LD
+  - type: JSONLD
     url: json-ld/microsoft-purview-context.jsonld
   - type: Integrations
     url: https://www.microsoft.com/en-us/marketplace
