@@ -1,0 +1,264 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Data Quality API — Data Quality Rules
+  description: 'Microsoft Purview Data Quality API — Data Quality Rules. 5 operations. Lead operation: Microsoft Purview List
+    data quality rules. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Data Quality Rules
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-quality-data-quality-rules
+    baseUri: https://{accountName}.purview.azure.com
+    description: Microsoft Purview Data Quality API — Data Quality Rules business capability. Self-contained, no shared references.
+    resources:
+    - name: dataquality-rules
+      path: /dataquality/rules
+      operations:
+      - name: listdataqualityrules
+        method: GET
+        description: Microsoft Purview List data quality rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: maxpagesize
+          in: query
+          type: integer
+        - name: skipToken
+          in: query
+          type: string
+      - name: createdataqualityrule
+        method: POST
+        description: Microsoft Purview Create a data quality rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: dataquality-rules-ruleId
+      path: /dataquality/rules/{ruleId}
+      operations:
+      - name: getdataqualityrule
+        method: GET
+        description: Microsoft Purview Get a data quality rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ruleId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+      - name: updatedataqualityrule
+        method: PATCH
+        description: Microsoft Purview Update a data quality rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ruleId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletedataqualityrule
+        method: DELETE
+        description: Microsoft Purview Delete a data quality rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ruleId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: data-quality-data-quality-rules-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Data Quality API — Data Quality Rules. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/dataquality/rules
+      name: dataquality-rules
+      description: REST surface for dataquality-rules.
+      operations:
+      - method: GET
+        name: listdataqualityrules
+        description: Microsoft Purview List data quality rules
+        call: data-quality-data-quality-rules.listdataqualityrules
+        with:
+          api-version: rest.api-version
+          maxpagesize: rest.maxpagesize
+          skipToken: rest.skipToken
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createdataqualityrule
+        description: Microsoft Purview Create a data quality rule
+        call: data-quality-data-quality-rules.createdataqualityrule
+        with:
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/dataquality/rules/{ruleid}
+      name: dataquality-rules-ruleid
+      description: REST surface for dataquality-rules-ruleId.
+      operations:
+      - method: GET
+        name: getdataqualityrule
+        description: Microsoft Purview Get a data quality rule
+        call: data-quality-data-quality-rules.getdataqualityrule
+        with:
+          ruleId: rest.ruleId
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatedataqualityrule
+        description: Microsoft Purview Update a data quality rule
+        call: data-quality-data-quality-rules.updatedataqualityrule
+        with:
+          ruleId: rest.ruleId
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletedataqualityrule
+        description: Microsoft Purview Delete a data quality rule
+        call: data-quality-data-quality-rules.deletedataqualityrule
+        with:
+          ruleId: rest.ruleId
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-quality-data-quality-rules-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Data Quality API — Data Quality Rules. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-list-data-quality
+      description: Microsoft Purview List data quality rules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-quality-data-quality-rules.listdataqualityrules
+      with:
+        api-version: tools.api-version
+        maxpagesize: tools.maxpagesize
+        skipToken: tools.skipToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-create-data-quality
+      description: Microsoft Purview Create a data quality rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-quality-data-quality-rules.createdataqualityrule
+      with:
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-data-quality
+      description: Microsoft Purview Get a data quality rule
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-quality-data-quality-rules.getdataqualityrule
+      with:
+        ruleId: tools.ruleId
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-update-data-quality
+      description: Microsoft Purview Update a data quality rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: data-quality-data-quality-rules.updatedataqualityrule
+      with:
+        ruleId: tools.ruleId
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-delete-data-quality
+      description: Microsoft Purview Delete a data quality rule
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: data-quality-data-quality-rules.deletedataqualityrule
+      with:
+        ruleId: tools.ruleId
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.

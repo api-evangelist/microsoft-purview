@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Data Quality API — Data Quality Scans
+  description: 'Microsoft Purview Data Quality API — Data Quality Scans. 1 operations. Lead operation: Microsoft Purview Run
+    a data quality scan. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Data Quality Scans
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-quality-data-quality-scans
+    baseUri: https://{accountName}.purview.azure.com
+    description: Microsoft Purview Data Quality API — Data Quality Scans business capability. Self-contained, no shared references.
+    resources:
+    - name: dataquality-scans
+      path: /dataquality/scans
+      operations:
+      - name: rundataqualityscan
+        method: POST
+        description: Microsoft Purview Run a data quality scan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: data-quality-data-quality-scans-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Data Quality API — Data Quality Scans. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/dataquality/scans
+      name: dataquality-scans
+      description: REST surface for dataquality-scans.
+      operations:
+      - method: POST
+        name: rundataqualityscan
+        description: Microsoft Purview Run a data quality scan
+        call: data-quality-data-quality-scans.rundataqualityscan
+        with:
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-quality-data-quality-scans-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Data Quality API — Data Quality Scans. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-run-data-quality
+      description: Microsoft Purview Run a data quality scan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-quality-data-quality-scans.rundataqualityscan
+      with:
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

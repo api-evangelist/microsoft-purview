@@ -1,0 +1,466 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Data Map API — Glossary
+  description: 'Microsoft Purview Data Map API — Glossary. 9 operations. Lead operation: Microsoft Purview List all glossaries.
+    Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Glossary
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-map-glossary
+    baseUri: https://{accountName}.purview.azure.com/datamap
+    description: Microsoft Purview Data Map API — Glossary business capability. Self-contained, no shared references.
+    resources:
+    - name: api-atlas-v2-glossary
+      path: /api/atlas/v2/glossary
+      operations:
+      - name: glossarylist
+        method: GET
+        description: Microsoft Purview List all glossaries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: limit
+          in: query
+          type: integer
+        - name: offset
+          in: query
+          type: integer
+        - name: sort
+          in: query
+          type: string
+        - name: ignoreTermsAndCategories
+          in: query
+          type: boolean
+      - name: glossarycreate
+        method: POST
+        description: Microsoft Purview Create a glossary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-atlas-v2-glossary-term
+      path: /api/atlas/v2/glossary/term
+      operations:
+      - name: glossarycreateterm
+        method: POST
+        description: Microsoft Purview Create a glossary term
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: includeTermHierarchy
+          in: query
+          type: boolean
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-atlas-v2-glossary-term-termId
+      path: /api/atlas/v2/glossary/term/{termId}
+      operations:
+      - name: glossarygetterm
+        method: GET
+        description: Microsoft Purview Get a glossary term
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: termId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+      - name: glossaryupdateterm
+        method: PUT
+        description: Microsoft Purview Update a glossary term
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: termId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: includeTermHierarchy
+          in: query
+          type: boolean
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: glossarydeleteterm
+        method: DELETE
+        description: Microsoft Purview Delete a glossary term
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: termId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    - name: api-atlas-v2-glossary-glossaryId
+      path: /api/atlas/v2/glossary/{glossaryId}
+      operations:
+      - name: glossaryget
+        method: GET
+        description: Microsoft Purview Get a glossary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: glossaryId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+      - name: glossaryupdate
+        method: PUT
+        description: Microsoft Purview Update a glossary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: glossaryId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: glossarydelete
+        method: DELETE
+        description: Microsoft Purview Delete a glossary
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: glossaryId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: data-map-glossary-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Data Map API — Glossary. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/atlas/v2/glossary
+      name: api-atlas-v2-glossary
+      description: REST surface for api-atlas-v2-glossary.
+      operations:
+      - method: GET
+        name: glossarylist
+        description: Microsoft Purview List all glossaries
+        call: data-map-glossary.glossarylist
+        with:
+          api-version: rest.api-version
+          limit: rest.limit
+          offset: rest.offset
+          sort: rest.sort
+          ignoreTermsAndCategories: rest.ignoreTermsAndCategories
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: glossarycreate
+        description: Microsoft Purview Create a glossary
+        call: data-map-glossary.glossarycreate
+        with:
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/atlas/v2/glossary/term
+      name: api-atlas-v2-glossary-term
+      description: REST surface for api-atlas-v2-glossary-term.
+      operations:
+      - method: POST
+        name: glossarycreateterm
+        description: Microsoft Purview Create a glossary term
+        call: data-map-glossary.glossarycreateterm
+        with:
+          api-version: rest.api-version
+          includeTermHierarchy: rest.includeTermHierarchy
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/atlas/v2/glossary/term/{termid}
+      name: api-atlas-v2-glossary-term-termid
+      description: REST surface for api-atlas-v2-glossary-term-termId.
+      operations:
+      - method: GET
+        name: glossarygetterm
+        description: Microsoft Purview Get a glossary term
+        call: data-map-glossary.glossarygetterm
+        with:
+          termId: rest.termId
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: glossaryupdateterm
+        description: Microsoft Purview Update a glossary term
+        call: data-map-glossary.glossaryupdateterm
+        with:
+          termId: rest.termId
+          api-version: rest.api-version
+          includeTermHierarchy: rest.includeTermHierarchy
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: glossarydeleteterm
+        description: Microsoft Purview Delete a glossary term
+        call: data-map-glossary.glossarydeleteterm
+        with:
+          termId: rest.termId
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/atlas/v2/glossary/{glossaryid}
+      name: api-atlas-v2-glossary-glossaryid
+      description: REST surface for api-atlas-v2-glossary-glossaryId.
+      operations:
+      - method: GET
+        name: glossaryget
+        description: Microsoft Purview Get a glossary
+        call: data-map-glossary.glossaryget
+        with:
+          glossaryId: rest.glossaryId
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: glossaryupdate
+        description: Microsoft Purview Update a glossary
+        call: data-map-glossary.glossaryupdate
+        with:
+          glossaryId: rest.glossaryId
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: glossarydelete
+        description: Microsoft Purview Delete a glossary
+        call: data-map-glossary.glossarydelete
+        with:
+          glossaryId: rest.glossaryId
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-map-glossary-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Data Map API — Glossary. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-list-all-glossaries
+      description: Microsoft Purview List all glossaries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-map-glossary.glossarylist
+      with:
+        api-version: tools.api-version
+        limit: tools.limit
+        offset: tools.offset
+        sort: tools.sort
+        ignoreTermsAndCategories: tools.ignoreTermsAndCategories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-create-glossary
+      description: Microsoft Purview Create a glossary
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-map-glossary.glossarycreate
+      with:
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-create-glossary-term
+      description: Microsoft Purview Create a glossary term
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-map-glossary.glossarycreateterm
+      with:
+        api-version: tools.api-version
+        includeTermHierarchy: tools.includeTermHierarchy
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-glossary-term
+      description: Microsoft Purview Get a glossary term
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-map-glossary.glossarygetterm
+      with:
+        termId: tools.termId
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-update-glossary-term
+      description: Microsoft Purview Update a glossary term
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: data-map-glossary.glossaryupdateterm
+      with:
+        termId: tools.termId
+        api-version: tools.api-version
+        includeTermHierarchy: tools.includeTermHierarchy
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-delete-glossary-term
+      description: Microsoft Purview Delete a glossary term
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: data-map-glossary.glossarydeleteterm
+      with:
+        termId: tools.termId
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-glossary
+      description: Microsoft Purview Get a glossary
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-map-glossary.glossaryget
+      with:
+        glossaryId: tools.glossaryId
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-update-glossary
+      description: Microsoft Purview Update a glossary
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: data-map-glossary.glossaryupdate
+      with:
+        glossaryId: tools.glossaryId
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-delete-glossary
+      description: Microsoft Purview Delete a glossary
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: data-map-glossary.glossarydelete
+      with:
+        glossaryId: tools.glossaryId
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.

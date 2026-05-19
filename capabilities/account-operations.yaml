@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Account API — Operations
+  description: 'Microsoft Purview Account API — Operations. 1 operations. Lead operation: Microsoft Purview List available
+    operations. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Operations
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: account-operations
+    baseUri: https://management.azure.com
+    description: Microsoft Purview Account API — Operations business capability. Self-contained, no shared references.
+    resources:
+    - name: providers-Microsoft.Purview-operations
+      path: /providers/Microsoft.Purview/operations
+      operations:
+      - name: listoperations
+        method: GET
+        description: Microsoft Purview List available operations
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: account-operations-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Account API — Operations. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/providers/microsoft-purview/operations
+      name: providers-microsoft-purview-operations
+      description: REST surface for providers-Microsoft.Purview-operations.
+      operations:
+      - method: GET
+        name: listoperations
+        description: Microsoft Purview List available operations
+        call: account-operations.listoperations
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: account-operations-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Account API — Operations. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-list-available-operations
+      description: Microsoft Purview List available operations
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: account-operations.listoperations
+      outputParameters:
+      - type: object
+        mapping: $.

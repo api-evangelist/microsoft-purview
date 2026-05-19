@@ -1,0 +1,133 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Data Quality API — Data Profiling
+  description: 'Microsoft Purview Data Quality API — Data Profiling. 2 operations. Lead operation: Microsoft Purview Run data
+    profiling. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Data Profiling
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-quality-data-profiling
+    baseUri: https://{accountName}.purview.azure.com
+    description: Microsoft Purview Data Quality API — Data Profiling business capability. Self-contained, no shared references.
+    resources:
+    - name: dataquality-profiling-assetId
+      path: /dataquality/profiling/{assetId}
+      operations:
+      - name: rundataprofiling
+        method: POST
+        description: Microsoft Purview Run data profiling
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: assetId
+          in: path
+          type: string
+          description: The data asset identifier
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+      - name: getdataprofilingresult
+        method: GET
+        description: Microsoft Purview Get data profiling result
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: assetId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: data-quality-data-profiling-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Data Quality API — Data Profiling. One Spectral-compliant resource per
+      consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/dataquality/profiling/{assetid}
+      name: dataquality-profiling-assetid
+      description: REST surface for dataquality-profiling-assetId.
+      operations:
+      - method: POST
+        name: rundataprofiling
+        description: Microsoft Purview Run data profiling
+        call: data-quality-data-profiling.rundataprofiling
+        with:
+          assetId: rest.assetId
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getdataprofilingresult
+        description: Microsoft Purview Get data profiling result
+        call: data-quality-data-profiling.getdataprofilingresult
+        with:
+          assetId: rest.assetId
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-quality-data-profiling-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Data Quality API — Data Profiling. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-run-data-profiling
+      description: Microsoft Purview Run data profiling
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-quality-data-profiling.rundataprofiling
+      with:
+        assetId: tools.assetId
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-data-profiling
+      description: Microsoft Purview Get data profiling result
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: data-quality-data-profiling.getdataprofilingresult
+      with:
+        assetId: tools.assetId
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.

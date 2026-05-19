@@ -1,0 +1,123 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Data Security and Governance API — DLP Policies
+  description: 'Microsoft Purview Data Security and Governance API — DLP Policies. 2 operations. Lead operation: Microsoft
+    Purview Process content for DLP. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - DLP Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: data-security-governance-dlp-policies
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Purview Data Security and Governance API — DLP Policies business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: security-dataSecurityAndGovernance-processContent
+      path: /security/dataSecurityAndGovernance/processContent
+      operations:
+      - name: processcontent
+        method: POST
+        description: Microsoft Purview Process content for DLP
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: security-dataSecurityAndGovernance-sensitivityLabels-microsoft.graph.security.ev
+      path: /security/dataSecurityAndGovernance/sensitivityLabels/microsoft.graph.security.evaluateApplication
+      operations:
+      - name: evaluatedlpapplication
+        method: POST
+        description: Microsoft Purview Evaluate DLP application for content
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: data-security-governance-dlp-policies-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Data Security and Governance API — DLP Policies. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/security/datasecurityandgovernance/processcontent
+      name: security-datasecurityandgovernance-processcontent
+      description: REST surface for security-dataSecurityAndGovernance-processContent.
+      operations:
+      - method: POST
+        name: processcontent
+        description: Microsoft Purview Process content for DLP
+        call: data-security-governance-dlp-policies.processcontent
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security/datasecurityandgovernance/sensitivitylabels/microsoft-graph-security-evaluateapplication
+      name: security-datasecurityandgovernance-sensitivitylabels-microsoft-graph-security-ev
+      description: REST surface for security-dataSecurityAndGovernance-sensitivityLabels-microsoft.graph.security.ev.
+      operations:
+      - method: POST
+        name: evaluatedlpapplication
+        description: Microsoft Purview Evaluate DLP application for content
+        call: data-security-governance-dlp-policies.evaluatedlpapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: data-security-governance-dlp-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Data Security and Governance API — DLP Policies. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-process-content-dlp
+      description: Microsoft Purview Process content for DLP
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-security-governance-dlp-policies.processcontent
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-evaluate-dlp-application
+      description: Microsoft Purview Evaluate DLP application for content
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: data-security-governance-dlp-policies.evaluatedlpapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

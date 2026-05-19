@@ -1,0 +1,126 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Unified Catalog API — Critical Data Elements
+  description: 'Microsoft Purview Unified Catalog API — Critical Data Elements. 2 operations. Lead operation: Microsoft Purview
+    List critical data elements. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Critical Data Elements
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: unified-catalog-critical-data-elements
+    baseUri: https://{accountName}.purview.azure.com
+    description: Microsoft Purview Unified Catalog API — Critical Data Elements business capability. Self-contained, no shared
+      references.
+    resources:
+    - name: criticaldataelements
+      path: /criticaldataelements
+      operations:
+      - name: listcriticaldataelements
+        method: GET
+        description: Microsoft Purview List critical data elements
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: maxpagesize
+          in: query
+          type: integer
+      - name: createcriticaldataelement
+        method: POST
+        description: Microsoft Purview Create a critical data element
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: unified-catalog-critical-data-elements-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Unified Catalog API — Critical Data Elements. One Spectral-compliant resource
+      per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/criticaldataelements
+      name: criticaldataelements
+      description: REST surface for criticaldataelements.
+      operations:
+      - method: GET
+        name: listcriticaldataelements
+        description: Microsoft Purview List critical data elements
+        call: unified-catalog-critical-data-elements.listcriticaldataelements
+        with:
+          api-version: rest.api-version
+          maxpagesize: rest.maxpagesize
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createcriticaldataelement
+        description: Microsoft Purview Create a critical data element
+        call: unified-catalog-critical-data-elements.createcriticaldataelement
+        with:
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: unified-catalog-critical-data-elements-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Unified Catalog API — Critical Data Elements. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-list-critical-data
+      description: Microsoft Purview List critical data elements
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: unified-catalog-critical-data-elements.listcriticaldataelements
+      with:
+        api-version: tools.api-version
+        maxpagesize: tools.maxpagesize
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-create-critical-data
+      description: Microsoft Purview Create a critical data element
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: unified-catalog-critical-data-elements.createcriticaldataelement
+      with:
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

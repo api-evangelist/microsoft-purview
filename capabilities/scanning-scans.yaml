@@ -1,0 +1,239 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Scanning API — Scans
+  description: 'Microsoft Purview Scanning API — Scans. 4 operations. Lead operation: Microsoft Purview List scans by data
+    source. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Scans
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scanning-scans
+    baseUri: https://{accountName}.scan.purview.azure.com
+    description: Microsoft Purview Scanning API — Scans business capability. Self-contained, no shared references.
+    resources:
+    - name: scan-datasources-dataSourceName-scans
+      path: /scan/datasources/{dataSourceName}/scans
+      operations:
+      - name: listscansbydatasource
+        method: GET
+        description: Microsoft Purview List scans by data source
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dataSourceName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    - name: scan-datasources-dataSourceName-scans-scanName
+      path: /scan/datasources/{dataSourceName}/scans/{scanName}
+      operations:
+      - name: createorreplacescan
+        method: PUT
+        description: Microsoft Purview Create or replace a scan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dataSourceName
+          in: path
+          type: string
+          description: The name of the data source
+          required: true
+        - name: scanName
+          in: path
+          type: string
+          description: The name of the scan
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getscan
+        method: GET
+        description: Microsoft Purview Get a scan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dataSourceName
+          in: path
+          type: string
+          required: true
+        - name: scanName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+      - name: deletescan
+        method: DELETE
+        description: Microsoft Purview Delete a scan
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dataSourceName
+          in: path
+          type: string
+          required: true
+        - name: scanName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: scanning-scans-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Scanning API — Scans. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/scan/datasources/{datasourcename}/scans
+      name: scan-datasources-datasourcename-scans
+      description: REST surface for scan-datasources-dataSourceName-scans.
+      operations:
+      - method: GET
+        name: listscansbydatasource
+        description: Microsoft Purview List scans by data source
+        call: scanning-scans.listscansbydatasource
+        with:
+          dataSourceName: rest.dataSourceName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/scan/datasources/{datasourcename}/scans/{scanname}
+      name: scan-datasources-datasourcename-scans-scanname
+      description: REST surface for scan-datasources-dataSourceName-scans-scanName.
+      operations:
+      - method: PUT
+        name: createorreplacescan
+        description: Microsoft Purview Create or replace a scan
+        call: scanning-scans.createorreplacescan
+        with:
+          dataSourceName: rest.dataSourceName
+          scanName: rest.scanName
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getscan
+        description: Microsoft Purview Get a scan
+        call: scanning-scans.getscan
+        with:
+          dataSourceName: rest.dataSourceName
+          scanName: rest.scanName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletescan
+        description: Microsoft Purview Delete a scan
+        call: scanning-scans.deletescan
+        with:
+          dataSourceName: rest.dataSourceName
+          scanName: rest.scanName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scanning-scans-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Scanning API — Scans. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-purview-list-scans-data
+      description: Microsoft Purview List scans by data source
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scanning-scans.listscansbydatasource
+      with:
+        dataSourceName: tools.dataSourceName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-create-replace-scan
+      description: Microsoft Purview Create or replace a scan
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: scanning-scans.createorreplacescan
+      with:
+        dataSourceName: tools.dataSourceName
+        scanName: tools.scanName
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-scan
+      description: Microsoft Purview Get a scan
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scanning-scans.getscan
+      with:
+        dataSourceName: tools.dataSourceName
+        scanName: tools.scanName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-delete-scan
+      description: Microsoft Purview Delete a scan
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: scanning-scans.deletescan
+      with:
+        dataSourceName: tools.dataSourceName
+        scanName: tools.scanName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.

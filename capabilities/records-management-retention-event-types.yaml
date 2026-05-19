@@ -1,0 +1,235 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Records Management API — Retention Event Types
+  description: 'Microsoft Purview Records Management API — Retention Event Types. 5 operations. Lead operation: Microsoft
+    Purview List retention event types. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Retention Event Types
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: records-management-retention-event-types
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Purview Records Management API — Retention Event Types business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: security-triggerTypes-retentionEventTypes
+      path: /security/triggerTypes/retentionEventTypes
+      operations:
+      - name: listretentioneventtypes
+        method: GET
+        description: Microsoft Purview List retention event types
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: $top
+          in: query
+          type: integer
+        - name: $filter
+          in: query
+          type: string
+      - name: createretentioneventtype
+        method: POST
+        description: Microsoft Purview Create a retention event type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: security-triggerTypes-retentionEventTypes-retentionEventTypeId
+      path: /security/triggerTypes/retentionEventTypes/{retentionEventTypeId}
+      operations:
+      - name: getretentioneventtype
+        method: GET
+        description: Microsoft Purview Get a retention event type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: retentionEventTypeId
+          in: path
+          type: string
+          required: true
+      - name: updateretentioneventtype
+        method: PATCH
+        description: Microsoft Purview Update a retention event type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: retentionEventTypeId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteretentioneventtype
+        method: DELETE
+        description: Microsoft Purview Delete a retention event type
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: retentionEventTypeId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: records-management-retention-event-types-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Records Management API — Retention Event Types. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/security/triggertypes/retentioneventtypes
+      name: security-triggertypes-retentioneventtypes
+      description: REST surface for security-triggerTypes-retentionEventTypes.
+      operations:
+      - method: GET
+        name: listretentioneventtypes
+        description: Microsoft Purview List retention event types
+        call: records-management-retention-event-types.listretentioneventtypes
+        with:
+          $top: rest.$top
+          $filter: rest.$filter
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createretentioneventtype
+        description: Microsoft Purview Create a retention event type
+        call: records-management-retention-event-types.createretentioneventtype
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security/triggertypes/retentioneventtypes/{retentioneventtypeid}
+      name: security-triggertypes-retentioneventtypes-retentioneventtypeid
+      description: REST surface for security-triggerTypes-retentionEventTypes-retentionEventTypeId.
+      operations:
+      - method: GET
+        name: getretentioneventtype
+        description: Microsoft Purview Get a retention event type
+        call: records-management-retention-event-types.getretentioneventtype
+        with:
+          retentionEventTypeId: rest.retentionEventTypeId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateretentioneventtype
+        description: Microsoft Purview Update a retention event type
+        call: records-management-retention-event-types.updateretentioneventtype
+        with:
+          retentionEventTypeId: rest.retentionEventTypeId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteretentioneventtype
+        description: Microsoft Purview Delete a retention event type
+        call: records-management-retention-event-types.deleteretentioneventtype
+        with:
+          retentionEventTypeId: rest.retentionEventTypeId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: records-management-retention-event-types-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Records Management API — Retention Event Types. One tool per consumed operation,
+      routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-list-retention-event
+      description: Microsoft Purview List retention event types
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: records-management-retention-event-types.listretentioneventtypes
+      with:
+        $top: tools.$top
+        $filter: tools.$filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-create-retention-event
+      description: Microsoft Purview Create a retention event type
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: records-management-retention-event-types.createretentioneventtype
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-retention-event
+      description: Microsoft Purview Get a retention event type
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: records-management-retention-event-types.getretentioneventtype
+      with:
+        retentionEventTypeId: tools.retentionEventTypeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-update-retention-event
+      description: Microsoft Purview Update a retention event type
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: records-management-retention-event-types.updateretentioneventtype
+      with:
+        retentionEventTypeId: tools.retentionEventTypeId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-delete-retention-event
+      description: Microsoft Purview Delete a retention event type
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: records-management-retention-event-types.deleteretentioneventtype
+      with:
+        retentionEventTypeId: tools.retentionEventTypeId
+      outputParameters:
+      - type: object
+        mapping: $.

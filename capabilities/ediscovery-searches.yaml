@@ -1,0 +1,120 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview eDiscovery API — Searches
+  description: 'Microsoft Purview eDiscovery API — Searches. 2 operations. Lead operation: Microsoft Purview List searches
+    in a case. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Searches
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ediscovery-searches
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Purview eDiscovery API — Searches business capability. Self-contained, no shared references.
+    resources:
+    - name: security-cases-ediscoveryCases-ediscoveryCaseId-searches
+      path: /security/cases/ediscoveryCases/{ediscoveryCaseId}/searches
+      operations:
+      - name: listediscoverysearches
+        method: GET
+        description: Microsoft Purview List searches in a case
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ediscoveryCaseId
+          in: path
+          type: string
+          required: true
+      - name: createediscoverysearch
+        method: POST
+        description: Microsoft Purview Create a search in a case
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ediscoveryCaseId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: ediscovery-searches-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview eDiscovery API — Searches. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/security/cases/ediscoverycases/{ediscoverycaseid}/searches
+      name: security-cases-ediscoverycases-ediscoverycaseid-searches
+      description: REST surface for security-cases-ediscoveryCases-ediscoveryCaseId-searches.
+      operations:
+      - method: GET
+        name: listediscoverysearches
+        description: Microsoft Purview List searches in a case
+        call: ediscovery-searches.listediscoverysearches
+        with:
+          ediscoveryCaseId: rest.ediscoveryCaseId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createediscoverysearch
+        description: Microsoft Purview Create a search in a case
+        call: ediscovery-searches.createediscoverysearch
+        with:
+          ediscoveryCaseId: rest.ediscoveryCaseId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ediscovery-searches-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview eDiscovery API — Searches. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-list-searches-case
+      description: Microsoft Purview List searches in a case
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ediscovery-searches.listediscoverysearches
+      with:
+        ediscoveryCaseId: tools.ediscoveryCaseId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-create-search-case
+      description: Microsoft Purview Create a search in a case
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: ediscovery-searches.createediscoverysearch
+      with:
+        ediscoveryCaseId: tools.ediscoveryCaseId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

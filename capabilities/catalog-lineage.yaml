@@ -1,0 +1,149 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Catalog API — Lineage
+  description: 'Microsoft Purview Catalog API — Lineage. 2 operations. Lead operation: Microsoft Purview Get lineage by GUID.
+    Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Lineage
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: catalog-lineage
+    baseUri: https://{accountName}.purview.azure.com/catalog
+    description: Microsoft Purview Catalog API — Lineage business capability. Self-contained, no shared references.
+    resources:
+    - name: api-atlas-v2-lineage-guid
+      path: /api/atlas/v2/lineage/{guid}
+      operations:
+      - name: getlineagebyguid
+        method: GET
+        description: Microsoft Purview Get lineage by GUID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: guid
+          in: path
+          type: string
+          required: true
+        - name: direction
+          in: query
+          type: string
+          description: The direction of lineage (INPUT, OUTPUT, BOTH)
+          required: true
+        - name: depth
+          in: query
+          type: integer
+          description: The number of hops for lineage
+    - name: api-atlas-v2-lineage-guid-next
+      path: /api/atlas/v2/lineage/{guid}/next
+      operations:
+      - name: getlineagenextpage
+        method: GET
+        description: Microsoft Purview Get next page of lineage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: guid
+          in: path
+          type: string
+          required: true
+        - name: direction
+          in: query
+          type: string
+          required: true
+        - name: offset
+          in: query
+          type: integer
+        - name: limit
+          in: query
+          type: integer
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: catalog-lineage-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Catalog API — Lineage. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/api/atlas/v2/lineage/{guid}
+      name: api-atlas-v2-lineage-guid
+      description: REST surface for api-atlas-v2-lineage-guid.
+      operations:
+      - method: GET
+        name: getlineagebyguid
+        description: Microsoft Purview Get lineage by GUID
+        call: catalog-lineage.getlineagebyguid
+        with:
+          guid: rest.guid
+          direction: rest.direction
+          depth: rest.depth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/atlas/v2/lineage/{guid}/next
+      name: api-atlas-v2-lineage-guid-next
+      description: REST surface for api-atlas-v2-lineage-guid-next.
+      operations:
+      - method: GET
+        name: getlineagenextpage
+        description: Microsoft Purview Get next page of lineage
+        call: catalog-lineage.getlineagenextpage
+        with:
+          guid: rest.guid
+          direction: rest.direction
+          offset: rest.offset
+          limit: rest.limit
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: catalog-lineage-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Catalog API — Lineage. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: microsoft-purview-get-lineage-guid
+      description: Microsoft Purview Get lineage by GUID
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: catalog-lineage.getlineagebyguid
+      with:
+        guid: tools.guid
+        direction: tools.direction
+        depth: tools.depth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-next-page
+      description: Microsoft Purview Get next page of lineage
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: catalog-lineage.getlineagenextpage
+      with:
+        guid: tools.guid
+        direction: tools.direction
+        offset: tools.offset
+        limit: tools.limit
+      outputParameters:
+      - type: object
+        mapping: $.

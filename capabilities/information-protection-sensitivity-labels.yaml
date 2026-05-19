@@ -1,0 +1,422 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Information Protection API — Sensitivity Labels
+  description: 'Microsoft Purview Information Protection API — Sensitivity Labels. 8 operations. Lead operation: Microsoft
+    Purview Assign sensitivity label to drive item. Self-contained Naftiko capability covering one Microsoft Purview business
+    surface.'
+  tags:
+  - Microsoft Purview
+  - Sensitivity Labels
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: information-protection-sensitivity-labels
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Purview Information Protection API — Sensitivity Labels business capability. Self-contained, no
+      shared references.
+    resources:
+    - name: drives-driveId-items-driveItemId-assignSensitivityLabel
+      path: /drives/{driveId}/items/{driveItemId}/assignSensitivityLabel
+      operations:
+      - name: assignsensitivitylabeltodriveitem
+        method: POST
+        description: Microsoft Purview Assign sensitivity label to drive item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: driveId
+          in: path
+          type: string
+          required: true
+        - name: driveItemId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: me-security-informationProtection-sensitivityLabels
+      path: /me/security/informationProtection/sensitivityLabels
+      operations:
+      - name: listmysensitivitylabels
+        method: GET
+        description: Microsoft Purview List my sensitivity labels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: $top
+          in: query
+          type: integer
+        - name: $filter
+          in: query
+          type: string
+    - name: security-informationProtection-sensitivityLabels
+      path: /security/informationProtection/sensitivityLabels
+      operations:
+      - name: listsensitivitylabels
+        method: GET
+        description: Microsoft Purview List sensitivity labels
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: $top
+          in: query
+          type: integer
+        - name: $skip
+          in: query
+          type: integer
+        - name: $filter
+          in: query
+          type: string
+        - name: $select
+          in: query
+          type: string
+        - name: $orderby
+          in: query
+          type: string
+        - name: $count
+          in: query
+          type: boolean
+    - name: security-informationProtection-sensitivityLabels-microsoft.graph.security.evalua
+      path: /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateApplication
+      operations:
+      - name: evaluateapplication
+        method: POST
+        description: Microsoft Purview Evaluate sensitivity label application
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: security-informationProtection-sensitivityLabels-microsoft.graph.security.evalua
+      path: /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateClassificationResults
+      operations:
+      - name: evaluateclassificationresults
+        method: POST
+        description: Microsoft Purview Evaluate classification results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: security-informationProtection-sensitivityLabels-microsoft.graph.security.evalua
+      path: /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateRemoval
+      operations:
+      - name: evaluateremoval
+        method: POST
+        description: Microsoft Purview Evaluate sensitivity label removal
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: security-informationProtection-sensitivityLabels-sensitivityLabelId
+      path: /security/informationProtection/sensitivityLabels/{sensitivityLabelId}
+      operations:
+      - name: getsensitivitylabel
+        method: GET
+        description: Microsoft Purview Get a sensitivity label
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sensitivityLabelId
+          in: path
+          type: string
+          required: true
+    - name: users-userId-security-informationProtection-sensitivityLabels
+      path: /users/{userId}/security/informationProtection/sensitivityLabels
+      operations:
+      - name: listusersensitivitylabels
+        method: GET
+        description: Microsoft Purview List sensitivity labels for user
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userId
+          in: path
+          type: string
+          required: true
+        - name: $top
+          in: query
+          type: integer
+        - name: $filter
+          in: query
+          type: string
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: information-protection-sensitivity-labels-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Information Protection API — Sensitivity Labels. One Spectral-compliant
+      resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/drives/{driveid}/items/{driveitemid}/assignsensitivitylabel
+      name: drives-driveid-items-driveitemid-assignsensitivitylabel
+      description: REST surface for drives-driveId-items-driveItemId-assignSensitivityLabel.
+      operations:
+      - method: POST
+        name: assignsensitivitylabeltodriveitem
+        description: Microsoft Purview Assign sensitivity label to drive item
+        call: information-protection-sensitivity-labels.assignsensitivitylabeltodriveitem
+        with:
+          driveId: rest.driveId
+          driveItemId: rest.driveItemId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/me/security/informationprotection/sensitivitylabels
+      name: me-security-informationprotection-sensitivitylabels
+      description: REST surface for me-security-informationProtection-sensitivityLabels.
+      operations:
+      - method: GET
+        name: listmysensitivitylabels
+        description: Microsoft Purview List my sensitivity labels
+        call: information-protection-sensitivity-labels.listmysensitivitylabels
+        with:
+          $top: rest.$top
+          $filter: rest.$filter
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security/informationprotection/sensitivitylabels
+      name: security-informationprotection-sensitivitylabels
+      description: REST surface for security-informationProtection-sensitivityLabels.
+      operations:
+      - method: GET
+        name: listsensitivitylabels
+        description: Microsoft Purview List sensitivity labels
+        call: information-protection-sensitivity-labels.listsensitivitylabels
+        with:
+          $top: rest.$top
+          $skip: rest.$skip
+          $filter: rest.$filter
+          $select: rest.$select
+          $orderby: rest.$orderby
+          $count: rest.$count
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security/informationprotection/sensitivitylabels/microsoft-graph-security-evaluateapplication
+      name: security-informationprotection-sensitivitylabels-microsoft-graph-security-evalua
+      description: REST surface for security-informationProtection-sensitivityLabels-microsoft.graph.security.evalua.
+      operations:
+      - method: POST
+        name: evaluateapplication
+        description: Microsoft Purview Evaluate sensitivity label application
+        call: information-protection-sensitivity-labels.evaluateapplication
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security/informationprotection/sensitivitylabels/microsoft-graph-security-evaluateclassificationresults
+      name: security-informationprotection-sensitivitylabels-microsoft-graph-security-evalua
+      description: REST surface for security-informationProtection-sensitivityLabels-microsoft.graph.security.evalua.
+      operations:
+      - method: POST
+        name: evaluateclassificationresults
+        description: Microsoft Purview Evaluate classification results
+        call: information-protection-sensitivity-labels.evaluateclassificationresults
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security/informationprotection/sensitivitylabels/microsoft-graph-security-evaluateremoval
+      name: security-informationprotection-sensitivitylabels-microsoft-graph-security-evalua
+      description: REST surface for security-informationProtection-sensitivityLabels-microsoft.graph.security.evalua.
+      operations:
+      - method: POST
+        name: evaluateremoval
+        description: Microsoft Purview Evaluate sensitivity label removal
+        call: information-protection-sensitivity-labels.evaluateremoval
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security/informationprotection/sensitivitylabels/{sensitivitylabelid}
+      name: security-informationprotection-sensitivitylabels-sensitivitylabelid
+      description: REST surface for security-informationProtection-sensitivityLabels-sensitivityLabelId.
+      operations:
+      - method: GET
+        name: getsensitivitylabel
+        description: Microsoft Purview Get a sensitivity label
+        call: information-protection-sensitivity-labels.getsensitivitylabel
+        with:
+          sensitivityLabelId: rest.sensitivityLabelId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/users/{userid}/security/informationprotection/sensitivitylabels
+      name: users-userid-security-informationprotection-sensitivitylabels
+      description: REST surface for users-userId-security-informationProtection-sensitivityLabels.
+      operations:
+      - method: GET
+        name: listusersensitivitylabels
+        description: Microsoft Purview List sensitivity labels for user
+        call: information-protection-sensitivity-labels.listusersensitivitylabels
+        with:
+          userId: rest.userId
+          $top: rest.$top
+          $filter: rest.$filter
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: information-protection-sensitivity-labels-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Information Protection API — Sensitivity Labels. One tool per consumed
+      operation, routed inline through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-assign-sensitivity-label
+      description: Microsoft Purview Assign sensitivity label to drive item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: information-protection-sensitivity-labels.assignsensitivitylabeltodriveitem
+      with:
+        driveId: tools.driveId
+        driveItemId: tools.driveItemId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-list-my-sensitivity
+      description: Microsoft Purview List my sensitivity labels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: information-protection-sensitivity-labels.listmysensitivitylabels
+      with:
+        $top: tools.$top
+        $filter: tools.$filter
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-list-sensitivity-labels
+      description: Microsoft Purview List sensitivity labels
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: information-protection-sensitivity-labels.listsensitivitylabels
+      with:
+        $top: tools.$top
+        $skip: tools.$skip
+        $filter: tools.$filter
+        $select: tools.$select
+        $orderby: tools.$orderby
+        $count: tools.$count
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-evaluate-sensitivity-label
+      description: Microsoft Purview Evaluate sensitivity label application
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: information-protection-sensitivity-labels.evaluateapplication
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-evaluate-classification-results
+      description: Microsoft Purview Evaluate classification results
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: information-protection-sensitivity-labels.evaluateclassificationresults
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-evaluate-sensitivity-label-2
+      description: Microsoft Purview Evaluate sensitivity label removal
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: information-protection-sensitivity-labels.evaluateremoval
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-sensitivity-label
+      description: Microsoft Purview Get a sensitivity label
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: information-protection-sensitivity-labels.getsensitivitylabel
+      with:
+        sensitivityLabelId: tools.sensitivityLabelId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-list-sensitivity-labels-2
+      description: Microsoft Purview List sensitivity labels for user
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: information-protection-sensitivity-labels.listusersensitivitylabels
+      with:
+        userId: tools.userId
+        $top: tools.$top
+        $filter: tools.$filter
+      outputParameters:
+      - type: object
+        mapping: $.

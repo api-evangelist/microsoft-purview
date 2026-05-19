@@ -1,0 +1,146 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Workflow API — Approval
+  description: 'Microsoft Purview Workflow API — Approval. 2 operations. Lead operation: Microsoft Purview Approve a workflow
+    approval task. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Approval
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workflow-approval
+    baseUri: https://{accountName}.purview.azure.com/workflow
+    description: Microsoft Purview Workflow API — Approval business capability. Self-contained, no shared references.
+    resources:
+    - name: approvals-taskId-approve
+      path: /approvals/{taskId}/approve
+      operations:
+      - name: approveapproval
+        method: POST
+        description: Microsoft Purview Approve a workflow approval task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: taskId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: approvals-taskId-reject
+      path: /approvals/{taskId}/reject
+      operations:
+      - name: rejectapproval
+        method: POST
+        description: Microsoft Purview Reject a workflow approval task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: taskId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: workflow-approval-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Workflow API — Approval. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/approvals/{taskid}/approve
+      name: approvals-taskid-approve
+      description: REST surface for approvals-taskId-approve.
+      operations:
+      - method: POST
+        name: approveapproval
+        description: Microsoft Purview Approve a workflow approval task
+        call: workflow-approval.approveapproval
+        with:
+          taskId: rest.taskId
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/approvals/{taskid}/reject
+      name: approvals-taskid-reject
+      description: REST surface for approvals-taskId-reject.
+      operations:
+      - method: POST
+        name: rejectapproval
+        description: Microsoft Purview Reject a workflow approval task
+        call: workflow-approval.rejectapproval
+        with:
+          taskId: rest.taskId
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workflow-approval-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Workflow API — Approval. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-approve-workflow-approval
+      description: Microsoft Purview Approve a workflow approval task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workflow-approval.approveapproval
+      with:
+        taskId: tools.taskId
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-reject-workflow-approval
+      description: Microsoft Purview Reject a workflow approval task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workflow-approval.rejectapproval
+      with:
+        taskId: tools.taskId
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

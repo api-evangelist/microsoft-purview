@@ -1,0 +1,249 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview eDiscovery API — Cases
+  description: 'Microsoft Purview eDiscovery API — Cases. 5 operations. Lead operation: Microsoft Purview List eDiscovery
+    cases. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Cases
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: ediscovery-cases
+    baseUri: https://graph.microsoft.com/v1.0
+    description: Microsoft Purview eDiscovery API — Cases business capability. Self-contained, no shared references.
+    resources:
+    - name: security-cases-ediscoveryCases
+      path: /security/cases/ediscoveryCases
+      operations:
+      - name: listediscoverycases
+        method: GET
+        description: Microsoft Purview List eDiscovery cases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: $top
+          in: query
+          type: integer
+        - name: $skip
+          in: query
+          type: integer
+        - name: $filter
+          in: query
+          type: string
+        - name: $orderby
+          in: query
+          type: string
+        - name: $select
+          in: query
+          type: string
+      - name: createediscoverycase
+        method: POST
+        description: Microsoft Purview Create an eDiscovery case
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: security-cases-ediscoveryCases-ediscoveryCaseId
+      path: /security/cases/ediscoveryCases/{ediscoveryCaseId}
+      operations:
+      - name: getediscoverycase
+        method: GET
+        description: Microsoft Purview Get an eDiscovery case
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ediscoveryCaseId
+          in: path
+          type: string
+          required: true
+      - name: updateediscoverycase
+        method: PATCH
+        description: Microsoft Purview Update an eDiscovery case
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ediscoveryCaseId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteediscoverycase
+        method: DELETE
+        description: Microsoft Purview Delete an eDiscovery case
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ediscoveryCaseId
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: ediscovery-cases-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview eDiscovery API — Cases. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/security/cases/ediscoverycases
+      name: security-cases-ediscoverycases
+      description: REST surface for security-cases-ediscoveryCases.
+      operations:
+      - method: GET
+        name: listediscoverycases
+        description: Microsoft Purview List eDiscovery cases
+        call: ediscovery-cases.listediscoverycases
+        with:
+          $top: rest.$top
+          $skip: rest.$skip
+          $filter: rest.$filter
+          $orderby: rest.$orderby
+          $select: rest.$select
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createediscoverycase
+        description: Microsoft Purview Create an eDiscovery case
+        call: ediscovery-cases.createediscoverycase
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/security/cases/ediscoverycases/{ediscoverycaseid}
+      name: security-cases-ediscoverycases-ediscoverycaseid
+      description: REST surface for security-cases-ediscoveryCases-ediscoveryCaseId.
+      operations:
+      - method: GET
+        name: getediscoverycase
+        description: Microsoft Purview Get an eDiscovery case
+        call: ediscovery-cases.getediscoverycase
+        with:
+          ediscoveryCaseId: rest.ediscoveryCaseId
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateediscoverycase
+        description: Microsoft Purview Update an eDiscovery case
+        call: ediscovery-cases.updateediscoverycase
+        with:
+          ediscoveryCaseId: rest.ediscoveryCaseId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteediscoverycase
+        description: Microsoft Purview Delete an eDiscovery case
+        call: ediscovery-cases.deleteediscoverycase
+        with:
+          ediscoveryCaseId: rest.ediscoveryCaseId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: ediscovery-cases-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview eDiscovery API — Cases. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-list-ediscovery-cases
+      description: Microsoft Purview List eDiscovery cases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ediscovery-cases.listediscoverycases
+      with:
+        $top: tools.$top
+        $skip: tools.$skip
+        $filter: tools.$filter
+        $orderby: tools.$orderby
+        $select: tools.$select
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-create-ediscovery-case
+      description: Microsoft Purview Create an eDiscovery case
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: ediscovery-cases.createediscoverycase
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-ediscovery-case
+      description: Microsoft Purview Get an eDiscovery case
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: ediscovery-cases.getediscoverycase
+      with:
+        ediscoveryCaseId: tools.ediscoveryCaseId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-update-ediscovery-case
+      description: Microsoft Purview Update an eDiscovery case
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: ediscovery-cases.updateediscoverycase
+      with:
+        ediscoveryCaseId: tools.ediscoveryCaseId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-delete-ediscovery-case
+      description: Microsoft Purview Delete an eDiscovery case
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: ediscovery-cases.deleteediscoverycase
+      with:
+        ediscoveryCaseId: tools.ediscoveryCaseId
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,296 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Scanning API — Triggers
+  description: 'Microsoft Purview Scanning API — Triggers. 5 operations. Lead operation: Microsoft Purview Create or replace
+    a scan trigger. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Triggers
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scanning-triggers
+    baseUri: https://{accountName}.scan.purview.azure.com
+    description: Microsoft Purview Scanning API — Triggers business capability. Self-contained, no shared references.
+    resources:
+    - name: scan-datasources-dataSourceName-scans-scanName-triggers-default
+      path: /scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default
+      operations:
+      - name: createorreplacetrigger
+        method: PUT
+        description: Microsoft Purview Create or replace a scan trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dataSourceName
+          in: path
+          type: string
+          required: true
+        - name: scanName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: gettrigger
+        method: GET
+        description: Microsoft Purview Get a scan trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dataSourceName
+          in: path
+          type: string
+          required: true
+        - name: scanName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+      - name: deletetrigger
+        method: DELETE
+        description: Microsoft Purview Delete a scan trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dataSourceName
+          in: path
+          type: string
+          required: true
+        - name: scanName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    - name: scan-datasources-dataSourceName-scans-scanName-triggers-default-:disable
+      path: /scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default/:disable
+      operations:
+      - name: disabletrigger
+        method: POST
+        description: Microsoft Purview Disable a scan trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dataSourceName
+          in: path
+          type: string
+          required: true
+        - name: scanName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    - name: scan-datasources-dataSourceName-scans-scanName-triggers-default-:enable
+      path: /scan/datasources/{dataSourceName}/scans/{scanName}/triggers/default/:enable
+      operations:
+      - name: enabletrigger
+        method: POST
+        description: Microsoft Purview Enable a scan trigger
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dataSourceName
+          in: path
+          type: string
+          required: true
+        - name: scanName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: scanning-triggers-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Scanning API — Triggers. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/scan/datasources/{datasourcename}/scans/{scanname}/triggers/default
+      name: scan-datasources-datasourcename-scans-scanname-triggers-default
+      description: REST surface for scan-datasources-dataSourceName-scans-scanName-triggers-default.
+      operations:
+      - method: PUT
+        name: createorreplacetrigger
+        description: Microsoft Purview Create or replace a scan trigger
+        call: scanning-triggers.createorreplacetrigger
+        with:
+          dataSourceName: rest.dataSourceName
+          scanName: rest.scanName
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: gettrigger
+        description: Microsoft Purview Get a scan trigger
+        call: scanning-triggers.gettrigger
+        with:
+          dataSourceName: rest.dataSourceName
+          scanName: rest.scanName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletetrigger
+        description: Microsoft Purview Delete a scan trigger
+        call: scanning-triggers.deletetrigger
+        with:
+          dataSourceName: rest.dataSourceName
+          scanName: rest.scanName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/scan/datasources/{datasourcename}/scans/{scanname}/triggers/default/disable
+      name: scan-datasources-datasourcename-scans-scanname-triggers-default-disable
+      description: REST surface for scan-datasources-dataSourceName-scans-scanName-triggers-default-:disable.
+      operations:
+      - method: POST
+        name: disabletrigger
+        description: Microsoft Purview Disable a scan trigger
+        call: scanning-triggers.disabletrigger
+        with:
+          dataSourceName: rest.dataSourceName
+          scanName: rest.scanName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/scan/datasources/{datasourcename}/scans/{scanname}/triggers/default/enable
+      name: scan-datasources-datasourcename-scans-scanname-triggers-default-enable
+      description: REST surface for scan-datasources-dataSourceName-scans-scanName-triggers-default-:enable.
+      operations:
+      - method: POST
+        name: enabletrigger
+        description: Microsoft Purview Enable a scan trigger
+        call: scanning-triggers.enabletrigger
+        with:
+          dataSourceName: rest.dataSourceName
+          scanName: rest.scanName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scanning-triggers-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Scanning API — Triggers. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-create-replace-scan
+      description: Microsoft Purview Create or replace a scan trigger
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: scanning-triggers.createorreplacetrigger
+      with:
+        dataSourceName: tools.dataSourceName
+        scanName: tools.scanName
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-scan-trigger
+      description: Microsoft Purview Get a scan trigger
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scanning-triggers.gettrigger
+      with:
+        dataSourceName: tools.dataSourceName
+        scanName: tools.scanName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-delete-scan-trigger
+      description: Microsoft Purview Delete a scan trigger
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: scanning-triggers.deletetrigger
+      with:
+        dataSourceName: tools.dataSourceName
+        scanName: tools.scanName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-disable-scan-trigger
+      description: Microsoft Purview Disable a scan trigger
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: scanning-triggers.disabletrigger
+      with:
+        dataSourceName: tools.dataSourceName
+        scanName: tools.scanName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-enable-scan-trigger
+      description: Microsoft Purview Enable a scan trigger
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: scanning-triggers.enabletrigger
+      with:
+        dataSourceName: tools.dataSourceName
+        scanName: tools.scanName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.

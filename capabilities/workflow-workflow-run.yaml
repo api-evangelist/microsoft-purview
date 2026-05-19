@@ -1,0 +1,139 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Workflow API — Workflow Run
+  description: 'Microsoft Purview Workflow API — Workflow Run. 2 operations. Lead operation: Microsoft Purview Get a workflow
+    run. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Workflow Run
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workflow-workflow-run
+    baseUri: https://{accountName}.purview.azure.com/workflow
+    description: Microsoft Purview Workflow API — Workflow Run business capability. Self-contained, no shared references.
+    resources:
+    - name: workflowruns-workflowRunId
+      path: /workflowruns/{workflowRunId}
+      operations:
+      - name: getworkflowrun
+        method: GET
+        description: Microsoft Purview Get a workflow run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workflowRunId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    - name: workflowruns-workflowRunId-cancel
+      path: /workflowruns/{workflowRunId}/cancel
+      operations:
+      - name: cancelworkflowrun
+        method: POST
+        description: Microsoft Purview Cancel a workflow run
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: workflowRunId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: workflow-workflow-run-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Workflow API — Workflow Run. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/workflowruns/{workflowrunid}
+      name: workflowruns-workflowrunid
+      description: REST surface for workflowruns-workflowRunId.
+      operations:
+      - method: GET
+        name: getworkflowrun
+        description: Microsoft Purview Get a workflow run
+        call: workflow-workflow-run.getworkflowrun
+        with:
+          workflowRunId: rest.workflowRunId
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workflowruns/{workflowrunid}/cancel
+      name: workflowruns-workflowrunid-cancel
+      description: REST surface for workflowruns-workflowRunId-cancel.
+      operations:
+      - method: POST
+        name: cancelworkflowrun
+        description: Microsoft Purview Cancel a workflow run
+        call: workflow-workflow-run.cancelworkflowrun
+        with:
+          workflowRunId: rest.workflowRunId
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workflow-workflow-run-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Workflow API — Workflow Run. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-get-workflow-run
+      description: Microsoft Purview Get a workflow run
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workflow-workflow-run.getworkflowrun
+      with:
+        workflowRunId: tools.workflowRunId
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-cancel-workflow-run
+      description: Microsoft Purview Cancel a workflow run
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workflow-workflow-run.cancelworkflowrun
+      with:
+        workflowRunId: tools.workflowRunId
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

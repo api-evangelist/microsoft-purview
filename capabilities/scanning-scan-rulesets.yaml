@@ -1,0 +1,213 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Scanning API — Scan Rulesets
+  description: 'Microsoft Purview Scanning API — Scan Rulesets. 4 operations. Lead operation: Microsoft Purview List scan
+    rulesets. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Scan Rulesets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: scanning-scan-rulesets
+    baseUri: https://{accountName}.scan.purview.azure.com
+    description: Microsoft Purview Scanning API — Scan Rulesets business capability. Self-contained, no shared references.
+    resources:
+    - name: scan-scanrulesets
+      path: /scan/scanrulesets
+      operations:
+      - name: listscanrulesets
+        method: GET
+        description: Microsoft Purview List scan rulesets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    - name: scan-scanrulesets-scanRulesetName
+      path: /scan/scanrulesets/{scanRulesetName}
+      operations:
+      - name: createorreplacescanruleset
+        method: PUT
+        description: Microsoft Purview Create or replace a scan ruleset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: scanRulesetName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getscanruleset
+        method: GET
+        description: Microsoft Purview Get a scan ruleset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: scanRulesetName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+      - name: deletescanruleset
+        method: DELETE
+        description: Microsoft Purview Delete a scan ruleset
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: scanRulesetName
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: scanning-scan-rulesets-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Scanning API — Scan Rulesets. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/scan/scanrulesets
+      name: scan-scanrulesets
+      description: REST surface for scan-scanrulesets.
+      operations:
+      - method: GET
+        name: listscanrulesets
+        description: Microsoft Purview List scan rulesets
+        call: scanning-scan-rulesets.listscanrulesets
+        with:
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/scan/scanrulesets/{scanrulesetname}
+      name: scan-scanrulesets-scanrulesetname
+      description: REST surface for scan-scanrulesets-scanRulesetName.
+      operations:
+      - method: PUT
+        name: createorreplacescanruleset
+        description: Microsoft Purview Create or replace a scan ruleset
+        call: scanning-scan-rulesets.createorreplacescanruleset
+        with:
+          scanRulesetName: rest.scanRulesetName
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getscanruleset
+        description: Microsoft Purview Get a scan ruleset
+        call: scanning-scan-rulesets.getscanruleset
+        with:
+          scanRulesetName: rest.scanRulesetName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletescanruleset
+        description: Microsoft Purview Delete a scan ruleset
+        call: scanning-scan-rulesets.deletescanruleset
+        with:
+          scanRulesetName: rest.scanRulesetName
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: scanning-scan-rulesets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Scanning API — Scan Rulesets. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-list-scan-rulesets
+      description: Microsoft Purview List scan rulesets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scanning-scan-rulesets.listscanrulesets
+      with:
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-create-replace-scan
+      description: Microsoft Purview Create or replace a scan ruleset
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: scanning-scan-rulesets.createorreplacescanruleset
+      with:
+        scanRulesetName: tools.scanRulesetName
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-scan-ruleset
+      description: Microsoft Purview Get a scan ruleset
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: scanning-scan-rulesets.getscanruleset
+      with:
+        scanRulesetName: tools.scanRulesetName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-delete-scan-ruleset
+      description: Microsoft Purview Delete a scan ruleset
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: scanning-scan-rulesets.deletescanruleset
+      with:
+        scanRulesetName: tools.scanRulesetName
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.

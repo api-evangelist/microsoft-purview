@@ -1,0 +1,139 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Workflow API — Workflow Task
+  description: 'Microsoft Purview Workflow API — Workflow Task. 2 operations. Lead operation: Microsoft Purview Get a workflow
+    task. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Workflow Task
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workflow-workflow-task
+    baseUri: https://{accountName}.purview.azure.com/workflow
+    description: Microsoft Purview Workflow API — Workflow Task business capability. Self-contained, no shared references.
+    resources:
+    - name: workflowtasks-taskId
+      path: /workflowtasks/{taskId}
+      operations:
+      - name: getworkflowtask
+        method: GET
+        description: Microsoft Purview Get a workflow task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: taskId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+    - name: workflowtasks-taskId-reassign
+      path: /workflowtasks/{taskId}/reassign
+      operations:
+      - name: reassignworkflowtask
+        method: POST
+        description: Microsoft Purview Reassign a workflow task
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: taskId
+          in: path
+          type: string
+          required: true
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: workflow-workflow-task-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Workflow API — Workflow Task. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/workflowtasks/{taskid}
+      name: workflowtasks-taskid
+      description: REST surface for workflowtasks-taskId.
+      operations:
+      - method: GET
+        name: getworkflowtask
+        description: Microsoft Purview Get a workflow task
+        call: workflow-workflow-task.getworkflowtask
+        with:
+          taskId: rest.taskId
+          api-version: rest.api-version
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/workflowtasks/{taskid}/reassign
+      name: workflowtasks-taskid-reassign
+      description: REST surface for workflowtasks-taskId-reassign.
+      operations:
+      - method: POST
+        name: reassignworkflowtask
+        description: Microsoft Purview Reassign a workflow task
+        call: workflow-workflow-task.reassignworkflowtask
+        with:
+          taskId: rest.taskId
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workflow-workflow-task-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Workflow API — Workflow Task. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-get-workflow-task
+      description: Microsoft Purview Get a workflow task
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: workflow-workflow-task.getworkflowtask
+      with:
+        taskId: tools.taskId
+        api-version: tools.api-version
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-reassign-workflow-task
+      description: Microsoft Purview Reassign a workflow task
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workflow-workflow-task.reassignworkflowtask
+      with:
+        taskId: tools.taskId
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

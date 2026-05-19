@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Workflow API — User Requests
+  description: 'Microsoft Purview Workflow API — User Requests. 1 operations. Lead operation: Microsoft Purview Submit a user
+    request. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - User Requests
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: workflow-user-requests
+    baseUri: https://{accountName}.purview.azure.com/workflow
+    description: Microsoft Purview Workflow API — User Requests business capability. Self-contained, no shared references.
+    resources:
+    - name: userrequests
+      path: /userrequests
+      operations:
+      - name: submituserrequest
+        method: POST
+        description: Microsoft Purview Submit a user request
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: api-version
+          in: query
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: workflow-user-requests-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Workflow API — User Requests. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/userrequests
+      name: userrequests
+      description: REST surface for userrequests.
+      operations:
+      - method: POST
+        name: submituserrequest
+        description: Microsoft Purview Submit a user request
+        call: workflow-user-requests.submituserrequest
+        with:
+          api-version: rest.api-version
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: workflow-user-requests-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Workflow API — User Requests. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-submit-user-request
+      description: Microsoft Purview Submit a user request
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: workflow-user-requests.submituserrequest
+      with:
+        api-version: tools.api-version
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

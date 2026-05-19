@@ -1,0 +1,164 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Microsoft Purview Catalog API — Discovery
+  description: 'Microsoft Purview Catalog API — Discovery. 3 operations. Lead operation: Microsoft Purview Get auto complete
+    options. Self-contained Naftiko capability covering one Microsoft Purview business surface.'
+  tags:
+  - Microsoft Purview
+  - Discovery
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    MICROSOFT_PURVIEW_API_KEY: MICROSOFT_PURVIEW_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: catalog-discovery
+    baseUri: https://{accountName}.purview.azure.com/catalog
+    description: Microsoft Purview Catalog API — Discovery business capability. Self-contained, no shared references.
+    resources:
+    - name: api-search-autocomplete
+      path: /api/search/autocomplete
+      operations:
+      - name: searchautocomplete
+        method: POST
+        description: Microsoft Purview Get auto complete options
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-search-query
+      path: /api/search/query
+      operations:
+      - name: searchquery
+        method: POST
+        description: Microsoft Purview Search data assets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: api-search-suggest
+      path: /api/search/suggest
+      operations:
+      - name: searchsuggest
+        method: POST
+        description: Microsoft Purview Get search suggestions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.MICROSOFT_PURVIEW_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: catalog-discovery-rest
+    port: 8080
+    description: REST adapter for Microsoft Purview Catalog API — Discovery. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/api/search/autocomplete
+      name: api-search-autocomplete
+      description: REST surface for api-search-autocomplete.
+      operations:
+      - method: POST
+        name: searchautocomplete
+        description: Microsoft Purview Get auto complete options
+        call: catalog-discovery.searchautocomplete
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/search/query
+      name: api-search-query
+      description: REST surface for api-search-query.
+      operations:
+      - method: POST
+        name: searchquery
+        description: Microsoft Purview Search data assets
+        call: catalog-discovery.searchquery
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/api/search/suggest
+      name: api-search-suggest
+      description: REST surface for api-search-suggest.
+      operations:
+      - method: POST
+        name: searchsuggest
+        description: Microsoft Purview Get search suggestions
+        call: catalog-discovery.searchsuggest
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: catalog-discovery-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Microsoft Purview Catalog API — Discovery. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: microsoft-purview-get-auto-complete
+      description: Microsoft Purview Get auto complete options
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: catalog-discovery.searchautocomplete
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-search-data-assets
+      description: Microsoft Purview Search data assets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: catalog-discovery.searchquery
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: microsoft-purview-get-search-suggestions
+      description: Microsoft Purview Get search suggestions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: catalog-discovery.searchsuggest
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
