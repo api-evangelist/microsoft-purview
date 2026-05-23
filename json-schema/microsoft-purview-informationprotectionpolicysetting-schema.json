@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/InformationProtectionPolicySetting",
+  "title": "InformationProtectionPolicySetting",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "moreInfoUrl": {
+      "type": "string"
+    },
+    "isMandatory": {
+      "type": "boolean"
+    },
+    "isDowngradeJustificationRequired": {
+      "type": "boolean"
+    },
+    "defaultLabelId": {
+      "type": "string"
+    }
+  }
+}

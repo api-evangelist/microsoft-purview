@@ -1,0 +1,732 @@
+{
+  "provider": "Microsoft Purview",
+  "providerId": "microsoft-purview",
+  "kind": "json-structure",
+  "description": "Structural overview of the Microsoft Purview API surface; extracted from openapi/.",
+  "schemaCount": 39,
+  "operationCount": 54,
+  "schemas": [
+    {
+      "name": "AtlasEntity",
+      "type": "object",
+      "propertyCount": 19,
+      "required": []
+    },
+    {
+      "name": "AtlasEntityWithExtInfo",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "AtlasEntitiesWithExtInfo",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "EntityMutationResponse",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AtlasEntityHeader",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "AtlasEntityHeaders",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "AtlasClassification",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "AtlasClassifications",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "TimeBoundary",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AtlasTermAssignmentHeader",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "AtlasGlossary",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "AtlasGlossaryTerm",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "AtlasGlossaryCategory",
+      "type": "object",
+      "propertyCount": 9,
+      "required": []
+    },
+    {
+      "name": "AtlasGlossaryHeader",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AtlasRelatedTermHeader",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "AtlasRelatedCategoryHeader",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "AtlasTermCategorizationHeader",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "AtlasRelatedObjectId",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "ResourceLink",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "AtlasRelationship",
+      "type": "object",
+      "propertyCount": 15,
+      "required": []
+    },
+    {
+      "name": "AtlasRelationshipWithExtInfo",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "AtlasObjectId",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AtlasLineageInfo",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "LineageRelation",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "ParentRelation",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SearchRequest",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "SearchResult",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SearchResultValue",
+      "type": "object",
+      "propertyCount": 15,
+      "required": []
+    },
+    {
+      "name": "TermSearchResultValue",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SearchFacetItem",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SuggestRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "SuggestResult",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "AutoCompleteRequest",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "AutoCompleteResult",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    },
+    {
+      "name": "AutoCompleteResultValue",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "AtlasTypesDef",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "AtlasTypeDef",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "AtlasTypeDefHeader",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "MoveEntitiesRequest",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/entity",
+      "operationId": "createOrUpdateEntity",
+      "summary": "Microsoft Purview Create or update an entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/entity/guid/{guid}",
+      "operationId": "getEntityByGuid",
+      "summary": "Microsoft Purview Get entity by GUID",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/entity/guid/{guid}",
+      "operationId": "deleteEntityByGuid",
+      "summary": "Microsoft Purview Delete an entity by GUID",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/entity/bulk",
+      "operationId": "listEntitiesByGuids",
+      "summary": "Microsoft Purview List entities by GUIDs",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/entity/bulk",
+      "operationId": "bulkCreateOrUpdateEntities",
+      "summary": "Microsoft Purview Create or update entities in bulk",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/entity/bulk",
+      "operationId": "bulkDeleteEntities",
+      "summary": "Microsoft Purview Delete entities in bulk",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/entity/guid/{guid}/classification/{classificationName}",
+      "operationId": "getEntityClassification",
+      "summary": "Microsoft Purview Get classification for entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/entity/guid/{guid}/classification/{classificationName}",
+      "operationId": "removeEntityClassification",
+      "summary": "Microsoft Purview Remove classification from entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/entity/guid/{guid}/classifications",
+      "operationId": "listEntityClassifications",
+      "summary": "Microsoft Purview List classifications for entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/entity/guid/{guid}/classifications",
+      "operationId": "addEntityClassifications",
+      "summary": "Microsoft Purview Add classifications to entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/atlas/v2/entity/guid/{guid}/classifications",
+      "operationId": "updateEntityClassifications",
+      "summary": "Microsoft Purview Update classifications on entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/entity/guid/{guid}/labels",
+      "operationId": "addEntityLabels",
+      "summary": "Microsoft Purview Add labels to entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/atlas/v2/entity/guid/{guid}/labels",
+      "operationId": "setEntityLabels",
+      "summary": "Microsoft Purview Set labels on entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/entity/guid/{guid}/labels",
+      "operationId": "removeEntityLabels",
+      "summary": "Microsoft Purview Remove labels from entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/entity/bulk/setClassifications",
+      "operationId": "bulkSetClassifications",
+      "summary": "Microsoft Purview Set classifications on entities in bulk",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/entity/guid/{guid}/businessmetadata",
+      "operationId": "addOrUpdateBusinessMetadata",
+      "summary": "Microsoft Purview Add or update business metadata on entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/entity/guid/{guid}/businessmetadata",
+      "operationId": "removeBusinessMetadata",
+      "summary": "Microsoft Purview Remove business metadata from entity",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/entity/bulk/collection/{collectionId}",
+      "operationId": "moveEntitiesToCollection",
+      "summary": "Microsoft Purview Move entities to collection",
+      "tags": [
+        "Entity"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/glossary",
+      "operationId": "listGlossaries",
+      "summary": "Microsoft Purview List all glossaries",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/glossary",
+      "operationId": "createGlossary",
+      "summary": "Microsoft Purview Create a glossary",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/glossary/{glossaryId}",
+      "operationId": "getGlossary",
+      "summary": "Microsoft Purview Get glossary by GUID",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/atlas/v2/glossary/{glossaryId}",
+      "operationId": "updateGlossary",
+      "summary": "Microsoft Purview Update a glossary",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/glossary/{glossaryId}",
+      "operationId": "deleteGlossary",
+      "summary": "Microsoft Purview Delete a glossary",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/glossary/{glossaryId}/terms",
+      "operationId": "listGlossaryTerms",
+      "summary": "Microsoft Purview List terms in glossary",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/glossary/{glossaryId}/categories",
+      "operationId": "listGlossaryCategories",
+      "summary": "Microsoft Purview List categories in glossary",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/glossary/term",
+      "operationId": "createGlossaryTerm",
+      "summary": "Microsoft Purview Create a glossary term",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/glossary/term/{termId}",
+      "operationId": "getGlossaryTerm",
+      "summary": "Microsoft Purview Get glossary term by GUID",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/atlas/v2/glossary/term/{termId}",
+      "operationId": "updateGlossaryTerm",
+      "summary": "Microsoft Purview Update a glossary term",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/glossary/term/{termId}",
+      "operationId": "deleteGlossaryTerm",
+      "summary": "Microsoft Purview Delete a glossary term",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/glossary/terms",
+      "operationId": "createGlossaryTerms",
+      "summary": "Microsoft Purview Create glossary terms in bulk",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/glossary/category",
+      "operationId": "createGlossaryCategory",
+      "summary": "Microsoft Purview Create a glossary category",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/glossary/category/{categoryId}",
+      "operationId": "getGlossaryCategory",
+      "summary": "Microsoft Purview Get glossary category by GUID",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/atlas/v2/glossary/category/{categoryId}",
+      "operationId": "updateGlossaryCategory",
+      "summary": "Microsoft Purview Update a glossary category",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/glossary/category/{categoryId}",
+      "operationId": "deleteGlossaryCategory",
+      "summary": "Microsoft Purview Delete a glossary category",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/glossary/terms/{termId}/assignedEntities",
+      "operationId": "listEntitiesAssignedWithTerm",
+      "summary": "Microsoft Purview List entities assigned with term",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/glossary/terms/{termId}/assignedEntities",
+      "operationId": "assignTermToEntities",
+      "summary": "Microsoft Purview Assign term to entities",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/glossary/terms/{termId}/assignedEntities",
+      "operationId": "deleteTermAssignmentFromEntities",
+      "summary": "Microsoft Purview Remove term assignment from entities",
+      "tags": [
+        "Glossary"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/search/query",
+      "operationId": "searchQuery",
+      "summary": "Microsoft Purview Search data assets",
+      "tags": [
+        "Discovery"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/search/suggest",
+      "operationId": "searchSuggest",
+      "summary": "Microsoft Purview Get search suggestions",
+      "tags": [
+        "Discovery"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/search/autocomplete",
+      "operationId": "searchAutoComplete",
+      "summary": "Microsoft Purview Get auto complete options",
+      "tags": [
+        "Discovery"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/lineage/{guid}",
+      "operationId": "getLineageByGuid",
+      "summary": "Microsoft Purview Get lineage by GUID",
+      "tags": [
+        "Lineage"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/lineage/{guid}/next",
+      "operationId": "getLineageNextPage",
+      "summary": "Microsoft Purview Get next page of lineage",
+      "tags": [
+        "Lineage"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/relationship",
+      "operationId": "createRelationship",
+      "summary": "Microsoft Purview Create a relationship",
+      "tags": [
+        "Relationship"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/atlas/v2/relationship",
+      "operationId": "updateRelationship",
+      "summary": "Microsoft Purview Update a relationship",
+      "tags": [
+        "Relationship"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/relationship/guid/{guid}",
+      "operationId": "getRelationship",
+      "summary": "Microsoft Purview Get relationship by GUID",
+      "tags": [
+        "Relationship"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/relationship/guid/{guid}",
+      "operationId": "deleteRelationship",
+      "summary": "Microsoft Purview Delete a relationship",
+      "tags": [
+        "Relationship"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/types/typedefs",
+      "operationId": "listTypeDefinitions",
+      "summary": "Microsoft Purview List all type definitions",
+      "tags": [
+        "Type"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/atlas/v2/types/typedefs",
+      "operationId": "bulkCreateTypeDefinitions",
+      "summary": "Microsoft Purview Create type definitions in bulk",
+      "tags": [
+        "Type"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/api/atlas/v2/types/typedefs",
+      "operationId": "bulkUpdateTypeDefinitions",
+      "summary": "Microsoft Purview Update type definitions in bulk",
+      "tags": [
+        "Type"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/types/typedefs",
+      "operationId": "bulkDeleteTypeDefinitions",
+      "summary": "Microsoft Purview Delete type definitions in bulk",
+      "tags": [
+        "Type"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/types/typedefs/headers",
+      "operationId": "listTypeDefinitionHeaders",
+      "summary": "Microsoft Purview List type definition headers",
+      "tags": [
+        "Type"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/types/typedef/guid/{guid}",
+      "operationId": "getTypeDefinitionByGuid",
+      "summary": "Microsoft Purview Get type definition by GUID",
+      "tags": [
+        "Type"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/atlas/v2/types/typedef/name/{name}",
+      "operationId": "getTypeDefinitionByName",
+      "summary": "Microsoft Purview Get type definition by name",
+      "tags": [
+        "Type"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/atlas/v2/types/typedef/name/{name}",
+      "operationId": "deleteTypeDefinitionByName",
+      "summary": "Microsoft Purview Delete type definition by name",
+      "tags": [
+        "Type"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasObjectId",
+  "title": "AtlasObjectId",
+  "type": "object",
+  "properties": {
+    "guid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "typeName": {
+      "type": "string"
+    },
+    "uniqueAttributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

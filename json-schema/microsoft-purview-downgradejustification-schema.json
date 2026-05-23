@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DowngradeJustification",
+  "title": "DowngradeJustification",
+  "type": "object",
+  "properties": {
+    "isDowngradeJustified": {
+      "type": "boolean"
+    },
+    "justificationMessage": {
+      "type": "string"
+    }
+  }
+}

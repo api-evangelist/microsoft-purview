@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Trigger",
+  "title": "Trigger",
+  "type": "object",
+  "description": "A scan trigger for scheduling automated scans",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "recurrence": {
+          "$ref": "#/components/schemas/TriggerRecurrence"
+        },
+        "recurrenceInterval": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastScheduled": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "scanLevel": {
+          "type": "string",
+          "enum": [
+            "Full",
+            "Incremental"
+          ]
+        },
+        "incrementalScanStartTime": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

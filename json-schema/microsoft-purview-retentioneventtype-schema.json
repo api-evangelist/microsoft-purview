@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RetentionEventType",
+  "title": "RetentionEventType",
+  "type": "object",
+  "description": "A retention event type",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "createdBy": {
+      "$ref": "#/components/schemas/IdentitySet"
+    },
+    "lastModifiedBy": {
+      "$ref": "#/components/schemas/IdentitySet"
+    }
+  }
+}

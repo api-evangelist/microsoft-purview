@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EdiscoveryCase",
+  "title": "EdiscoveryCase",
+  "type": "object",
+  "description": "An eDiscovery case for litigation or investigation",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "externalId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "unknown",
+        "active",
+        "pendingDelete",
+        "closing",
+        "closed",
+        "closedWithError"
+      ],
+      "readOnly": true
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "closedBy": {
+      "$ref": "#/components/schemas/IdentitySet"
+    },
+    "closedDateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastModifiedBy": {
+      "$ref": "#/components/schemas/IdentitySet"
+    }
+  }
+}

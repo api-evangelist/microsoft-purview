@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasGlossaryHeader",
+  "title": "AtlasGlossaryHeader",
+  "type": "object",
+  "properties": {
+    "displayText": {
+      "type": "string"
+    },
+    "glossaryGuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "relationGuid": {
+      "type": "string",
+      "format": "uuid"
+    }
+  }
+}

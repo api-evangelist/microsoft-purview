@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasRelationshipWithExtInfo",
+  "title": "AtlasRelationshipWithExtInfo",
+  "type": "object",
+  "properties": {
+    "referredEntities": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/AtlasEntity"
+      }
+    },
+    "relationship": {
+      "$ref": "#/components/schemas/AtlasRelationship"
+    }
+  }
+}

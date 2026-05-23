@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasClassifications",
+  "title": "AtlasClassifications",
+  "type": "object",
+  "description": "A paginated list of classifications",
+  "properties": {
+    "list": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasClassification"
+      }
+    },
+    "pageSize": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "sortBy": {
+      "type": "string"
+    },
+    "sortType": {
+      "type": "string"
+    },
+    "startIndex": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "totalCount": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

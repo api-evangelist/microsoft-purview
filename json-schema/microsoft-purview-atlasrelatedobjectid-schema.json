@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasRelatedObjectId",
+  "title": "AtlasRelatedObjectId",
+  "type": "object",
+  "properties": {
+    "displayText": {
+      "type": "string"
+    },
+    "guid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "relationshipAttributes": {
+      "type": "object"
+    },
+    "relationshipGuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "relationshipStatus": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "DELETED"
+      ]
+    },
+    "relationshipType": {
+      "type": "string"
+    },
+    "typeName": {
+      "type": "string"
+    },
+    "uniqueAttributes": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

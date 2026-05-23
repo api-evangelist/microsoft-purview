@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MetadataRole",
+  "title": "MetadataRole",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "provisioningState": {
+          "type": "string"
+        },
+        "roleType": {
+          "type": "string"
+        },
+        "friendlyName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "cnfCondition": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMatcher"
+            }
+          }
+        }
+      }
+    }
+  }
+}

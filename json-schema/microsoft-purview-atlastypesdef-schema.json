@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasTypesDef",
+  "title": "AtlasTypesDef",
+  "type": "object",
+  "description": "The definitions of types",
+  "properties": {
+    "businessMetadataDefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTypeDef"
+      }
+    },
+    "classificationDefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTypeDef"
+      }
+    },
+    "entityDefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTypeDef"
+      }
+    },
+    "enumDefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTypeDef"
+      }
+    },
+    "relationshipDefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTypeDef"
+      }
+    },
+    "structDefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTypeDef"
+      }
+    },
+    "termTemplateDefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTypeDef"
+      }
+    }
+  }
+}

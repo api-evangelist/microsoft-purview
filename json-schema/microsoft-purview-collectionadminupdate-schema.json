@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CollectionAdminUpdate",
+  "title": "CollectionAdminUpdate",
+  "type": "object",
+  "properties": {
+    "objectId": {
+      "type": "string"
+    }
+  }
+}

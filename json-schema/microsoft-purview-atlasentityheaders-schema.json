@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasEntityHeaders",
+  "title": "AtlasEntityHeaders",
+  "type": "object",
+  "description": "Collection of entity headers for bulk operations",
+  "properties": {
+    "guidHeaderMap": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/AtlasEntityHeader"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/OKR",
+  "title": "OKR",
+  "type": "object",
+  "description": "An Objective and Key Result",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "businessDomainId": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Objective",
+        "KeyResult"
+      ]
+    },
+    "parentOkrId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "Published"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

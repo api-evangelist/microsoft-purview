@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasEntity",
+  "title": "AtlasEntity",
+  "type": "object",
+  "description": "An instance of an entity along with extended info such as classification and referenced entities",
+  "properties": {
+    "attributes": {
+      "type": "object",
+      "description": "The attributes of the entity",
+      "additionalProperties": true
+    },
+    "typeName": {
+      "type": "string",
+      "description": "The name of the type"
+    },
+    "lastModifiedTS": {
+      "type": "string",
+      "description": "ETag for concurrency control"
+    },
+    "businessAttributes": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "classifications": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasClassification"
+      }
+    },
+    "createTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "guid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "homeId": {
+      "type": "string"
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "meanings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTermAssignmentHeader"
+      }
+    },
+    "provenanceType": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "proxy": {
+      "type": "boolean"
+    },
+    "relationshipAttributes": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "DELETED"
+      ]
+    },
+    "updateTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "updatedBy": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "collectionId": {
+      "type": "string"
+    }
+  }
+}

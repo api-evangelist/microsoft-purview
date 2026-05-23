@@ -1,0 +1,17 @@
+name: Microsoft Purview Domain Vocabulary
+provider: Microsoft Purview
+providerId: microsoft-purview
+description: Tag-derived vocabulary for the Microsoft Purview API surface; sourced from openapi/ tags.
+terms:
+- term: Discovery
+  description: Operations for searching and discovering data assets
+- term: Entity
+  description: Operations for managing catalog entities
+- term: Glossary
+  description: Operations for managing glossary terms, categories, and assignments
+- term: Lineage
+  description: Operations for tracking data lineage
+- term: Relationship
+  description: Operations for managing relationships between entities
+- term: Type
+  description: Operations for managing type definitions

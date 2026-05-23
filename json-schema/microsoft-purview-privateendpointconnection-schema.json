@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PrivateEndpointConnection",
+  "title": "PrivateEndpointConnection",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string",
+      "readOnly": true
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "privateEndpoint": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "privateLinkServiceConnectionState": {
+          "type": "object",
+          "properties": {
+            "actionsRequired": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "Unknown",
+                "Pending",
+                "Approved",
+                "Rejected",
+                "Disconnected"
+              ]
+            }
+          }
+        },
+        "provisioningState": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "type": {
+      "type": "string",
+      "readOnly": true
+    }
+  }
+}

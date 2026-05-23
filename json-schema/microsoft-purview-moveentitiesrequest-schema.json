@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MoveEntitiesRequest",
+  "title": "MoveEntitiesRequest",
+  "type": "object",
+  "properties": {
+    "entityGuids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uuid"
+      }
+    }
+  }
+}

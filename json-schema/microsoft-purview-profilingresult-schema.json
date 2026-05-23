@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProfilingResult",
+  "title": "ProfilingResult",
+  "type": "object",
+  "properties": {
+    "assetId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "InProgress",
+        "Completed",
+        "Failed"
+      ]
+    },
+    "profiledAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rowCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "columnProfiles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ColumnProfile"
+      }
+    }
+  }
+}

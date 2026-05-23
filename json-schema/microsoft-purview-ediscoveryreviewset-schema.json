@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EdiscoveryReviewSet",
+  "title": "EdiscoveryReviewSet",
+  "type": "object",
+  "description": "A review set for reviewing collected data",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "createdBy": {
+      "$ref": "#/components/schemas/IdentitySet"
+    }
+  }
+}

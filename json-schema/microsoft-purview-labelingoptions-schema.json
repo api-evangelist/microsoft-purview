@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LabelingOptions",
+  "title": "LabelingOptions",
+  "type": "object",
+  "properties": {
+    "assignmentMethod": {
+      "type": "string",
+      "enum": [
+        "standard",
+        "privileged",
+        "auto"
+      ]
+    },
+    "labelId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  }
+}

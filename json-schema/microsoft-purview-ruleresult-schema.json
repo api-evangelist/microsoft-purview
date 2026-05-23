@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RuleResult",
+  "title": "RuleResult",
+  "type": "object",
+  "properties": {
+    "ruleId": {
+      "type": "string"
+    },
+    "ruleName": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Passed",
+        "Failed",
+        "Error",
+        "NotApplicable"
+      ]
+    },
+    "score": {
+      "type": "number",
+      "format": "float"
+    },
+    "details": {
+      "type": "string"
+    }
+  }
+}

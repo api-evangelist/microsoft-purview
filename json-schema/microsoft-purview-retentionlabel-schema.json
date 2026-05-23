@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/RetentionLabel",
+  "title": "RetentionLabel",
+  "type": "object",
+  "description": "A retention label for records management",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "descriptionForAdmins": {
+      "type": "string"
+    },
+    "descriptionForUsers": {
+      "type": "string"
+    },
+    "isInUse": {
+      "type": "boolean",
+      "readOnly": true
+    },
+    "retentionTrigger": {
+      "type": "string",
+      "enum": [
+        "dateLabeled",
+        "dateCreated",
+        "dateModified",
+        "dateOfEvent"
+      ]
+    },
+    "behaviorDuringRetentionPeriod": {
+      "type": "string",
+      "enum": [
+        "doNotRetain",
+        "retain",
+        "retainAsRecord",
+        "retainAsRegulatoryRecord"
+      ]
+    },
+    "actionAfterRetentionPeriod": {
+      "type": "string",
+      "enum": [
+        "none",
+        "delete",
+        "startDispositionReview"
+      ]
+    },
+    "retentionDuration": {
+      "type": "object",
+      "properties": {
+        "@odata.type": {
+          "type": "string"
+        },
+        "days": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "defaultRecordBehavior": {
+      "type": "string",
+      "enum": [
+        "startLocked",
+        "startUnlocked"
+      ]
+    },
+    "labelToBeApplied": {
+      "type": "string"
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "createdBy": {
+      "$ref": "#/components/schemas/IdentitySet"
+    },
+    "lastModifiedBy": {
+      "$ref": "#/components/schemas/IdentitySet"
+    },
+    "retentionEventType": {
+      "$ref": "#/components/schemas/RetentionEventType"
+    },
+    "descriptors": {
+      "type": "object",
+      "properties": {
+        "authorityTemplate": {
+          "$ref": "#/components/schemas/AuthorityTemplate"
+        },
+        "categoryTemplate": {
+          "$ref": "#/components/schemas/CategoryTemplate"
+        },
+        "citationTemplate": {
+          "$ref": "#/components/schemas/CitationTemplate"
+        },
+        "departmentTemplate": {
+          "$ref": "#/components/schemas/DepartmentTemplate"
+        },
+        "filePlanReferenceTemplate": {
+          "$ref": "#/components/schemas/FilePlanReferenceTemplate"
+        }
+      }
+    }
+  }
+}

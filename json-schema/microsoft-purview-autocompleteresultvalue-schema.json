@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AutoCompleteResultValue",
+  "title": "AutoCompleteResultValue",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string"
+    },
+    "queryPlusText": {
+      "type": "string"
+    }
+  }
+}

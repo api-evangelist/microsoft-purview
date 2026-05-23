@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasClassification",
+  "title": "AtlasClassification",
+  "type": "object",
+  "description": "A classification instance",
+  "properties": {
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "typeName": {
+      "type": "string"
+    },
+    "lastModifiedTS": {
+      "type": "string"
+    },
+    "entityGuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "entityStatus": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "DELETED"
+      ]
+    },
+    "propagate": {
+      "type": "boolean"
+    },
+    "removePropagationsOnEntityDelete": {
+      "type": "boolean"
+    },
+    "validityPeriods": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TimeBoundary"
+      }
+    }
+  }
+}

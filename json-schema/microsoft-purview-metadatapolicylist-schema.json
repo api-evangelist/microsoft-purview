@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MetadataPolicyList",
+  "title": "MetadataPolicyList",
+  "type": "object",
+  "properties": {
+    "values": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/MetadataPolicy"
+      }
+    },
+    "nextLink": {
+      "type": "string"
+    }
+  }
+}

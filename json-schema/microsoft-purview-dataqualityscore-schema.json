@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DataQualityScore",
+  "title": "DataQualityScore",
+  "type": "object",
+  "description": "A data quality score for a data asset",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "assetId": {
+      "type": "string"
+    },
+    "assetName": {
+      "type": "string"
+    },
+    "overallScore": {
+      "type": "number",
+      "format": "float",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "dimensionScores": {
+      "type": "object",
+      "properties": {
+        "completeness": {
+          "type": "number",
+          "format": "float"
+        },
+        "uniqueness": {
+          "type": "number",
+          "format": "float"
+        },
+        "freshness": {
+          "type": "number",
+          "format": "float"
+        },
+        "accuracy": {
+          "type": "number",
+          "format": "float"
+        },
+        "consistency": {
+          "type": "number",
+          "format": "float"
+        },
+        "validity": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "evaluatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ruleResults": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/RuleResult"
+      }
+    }
+  }
+}

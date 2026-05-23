@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EntityMutationResponse",
+  "title": "EntityMutationResponse",
+  "type": "object",
+  "description": "The mutation response result of an entity operation",
+  "properties": {
+    "guidAssignments": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "mutatedEntities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/AtlasEntityHeader"
+        }
+      }
+    },
+    "partialUpdatedEntities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasEntityHeader"
+      }
+    }
+  }
+}

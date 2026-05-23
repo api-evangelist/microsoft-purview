@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Identity",
+  "title": "Identity",
+  "type": "object",
+  "properties": {
+    "principalId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "tenantId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "None",
+        "SystemAssigned",
+        "UserAssigned"
+      ]
+    },
+    "userAssignedIdentities": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          },
+          "principalId": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

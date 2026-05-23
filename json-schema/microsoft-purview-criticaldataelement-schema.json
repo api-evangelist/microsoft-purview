@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CriticalDataElement",
+  "title": "CriticalDataElement",
+  "type": "object",
+  "description": "A critical data element definition",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "businessDomainId": {
+      "type": "string"
+    },
+    "owners": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/GovernanceContact"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "Published"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

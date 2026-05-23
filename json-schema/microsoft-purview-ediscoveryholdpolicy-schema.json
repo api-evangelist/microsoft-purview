@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EdiscoveryHoldPolicy",
+  "title": "EdiscoveryHoldPolicy",
+  "type": "object",
+  "description": "A legal hold policy",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "isEnabled": {
+      "type": "boolean"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "error",
+        "success",
+        "unknownFutureValue"
+      ],
+      "readOnly": true
+    },
+    "contentQuery": {
+      "type": "string"
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "createdBy": {
+      "$ref": "#/components/schemas/IdentitySet"
+    }
+  }
+}

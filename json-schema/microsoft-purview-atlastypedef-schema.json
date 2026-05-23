@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasTypeDef",
+  "title": "AtlasTypeDef",
+  "type": "object",
+  "description": "A type definition",
+  "properties": {
+    "category": {
+      "type": "string",
+      "enum": [
+        "PRIMITIVE",
+        "OBJECT_ID_TYPE",
+        "ENUM",
+        "STRUCT",
+        "CLASSIFICATION",
+        "ENTITY",
+        "ARRAY",
+        "MAP",
+        "RELATIONSHIP",
+        "TERM_TEMPLATE"
+      ]
+    },
+    "createTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "dateFormatter": {
+      "type": "object"
+    },
+    "description": {
+      "type": "string"
+    },
+    "guid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "options": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "typeVersion": {
+      "type": "string"
+    },
+    "updateTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "updatedBy": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "lastModifiedTS": {
+      "type": "string"
+    }
+  }
+}

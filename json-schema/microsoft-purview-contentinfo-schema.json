@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ContentInfo",
+  "title": "ContentInfo",
+  "type": "object",
+  "properties": {
+    "contentFormat": {
+      "type": "string"
+    },
+    "identifier": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "rest",
+        "motion",
+        "use"
+      ]
+    },
+    "metadata": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasGlossaryTerm",
+  "title": "AtlasGlossaryTerm",
+  "type": "object",
+  "description": "A glossary term",
+  "properties": {
+    "guid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "qualifiedName": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "abbreviation": {
+      "type": "string"
+    },
+    "usage": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Draft",
+        "Approved",
+        "Alert",
+        "Expired"
+      ]
+    },
+    "anchor": {
+      "$ref": "#/components/schemas/AtlasGlossaryHeader"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTermCategorizationHeader"
+      }
+    },
+    "classifications": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasClassification"
+      }
+    },
+    "assignedEntities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasRelatedObjectId"
+      }
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ResourceLink"
+      }
+    }
+  }
+}

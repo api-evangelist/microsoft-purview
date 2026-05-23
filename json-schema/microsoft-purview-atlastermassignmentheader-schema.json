@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasTermAssignmentHeader",
+  "title": "AtlasTermAssignmentHeader",
+  "type": "object",
+  "properties": {
+    "confidence": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "displayText": {
+      "type": "string"
+    },
+    "expression": {
+      "type": "string"
+    },
+    "relationGuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DISCOVERED",
+        "PROPOSED",
+        "IMPORTED",
+        "VALIDATED",
+        "DEPRECATED",
+        "OBSOLETE",
+        "OTHER"
+      ]
+    },
+    "steward": {
+      "type": "string"
+    },
+    "termGuid": {
+      "type": "string",
+      "format": "uuid"
+    }
+  }
+}

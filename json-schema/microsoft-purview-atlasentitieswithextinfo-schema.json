@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasEntitiesWithExtInfo",
+  "title": "AtlasEntitiesWithExtInfo",
+  "type": "object",
+  "description": "A collection of entities with extended info",
+  "properties": {
+    "entities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasEntity"
+      }
+    },
+    "referredEntities": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/AtlasEntity"
+      }
+    }
+  }
+}

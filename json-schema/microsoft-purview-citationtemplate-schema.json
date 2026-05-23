@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CitationTemplate",
+  "title": "CitationTemplate",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    },
+    "citationUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "citationJurisdiction": {
+      "type": "string"
+    }
+  }
+}

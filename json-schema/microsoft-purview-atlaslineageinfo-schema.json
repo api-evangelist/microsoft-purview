@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasLineageInfo",
+  "title": "AtlasLineageInfo",
+  "type": "object",
+  "description": "Lineage information for an entity",
+  "properties": {
+    "baseEntityGuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "childrenCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "guidEntityMap": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/components/schemas/AtlasEntityHeader"
+      }
+    },
+    "lineageDepth": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "lineageDirection": {
+      "type": "string",
+      "enum": [
+        "INPUT",
+        "OUTPUT",
+        "BOTH"
+      ]
+    },
+    "lineageWidth": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "parentRelations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ParentRelation"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/LineageRelation"
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SearchResultValue",
+  "title": "SearchResultValue",
+  "type": "object",
+  "properties": {
+    "searchScore": {
+      "type": "number",
+      "format": "float"
+    },
+    "searchHighlights": {
+      "type": "object"
+    },
+    "objectType": {
+      "type": "string"
+    },
+    "createTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "updateTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "qualifiedName": {
+      "type": "string"
+    },
+    "entityType": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "classification": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "label": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "term": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TermSearchResultValue"
+      }
+    },
+    "owner": {
+      "type": "string"
+    },
+    "assetType": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

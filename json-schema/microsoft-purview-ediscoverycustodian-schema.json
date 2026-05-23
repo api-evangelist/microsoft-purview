@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/EdiscoveryCustodian",
+  "title": "EdiscoveryCustodian",
+  "type": "object",
+  "description": "A custodian in an eDiscovery case",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "displayName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "email": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "released"
+      ]
+    },
+    "createdDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "lastModifiedDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "holdStatus": {
+      "type": "string",
+      "enum": [
+        "notApplied",
+        "applied",
+        "applying",
+        "removing",
+        "partial"
+      ]
+    },
+    "acknowledgedDateTime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

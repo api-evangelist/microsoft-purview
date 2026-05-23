@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ParentRelation",
+  "title": "ParentRelation",
+  "type": "object",
+  "properties": {
+    "childEntityId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "parentEntityId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "relationshipId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  }
+}

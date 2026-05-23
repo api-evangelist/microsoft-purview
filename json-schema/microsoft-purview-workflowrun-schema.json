@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkflowRun",
+  "title": "WorkflowRun",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "workflowId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "requestor": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "userRequestId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "runPayload": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "InProgress",
+        "Completed",
+        "Canceling",
+        "CancellationFailed",
+        "Cancelled",
+        "Failed",
+        "NotStarted"
+      ]
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "cancelTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "cancelComment": {
+      "type": "string"
+    }
+  }
+}

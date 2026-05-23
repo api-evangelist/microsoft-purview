@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DataSource",
+  "title": "DataSource",
+  "type": "object",
+  "description": "A registered data source",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "description": "The data source type",
+      "enum": [
+        "AzureSubscription",
+        "AzureResourceGroup",
+        "AzureSynapseWorkspace",
+        "AzureSynapse",
+        "AdlsGen1",
+        "AdlsGen2",
+        "AmazonAccount",
+        "AmazonS3",
+        "AmazonSql",
+        "AzureCosmosDb",
+        "AzureDataExplorer",
+        "AzureFileService",
+        "AzureSqlDatabase",
+        "AzureSqlDatabaseManagedInstance",
+        "AzureSqlDataWarehouse",
+        "AzureMySql",
+        "AzurePostgreSql",
+        "AzureStorage",
+        "Teradata",
+        "Oracle",
+        "SapS4Hana",
+        "SapEcc",
+        "PowerBI"
+      ]
+    },
+    "properties": {
+      "type": "object",
+      "description": "Data source properties",
+      "properties": {
+        "endpoint": {
+          "type": "string"
+        },
+        "resourceGroup": {
+          "type": "string"
+        },
+        "subscriptionId": {
+          "type": "string"
+        },
+        "location": {
+          "type": "string"
+        },
+        "resourceName": {
+          "type": "string"
+        },
+        "resourceId": {
+          "type": "string"
+        },
+        "collection": {
+          "$ref": "#/components/schemas/CollectionReference"
+        },
+        "dataSourceCollectionMovingState": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "scans": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Scan"
+      }
+    }
+  }
+}

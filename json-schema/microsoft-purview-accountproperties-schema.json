@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AccountProperties",
+  "title": "AccountProperties",
+  "type": "object",
+  "properties": {
+    "cloudConnectors": {
+      "type": "object",
+      "properties": {
+        "awsExternalId": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "readOnly": true
+    },
+    "createdBy": {
+      "type": "string",
+      "readOnly": true
+    },
+    "createdByObjectId": {
+      "type": "string",
+      "readOnly": true
+    },
+    "endpoints": {
+      "$ref": "#/components/schemas/AccountEndpoints"
+    },
+    "friendlyName": {
+      "type": "string",
+      "readOnly": true
+    },
+    "managedResourceGroupName": {
+      "type": "string"
+    },
+    "managedResources": {
+      "type": "object",
+      "readOnly": true,
+      "properties": {
+        "eventHubNamespace": {
+          "type": "string"
+        },
+        "resourceGroup": {
+          "type": "string"
+        },
+        "storageAccount": {
+          "type": "string"
+        }
+      }
+    },
+    "privateEndpointConnections": {
+      "type": "array",
+      "readOnly": true,
+      "items": {
+        "$ref": "#/components/schemas/PrivateEndpointConnection"
+      }
+    },
+    "provisioningState": {
+      "type": "string",
+      "readOnly": true,
+      "enum": [
+        "Unknown",
+        "Creating",
+        "Moving",
+        "Deleting",
+        "SoftDeleting",
+        "SoftDeleted",
+        "Failed",
+        "Succeeded",
+        "Canceled"
+      ]
+    },
+    "publicNetworkAccess": {
+      "type": "string",
+      "enum": [
+        "NotSpecified",
+        "Enabled",
+        "Disabled"
+      ]
+    }
+  }
+}

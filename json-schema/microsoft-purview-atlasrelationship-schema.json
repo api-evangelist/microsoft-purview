@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasRelationship",
+  "title": "AtlasRelationship",
+  "type": "object",
+  "description": "A relationship between entities",
+  "properties": {
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "typeName": {
+      "type": "string"
+    },
+    "lastModifiedTS": {
+      "type": "string"
+    },
+    "createTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "end1": {
+      "$ref": "#/components/schemas/AtlasObjectId"
+    },
+    "end2": {
+      "$ref": "#/components/schemas/AtlasObjectId"
+    },
+    "guid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "homeId": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    },
+    "provenanceType": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "DELETED"
+      ]
+    },
+    "updateTime": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "updatedBy": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

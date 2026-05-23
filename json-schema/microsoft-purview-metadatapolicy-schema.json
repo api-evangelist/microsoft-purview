@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/MetadataPolicy",
+  "title": "MetadataPolicy",
+  "type": "object",
+  "description": "A metadata policy for controlling data access",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "decisionRules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/DecisionRule"
+          }
+        },
+        "attributeRules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/AttributeRule"
+          }
+        },
+        "collection": {
+          "$ref": "#/components/schemas/CollectionReference"
+        },
+        "parentCollectionName": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

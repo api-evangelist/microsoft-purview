@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SensitivityLabel",
+  "title": "SensitivityLabel",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "sensitivity": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "tooltip": {
+      "type": "string"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "isAppliable": {
+      "type": "boolean"
+    },
+    "contentFormats": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hasProtection": {
+      "type": "boolean"
+    }
+  }
+}

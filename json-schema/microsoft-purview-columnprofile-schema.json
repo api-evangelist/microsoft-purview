@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ColumnProfile",
+  "title": "ColumnProfile",
+  "type": "object",
+  "properties": {
+    "columnName": {
+      "type": "string"
+    },
+    "dataType": {
+      "type": "string"
+    },
+    "nullCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "nullPercentage": {
+      "type": "number",
+      "format": "float"
+    },
+    "distinctCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "minValue": {
+      "type": "string"
+    },
+    "maxValue": {
+      "type": "string"
+    },
+    "meanValue": {
+      "type": "string"
+    },
+    "standardDeviation": {
+      "type": "number",
+      "format": "double"
+    },
+    "topValues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      }
+    }
+  }
+}

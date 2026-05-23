@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ProtectionScope",
+  "title": "ProtectionScope",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "scopeType": {
+      "type": "string"
+    },
+    "policyId": {
+      "type": "string"
+    },
+    "policyName": {
+      "type": "string"
+    }
+  }
+}

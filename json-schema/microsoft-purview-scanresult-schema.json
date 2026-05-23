@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScanResult",
+  "title": "ScanResult",
+  "type": "object",
+  "description": "The result of a scan run",
+  "properties": {
+    "parentId": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "resourceId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Accepted",
+        "InProgress",
+        "TransientFailure",
+        "Succeeded",
+        "Failed",
+        "Canceled"
+      ]
+    },
+    "assetsDiscovered": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "assetsClassified": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "diagnostics": {
+      "type": "object"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scanRulesetVersion": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "scanRulesetType": {
+      "type": "string",
+      "enum": [
+        "Custom",
+        "System"
+      ]
+    },
+    "scanLevelType": {
+      "type": "string",
+      "enum": [
+        "Full",
+        "Incremental"
+      ]
+    },
+    "errorMessage": {
+      "type": "string"
+    }
+  }
+}

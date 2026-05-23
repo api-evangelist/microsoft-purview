@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClassificationRulePattern",
+  "title": "ClassificationRulePattern",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "Regex"
+      ]
+    },
+    "pattern": {
+      "type": "string"
+    }
+  }
+}

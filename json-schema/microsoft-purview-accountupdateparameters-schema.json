@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AccountUpdateParameters",
+  "title": "AccountUpdateParameters",
+  "type": "object",
+  "properties": {
+    "identity": {
+      "$ref": "#/components/schemas/Identity"
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "managedResourceGroupName": {
+          "type": "string"
+        },
+        "publicNetworkAccess": {
+          "type": "string",
+          "enum": [
+            "NotSpecified",
+            "Enabled",
+            "Disabled"
+          ]
+        }
+      }
+    },
+    "tags": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  }
+}

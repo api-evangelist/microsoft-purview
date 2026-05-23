@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClassificationResult",
+  "title": "ClassificationResult",
+  "type": "object",
+  "properties": {
+    "sensitiveTypeId": {
+      "type": "string"
+    },
+    "confidenceLevel": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "count": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

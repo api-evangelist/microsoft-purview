@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Workflow",
+  "title": "Workflow",
+  "type": "object",
+  "description": "A workflow definition",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "triggers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/WorkflowTrigger"
+      }
+    },
+    "name": {
+      "type": "string"
+    },
+    "isEnabled": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "string"
+    },
+    "actionDag": {
+      "type": "object",
+      "description": "The directed acyclic graph of actions"
+    }
+  }
+}

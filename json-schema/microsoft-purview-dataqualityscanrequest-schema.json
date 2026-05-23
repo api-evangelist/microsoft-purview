@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DataQualityScanRequest",
+  "title": "DataQualityScanRequest",
+  "type": "object",
+  "properties": {
+    "assetIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ruleIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

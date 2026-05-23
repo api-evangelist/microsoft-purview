@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DlpAction",
+  "title": "DlpAction",
+  "type": "object",
+  "properties": {
+    "actionType": {
+      "type": "string",
+      "enum": [
+        "notifyUser",
+        "blockAccess",
+        "auditOnly",
+        "encrypt",
+        "applyLabel"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "policyId": {
+      "type": "string"
+    }
+  }
+}

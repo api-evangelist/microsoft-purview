@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasEntityHeader",
+  "title": "AtlasEntityHeader",
+  "type": "object",
+  "description": "An instance of an entity header",
+  "properties": {
+    "attributes": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "typeName": {
+      "type": "string"
+    },
+    "lastModifiedTS": {
+      "type": "string"
+    },
+    "classificationNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "classifications": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasClassification"
+      }
+    },
+    "displayText": {
+      "type": "string"
+    },
+    "guid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "meaningNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "meanings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasTermAssignmentHeader"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "DELETED"
+      ]
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SearchRequest",
+  "title": "SearchRequest",
+  "type": "object",
+  "description": "Search request payload",
+  "properties": {
+    "keywords": {
+      "type": "string"
+    },
+    "offset": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "limit": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "filter": {
+      "type": "object"
+    },
+    "facets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SearchFacetItem"
+      }
+    },
+    "taxonomySetting": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AccessKeys",
+  "title": "AccessKeys",
+  "type": "object",
+  "properties": {
+    "atlasKafkaPrimaryEndpoint": {
+      "type": "string"
+    },
+    "atlasKafkaSecondaryEndpoint": {
+      "type": "string"
+    }
+  }
+}

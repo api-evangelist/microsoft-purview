@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TimeBoundary",
+  "title": "TimeBoundary",
+  "type": "object",
+  "properties": {
+    "endTime": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "string"
+    },
+    "timeZone": {
+      "type": "string"
+    }
+  }
+}

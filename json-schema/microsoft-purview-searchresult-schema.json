@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SearchResult",
+  "title": "SearchResult",
+  "type": "object",
+  "description": "Search result",
+  "properties": {
+    "searchCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "searchFacets": {
+      "type": "object"
+    },
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SearchResultValue"
+      }
+    }
+  }
+}

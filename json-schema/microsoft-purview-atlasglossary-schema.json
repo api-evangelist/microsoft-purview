@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasGlossary",
+  "title": "AtlasGlossary",
+  "type": "object",
+  "description": "A glossary object",
+  "properties": {
+    "guid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "qualifiedName": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "longDescription": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "usage": {
+      "type": "string"
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasRelatedTermHeader"
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/AtlasRelatedCategoryHeader"
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkflowTask",
+  "title": "WorkflowTask",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "workflowRunId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "workflowId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "requestor": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "title": {
+      "type": "string"
+    },
+    "createdTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastUpdateTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "reminderInfo": {
+      "type": "object"
+    },
+    "expiryInfo": {
+      "type": "object"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "Approval",
+        "SimpleTask"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "InProgress",
+        "Pending",
+        "Completed",
+        "Cancelled"
+      ]
+    }
+  }
+}

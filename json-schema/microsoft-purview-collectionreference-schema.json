@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CollectionReference",
+  "title": "CollectionReference",
+  "type": "object",
+  "properties": {
+    "referenceName": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

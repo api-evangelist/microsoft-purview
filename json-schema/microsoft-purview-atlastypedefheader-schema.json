@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AtlasTypeDefHeader",
+  "title": "AtlasTypeDefHeader",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string"
+    },
+    "guid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

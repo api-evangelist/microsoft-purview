@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScanRulesetList",
+  "title": "ScanRulesetList",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScanRuleset"
+      }
+    },
+    "nextLink": {
+      "type": "string"
+    },
+    "count": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

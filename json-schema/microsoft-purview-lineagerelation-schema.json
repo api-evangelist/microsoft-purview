@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/LineageRelation",
+  "title": "LineageRelation",
+  "type": "object",
+  "properties": {
+    "fromEntityId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "relationshipId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "toEntityId": {
+      "type": "string",
+      "format": "uuid"
+    }
+  }
+}

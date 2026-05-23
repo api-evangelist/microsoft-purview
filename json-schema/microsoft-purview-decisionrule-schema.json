@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DecisionRule",
+  "title": "DecisionRule",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "enum": [
+        "decisionrule"
+      ]
+    },
+    "effect": {
+      "type": "string",
+      "enum": [
+        "Permit",
+        "Deny"
+      ]
+    },
+    "dnfCondition": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/AttributeMatcher"
+        }
+      }
+    }
+  }
+}

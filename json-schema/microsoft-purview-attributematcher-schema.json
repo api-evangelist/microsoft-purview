@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/AttributeMatcher",
+  "title": "AttributeMatcher",
+  "type": "object",
+  "properties": {
+    "attributeName": {
+      "type": "string"
+    },
+    "attributeValueIncludes": {
+      "type": "string"
+    },
+    "attributeValueIncludedIn": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "attributeValueExcludes": {
+      "type": "string"
+    },
+    "attributeValueExcludedIn": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

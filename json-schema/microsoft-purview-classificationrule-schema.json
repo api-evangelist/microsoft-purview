@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ClassificationRule",
+  "title": "ClassificationRule",
+  "type": "object",
+  "description": "A classification rule definition",
+  "properties": {
+    "id": {
+      "type": "string",
+      "readOnly": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "Custom",
+        "System"
+      ]
+    },
+    "properties": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "classificationName": {
+          "type": "string"
+        },
+        "ruleStatus": {
+          "type": "string",
+          "enum": [
+            "Enabled",
+            "Disabled"
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "lastModifiedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "version": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dataPatterns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ClassificationRulePattern"
+          }
+        },
+        "columnPatterns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/components/schemas/ClassificationRulePattern"
+          }
+        }
+      }
+    }
+  }
+}

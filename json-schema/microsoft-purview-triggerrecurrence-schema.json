@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/TriggerRecurrence",
+  "title": "TriggerRecurrence",
+  "type": "object",
+  "properties": {
+    "frequency": {
+      "type": "string",
+      "enum": [
+        "Week",
+        "Month",
+        "Day"
+      ]
+    },
+    "interval": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "schedule": {
+      "$ref": "#/components/schemas/RecurrenceSchedule"
+    },
+    "timeZone": {
+      "type": "string"
+    }
+  }
+}

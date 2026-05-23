@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/DataQualityScanResult",
+  "title": "DataQualityScanResult",
+  "type": "object",
+  "properties": {
+    "scanId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Accepted",
+        "InProgress",
+        "Completed",
+        "Failed"
+      ]
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
