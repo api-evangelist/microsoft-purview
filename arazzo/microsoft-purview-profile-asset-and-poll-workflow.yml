@@ -1,0 +1,111 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Profile a Data Asset and Poll for Results
+  summary: Kick off data profiling for an asset, then poll until the profiling completes.
+  description: >-
+    Runs and waits on a data profiling job in the Purview Data Quality service.
+    The workflow initiates profiling for a data asset, then reads the profiling
+    result and branches on its status: while the profiling is still InProgress
+    it loops back to read the result again, and when it reaches Completed or
+    Failed it ends. Every step spells out its request inline — including the
+    inline OAuth2 bearer token and the required api-version query parameter — so
+    the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: dataQualityApi
+  url: ../openapi/microsoft-purview-data-quality-openapi.yml
+  type: openapi
+workflows:
+- workflowId: profile-asset-and-poll
+  summary: Start data profiling for an asset and poll until it completes.
+  description: >-
+    Initiates profiling for a data asset and repeatedly reads the profiling
+    result, looping while it is InProgress and ending when it reaches a terminal
+    status.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - assetId
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      apiVersion:
+        type: string
+        description: The Data Quality API version.
+        default: '2024-03-01-preview'
+      assetId:
+        type: string
+        description: The data asset identifier to profile.
+      columns:
+        type: array
+        description: Optional list of column names to restrict profiling to.
+        items:
+          type: string
+      sampleSize:
+        type: integer
+        description: Optional number of rows to sample during profiling.
+  steps:
+  - stepId: startProfiling
+    description: Initiate data profiling for the asset.
+    operationId: runDataProfiling
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: assetId
+      in: path
+      value: $inputs.assetId
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        columns: $inputs.columns
+        sampleSize: $inputs.sampleSize
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      status: $response.body#/status
+  - stepId: pollResult
+    description: >-
+      Read the profiling result and inspect its status. Loop back while it is
+      still InProgress; end when it reaches Completed or Failed.
+    operationId: getDataProfilingResult
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: assetId
+      in: path
+      value: $inputs.assetId
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      status: $response.body#/status
+      rowCount: $response.body#/rowCount
+      columnProfiles: $response.body#/columnProfiles
+    onSuccess:
+    - name: stillProfiling
+      type: goto
+      stepId: pollResult
+      criteria:
+      - context: $response.body
+        condition: $.status == 'InProgress'
+        type: jsonpath
+    - name: finished
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.status == 'Completed' || $.status == 'Failed'
+        type: jsonpath
+  outputs:
+    status: $steps.pollResult.outputs.status
+    rowCount: $steps.pollResult.outputs.rowCount
+    columnProfiles: $steps.pollResult.outputs.columnProfiles

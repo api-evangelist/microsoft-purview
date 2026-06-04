@@ -1,0 +1,121 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Relate Two Catalog Entities
+  summary: Create an entity, then create a relationship linking it to another entity.
+  description: >-
+    Builds a relationship edge between two assets in the Purview Atlas catalog.
+    The workflow creates or updates a source entity, resolves its assigned GUID,
+    creates a relationship connecting it to a supplied target entity GUID, and
+    reads the relationship back to confirm it was stored. Every step spells out
+    its request inline — including the inline OAuth2 bearer token — so the flow
+    can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: catalogApi
+  url: ../openapi/microsoft-purview-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: relate-entities
+  summary: Create an entity and relate it to an existing entity.
+  description: >-
+    Creates a source entity, resolves its GUID, creates a typed relationship
+    between it and a target entity, and reads the relationship back.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - entity
+    - relationshipTypeName
+    - end1TypeName
+    - end2TypeName
+    - targetEntityGuid
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      entity:
+        type: object
+        description: The AtlasEntity object to create as the source end of the relationship.
+      relationshipTypeName:
+        type: string
+        description: The relationship type name, e.g. "process_dataset_inputs".
+      end1TypeName:
+        type: string
+        description: The type name of the first (source) entity end.
+      end2TypeName:
+        type: string
+        description: The type name of the second (target) entity end.
+      targetEntityGuid:
+        type: string
+        description: The GUID of the existing target entity to relate to.
+  steps:
+  - stepId: createEntity
+    description: Create or update the source entity for the relationship.
+    operationId: createOrUpdateEntity
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        entity: $inputs.entity
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      guidAssignments: $response.body#/guidAssignments
+  - stepId: getEntity
+    description: Read the source entity back by its assigned GUID.
+    operationId: getEntityByGuid
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.createEntity.outputs.guidAssignments
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      sourceGuid: $response.body#/entity/guid
+  - stepId: createRelationship
+    description: >-
+      Create a typed relationship connecting the source entity to the target
+      entity using their GUIDs.
+    operationId: createRelationship
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        typeName: $inputs.relationshipTypeName
+        end1:
+          guid: $steps.getEntity.outputs.sourceGuid
+          typeName: $inputs.end1TypeName
+        end2:
+          guid: $inputs.targetEntityGuid
+          typeName: $inputs.end2TypeName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      relationshipGuid: $response.body#/guid
+  - stepId: getRelationship
+    description: Read the relationship back by its GUID to confirm it was created.
+    operationId: getRelationship
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.createRelationship.outputs.relationshipGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      relationshipGuid: $response.body#/relationship/guid
+  outputs:
+    sourceGuid: $steps.getEntity.outputs.sourceGuid
+    relationshipGuid: $steps.createRelationship.outputs.relationshipGuid

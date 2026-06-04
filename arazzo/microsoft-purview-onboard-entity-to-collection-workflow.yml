@@ -1,0 +1,128 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Onboard an Entity into a Collection
+  summary: Create a Data Map entity, confirm it, move it into a collection, and classify it.
+  description: >-
+    A governance onboarding flow against the Purview Data Map API. The workflow
+    creates or updates an entity, reads it back by its assigned GUID, moves that
+    entity into a target collection, and applies a classification to it. Every
+    step spells out its request inline — including the inline OAuth2 bearer
+    token and the required api-version query parameter — so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: dataMapApi
+  url: ../openapi/microsoft-purview-data-map-openapi.yml
+  type: openapi
+workflows:
+- workflowId: onboard-entity-to-collection
+  summary: Create a Data Map entity, file it into a collection, and classify it.
+  description: >-
+    Creates or updates an entity, resolves its GUID, moves it into a collection,
+    and applies a classification to it.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - entity
+    - collectionId
+    - classificationTypeName
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      apiVersion:
+        type: string
+        description: The Data Map API version.
+        default: '2023-09-01'
+      entity:
+        type: object
+        description: The AtlasEntity object to create or update (typeName + attributes).
+      collectionId:
+        type: string
+        description: The target collection identifier to move the entity into.
+      classificationTypeName:
+        type: string
+        description: The classification type name to apply, e.g. "MICROSOFT.PERSONAL.EMAIL".
+  steps:
+  - stepId: createEntity
+    description: Create or update the entity in the Data Map.
+    operationId: entityCreateOrUpdate
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        entity: $inputs.entity
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      guidAssignments: $response.body#/guidAssignments
+  - stepId: getEntity
+    description: Read the entity back by its assigned GUID to confirm it exists.
+    operationId: entityGetByGuid
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.createEntity.outputs.guidAssignments
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      entityGuid: $response.body#/entity/guid
+  - stepId: moveToCollection
+    description: Move the entity into the target collection.
+    operationId: entityMoveToCollection
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: collectionId
+      in: path
+      value: $inputs.collectionId
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        entityGuids:
+        - $steps.getEntity.outputs.entityGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      mutatedEntities: $response.body#/mutatedEntities
+  - stepId: classify
+    description: Apply the requested classification to the onboarded entity.
+    operationId: entityAddClassifications
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.getEntity.outputs.entityGuid
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+      - typeName: $inputs.classificationTypeName
+        entityGuid: $steps.getEntity.outputs.entityGuid
+        propagate: true
+    successCriteria:
+    - condition: $statusCode == 204
+  outputs:
+    entityGuid: $steps.getEntity.outputs.entityGuid
+    collectionId: $inputs.collectionId

@@ -1,0 +1,122 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Define a Data Quality Rule and Scan
+  summary: Create a data quality rule, confirm it, then run a quality scan that evaluates it.
+  description: >-
+    Operationalizes data quality monitoring in the Purview Data Quality service.
+    The workflow creates a data quality rule targeting an asset, reads it back
+    to confirm it was stored, and runs a data quality scan that evaluates that
+    rule against the asset. Every step spells out its request inline — including
+    the inline OAuth2 bearer token and the required api-version query parameter
+    — so the flow can be read and executed without opening the underlying
+    OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: dataQualityApi
+  url: ../openapi/microsoft-purview-data-quality-openapi.yml
+  type: openapi
+workflows:
+- workflowId: define-rule-and-scan-quality
+  summary: Create a data quality rule and run a scan that evaluates it.
+  description: >-
+    Creates a data quality rule, confirms it by reading it back, and runs a data
+    quality scan against the target asset using that rule.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - ruleName
+    - ruleType
+    - assetId
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      apiVersion:
+        type: string
+        description: The Data Quality API version.
+        default: '2024-03-01-preview'
+      ruleName:
+        type: string
+        description: The name for the new data quality rule.
+      ruleType:
+        type: string
+        description: The rule type (Completeness, Uniqueness, Freshness, Accuracy, Consistency, or Validity).
+      expression:
+        type: string
+        description: The rule expression evaluated against the asset.
+      severity:
+        type: string
+        description: The rule severity (Low, Medium, High, or Critical).
+        default: Medium
+      assetId:
+        type: string
+        description: The data asset identifier the rule targets and the scan evaluates.
+  steps:
+  - stepId: createRule
+    description: Create the data quality rule targeting the asset.
+    operationId: createDataQualityRule
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.ruleName
+        ruleType: $inputs.ruleType
+        expression: $inputs.expression
+        severity: $inputs.severity
+        isEnabled: true
+        targetAssets:
+        - $inputs.assetId
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      ruleId: $response.body#/id
+  - stepId: confirmRule
+    description: Read the rule back by its identifier to confirm it was stored.
+    operationId: getDataQualityRule
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: ruleId
+      in: path
+      value: $steps.createRule.outputs.ruleId
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      ruleId: $response.body#/id
+  - stepId: runScan
+    description: Run a data quality scan that evaluates the rule against the asset.
+    operationId: runDataQualityScan
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        assetIds:
+        - $inputs.assetId
+        ruleIds:
+        - $steps.confirmRule.outputs.ruleId
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      scanId: $response.body#/scanId
+      scanStatus: $response.body#/status
+  outputs:
+    ruleId: $steps.confirmRule.outputs.ruleId
+    scanId: $steps.runScan.outputs.scanId
+    scanStatus: $steps.runScan.outputs.scanStatus

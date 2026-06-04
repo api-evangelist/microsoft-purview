@@ -1,0 +1,164 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Schedule a Recurring Scan
+  summary: Configure a scan, attach a recurring trigger, enable it, and confirm the schedule.
+  description: >-
+    Automates ongoing data discovery in the Purview Scanning service. The
+    workflow creates or replaces a scan on an existing data source, attaches a
+    recurring trigger to it, enables that trigger, and reads the trigger back to
+    confirm the schedule is in place. Every step spells out its request inline —
+    including the inline OAuth2 bearer token and the required api-version query
+    parameter — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: scanningApi
+  url: ../openapi/microsoft-purview-scanning-openapi.yml
+  type: openapi
+workflows:
+- workflowId: schedule-recurring-scan
+  summary: Configure a scan and put it on a recurring schedule.
+  description: >-
+    Creates or replaces a scan, attaches a recurring trigger, enables it, and
+    reads the trigger back to confirm the schedule.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - dataSourceName
+    - scanName
+    - scanKind
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      apiVersion:
+        type: string
+        description: The Scanning API version.
+        default: '2023-09-01'
+      dataSourceName:
+        type: string
+        description: The name of the existing data source.
+      scanName:
+        type: string
+        description: The name of the scan to create or replace.
+      scanKind:
+        type: string
+        description: The scan kind, e.g. "AzureSqlDatabaseMsi".
+      scanRulesetName:
+        type: string
+        description: The scan ruleset name the scan should use.
+      frequency:
+        type: string
+        description: The recurrence frequency (Week, Month, or Day).
+        default: Week
+      interval:
+        type: integer
+        description: The recurrence interval.
+        default: 1
+      startTime:
+        type: string
+        description: The ISO 8601 start time for the recurrence.
+  steps:
+  - stepId: configureScan
+    description: Create or replace the scan configuration on the data source.
+    operationId: createOrReplaceScan
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: scanName
+      in: path
+      value: $inputs.scanName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.scanName
+        kind: $inputs.scanKind
+        properties:
+          scanRulesetName: $inputs.scanRulesetName
+          scanRulesetType: System
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      scanName: $response.body#/name
+  - stepId: createTrigger
+    description: Attach a recurring trigger to the scan.
+    operationId: createOrReplaceTrigger
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: scanName
+      in: path
+      value: $inputs.scanName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        name: default
+        properties:
+          recurrence:
+            frequency: $inputs.frequency
+            interval: $inputs.interval
+            startTime: $inputs.startTime
+          scanLevel: Incremental
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      triggerName: $response.body#/name
+  - stepId: enableTrigger
+    description: Enable the trigger so scheduled scans begin running.
+    operationId: enableTrigger
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: scanName
+      in: path
+      value: $inputs.scanName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      triggerName: $response.body#/name
+  - stepId: confirmTrigger
+    description: Read the trigger back to confirm the recurring schedule is in place.
+    operationId: getTrigger
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: scanName
+      in: path
+      value: $inputs.scanName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      recurrence: $response.body#/properties/recurrence
+  outputs:
+    scanName: $steps.configureScan.outputs.scanName
+    triggerName: $steps.enableTrigger.outputs.triggerName
+    recurrence: $steps.confirmTrigger.outputs.recurrence

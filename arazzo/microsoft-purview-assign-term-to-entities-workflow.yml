@@ -1,0 +1,96 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Assign a Glossary Term to Entities
+  summary: Create a glossary term and assign it to one or more catalog entities.
+  description: >-
+    Connects business vocabulary to data assets in the Purview Atlas catalog.
+    The workflow creates a glossary term anchored to an existing glossary,
+    assigns that term to a supplied list of related entity objects, and lists
+    the entities now assigned to the term to confirm the linkage. Every step
+    spells out its request inline — including the inline OAuth2 bearer token —
+    so the flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: catalogApi
+  url: ../openapi/microsoft-purview-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: assign-term-to-entities
+  summary: Create a glossary term and link it to catalog entities.
+  description: >-
+    Creates a glossary term under an existing glossary, assigns it to a list of
+    related objects, and lists the assigned entities to verify the assignment.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - glossaryGuid
+    - termName
+    - relatedObjects
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      glossaryGuid:
+        type: string
+        description: The GUID of the existing glossary the term is anchored to.
+      termName:
+        type: string
+        description: The display name for the new glossary term.
+      relatedObjects:
+        type: array
+        description: List of AtlasRelatedObjectId objects (each with a guid) to assign the term to.
+        items:
+          type: object
+  steps:
+  - stepId: createTerm
+    description: Create the glossary term anchored to the supplied glossary.
+    operationId: createGlossaryTerm
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.termName
+        status: Approved
+        anchor:
+          glossaryGuid: $inputs.glossaryGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      termGuid: $response.body#/guid
+  - stepId: assignTerm
+    description: Assign the new term to the provided list of related entity objects.
+    operationId: assignTermToEntities
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: termId
+      in: path
+      value: $steps.createTerm.outputs.termGuid
+    requestBody:
+      contentType: application/json
+      payload: $inputs.relatedObjects
+    successCriteria:
+    - condition: $statusCode == 204
+  - stepId: listAssigned
+    description: List the entities now assigned with the term to confirm the linkage.
+    operationId: listEntitiesAssignedWithTerm
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: termId
+      in: path
+      value: $steps.createTerm.outputs.termGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      assignedEntities: $response.body
+  outputs:
+    termGuid: $steps.createTerm.outputs.termGuid
+    assignedEntities: $steps.listAssigned.outputs.assignedEntities

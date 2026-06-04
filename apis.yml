@@ -358,6 +358,60 @@ apis:
   - type: NaftikoCapability
     url: capabilities/records-management-retention-labels.yaml
 common:
+- type: ArazzoWorkflows
+  url: arazzo/
+  workflows:
+  - url: arazzo/microsoft-purview-assign-term-to-entities-workflow.yml
+    name: Microsoft Purview Assign a Glossary Term to Entities
+    summary: Create a glossary term and assign it to one or more catalog entities.
+  - url: arazzo/microsoft-purview-categorize-glossary-term-workflow.yml
+    name: Microsoft Purview Categorize a Glossary Term
+    summary: Create a glossary category and a term that is filed under that category.
+  - url: arazzo/microsoft-purview-classify-entity-workflow.yml
+    name: Microsoft Purview Classify a Data Asset Entity
+    summary: Register a catalog entity, confirm it, then apply and verify a classification.
+  - url: arazzo/microsoft-purview-define-and-apply-classification-type-workflow.yml
+    name: Microsoft Purview Define a Classification Type and Apply It
+    summary: Register a custom classification typedef, confirm it, then classify an entity with it.
+  - url: arazzo/microsoft-purview-define-rule-and-scan-quality-workflow.yml
+    name: Microsoft Purview Define a Data Quality Rule and Scan
+    summary: Create a data quality rule, confirm it, then run a quality scan that evaluates it.
+  - url: arazzo/microsoft-purview-move-entities-to-collection-workflow.yml
+    name: Microsoft Purview Move Found Entities into a Collection
+    summary: Search the catalog, then move the discovered entities into a target collection.
+  - url: arazzo/microsoft-purview-onboard-entity-to-collection-workflow.yml
+    name: Microsoft Purview Onboard an Entity into a Collection
+    summary: Create a Data Map entity, confirm it, move it into a collection, and classify it.
+  - url: arazzo/microsoft-purview-profile-asset-and-poll-workflow.yml
+    name: Microsoft Purview Profile a Data Asset and Poll for Results
+    summary: Kick off data profiling for an asset, then poll until the profiling completes.
+  - url: arazzo/microsoft-purview-provision-scan-ruleset-workflow.yml
+    name: Microsoft Purview Provision a Custom Scan Ruleset
+    summary: Create a custom classification rule, build a scan ruleset that uses it, and confirm.
+  - url: arazzo/microsoft-purview-publish-data-product-workflow.yml
+    name: Microsoft Purview Publish a Data Product
+    summary: Create a business domain, confirm it, then publish a data product under it.
+  - url: arazzo/microsoft-purview-publish-glossary-term-workflow.yml
+    name: Microsoft Purview Publish a Glossary Term
+    summary: Create a glossary, confirm it, then create a term anchored to that glossary.
+  - url: arazzo/microsoft-purview-register-source-and-scan-workflow.yml
+    name: Microsoft Purview Register a Data Source and Launch a Scan
+    summary: Register a data source, configure a scan, and kick off a scan run.
+  - url: arazzo/microsoft-purview-relate-entities-workflow.yml
+    name: Microsoft Purview Relate Two Catalog Entities
+    summary: Create an entity, then create a relationship linking it to another entity.
+  - url: arazzo/microsoft-purview-run-and-poll-scan-workflow.yml
+    name: Microsoft Purview Run a Scan and Poll to Completion
+    summary: Launch a scan run, then poll scan history until the run reaches a terminal state.
+  - url: arazzo/microsoft-purview-schedule-recurring-scan-workflow.yml
+    name: Microsoft Purview Schedule a Recurring Scan
+    summary: Configure a scan, attach a recurring trigger, enable it, and confirm the schedule.
+  - url: arazzo/microsoft-purview-search-and-classify-workflow.yml
+    name: Microsoft Purview Search and Classify a Found Asset
+    summary: Search the catalog, read the top hit, and apply a classification to it.
+  - url: arazzo/microsoft-purview-trace-asset-lineage-workflow.yml
+    name: Microsoft Purview Trace Data Asset Lineage
+    summary: Search for an asset, read its entity, then walk its lineage graph with pagination.
 - type: Portal
   url: https://purview.microsoft.com
 - type: Documentation

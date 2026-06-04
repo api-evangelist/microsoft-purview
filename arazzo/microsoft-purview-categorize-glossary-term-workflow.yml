@@ -1,0 +1,115 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Categorize a Glossary Term
+  summary: Create a glossary category and a term that is filed under that category.
+  description: >-
+    Structures a business glossary with a category hierarchy in the Purview
+    Atlas catalog. The workflow creates a glossary category anchored to an
+    existing glossary, reads it back to capture its GUID, creates a term whose
+    categories reference that category, and reads the term back to confirm.
+    Every step spells out its request inline — including the inline OAuth2
+    bearer token — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: catalogApi
+  url: ../openapi/microsoft-purview-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: categorize-glossary-term
+  summary: Create a glossary category and file a term under it.
+  description: >-
+    Creates a glossary category, resolves its GUID, creates a term that
+    references the category, and confirms the term by reading it back.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - glossaryGuid
+    - categoryName
+    - termName
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      glossaryGuid:
+        type: string
+        description: The GUID of the existing glossary that anchors the category and term.
+      categoryName:
+        type: string
+        description: The display name for the new glossary category.
+      termName:
+        type: string
+        description: The display name for the new glossary term.
+  steps:
+  - stepId: createCategory
+    description: Create the glossary category anchored to the supplied glossary.
+    operationId: createGlossaryCategory
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.categoryName
+        anchor:
+          glossaryGuid: $inputs.glossaryGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      categoryGuid: $response.body#/guid
+  - stepId: getCategory
+    description: Read the category back by its GUID to confirm it was created.
+    operationId: getGlossaryCategory
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: categoryId
+      in: path
+      value: $steps.createCategory.outputs.categoryGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      categoryGuid: $response.body#/guid
+  - stepId: createTerm
+    description: >-
+      Create a glossary term anchored to the glossary and categorized under the
+      new category.
+    operationId: createGlossaryTerm
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.termName
+        status: Draft
+        anchor:
+          glossaryGuid: $inputs.glossaryGuid
+        categories:
+        - categoryGuid: $steps.getCategory.outputs.categoryGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      termGuid: $response.body#/guid
+  - stepId: getTerm
+    description: Read the term back by its GUID to confirm it was stored.
+    operationId: getGlossaryTerm
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: termId
+      in: path
+      value: $steps.createTerm.outputs.termGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      termGuid: $response.body#/guid
+      categories: $response.body#/categories
+  outputs:
+    categoryGuid: $steps.getCategory.outputs.categoryGuid
+    termGuid: $steps.getTerm.outputs.termGuid

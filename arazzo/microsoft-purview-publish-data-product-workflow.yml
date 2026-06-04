@@ -1,0 +1,129 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Publish a Data Product
+  summary: Create a business domain, confirm it, then publish a data product under it.
+  description: >-
+    Stands up a governed data product in the Purview unified catalog. The
+    workflow creates a business domain, reads it back to capture its identifier,
+    creates a data product anchored to that domain, and reads the data product
+    back to confirm it was stored. Every step spells out its request inline —
+    including the inline OAuth2 bearer token and the required api-version query
+    parameter — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: unifiedCatalogApi
+  url: ../openapi/microsoft-purview-unified-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: publish-data-product
+  summary: Create a business domain and publish a data product under it.
+  description: >-
+    Creates a business domain, resolves its id, creates a data product that
+    references the domain, and confirms the data product by reading it back.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - businessDomainName
+    - dataProductName
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      apiVersion:
+        type: string
+        description: The unified catalog API version.
+        default: '2024-03-01-preview'
+      businessDomainName:
+        type: string
+        description: The name for the new business domain.
+      businessDomainDescription:
+        type: string
+        description: An optional description for the business domain.
+      dataProductName:
+        type: string
+        description: The name for the new data product.
+      dataProductDescription:
+        type: string
+        description: An optional description for the data product.
+  steps:
+  - stepId: createDomain
+    description: Create the business domain that will own the data product.
+    operationId: createBusinessDomain
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.businessDomainName
+        description: $inputs.businessDomainDescription
+        status: Draft
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      businessDomainId: $response.body#/id
+  - stepId: getDomain
+    description: Read the business domain back by its identifier to confirm it was created.
+    operationId: getBusinessDomain
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: businessDomainId
+      in: path
+      value: $steps.createDomain.outputs.businessDomainId
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      businessDomainId: $response.body#/id
+  - stepId: createDataProduct
+    description: Create a data product anchored to the new business domain.
+    operationId: createDataProduct
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.dataProductName
+        description: $inputs.dataProductDescription
+        businessDomainId: $steps.getDomain.outputs.businessDomainId
+        status: Draft
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      dataProductId: $response.body#/id
+  - stepId: getDataProduct
+    description: Read the data product back by its identifier to confirm it was stored.
+    operationId: getDataProduct
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataProductId
+      in: path
+      value: $steps.createDataProduct.outputs.dataProductId
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      dataProductId: $response.body#/id
+      status: $response.body#/status
+  outputs:
+    businessDomainId: $steps.getDomain.outputs.businessDomainId
+    dataProductId: $steps.getDataProduct.outputs.dataProductId

@@ -1,0 +1,114 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Run a Scan and Poll to Completion
+  summary: Launch a scan run, then poll scan history until the run reaches a terminal state.
+  description: >-
+    Drives a Purview scan run to completion. The workflow launches a scan run by
+    its run GUID, then reads the scan history and branches on the latest run's
+    status: while the run is still Accepted or InProgress it loops back to read
+    history again, and when the run reaches a terminal state (Succeeded, Failed,
+    Canceled, or TransientFailure) it ends. Every step spells out its request
+    inline — including the inline OAuth2 bearer token and the required
+    api-version query parameter — so the flow can be read and executed without
+    opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: scanningApi
+  url: ../openapi/microsoft-purview-scanning-openapi.yml
+  type: openapi
+workflows:
+- workflowId: run-and-poll-scan
+  summary: Launch a scan run and poll its history until it finishes.
+  description: >-
+    Starts a scan run and repeatedly reads the scan history, looping while the
+    most recent run is still in progress and ending when it reaches a terminal
+    status.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - dataSourceName
+    - scanName
+    - runId
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      apiVersion:
+        type: string
+        description: The Scanning API version.
+        default: '2023-09-01'
+      dataSourceName:
+        type: string
+        description: The name of the data source the scan belongs to.
+      scanName:
+        type: string
+        description: The name of the scan to run.
+      runId:
+        type: string
+        description: A caller-supplied GUID identifying this scan run.
+  steps:
+  - stepId: startRun
+    description: Launch the scan run using the supplied run GUID.
+    operationId: runScan
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: scanName
+      in: path
+      value: $inputs.scanName
+    - name: runId
+      in: path
+      value: $inputs.runId
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      acceptedStatus: $response.body#/status
+  - stepId: pollHistory
+    description: >-
+      Read the scan history and inspect the latest run's status. Loop back while
+      the run is still Accepted or InProgress; end when it reaches a terminal
+      state.
+    operationId: listScanHistory
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: scanName
+      in: path
+      value: $inputs.scanName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      latestStatus: $response.body#/value/0/status
+      assetsDiscovered: $response.body#/value/0/assetsDiscovered
+    onSuccess:
+    - name: stillRunning
+      type: goto
+      stepId: pollHistory
+      criteria:
+      - context: $response.body
+        condition: $.value[0].status == 'InProgress' || $.value[0].status == 'Accepted'
+        type: jsonpath
+    - name: finished
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.value[0].status == 'Succeeded' || $.value[0].status == 'Failed' || $.value[0].status == 'Canceled' || $.value[0].status == 'TransientFailure'
+        type: jsonpath
+  outputs:
+    latestStatus: $steps.pollHistory.outputs.latestStatus
+    assetsDiscovered: $steps.pollHistory.outputs.assetsDiscovered

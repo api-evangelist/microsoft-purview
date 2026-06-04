@@ -1,0 +1,130 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Provision a Custom Scan Ruleset
+  summary: Create a custom classification rule, build a scan ruleset that uses it, and confirm.
+  description: >-
+    Tailors how the Purview Scanning service classifies data. The workflow
+    creates a custom classification rule with a regex data pattern, creates a
+    scan ruleset that includes that custom rule, and reads the ruleset back to
+    confirm it references the rule. Every step spells out its request inline —
+    including the inline OAuth2 bearer token and the required api-version query
+    parameter — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: scanningApi
+  url: ../openapi/microsoft-purview-scanning-openapi.yml
+  type: openapi
+workflows:
+- workflowId: provision-scan-ruleset
+  summary: Create a custom classification rule and a scan ruleset that uses it.
+  description: >-
+    Creates a custom classification rule, builds a scan ruleset that includes
+    it, and confirms the ruleset by reading it back.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - classificationRuleName
+    - classificationName
+    - dataPattern
+    - scanRulesetName
+    - scanRulesetKind
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      apiVersion:
+        type: string
+        description: The Scanning API version.
+        default: '2023-09-01'
+      classificationRuleName:
+        type: string
+        description: The name of the custom classification rule to create.
+      classificationName:
+        type: string
+        description: The classification the rule applies when it matches.
+      dataPattern:
+        type: string
+        description: The regex pattern the classification rule matches on.
+      scanRulesetName:
+        type: string
+        description: The name of the scan ruleset to create.
+      scanRulesetKind:
+        type: string
+        description: The scan ruleset kind, matching the data source family, e.g. "AzureSqlDatabase".
+  steps:
+  - stepId: createClassificationRule
+    description: Create a custom classification rule with a regex data pattern.
+    operationId: createOrReplaceClassificationRule
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: classificationRuleName
+      in: path
+      value: $inputs.classificationRuleName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.classificationRuleName
+        kind: Custom
+        properties:
+          classificationName: $inputs.classificationName
+          ruleStatus: Enabled
+          dataPatterns:
+          - kind: Regex
+            pattern: $inputs.dataPattern
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      ruleName: $response.body#/name
+  - stepId: createScanRuleset
+    description: Create a scan ruleset that includes the new custom classification rule.
+    operationId: createOrReplaceScanRuleset
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: scanRulesetName
+      in: path
+      value: $inputs.scanRulesetName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.scanRulesetName
+        kind: $inputs.scanRulesetKind
+        properties:
+          includedCustomClassificationRuleNames:
+          - $inputs.classificationRuleName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      rulesetName: $response.body#/name
+  - stepId: confirmRuleset
+    description: Read the scan ruleset back to confirm it references the custom rule.
+    operationId: getScanRuleset
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: scanRulesetName
+      in: path
+      value: $inputs.scanRulesetName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      includedRules: $response.body#/properties/includedCustomClassificationRuleNames
+  outputs:
+    ruleName: $steps.createClassificationRule.outputs.ruleName
+    rulesetName: $steps.createScanRuleset.outputs.rulesetName
+    includedRules: $steps.confirmRuleset.outputs.includedRules

@@ -1,0 +1,138 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Trace Data Asset Lineage
+  summary: Search for an asset, read its entity, then walk its lineage graph with pagination.
+  description: >-
+    Discovers a data asset by keyword and traces its lineage in the Purview
+    Atlas catalog. The workflow searches the catalog, takes the top hit's GUID,
+    reads the full entity, fetches its lineage in the requested direction, and
+    branches: when the lineage graph reports more children than the first page
+    returned it pulls the next page, otherwise it ends. Every step spells out
+    its request inline — including the inline OAuth2 bearer token — so the flow
+    can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: catalogApi
+  url: ../openapi/microsoft-purview-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: trace-asset-lineage
+  summary: Find an asset by keyword and walk its lineage graph.
+  description: >-
+    Runs a discovery search, resolves the top result's GUID, reads the entity,
+    retrieves its lineage, and paginates to the next lineage page when the graph
+    indicates additional related entities.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - keywords
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      keywords:
+        type: string
+        description: The search keywords used to find the data asset.
+      direction:
+        type: string
+        description: Lineage direction to traverse (INPUT, OUTPUT, or BOTH).
+        default: BOTH
+      depth:
+        type: integer
+        description: The number of hops of lineage to retrieve.
+        default: 3
+  steps:
+  - stepId: search
+    description: Search the catalog for assets matching the supplied keywords.
+    operationId: searchQuery
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        keywords: $inputs.keywords
+        limit: 10
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      topAssetId: $response.body#/value/0/id
+  - stepId: getEntity
+    description: Read the full entity definition for the top search hit.
+    operationId: getEntityByGuid
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.search.outputs.topAssetId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      entityGuid: $response.body#/entity/guid
+  - stepId: getLineage
+    description: Retrieve the lineage graph for the entity in the requested direction.
+    operationId: getLineageByGuid
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.getEntity.outputs.entityGuid
+    - name: direction
+      in: query
+      value: $inputs.direction
+    - name: depth
+      in: query
+      value: $inputs.depth
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      childrenCount: $response.body#/childrenCount
+      relations: $response.body#/relations
+    onSuccess:
+    - name: morePages
+      type: goto
+      stepId: getLineageNext
+      criteria:
+      - context: $response.body
+        condition: $.childrenCount > 0
+        type: jsonpath
+    - name: done
+      type: end
+      criteria:
+      - context: $response.body
+        condition: $.childrenCount == 0
+        type: jsonpath
+  - stepId: getLineageNext
+    description: Pull the next page of lineage when the graph reports additional children.
+    operationId: getLineageNextPage
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.getEntity.outputs.entityGuid
+    - name: direction
+      in: query
+      value: $inputs.direction
+    - name: offset
+      in: query
+      value: 0
+    - name: limit
+      in: query
+      value: 100
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      nextRelations: $response.body#/relations
+  outputs:
+    entityGuid: $steps.getEntity.outputs.entityGuid
+    relations: $steps.getLineage.outputs.relations
+    nextRelations: $steps.getLineageNext.outputs.nextRelations

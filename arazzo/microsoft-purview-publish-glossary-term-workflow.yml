@@ -1,0 +1,114 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Publish a Glossary Term
+  summary: Create a glossary, confirm it, then create a term anchored to that glossary.
+  description: >-
+    Stands up a business glossary and its first term in the Purview Atlas
+    catalog. The workflow creates a glossary, reads it back to capture its
+    GUID, creates a term anchored to that glossary, and reads the term back to
+    confirm it was stored. Every step spells out its request inline — including
+    the inline OAuth2 bearer token — so the flow can be read and executed
+    without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: catalogApi
+  url: ../openapi/microsoft-purview-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: publish-glossary-term
+  summary: Create a glossary and a term anchored to it.
+  description: >-
+    Creates a glossary, resolves its GUID, creates a glossary term whose anchor
+    points at the new glossary, and confirms the term by reading it back.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - glossaryName
+    - termName
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      glossaryName:
+        type: string
+        description: The display name for the new glossary.
+      glossaryDescription:
+        type: string
+        description: An optional short description for the glossary.
+      termName:
+        type: string
+        description: The display name for the new glossary term.
+      termDescription:
+        type: string
+        description: An optional short description for the term.
+  steps:
+  - stepId: createGlossary
+    description: Create the business glossary that will anchor the new term.
+    operationId: createGlossary
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.glossaryName
+        shortDescription: $inputs.glossaryDescription
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      glossaryGuid: $response.body#/guid
+  - stepId: getGlossary
+    description: Read the glossary back by its GUID to confirm it was created.
+    operationId: getGlossary
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: glossaryId
+      in: path
+      value: $steps.createGlossary.outputs.glossaryGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      glossaryGuid: $response.body#/guid
+  - stepId: createTerm
+    description: >-
+      Create a glossary term anchored to the new glossary using its GUID as the
+      anchor reference.
+    operationId: createGlossaryTerm
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.termName
+        shortDescription: $inputs.termDescription
+        status: Draft
+        anchor:
+          glossaryGuid: $steps.getGlossary.outputs.glossaryGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      termGuid: $response.body#/guid
+  - stepId: getTerm
+    description: Read the term back by its GUID to confirm it was stored.
+    operationId: getGlossaryTerm
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: termId
+      in: path
+      value: $steps.createTerm.outputs.termGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      termGuid: $response.body#/guid
+      termName: $response.body#/name
+  outputs:
+    glossaryGuid: $steps.getGlossary.outputs.glossaryGuid
+    termGuid: $steps.getTerm.outputs.termGuid

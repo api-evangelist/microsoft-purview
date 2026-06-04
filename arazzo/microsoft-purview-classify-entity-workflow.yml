@@ -1,0 +1,110 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Classify a Data Asset Entity
+  summary: Register a catalog entity, confirm it, then apply and verify a classification.
+  description: >-
+    A foundational data governance flow in the Purview Atlas catalog. The
+    workflow creates or updates a data asset entity, reads it back by its
+    assigned GUID to confirm it landed, attaches one or more classifications to
+    the entity, and then lists the classifications to verify they were applied.
+    Every step spells out its request inline — including the inline OAuth2
+    bearer token — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: catalogApi
+  url: ../openapi/microsoft-purview-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: classify-entity
+  summary: Create a catalog entity and apply a classification to it.
+  description: >-
+    Creates or updates an Atlas entity, resolves the GUID the service assigned,
+    adds a classification to that entity, and confirms the classification is
+    present on the entity.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - entity
+    - classificationTypeName
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      entity:
+        type: object
+        description: The AtlasEntity object to create or update (typeName + attributes).
+      classificationTypeName:
+        type: string
+        description: The classification type name to apply, e.g. "MICROSOFT.PERSONAL.EMAIL".
+  steps:
+  - stepId: createEntity
+    description: >-
+      Create or update the data asset entity. Purview matches on the supplied
+      guid or on unique attributes such as qualifiedName.
+    operationId: createOrUpdateEntity
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        entity: $inputs.entity
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      guidAssignments: $response.body#/guidAssignments
+  - stepId: getEntity
+    description: Read the created entity back by its assigned GUID to confirm it exists.
+    operationId: getEntityByGuid
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.createEntity.outputs.guidAssignments
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      entityGuid: $response.body#/entity/guid
+      typeName: $response.body#/entity/typeName
+  - stepId: addClassification
+    description: >-
+      Attach the requested classification to the entity, propagating it
+      according to the classification's defaults.
+    operationId: addEntityClassifications
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.getEntity.outputs.entityGuid
+    requestBody:
+      contentType: application/json
+      payload:
+      - typeName: $inputs.classificationTypeName
+        entityGuid: $steps.getEntity.outputs.entityGuid
+        propagate: true
+    successCriteria:
+    - condition: $statusCode == 204
+  - stepId: listClassifications
+    description: List the classifications on the entity to verify the new one is present.
+    operationId: listEntityClassifications
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.getEntity.outputs.entityGuid
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      classifications: $response.body#/list
+  outputs:
+    entityGuid: $steps.getEntity.outputs.entityGuid
+    classifications: $steps.listClassifications.outputs.classifications

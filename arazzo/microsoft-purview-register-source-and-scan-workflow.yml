@@ -1,0 +1,156 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Register a Data Source and Launch a Scan
+  summary: Register a data source, configure a scan, and kick off a scan run.
+  description: >-
+    The end-to-end onboarding flow for the Purview Scanning service. The
+    workflow registers (or replaces) a data source, reads it back to confirm
+    registration, creates or replaces a scan configuration on that source, and
+    launches a scan run identified by a caller-supplied run GUID. Every step
+    spells out its request inline — including the inline OAuth2 bearer token and
+    the required api-version query parameter — so the flow can be read and
+    executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: scanningApi
+  url: ../openapi/microsoft-purview-scanning-openapi.yml
+  type: openapi
+workflows:
+- workflowId: register-source-and-scan
+  summary: Register a data source, configure a scan, and run it.
+  description: >-
+    Creates or replaces a data source, confirms it, creates or replaces a scan
+    on it, and starts a scan run.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - dataSourceName
+    - dataSourceKind
+    - scanName
+    - scanKind
+    - runId
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      apiVersion:
+        type: string
+        description: The Scanning API version.
+        default: '2023-09-01'
+      dataSourceName:
+        type: string
+        description: The name to register the data source under.
+      dataSourceKind:
+        type: string
+        description: The data source kind, e.g. "AzureSqlDatabase" or "AdlsGen2".
+      scanName:
+        type: string
+        description: The name of the scan to create on the data source.
+      scanKind:
+        type: string
+        description: The scan kind, e.g. "AzureSqlDatabaseMsi".
+      scanRulesetName:
+        type: string
+        description: The scan ruleset name the scan should use.
+      runId:
+        type: string
+        description: A caller-supplied GUID identifying this scan run.
+  steps:
+  - stepId: registerSource
+    description: Register or replace the data source in the Purview account.
+    operationId: createOrReplaceDataSource
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.dataSourceName
+        kind: $inputs.dataSourceKind
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      dataSourceName: $response.body#/name
+  - stepId: confirmSource
+    description: Read the data source back to confirm it was registered.
+    operationId: getDataSource
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      dataSourceName: $response.body#/name
+  - stepId: configureScan
+    description: Create or replace the scan configuration on the data source.
+    operationId: createOrReplaceScan
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: scanName
+      in: path
+      value: $inputs.scanName
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    requestBody:
+      contentType: application/json
+      payload:
+        name: $inputs.scanName
+        kind: $inputs.scanKind
+        properties:
+          scanRulesetName: $inputs.scanRulesetName
+          scanRulesetType: System
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      scanName: $response.body#/name
+  - stepId: runScan
+    description: Launch a scan run for the configured scan using the supplied run GUID.
+    operationId: runScan
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: dataSourceName
+      in: path
+      value: $inputs.dataSourceName
+    - name: scanName
+      in: path
+      value: $inputs.scanName
+    - name: runId
+      in: path
+      value: $inputs.runId
+    - name: api-version
+      in: query
+      value: $inputs.apiVersion
+    - name: scanLevel
+      in: query
+      value: Full
+    successCriteria:
+    - condition: $statusCode == 202
+    outputs:
+      runStatus: $response.body#/status
+  outputs:
+    dataSourceName: $steps.confirmSource.outputs.dataSourceName
+    scanName: $steps.configureScan.outputs.scanName
+    runStatus: $steps.runScan.outputs.runStatus

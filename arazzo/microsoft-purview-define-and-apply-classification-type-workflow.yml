@@ -1,0 +1,110 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Define a Classification Type and Apply It
+  summary: Register a custom classification typedef, confirm it, then classify an entity with it.
+  description: >-
+    Extends the Purview Atlas type system with a custom classification and puts
+    it to use. The workflow bulk-creates a classification type definition, reads
+    it back by name to confirm registration, creates or updates a data asset
+    entity, and applies the new classification to that entity. Every step spells
+    out its request inline — including the inline OAuth2 bearer token — so the
+    flow can be read and executed without opening the underlying OpenAPI
+    description.
+  version: 1.0.0
+sourceDescriptions:
+- name: catalogApi
+  url: ../openapi/microsoft-purview-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: define-and-apply-classification-type
+  summary: Register a custom classification type and classify an entity with it.
+  description: >-
+    Bulk-creates a classification type definition, confirms it by name, creates
+    an entity, and applies the new classification to that entity.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - classificationName
+    - entity
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      classificationName:
+        type: string
+        description: The unique name of the custom classification type to register.
+      classificationDescription:
+        type: string
+        description: An optional description for the classification type.
+      entity:
+        type: object
+        description: The AtlasEntity object to create and classify.
+  steps:
+  - stepId: createTypeDef
+    description: Bulk-create the custom classification type definition.
+    operationId: bulkCreateTypeDefinitions
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        classificationDefs:
+        - category: CLASSIFICATION
+          name: $inputs.classificationName
+          description: $inputs.classificationDescription
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      classificationDefs: $response.body#/classificationDefs
+  - stepId: confirmTypeDef
+    description: Read the classification type definition back by name to confirm registration.
+    operationId: getTypeDefinitionByName
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: name
+      in: path
+      value: $inputs.classificationName
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      typeName: $response.body#/name
+  - stepId: createEntity
+    description: Create or update the data asset entity to be classified.
+    operationId: createOrUpdateEntity
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        entity: $inputs.entity
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      guidAssignments: $response.body#/guidAssignments
+  - stepId: applyClassification
+    description: Apply the newly registered classification to the created entity.
+    operationId: addEntityClassifications
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.createEntity.outputs.guidAssignments
+    requestBody:
+      contentType: application/json
+      payload:
+      - typeName: $steps.confirmTypeDef.outputs.typeName
+        propagate: true
+    successCriteria:
+    - condition: $statusCode == 204
+  outputs:
+    classificationTypeName: $steps.confirmTypeDef.outputs.typeName
+    guidAssignments: $steps.createEntity.outputs.guidAssignments

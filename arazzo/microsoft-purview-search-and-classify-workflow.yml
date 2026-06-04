@@ -1,0 +1,91 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Search and Classify a Found Asset
+  summary: Search the catalog, read the top hit, and apply a classification to it.
+  description: >-
+    A remediation-style governance flow. The workflow searches the Purview
+    catalog for assets matching a keyword, resolves the top result's GUID,
+    confirms the entity by reading it back, and applies a classification to it.
+    Every step spells out its request inline — including the inline OAuth2
+    bearer token — so the flow can be read and executed without opening the
+    underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: catalogApi
+  url: ../openapi/microsoft-purview-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: search-and-classify
+  summary: Find an asset by keyword and classify it.
+  description: >-
+    Runs a discovery search, resolves and reads the top hit, then adds a
+    classification to that entity.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - keywords
+    - classificationTypeName
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      keywords:
+        type: string
+        description: The search keywords used to find the data asset.
+      classificationTypeName:
+        type: string
+        description: The classification type name to apply, e.g. "MICROSOFT.PERSONAL.NAME".
+  steps:
+  - stepId: search
+    description: Search the catalog for assets matching the supplied keywords.
+    operationId: searchQuery
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        keywords: $inputs.keywords
+        limit: 5
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      topAssetId: $response.body#/value/0/id
+      searchCount: $response.body#/searchCount
+  - stepId: getEntity
+    description: Read the full entity definition for the top search hit.
+    operationId: getEntityByGuid
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.search.outputs.topAssetId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      entityGuid: $response.body#/entity/guid
+  - stepId: classify
+    description: Apply the requested classification to the found entity.
+    operationId: addEntityClassifications
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.getEntity.outputs.entityGuid
+    requestBody:
+      contentType: application/json
+      payload:
+      - typeName: $inputs.classificationTypeName
+        entityGuid: $steps.getEntity.outputs.entityGuid
+        propagate: true
+    successCriteria:
+    - condition: $statusCode == 204
+  outputs:
+    entityGuid: $steps.getEntity.outputs.entityGuid
+    searchCount: $steps.search.outputs.searchCount

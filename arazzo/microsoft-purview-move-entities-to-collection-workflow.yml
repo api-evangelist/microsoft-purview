@@ -1,0 +1,98 @@
+arazzo: 1.0.1
+info:
+  title: Microsoft Purview Move Found Entities into a Collection
+  summary: Search the catalog, then move the discovered entities into a target collection.
+  description: >-
+    Organizes data assets into a Purview collection. The workflow searches the
+    catalog for assets matching a keyword, takes the top result's GUID, moves a
+    supplied set of entity GUIDs into the target collection, and reads one moved
+    entity back to confirm its new collection. Every step spells out its request
+    inline — including the inline OAuth2 bearer token — so the flow can be read
+    and executed without opening the underlying OpenAPI description.
+  version: 1.0.0
+sourceDescriptions:
+- name: catalogApi
+  url: ../openapi/microsoft-purview-catalog-openapi.yml
+  type: openapi
+workflows:
+- workflowId: move-entities-to-collection
+  summary: Discover assets and move them into a collection.
+  description: >-
+    Runs a discovery search to confirm assets exist, moves a supplied list of
+    entity GUIDs into the target collection, and reads the top entity back to
+    confirm the move.
+  inputs:
+    type: object
+    required:
+    - authorization
+    - keywords
+    - collectionId
+    - entityGuids
+    properties:
+      authorization:
+        type: string
+        description: The OAuth2 bearer token value, e.g. "Bearer eyJ0...".
+      keywords:
+        type: string
+        description: The search keywords used to find candidate assets.
+      collectionId:
+        type: string
+        description: The target collection identifier to move the entities into.
+      entityGuids:
+        type: array
+        description: The list of entity GUIDs to move into the collection.
+        items:
+          type: string
+  steps:
+  - stepId: search
+    description: Search the catalog to confirm matching assets exist before moving them.
+    operationId: searchQuery
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    requestBody:
+      contentType: application/json
+      payload:
+        keywords: $inputs.keywords
+        limit: 25
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      topAssetId: $response.body#/value/0/id
+      searchCount: $response.body#/searchCount
+  - stepId: moveEntities
+    description: Move the supplied entity GUIDs into the target collection.
+    operationId: moveEntitiesToCollection
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: collectionId
+      in: path
+      value: $inputs.collectionId
+    requestBody:
+      contentType: application/json
+      payload:
+        entityGuids: $inputs.entityGuids
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      mutatedEntities: $response.body#/mutatedEntities
+  - stepId: confirmMove
+    description: Read the top discovered entity back to confirm its collection assignment.
+    operationId: getEntityByGuid
+    parameters:
+    - name: Authorization
+      in: header
+      value: $inputs.authorization
+    - name: guid
+      in: path
+      value: $steps.search.outputs.topAssetId
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      collectionId: $response.body#/entity/collectionId
+  outputs:
+    searchCount: $steps.search.outputs.searchCount
+    collectionId: $steps.confirmMove.outputs.collectionId
