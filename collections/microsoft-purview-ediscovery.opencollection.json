@@ -1,0 +1,333 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview eDiscovery API",
+    "version": "v1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "authorization_code",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "accessTokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List eDiscovery cases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of eDiscovery cases in the organization."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create an eDiscovery case",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new eDiscovery case for investigation or litigation."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get an eDiscovery case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an eDiscovery case by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update an eDiscovery case",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of an eDiscovery case."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete an eDiscovery case",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an eDiscovery case and all associated data."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Custodians",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List custodians in a case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId/custodians",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the list of custodians associated with an eDiscovery case."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Add a custodian to a case",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId/custodians",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new custodian and add them to an eDiscovery case."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Review Sets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List review sets in a case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId/reviewSets",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the list of review sets associated with an eDiscovery case."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create a review set",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId/reviewSets",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new review set in an eDiscovery case."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Searches",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List searches in a case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId/searches",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the list of searches associated with an eDiscovery case."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create a search in a case",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId/searches",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new eDiscovery search within a case."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Legal Holds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List legal holds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId/legalHolds",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the list of legal holds associated with an eDiscovery case."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create a legal hold",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/:ediscoveryCaseId/legalHolds",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a legal hold policy within an eDiscovery case."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

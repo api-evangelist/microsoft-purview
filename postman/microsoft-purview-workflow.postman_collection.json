@@ -1,0 +1,2391 @@
+{
+  "info": {
+    "_postman_id": "fdcbc527-d1d2-4f4b-8455-538c87743024",
+    "name": "Microsoft Purview Workflow API",
+    "description": "APIs for managing workflows and approval processes for data governance tasks. Supports defining custom approval workflows for glossary term management and other governance operations within Purview.\n\nContact Support:\n Name: Microsoft Purview Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:12:21.000Z",
+    "updatedAt": "2026-06-05T15:12:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fdcbc527-d1d2-4f4b-8455-538c87743024"
+  },
+  "item": [
+    {
+      "name": "workflows",
+      "item": [
+        {
+          "name": "{workflowId}",
+          "item": [
+            {
+              "name": "validate",
+              "item": [
+                {
+                  "name": "Microsoft Purview Validate a workflow",
+                  "id": "320090f3-b3f8-44a5-b2d3-590debdb87f6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"triggers\": [\n    {\n      \"type\": \"when_data_access_grant_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    },\n    {\n      \"type\": \"when_term_deletion_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"actionDag\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId/validate?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId",
+                        "validate"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "ea10c8d8-c1c3-4d1f-a222-f31d25c863f3",
+                          "key": "workflowId",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Validate a workflow definition without creating it."
+                  },
+                  "response": [
+                    {
+                      "id": "4e47176e-c4f9-45e9-8d31-324bc8ad7cf2",
+                      "name": "Workflow validation result",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"triggers\": [\n    {\n      \"type\": \"when_data_access_grant_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    },\n    {\n      \"type\": \"when_term_deletion_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"actionDag\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:workflowId/validate?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":workflowId",
+                            "validate"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"errors\": [\n    {\n      \"severity\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"severity\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-4e47176e-c4f9-45e9-8d31-324bc8ad7cf2"
+                    },
+                    {
+                      "id": "f6e644c3-122b-4ce3-93a8-10d90ba426de",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"triggers\": [\n    {\n      \"type\": \"when_data_access_grant_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    },\n    {\n      \"type\": \"when_term_deletion_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"actionDag\": {}\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workflows/:workflowId/validate?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflows",
+                            ":workflowId",
+                            "validate"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-f6e644c3-122b-4ce3-93a8-10d90ba426de"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-320090f3-b3f8-44a5-b2d3-590debdb87f6"
+                }
+              ],
+              "id": "c8503717-c27f-47d4-b323-eed4cba1e9af",
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-c8503717-c27f-47d4-b323-eed4cba1e9af"
+            },
+            {
+              "name": "Microsoft Purview Create or replace a workflow",
+              "id": "27bcb302-da9f-4edf-a065-3f3955a313cd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"triggers\": [\n    {\n      \"type\": \"when_data_access_grant_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    },\n    {\n      \"type\": \"when_term_deletion_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"actionDag\": {}\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "8386a7d6-aa7e-446f-96bd-1d521b087b7f",
+                      "key": "workflowId",
+                      "value": "<uuid>",
+                      "description": "(Required) The workflow identifier"
+                    }
+                  ]
+                },
+                "description": "Create or replace a workflow definition."
+              },
+              "response": [
+                {
+                  "id": "7dd02c61-2944-47c2-8a71-eb4d0301dd74",
+                  "name": "Workflow created or updated successfully",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"triggers\": [\n    {\n      \"type\": \"when_data_access_grant_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    },\n    {\n      \"type\": \"when_term_deletion_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"actionDag\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"triggers\": [\n    {\n      \"type\": \"when_term_deletion_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    },\n    {\n      \"type\": \"when_data_access_grant_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"actionDag\": {}\n}",
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-7dd02c61-2944-47c2-8a71-eb4d0301dd74"
+                },
+                {
+                  "id": "5eb33e53-a1e2-4e17-831f-c3823c8d52fa",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"triggers\": [\n    {\n      \"type\": \"when_data_access_grant_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    },\n    {\n      \"type\": \"when_term_deletion_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"actionDag\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-5eb33e53-a1e2-4e17-831f-c3823c8d52fa"
+                },
+                {
+                  "id": "6f7f4b07-8f94-407e-b251-bde21cec659e",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"triggers\": [\n    {\n      \"type\": \"when_data_access_grant_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    },\n    {\n      \"type\": \"when_term_deletion_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"actionDag\": {}\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-6f7f4b07-8f94-407e-b251-bde21cec659e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-27bcb302-da9f-4edf-a065-3f3955a313cd"
+            },
+            {
+              "name": "Microsoft Purview Get a workflow",
+              "id": "050037a6-6b7a-4433-8478-4fe3c37dedec",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "742b8c02-95a4-4dad-bcd9-a9df90be6493",
+                      "key": "workflowId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Get a specific workflow by its identifier."
+              },
+              "response": [
+                {
+                  "id": "815bbd2d-7675-4cd6-bced-da0b2e538ae2",
+                  "name": "Workflow retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"triggers\": [\n    {\n      \"type\": \"when_term_deletion_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    },\n    {\n      \"type\": \"when_data_access_grant_is_requested\",\n      \"underGlossaryHierarchy\": \"<string>\",\n      \"underCollection\": \"<string>\"\n    }\n  ],\n  \"name\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"description\": \"<string>\",\n  \"actionDag\": {}\n}",
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-815bbd2d-7675-4cd6-bced-da0b2e538ae2"
+                },
+                {
+                  "id": "89e38096-ed1d-44a9-a9bc-81d4734a126f",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-89e38096-ed1d-44a9-a9bc-81d4734a126f"
+                },
+                {
+                  "id": "46488c4c-8899-4306-92ed-6518d8ce116e",
+                  "name": "Workflow not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-46488c4c-8899-4306-92ed-6518d8ce116e"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-050037a6-6b7a-4433-8478-4fe3c37dedec"
+            },
+            {
+              "name": "Microsoft Purview Delete a workflow",
+              "id": "d76288e6-0238-4afd-873e-3bf200d3d4b2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "4ff43dc2-3d15-4839-bed7-a8242672e9eb",
+                      "key": "workflowId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Delete a workflow by its identifier."
+              },
+              "response": [
+                {
+                  "id": "778aa596-82eb-44b7-9ab1-31da452bf6e9",
+                  "name": "Workflow deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-778aa596-82eb-44b7-9ab1-31da452bf6e9"
+                },
+                {
+                  "id": "9cacb11c-c17c-44df-bc95-dabde1e09ec2",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-9cacb11c-c17c-44df-bc95-dabde1e09ec2"
+                },
+                {
+                  "id": "6acb80d4-df06-49d8-b92d-fad27bad1d75",
+                  "name": "Workflow not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflows/:workflowId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-6acb80d4-df06-49d8-b92d-fad27bad1d75"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-d76288e6-0238-4afd-873e-3bf200d3d4b2"
+            }
+          ],
+          "id": "3729f42e-4fa6-4f05-8af6-afa8eb840d79",
+          "createdAt": "2026-06-05T15:12:21.000Z",
+          "updatedAt": "2026-06-05T15:12:21.000Z",
+          "uid": "35240-3729f42e-4fa6-4f05-8af6-afa8eb840d79"
+        },
+        {
+          "name": "Microsoft Purview List all workflows",
+          "id": "384d3f51-0360-4b62-80d4-80ae9bd9c186",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/workflows?api-version=2023-10-01-preview",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "workflows"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "api-version",
+                  "value": "2023-10-01-preview"
+                }
+              ]
+            },
+            "description": "List all workflows in the Purview account."
+          },
+          "response": [
+            {
+              "id": "91a6c6c0-d150-4171-9339-bb6b06d2b2c7",
+              "name": "Workflows listed successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workflows?api-version=2023-10-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"<uuid>\",\n      \"triggers\": [\n        {\n          \"type\": \"when_asset_update_is_requested\",\n          \"underGlossaryHierarchy\": \"<string>\",\n          \"underCollection\": \"<string>\"\n        },\n        {\n          \"type\": \"when_term_update_is_requested\",\n          \"underGlossaryHierarchy\": \"<string>\",\n          \"underCollection\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"isEnabled\": \"<boolean>\",\n      \"description\": \"<string>\",\n      \"actionDag\": {}\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"triggers\": [\n        {\n          \"type\": \"when_term_update_is_requested\",\n          \"underGlossaryHierarchy\": \"<string>\",\n          \"underCollection\": \"<string>\"\n        },\n        {\n          \"type\": \"when_asset_update_is_requested\",\n          \"underGlossaryHierarchy\": \"<string>\",\n          \"underCollection\": \"<string>\"\n        }\n      ],\n      \"name\": \"<string>\",\n      \"isEnabled\": \"<boolean>\",\n      \"description\": \"<string>\",\n      \"actionDag\": {}\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-91a6c6c0-d150-4171-9339-bb6b06d2b2c7"
+            },
+            {
+              "id": "a3713ed6-b540-401f-80ac-54c625f36daa",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workflows?api-version=2023-10-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflows"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-a3713ed6-b540-401f-80ac-54c625f36daa"
+            }
+          ],
+          "createdAt": "2026-06-05T15:12:21.000Z",
+          "updatedAt": "2026-06-05T15:12:21.000Z",
+          "uid": "35240-384d3f51-0360-4b62-80d4-80ae9bd9c186"
+        }
+      ],
+      "id": "64d888bc-f9cf-4547-8692-c291b3171491",
+      "createdAt": "2026-06-05T15:12:21.000Z",
+      "updatedAt": "2026-06-05T15:12:21.000Z",
+      "uid": "35240-64d888bc-f9cf-4547-8692-c291b3171491"
+    },
+    {
+      "name": "workflowruns",
+      "item": [
+        {
+          "name": "{workflowRunId}",
+          "item": [
+            {
+              "name": "cancel",
+              "item": [
+                {
+                  "name": "Microsoft Purview Cancel a workflow run",
+                  "id": "8fcd97f9-ba27-46da-b5ce-b3ea0cf635d5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"comment\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workflowruns/:workflowRunId/cancel?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflowruns",
+                        ":workflowRunId",
+                        "cancel"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "e2039cfd-02b6-4310-9ad5-f7f7ec12404d",
+                          "key": "workflowRunId",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Cancel a running workflow run."
+                  },
+                  "response": [
+                    {
+                      "id": "66598400-071e-4f13-9f23-01cb96f63fd2",
+                      "name": "Workflow run cancelled successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"comment\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workflowruns/:workflowRunId/cancel?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflowruns",
+                            ":workflowRunId",
+                            "cancel"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowRunId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-66598400-071e-4f13-9f23-01cb96f63fd2"
+                    },
+                    {
+                      "id": "fa880193-fa8f-4df8-b8ca-8bf227dc5e49",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"comment\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workflowruns/:workflowRunId/cancel?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflowruns",
+                            ":workflowRunId",
+                            "cancel"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowRunId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-fa880193-fa8f-4df8-b8ca-8bf227dc5e49"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-8fcd97f9-ba27-46da-b5ce-b3ea0cf635d5"
+                }
+              ],
+              "id": "ea26a5b5-a3ce-4e7a-9993-7634f79768b4",
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-ea26a5b5-a3ce-4e7a-9993-7634f79768b4"
+            },
+            {
+              "name": "Microsoft Purview Get a workflow run",
+              "id": "26d4b6f7-7cc9-44e1-8db0-e2b10f9a8665",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workflowruns/:workflowRunId?api-version=2023-10-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflowruns",
+                    ":workflowRunId"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "27bc6c7f-f2e5-4dc8-bbcf-1fc531510b0f",
+                      "key": "workflowRunId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Get a workflow run by its identifier."
+              },
+              "response": [
+                {
+                  "id": "97ce031d-ca0b-4b02-9521-6b7b3920a348",
+                  "name": "Workflow run retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflowruns/:workflowRunId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflowruns",
+                        ":workflowRunId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowRunId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"workflowId\": \"<uuid>\",\n  \"startTime\": \"<dateTime>\",\n  \"requestor\": \"<uuid>\",\n  \"userRequestId\": \"<uuid>\",\n  \"runPayload\": {},\n  \"status\": \"NotStarted\",\n  \"endTime\": \"<dateTime>\",\n  \"cancelTime\": \"<dateTime>\",\n  \"cancelComment\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-97ce031d-ca0b-4b02-9521-6b7b3920a348"
+                },
+                {
+                  "id": "901775c2-080e-49f0-9317-baa79bdfde7f",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflowruns/:workflowRunId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflowruns",
+                        ":workflowRunId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowRunId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-901775c2-080e-49f0-9317-baa79bdfde7f"
+                },
+                {
+                  "id": "5b589175-ba54-47cf-9727-ef5b79eb4d6a",
+                  "name": "Workflow run not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflowruns/:workflowRunId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflowruns",
+                        ":workflowRunId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "workflowRunId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-5b589175-ba54-47cf-9727-ef5b79eb4d6a"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-26d4b6f7-7cc9-44e1-8db0-e2b10f9a8665"
+            }
+          ],
+          "id": "9a9bafc4-653e-4af3-a079-615e5ffa6fd1",
+          "createdAt": "2026-06-05T15:12:21.000Z",
+          "updatedAt": "2026-06-05T15:12:21.000Z",
+          "uid": "35240-9a9bafc4-653e-4af3-a079-615e5ffa6fd1"
+        }
+      ],
+      "id": "adfbe32b-5bd7-4c4d-84c8-502843685b52",
+      "createdAt": "2026-06-05T15:12:21.000Z",
+      "updatedAt": "2026-06-05T15:12:21.000Z",
+      "uid": "35240-adfbe32b-5bd7-4c4d-84c8-502843685b52"
+    },
+    {
+      "name": "workflowtasks",
+      "item": [
+        {
+          "name": "{taskId}",
+          "item": [
+            {
+              "name": "reassign",
+              "item": [
+                {
+                  "name": "Microsoft Purview Reassign a workflow task",
+                  "id": "20a75817-ed7e-494d-90e5-e3f0c01dadbe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"reassignments\": [\n    {\n      \"reassignFrom\": \"<uuid>\",\n      \"reassignTo\": \"<uuid>\"\n    },\n    {\n      \"reassignFrom\": \"<uuid>\",\n      \"reassignTo\": \"<uuid>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/workflowtasks/:taskId/reassign?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflowtasks",
+                        ":taskId",
+                        "reassign"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "378926c8-d9a3-4406-ba83-c430581c0d88",
+                          "key": "taskId",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Reassign a workflow task to a different user."
+                  },
+                  "response": [
+                    {
+                      "id": "9f31577c-47f9-4c22-adc2-ababf302cad1",
+                      "name": "Task reassigned successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reassignments\": [\n    {\n      \"reassignFrom\": \"<uuid>\",\n      \"reassignTo\": \"<uuid>\"\n    },\n    {\n      \"reassignFrom\": \"<uuid>\",\n      \"reassignTo\": \"<uuid>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workflowtasks/:taskId/reassign?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflowtasks",
+                            ":taskId",
+                            "reassign"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-9f31577c-47f9-4c22-adc2-ababf302cad1"
+                    },
+                    {
+                      "id": "744eb2e1-bcd8-4e4d-ba67-c285b9a4b535",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"reassignments\": [\n    {\n      \"reassignFrom\": \"<uuid>\",\n      \"reassignTo\": \"<uuid>\"\n    },\n    {\n      \"reassignFrom\": \"<uuid>\",\n      \"reassignTo\": \"<uuid>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/workflowtasks/:taskId/reassign?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "workflowtasks",
+                            ":taskId",
+                            "reassign"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-744eb2e1-bcd8-4e4d-ba67-c285b9a4b535"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-20a75817-ed7e-494d-90e5-e3f0c01dadbe"
+                }
+              ],
+              "id": "e016f8c5-132a-4920-9629-50787d0789f3",
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-e016f8c5-132a-4920-9629-50787d0789f3"
+            },
+            {
+              "name": "Microsoft Purview Get a workflow task",
+              "id": "af66b72f-8225-4a6f-83c0-9cb2764f3743",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/workflowtasks/:taskId?api-version=2023-10-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "workflowtasks",
+                    ":taskId"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "bd1d6232-a42c-4638-a9ce-d2652b5f7d58",
+                      "key": "taskId",
+                      "value": "<uuid>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Get a workflow task by its identifier."
+              },
+              "response": [
+                {
+                  "id": "9b4f25e2-ec39-4e99-8be5-c888578e6121",
+                  "name": "Workflow task retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflowtasks/:taskId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflowtasks",
+                        ":taskId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "taskId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"workflowRunId\": \"<uuid>\",\n  \"workflowId\": \"<uuid>\",\n  \"requestor\": \"<uuid>\",\n  \"title\": \"<string>\",\n  \"createdTime\": \"<dateTime>\",\n  \"lastUpdateTime\": \"<dateTime>\",\n  \"payload\": {},\n  \"reminderInfo\": {},\n  \"expiryInfo\": {},\n  \"type\": \"SimpleTask\",\n  \"status\": \"Cancelled\"\n}",
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-9b4f25e2-ec39-4e99-8be5-c888578e6121"
+                },
+                {
+                  "id": "22259ac9-05d3-4cca-a612-323049f765a4",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflowtasks/:taskId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflowtasks",
+                        ":taskId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "taskId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-22259ac9-05d3-4cca-a612-323049f765a4"
+                },
+                {
+                  "id": "3b27e465-99b2-47b4-ae54-16e9a3cb424c",
+                  "name": "Workflow task not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/workflowtasks/:taskId?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "workflowtasks",
+                        ":taskId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "taskId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-3b27e465-99b2-47b4-ae54-16e9a3cb424c"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-af66b72f-8225-4a6f-83c0-9cb2764f3743"
+            }
+          ],
+          "id": "3c3b0548-eb34-4254-808d-85c028c3d9df",
+          "createdAt": "2026-06-05T15:12:21.000Z",
+          "updatedAt": "2026-06-05T15:12:21.000Z",
+          "uid": "35240-3c3b0548-eb34-4254-808d-85c028c3d9df"
+        }
+      ],
+      "id": "900ff8ab-10f7-4c73-acb8-46dee04489c0",
+      "createdAt": "2026-06-05T15:12:21.000Z",
+      "updatedAt": "2026-06-05T15:12:21.000Z",
+      "uid": "35240-900ff8ab-10f7-4c73-acb8-46dee04489c0"
+    },
+    {
+      "name": "approvals",
+      "item": [
+        {
+          "name": "{taskId}",
+          "item": [
+            {
+              "name": "approve",
+              "item": [
+                {
+                  "name": "Microsoft Purview Approve a workflow approval task",
+                  "id": "55cc922b-3b8c-4c59-9da1-150591dcd05e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"comment\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:taskId/approve?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":taskId",
+                        "approve"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "89be96c9-8785-4c65-82fe-b433df2bbd1b",
+                          "key": "taskId",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Approve an approval task in a workflow."
+                  },
+                  "response": [
+                    {
+                      "id": "0be56e65-baf0-4618-bc93-2ebfac4c4cfb",
+                      "name": "Approval approved successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"comment\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/approvals/:taskId/approve?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "approvals",
+                            ":taskId",
+                            "approve"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-0be56e65-baf0-4618-bc93-2ebfac4c4cfb"
+                    },
+                    {
+                      "id": "6874bb65-e39c-4469-8fa9-d94b837b3a6c",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"comment\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/approvals/:taskId/approve?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "approvals",
+                            ":taskId",
+                            "approve"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-6874bb65-e39c-4469-8fa9-d94b837b3a6c"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-55cc922b-3b8c-4c59-9da1-150591dcd05e"
+                }
+              ],
+              "id": "1c0304bb-8d69-4ddc-9c8f-a69834e55ed7",
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-1c0304bb-8d69-4ddc-9c8f-a69834e55ed7"
+            },
+            {
+              "name": "reject",
+              "item": [
+                {
+                  "name": "Microsoft Purview Reject a workflow approval task",
+                  "id": "b1545834-0ff7-47f2-8567-4aa0dc6a308e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"comment\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/approvals/:taskId/reject?api-version=2023-10-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "approvals",
+                        ":taskId",
+                        "reject"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2023-10-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0bf51e46-dd50-41eb-999d-bd0a4603733e",
+                          "key": "taskId",
+                          "value": "<uuid>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Reject an approval task in a workflow."
+                  },
+                  "response": [
+                    {
+                      "id": "7c8ab392-73f2-48d0-a34a-210ba409be33",
+                      "name": "Approval rejected successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"comment\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/approvals/:taskId/reject?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "approvals",
+                            ":taskId",
+                            "reject"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-7c8ab392-73f2-48d0-a34a-210ba409be33"
+                    },
+                    {
+                      "id": "cf40a0c3-525d-4a5b-84e6-2c615362ad87",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"comment\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/approvals/:taskId/reject?api-version=2023-10-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "approvals",
+                            ":taskId",
+                            "reject"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2023-10-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "taskId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:21.000Z",
+                      "updatedAt": "2026-06-05T15:12:21.000Z",
+                      "uid": "35240-cf40a0c3-525d-4a5b-84e6-2c615362ad87"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:21.000Z",
+                  "updatedAt": "2026-06-05T15:12:21.000Z",
+                  "uid": "35240-b1545834-0ff7-47f2-8567-4aa0dc6a308e"
+                }
+              ],
+              "id": "96635b81-1557-48a9-aa83-df491f2201d9",
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-96635b81-1557-48a9-aa83-df491f2201d9"
+            }
+          ],
+          "id": "7e9e1c1d-38f2-4eb4-b276-a1534c327bdd",
+          "createdAt": "2026-06-05T15:12:21.000Z",
+          "updatedAt": "2026-06-05T15:12:21.000Z",
+          "uid": "35240-7e9e1c1d-38f2-4eb4-b276-a1534c327bdd"
+        }
+      ],
+      "id": "ba470793-0936-4852-ada6-3a5ebea8859d",
+      "createdAt": "2026-06-05T15:12:21.000Z",
+      "updatedAt": "2026-06-05T15:12:21.000Z",
+      "uid": "35240-ba470793-0936-4852-ada6-3a5ebea8859d"
+    },
+    {
+      "name": "userrequests",
+      "item": [
+        {
+          "name": "Microsoft Purview Submit a user request",
+          "id": "1a06dba0-d39b-4886-b542-8edaa6f81a9a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"operations\": [\n    {\n      \"type\": \"<string>\",\n      \"payload\": {}\n    },\n    {\n      \"type\": \"<string>\",\n      \"payload\": {}\n    }\n  ],\n  \"comment\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/userrequests?api-version=2023-10-01-preview",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "userrequests"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "api-version",
+                  "value": "2023-10-01-preview"
+                }
+              ]
+            },
+            "description": "Submit a user request to trigger a workflow."
+          },
+          "response": [
+            {
+              "id": "f1ddf9fb-c161-4d16-94b0-d86cce90a6d3",
+              "name": "User request submitted successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operations\": [\n    {\n      \"type\": \"<string>\",\n      \"payload\": {}\n    },\n    {\n      \"type\": \"<string>\",\n      \"payload\": {}\n    }\n  ],\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/userrequests?api-version=2023-10-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "userrequests"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"requestId\": \"<uuid>\",\n  \"workflowRunIds\": [\n    \"<uuid>\",\n    \"<uuid>\"\n  ]\n}",
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-f1ddf9fb-c161-4d16-94b0-d86cce90a6d3"
+            },
+            {
+              "id": "57d10a90-2e23-4839-b651-98d49176f308",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"operations\": [\n    {\n      \"type\": \"<string>\",\n      \"payload\": {}\n    },\n    {\n      \"type\": \"<string>\",\n      \"payload\": {}\n    }\n  ],\n  \"comment\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/userrequests?api-version=2023-10-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "userrequests"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:12:21.000Z",
+              "updatedAt": "2026-06-05T15:12:21.000Z",
+              "uid": "35240-57d10a90-2e23-4839-b651-98d49176f308"
+            }
+          ],
+          "createdAt": "2026-06-05T15:12:21.000Z",
+          "updatedAt": "2026-06-05T15:12:21.000Z",
+          "uid": "35240-1a06dba0-d39b-4886-b542-8edaa6f81a9a"
+        }
+      ],
+      "id": "3d21b6fe-a153-4896-af79-584d80a6d336",
+      "createdAt": "2026-06-05T15:12:21.000Z",
+      "updatedAt": "2026-06-05T15:12:21.000Z",
+      "uid": "35240-3d21b6fe-a153-4896-af79-584d80a6d336"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://purview.azure.net/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "accountName",
+      "value": "myaccount"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{accountName}}.purview.azure.com/workflow"
+    }
+  ]
+}

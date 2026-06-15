@@ -1,0 +1,474 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account API",
+    "version": "Tue Nov 30 2021 19:00:00 GMT-0500 (Eastern Standard Time)"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Get a Purview account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Purview/accounts/:accountName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The resource group name"
+              },
+              {
+                "name": "accountName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Purview account"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ]
+          },
+          "docs": "Gets the account resource for a given account name."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create or update a Purview account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Purview/accounts/:accountName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The resource group name"
+              },
+              {
+                "name": "accountName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Purview account"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update an account resource in the specified resource group."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update a Purview account",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Purview/accounts/:accountName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The resource group name"
+              },
+              {
+                "name": "accountName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Purview account"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Patches the account resource with the given properties."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a Purview account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Purview/accounts/:accountName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The resource group name"
+              },
+              {
+                "name": "accountName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Purview account"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ]
+          },
+          "docs": "Deletes the account resource."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List accounts by resource group",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Purview/accounts",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The resource group name"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              },
+              {
+                "name": "$skipToken",
+                "value": "",
+                "type": "query",
+                "description": "The skip token for pagination"
+              }
+            ]
+          },
+          "docs": "Gets the accounts resources by resource group."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List accounts by subscription",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/providers/Microsoft.Purview/accounts",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              },
+              {
+                "name": "$skipToken",
+                "value": "",
+                "type": "query",
+                "description": "The skip token for pagination"
+              }
+            ]
+          },
+          "docs": "Gets the accounts resources by subscription."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List account keys",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Purview/accounts/:accountName/listkeys",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The resource group name"
+              },
+              {
+                "name": "accountName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Purview account"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ]
+          },
+          "docs": "Lists the keys asynchronous for the Purview account."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Add root collection admin",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Purview/accounts/:accountName/addRootCollectionAdmin",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The resource group name"
+              },
+              {
+                "name": "accountName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Purview account"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add the administrator for root collection associated with this account."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Check name availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/providers/Microsoft.Purview/checkNameAvailability",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Checks the account name availability for the given subscription."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Private Endpoint Connections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List private endpoint connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Purview/accounts/:accountName/privateEndpointConnections",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The resource group name"
+              },
+              {
+                "name": "accountName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Purview account"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ]
+          },
+          "docs": "Gets private endpoint connections for the Purview account."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get a private endpoint connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Purview/accounts/:accountName/privateEndpointConnections/:privateEndpointConnectionName",
+            "params": [
+              {
+                "name": "subscriptionId",
+                "value": "",
+                "type": "path",
+                "description": "The Azure subscription ID"
+              },
+              {
+                "name": "resourceGroupName",
+                "value": "",
+                "type": "path",
+                "description": "The resource group name"
+              },
+              {
+                "name": "accountName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the Purview account"
+              },
+              {
+                "name": "privateEndpointConnectionName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ]
+          },
+          "docs": "Gets a private endpoint connection for the Purview account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List available operations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/providers/Microsoft.Purview/operations",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version"
+              }
+            ]
+          },
+          "docs": "Lists the available operations for the Purview resource provider."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

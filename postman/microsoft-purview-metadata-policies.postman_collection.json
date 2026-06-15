@@ -1,0 +1,784 @@
+{
+  "info": {
+    "_postman_id": "440116f4-3694-4ea4-8731-e5406366eec7",
+    "name": "Microsoft Purview Metadata Policies API",
+    "description": "APIs for creating and managing data access policies based on metadata attributes. Enables programmatic management of collection-level permissions and role assignments within the Purview data governance framework.\n\nContact Support:\n Name: Microsoft Purview Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:12:20.000Z",
+    "updatedAt": "2026-06-05T15:12:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-440116f4-3694-4ea4-8731-e5406366eec7"
+  },
+  "item": [
+    {
+      "name": "metadataPolicies",
+      "item": [
+        {
+          "name": "{policyId}",
+          "item": [
+            {
+              "name": "Microsoft Purview Get a metadata policy",
+              "id": "9eb1eeee-8274-4111-8c98-c2be022b32c4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/metadataPolicies/:policyId?api-version=2021-07-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "metadataPolicies",
+                    ":policyId"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "ff77d393-20e8-41e3-9965-dfd62de28029",
+                      "key": "policyId",
+                      "value": "<string>",
+                      "description": "(Required) The unique identifier of the metadata policy"
+                    }
+                  ]
+                },
+                "description": "Gets a metadata policy by its identifier."
+              },
+              "response": [
+                {
+                  "id": "a1cff21e-5198-48f4-b82a-0471a372dacf",
+                  "name": "Metadata policy retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/metadataPolicies/:policyId?api-version=2021-07-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadataPolicies",
+                        ":policyId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2021-07-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-06-05T15:12:20.000Z",
+                  "updatedAt": "2026-06-05T15:12:20.000Z",
+                  "uid": "35240-a1cff21e-5198-48f4-b82a-0471a372dacf"
+                },
+                {
+                  "id": "12bc5bdc-c5d5-4e33-a2b1-70923ec37985",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/metadataPolicies/:policyId?api-version=2021-07-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadataPolicies",
+                        ":policyId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2021-07-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:20.000Z",
+                  "updatedAt": "2026-06-05T15:12:20.000Z",
+                  "uid": "35240-12bc5bdc-c5d5-4e33-a2b1-70923ec37985"
+                },
+                {
+                  "id": "10c3bbcc-54d2-42a7-9777-e980cd1ded67",
+                  "name": "Policy not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/metadataPolicies/:policyId?api-version=2021-07-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadataPolicies",
+                        ":policyId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2021-07-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:20.000Z",
+                  "updatedAt": "2026-06-05T15:12:20.000Z",
+                  "uid": "35240-10c3bbcc-54d2-42a7-9777-e980cd1ded67"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:20.000Z",
+              "updatedAt": "2026-06-05T15:12:20.000Z",
+              "uid": "35240-9eb1eeee-8274-4111-8c98-c2be022b32c4"
+            },
+            {
+              "name": "Microsoft Purview Update a metadata policy",
+              "id": "ec51bd70-747a-4fe9-bd18-6ff63a842604",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/metadataPolicies/:policyId?api-version=2021-07-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "metadataPolicies",
+                    ":policyId"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "59356e9f-0a56-4d1e-8ffb-3fc945a18833",
+                      "key": "policyId",
+                      "value": "<string>",
+                      "description": "(Required) The unique identifier of the metadata policy"
+                    }
+                  ]
+                },
+                "description": "Updates a metadata policy with the given identifier."
+              },
+              "response": [
+                {
+                  "id": "d6befb08-1fc1-4154-9844-30fb09ff5489",
+                  "name": "Metadata policy updated successfully",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/metadataPolicies/:policyId?api-version=2021-07-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadataPolicies",
+                        ":policyId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2021-07-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-06-05T15:12:20.000Z",
+                  "updatedAt": "2026-06-05T15:12:20.000Z",
+                  "uid": "35240-d6befb08-1fc1-4154-9844-30fb09ff5489"
+                },
+                {
+                  "id": "1db1868a-7675-48f5-a6be-596b0bcc6ad3",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/metadataPolicies/:policyId?api-version=2021-07-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadataPolicies",
+                        ":policyId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2021-07-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:20.000Z",
+                  "updatedAt": "2026-06-05T15:12:20.000Z",
+                  "uid": "35240-1db1868a-7675-48f5-a6be-596b0bcc6ad3"
+                },
+                {
+                  "id": "cabf64fa-265c-4ac4-9041-d48b4c270f48",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/metadataPolicies/:policyId?api-version=2021-07-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "metadataPolicies",
+                        ":policyId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2021-07-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "policyId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:20.000Z",
+                  "updatedAt": "2026-06-05T15:12:20.000Z",
+                  "uid": "35240-cabf64fa-265c-4ac4-9041-d48b4c270f48"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:20.000Z",
+              "updatedAt": "2026-06-05T15:12:20.000Z",
+              "uid": "35240-ec51bd70-747a-4fe9-bd18-6ff63a842604"
+            }
+          ],
+          "id": "925e4f18-a02d-40a5-9902-cc69960401ff",
+          "createdAt": "2026-06-05T15:12:20.000Z",
+          "updatedAt": "2026-06-05T15:12:20.000Z",
+          "uid": "35240-925e4f18-a02d-40a5-9902-cc69960401ff"
+        },
+        {
+          "name": "Microsoft Purview List all metadata policies",
+          "id": "fb988bc1-1bfa-453a-baa9-d3bc1eb8f4cc",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metadataPolicies?api-version=2021-07-01-preview&collectionName=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metadataPolicies"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "api-version",
+                  "value": "2021-07-01-preview"
+                },
+                {
+                  "description": "Filter by collection name",
+                  "key": "collectionName",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "List or get metadata policies for the Purview account."
+          },
+          "response": [
+            {
+              "id": "6e45ede0-2f27-490e-9930-a48335fe3482",
+              "name": "Metadata policies listed successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/metadataPolicies?api-version=2021-07-01-preview&collectionName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "metadataPolicies"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    },
+                    {
+                      "description": "Filter by collection name",
+                      "key": "collectionName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"values\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"version\": \"<integer>\",\n      \"properties\": {\n        \"description\": \"<string>\",\n        \"decisionRules\": [\n          {\n            \"kind\": \"decisionrule\",\n            \"effect\": \"Deny\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ],\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ]\n            ]\n          },\n          {\n            \"kind\": \"decisionrule\",\n            \"effect\": \"Permit\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ],\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ]\n            ]\n          }\n        ],\n        \"attributeRules\": [\n          {\n            \"kind\": \"attributerule\",\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ],\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ]\n            ]\n          },\n          {\n            \"kind\": \"attributerule\",\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ],\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ]\n            ]\n          }\n        ],\n        \"collection\": {\n          \"referenceName\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        \"parentCollectionName\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"version\": \"<integer>\",\n      \"properties\": {\n        \"description\": \"<string>\",\n        \"decisionRules\": [\n          {\n            \"kind\": \"decisionrule\",\n            \"effect\": \"Deny\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ],\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ]\n            ]\n          },\n          {\n            \"kind\": \"decisionrule\",\n            \"effect\": \"Deny\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ],\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ]\n            ]\n          }\n        ],\n        \"attributeRules\": [\n          {\n            \"kind\": \"attributerule\",\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ],\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ]\n            ]\n          },\n          {\n            \"kind\": \"attributerule\",\n            \"id\": \"<string>\",\n            \"name\": \"<string>\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ],\n              [\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                },\n                {\n                  \"attributeName\": \"<string>\",\n                  \"attributeValueIncludes\": \"<string>\",\n                  \"attributeValueIncludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ],\n                  \"attributeValueExcludes\": \"<string>\",\n                  \"attributeValueExcludedIn\": [\n                    \"<string>\",\n                    \"<string>\"\n                  ]\n                }\n              ]\n            ]\n          }\n        ],\n        \"collection\": {\n          \"referenceName\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        \"parentCollectionName\": \"<string>\"\n      }\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:12:20.000Z",
+              "updatedAt": "2026-06-05T15:12:20.000Z",
+              "uid": "35240-6e45ede0-2f27-490e-9930-a48335fe3482"
+            },
+            {
+              "id": "fef410dd-f9e0-42b6-8c8b-b6e7834825f0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/metadataPolicies?api-version=2021-07-01-preview&collectionName=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "metadataPolicies"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    },
+                    {
+                      "description": "Filter by collection name",
+                      "key": "collectionName",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:12:20.000Z",
+              "updatedAt": "2026-06-05T15:12:20.000Z",
+              "uid": "35240-fef410dd-f9e0-42b6-8c8b-b6e7834825f0"
+            }
+          ],
+          "createdAt": "2026-06-05T15:12:20.000Z",
+          "updatedAt": "2026-06-05T15:12:20.000Z",
+          "uid": "35240-fb988bc1-1bfa-453a-baa9-d3bc1eb8f4cc"
+        }
+      ],
+      "id": "d419cb11-be3e-4bc8-a728-812115fa7b0f",
+      "createdAt": "2026-06-05T15:12:20.000Z",
+      "updatedAt": "2026-06-05T15:12:20.000Z",
+      "uid": "35240-d419cb11-be3e-4bc8-a728-812115fa7b0f"
+    },
+    {
+      "name": "metadataRoles",
+      "item": [
+        {
+          "name": "Microsoft Purview List metadata roles",
+          "id": "e6c12f67-0308-4444-9113-1b2e508239cb",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/metadataRoles?api-version=2021-07-01-preview",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "metadataRoles"
+              ],
+              "query": [
+                {
+                  "description": "(Required) ",
+                  "key": "api-version",
+                  "value": "2021-07-01-preview"
+                }
+              ]
+            },
+            "description": "Lists the metadata roles available in the Purview account."
+          },
+          "response": [
+            {
+              "id": "9dbd0f7f-71b9-4bf9-b0a6-07b4a9e80be9",
+              "name": "Metadata roles listed successfully",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/metadataRoles?api-version=2021-07-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "metadataRoles"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"values\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"properties\": {\n        \"provisioningState\": \"<string>\",\n        \"roleType\": \"<string>\",\n        \"friendlyName\": \"<string>\",\n        \"description\": \"<string>\",\n        \"cnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"<string>\",\n      \"properties\": {\n        \"provisioningState\": \"<string>\",\n        \"roleType\": \"<string>\",\n        \"friendlyName\": \"<string>\",\n        \"description\": \"<string>\",\n        \"cnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                \"<string>\",\n                \"<string>\"\n              ]\n            }\n          ]\n        ]\n      }\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-06-05T15:12:20.000Z",
+              "updatedAt": "2026-06-05T15:12:20.000Z",
+              "uid": "35240-9dbd0f7f-71b9-4bf9-b0a6-07b4a9e80be9"
+            },
+            {
+              "id": "f4e076bd-0823-4177-b9e2-f6ab95300d7c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/metadataRoles?api-version=2021-07-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "metadataRoles"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-06-05T15:12:20.000Z",
+              "updatedAt": "2026-06-05T15:12:20.000Z",
+              "uid": "35240-f4e076bd-0823-4177-b9e2-f6ab95300d7c"
+            }
+          ],
+          "createdAt": "2026-06-05T15:12:20.000Z",
+          "updatedAt": "2026-06-05T15:12:20.000Z",
+          "uid": "35240-e6c12f67-0308-4444-9113-1b2e508239cb"
+        }
+      ],
+      "id": "3d2e83ca-5234-48e5-9293-5fcac7eb2656",
+      "createdAt": "2026-06-05T15:12:20.000Z",
+      "updatedAt": "2026-06-05T15:12:20.000Z",
+      "uid": "35240-3d2e83ca-5234-48e5-9293-5fcac7eb2656"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://purview.azure.net/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "accountName",
+      "value": "myaccount"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{accountName}}.purview.azure.com/policystore"
+    }
+  ]
+}

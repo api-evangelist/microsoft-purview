@@ -1,0 +1,2980 @@
+{
+  "item": [
+    {
+      "id": "b4ebccf3-9fb3-49d4-b630-7bb4762532dc",
+      "name": "Business Domains",
+      "description": {
+        "content": "Operations for managing business domains",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8cc4e1df-1e9c-4a11-b4c5-8961788474c6",
+          "name": "Microsoft Purview List business domains",
+          "request": {
+            "name": "Microsoft Purview List business domains",
+            "description": {
+              "content": "List all business domains in the Purview unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skipToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b452691-31e4-40b4-b306-9f09f79bc962",
+              "name": "Business domains listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skipToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"7444be4e-4a99-f0aa-e7dc-a2546904e2a0\",\n          \"displayName\": \"string\",\n          \"mail\": \"7Uf@CkQbyjDOpGAAkxayNl.meb\"\n        },\n        {\n          \"id\": \"a609d06b-22d5-39c6-eaa2-20f527730c33\",\n          \"displayName\": \"string\",\n          \"mail\": \"sO94MZ4LO64kzQ@rrUUyPZeiXUQhv.zh\"\n        }\n      ],\n      \"stewards\": [\n        {\n          \"id\": \"621822aa-92fb-e449-ddcc-b411d0647f85\",\n          \"displayName\": \"string\",\n          \"mail\": \"fZVAvx@mmXwUeocJERuBYiLac.nl\"\n        },\n        {\n          \"id\": \"b594d048-3e2f-3113-c8c9-8c2be71afe7c\",\n          \"displayName\": \"string\",\n          \"mail\": \"ZL9WB@nziUbgUg.bqw\"\n        }\n      ],\n      \"parentDomainId\": \"string\",\n      \"status\": \"Draft\",\n      \"createdAt\": \"1997-07-14T18:09:53.194Z\",\n      \"updatedAt\": \"2005-04-29T23:43:31.059Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"6ee3a7ce-e64a-3265-5ae3-442fdc15a253\",\n          \"displayName\": \"string\",\n          \"mail\": \"4mdMLY2@uTsClcfccdSLADG.azud\"\n        },\n        {\n          \"id\": \"eb50a11c-a04a-3cf5-2de3-a7c4c44b3fa9\",\n          \"displayName\": \"string\",\n          \"mail\": \"BEwvBnS@CMFVqetxjWliOljgpcXIRBWOuoRxz.ef\"\n        }\n      ],\n      \"stewards\": [\n        {\n          \"id\": \"04203d81-00ce-da34-1e60-e9fa709ac419\",\n          \"displayName\": \"string\",\n          \"mail\": \"v3JSn@qqScSFjNgXyhdDItDHF.xdm\"\n        },\n        {\n          \"id\": \"ae5f9684-1366-b78a-d3e6-7a843f72989d\",\n          \"displayName\": \"string\",\n          \"mail\": \"6EUzwzg81@cisuiiRJblvOTcYxCHMeFvzzU.ktoz\"\n        }\n      ],\n      \"parentDomainId\": \"string\",\n      \"status\": \"Expired\",\n      \"createdAt\": \"1950-02-24T06:35:55.973Z\",\n      \"updatedAt\": \"2019-05-25T02:40:34.411Z\"\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5bdfb652-57e2-4977-9573-4d49ac086b04",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skipToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5fb37962-a254-47e8-b027-76e1ab7e04ce",
+          "name": "Microsoft Purview Create a business domain",
+          "request": {
+            "name": "Microsoft Purview Create a business domain",
+            "description": {
+              "content": "Create a new business domain in the unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "353104f7-5022-4672-9a31-a33314acda46",
+              "name": "Business domain created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"74c91114-fa30-1a67-8343-49d7b72424ae\",\n      \"displayName\": \"string\",\n      \"mail\": \"nOQko5XV@euPiTpYrqzcQTXdKL.mhe\"\n    },\n    {\n      \"id\": \"e0cc4542-ef82-49b0-8405-e15d89ec3f11\",\n      \"displayName\": \"string\",\n      \"mail\": \"QViuI6r@QzgXRICkKdJn.dj\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"1b6399d1-3cec-b7e4-2296-af35108964bd\",\n      \"displayName\": \"string\",\n      \"mail\": \"A4-Ik@KYDbhUsajKWZPVqAPQkpOGz.qm\"\n    },\n    {\n      \"id\": \"cfe141c3-b2c4-9a3a-da2a-3aeebf87e912\",\n      \"displayName\": \"string\",\n      \"mail\": \"9LRnYsqpxX@SElSuYtkFhSMHIEgQKgwsaYwdty.eb\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"352efe6f-56ff-18d8-c785-9276f3cc7a78\",\n      \"displayName\": \"string\",\n      \"mail\": \"6nXPk9Vq7vj8h@KdWBLzVqZqfDvlMvMnHoEBuSOtztTlpE.rthj\"\n    },\n    {\n      \"id\": \"69b83052-04f9-679a-3e5b-a64e3fdad9b4\",\n      \"displayName\": \"string\",\n      \"mail\": \"KsozhITEP6F@WBiGmZhguzVTbbjSpagqVKFVPEjIHu.oudw\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"9bef267c-12ff-53d2-8536-990989187a41\",\n      \"displayName\": \"string\",\n      \"mail\": \"1Sch0BTld0gXjI1@EVpOeYfVJpDURkTy.dm\"\n    },\n    {\n      \"id\": \"5b9ea636-a9d6-f1dc-7413-3eff315428ae\",\n      \"displayName\": \"string\",\n      \"mail\": \"wqVh@GhZQrRslljlIfmAJvYsIrvb.jji\"\n    }\n  ],\n  \"parentDomainId\": \"string\",\n  \"status\": \"Draft\",\n  \"createdAt\": \"1990-03-22T13:33:11.524Z\",\n  \"updatedAt\": \"1973-04-01T13:23:02.428Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "61294528-f86d-4332-8428-cf2bf94e53cb",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"74c91114-fa30-1a67-8343-49d7b72424ae\",\n      \"displayName\": \"string\",\n      \"mail\": \"nOQko5XV@euPiTpYrqzcQTXdKL.mhe\"\n    },\n    {\n      \"id\": \"e0cc4542-ef82-49b0-8405-e15d89ec3f11\",\n      \"displayName\": \"string\",\n      \"mail\": \"QViuI6r@QzgXRICkKdJn.dj\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"1b6399d1-3cec-b7e4-2296-af35108964bd\",\n      \"displayName\": \"string\",\n      \"mail\": \"A4-Ik@KYDbhUsajKWZPVqAPQkpOGz.qm\"\n    },\n    {\n      \"id\": \"cfe141c3-b2c4-9a3a-da2a-3aeebf87e912\",\n      \"displayName\": \"string\",\n      \"mail\": \"9LRnYsqpxX@SElSuYtkFhSMHIEgQKgwsaYwdty.eb\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2e7d9a5c-458a-4f6e-b67c-ce59854ced11",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"74c91114-fa30-1a67-8343-49d7b72424ae\",\n      \"displayName\": \"string\",\n      \"mail\": \"nOQko5XV@euPiTpYrqzcQTXdKL.mhe\"\n    },\n    {\n      \"id\": \"e0cc4542-ef82-49b0-8405-e15d89ec3f11\",\n      \"displayName\": \"string\",\n      \"mail\": \"QViuI6r@QzgXRICkKdJn.dj\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"1b6399d1-3cec-b7e4-2296-af35108964bd\",\n      \"displayName\": \"string\",\n      \"mail\": \"A4-Ik@KYDbhUsajKWZPVqAPQkpOGz.qm\"\n    },\n    {\n      \"id\": \"cfe141c3-b2c4-9a3a-da2a-3aeebf87e912\",\n      \"displayName\": \"string\",\n      \"mail\": \"9LRnYsqpxX@SElSuYtkFhSMHIEgQKgwsaYwdty.eb\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb4091f5-74ff-495f-bdc7-136bdca8200b",
+          "name": "Microsoft Purview Get a business domain",
+          "request": {
+            "name": "Microsoft Purview Get a business domain",
+            "description": {
+              "content": "Get a business domain by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains",
+                ":businessDomainId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessDomainId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d2130a00-f0fe-44dd-9778-363283709f4d",
+              "name": "Business domain retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"352efe6f-56ff-18d8-c785-9276f3cc7a78\",\n      \"displayName\": \"string\",\n      \"mail\": \"6nXPk9Vq7vj8h@KdWBLzVqZqfDvlMvMnHoEBuSOtztTlpE.rthj\"\n    },\n    {\n      \"id\": \"69b83052-04f9-679a-3e5b-a64e3fdad9b4\",\n      \"displayName\": \"string\",\n      \"mail\": \"KsozhITEP6F@WBiGmZhguzVTbbjSpagqVKFVPEjIHu.oudw\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"9bef267c-12ff-53d2-8536-990989187a41\",\n      \"displayName\": \"string\",\n      \"mail\": \"1Sch0BTld0gXjI1@EVpOeYfVJpDURkTy.dm\"\n    },\n    {\n      \"id\": \"5b9ea636-a9d6-f1dc-7413-3eff315428ae\",\n      \"displayName\": \"string\",\n      \"mail\": \"wqVh@GhZQrRslljlIfmAJvYsIrvb.jji\"\n    }\n  ],\n  \"parentDomainId\": \"string\",\n  \"status\": \"Draft\",\n  \"createdAt\": \"1990-03-22T13:33:11.524Z\",\n  \"updatedAt\": \"1973-04-01T13:23:02.428Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ecd712f5-ef2a-4cbc-8ddb-0b6c9f5bec2f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15bb14d9-3051-46b9-b7d0-ba2ae5036a14",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00309baf-3520-4dfe-8cde-a97bc943ac6c",
+          "name": "Microsoft Purview Update a business domain",
+          "request": {
+            "name": "Microsoft Purview Update a business domain",
+            "description": {
+              "content": "Update a business domain by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains",
+                ":businessDomainId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessDomainId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "93abb025-001b-4eef-9f5e-a05fb7d1d923",
+              "name": "Business domain updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"74c91114-fa30-1a67-8343-49d7b72424ae\",\n      \"displayName\": \"string\",\n      \"mail\": \"nOQko5XV@euPiTpYrqzcQTXdKL.mhe\"\n    },\n    {\n      \"id\": \"e0cc4542-ef82-49b0-8405-e15d89ec3f11\",\n      \"displayName\": \"string\",\n      \"mail\": \"QViuI6r@QzgXRICkKdJn.dj\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"1b6399d1-3cec-b7e4-2296-af35108964bd\",\n      \"displayName\": \"string\",\n      \"mail\": \"A4-Ik@KYDbhUsajKWZPVqAPQkpOGz.qm\"\n    },\n    {\n      \"id\": \"cfe141c3-b2c4-9a3a-da2a-3aeebf87e912\",\n      \"displayName\": \"string\",\n      \"mail\": \"9LRnYsqpxX@SElSuYtkFhSMHIEgQKgwsaYwdty.eb\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"352efe6f-56ff-18d8-c785-9276f3cc7a78\",\n      \"displayName\": \"string\",\n      \"mail\": \"6nXPk9Vq7vj8h@KdWBLzVqZqfDvlMvMnHoEBuSOtztTlpE.rthj\"\n    },\n    {\n      \"id\": \"69b83052-04f9-679a-3e5b-a64e3fdad9b4\",\n      \"displayName\": \"string\",\n      \"mail\": \"KsozhITEP6F@WBiGmZhguzVTbbjSpagqVKFVPEjIHu.oudw\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"9bef267c-12ff-53d2-8536-990989187a41\",\n      \"displayName\": \"string\",\n      \"mail\": \"1Sch0BTld0gXjI1@EVpOeYfVJpDURkTy.dm\"\n    },\n    {\n      \"id\": \"5b9ea636-a9d6-f1dc-7413-3eff315428ae\",\n      \"displayName\": \"string\",\n      \"mail\": \"wqVh@GhZQrRslljlIfmAJvYsIrvb.jji\"\n    }\n  ],\n  \"parentDomainId\": \"string\",\n  \"status\": \"Draft\",\n  \"createdAt\": \"1990-03-22T13:33:11.524Z\",\n  \"updatedAt\": \"1973-04-01T13:23:02.428Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c551bdcd-bf27-4b3d-aeb7-c4e87d99a0ba",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"74c91114-fa30-1a67-8343-49d7b72424ae\",\n      \"displayName\": \"string\",\n      \"mail\": \"nOQko5XV@euPiTpYrqzcQTXdKL.mhe\"\n    },\n    {\n      \"id\": \"e0cc4542-ef82-49b0-8405-e15d89ec3f11\",\n      \"displayName\": \"string\",\n      \"mail\": \"QViuI6r@QzgXRICkKdJn.dj\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"1b6399d1-3cec-b7e4-2296-af35108964bd\",\n      \"displayName\": \"string\",\n      \"mail\": \"A4-Ik@KYDbhUsajKWZPVqAPQkpOGz.qm\"\n    },\n    {\n      \"id\": \"cfe141c3-b2c4-9a3a-da2a-3aeebf87e912\",\n      \"displayName\": \"string\",\n      \"mail\": \"9LRnYsqpxX@SElSuYtkFhSMHIEgQKgwsaYwdty.eb\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c1315162-f3da-4de4-a7f5-77a58e46a418",
+          "name": "Microsoft Purview Delete a business domain",
+          "request": {
+            "name": "Microsoft Purview Delete a business domain",
+            "description": {
+              "content": "Delete a business domain by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains",
+                ":businessDomainId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessDomainId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a96d760-3449-4562-9b73-6578be5e023b",
+              "name": "Business domain deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "93842ca2-8cf8-4b53-a4ce-9725fd56f228",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d5552086-a90c-444b-8362-adf5b3d52aea",
+      "name": "Critical Data Elements",
+      "description": {
+        "content": "Operations for managing critical data elements",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cd4fcc21-f106-4992-992a-9011fe21cc32",
+          "name": "Microsoft Purview List critical data elements",
+          "request": {
+            "name": "Microsoft Purview List critical data elements",
+            "description": {
+              "content": "List all critical data elements in the Purview unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "criticaldataelements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e928e10-9230-4f2c-b514-ce83ade8d1f5",
+              "name": "Critical data elements listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "criticaldataelements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"b9c61020-4c56-d3fc-7f00-de9097fc2491\",\n          \"displayName\": \"string\",\n          \"mail\": \"oOKQccaa4@QKLcwuGjiCr.ad\"\n        },\n        {\n          \"id\": \"fcc8c910-869b-c8cc-0025-e74160a765dd\",\n          \"displayName\": \"string\",\n          \"mail\": \"2ThZvIFp@NGfMTBLtocJXwrSJIVLble.hg\"\n        }\n      ],\n      \"status\": \"Draft\",\n      \"createdAt\": \"1956-04-10T09:36:39.943Z\",\n      \"updatedAt\": \"1957-09-09T00:13:42.981Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"84411ec0-aeea-a883-2472-fde9935c5411\",\n          \"displayName\": \"string\",\n          \"mail\": \"uygxOFrrapN@TArixmeZu.bvbp\"\n        },\n        {\n          \"id\": \"2b9e9909-8c64-895a-6819-c8bf71ab15c6\",\n          \"displayName\": \"string\",\n          \"mail\": \"MfGamU95kkJFJ@WVoRdnMLIFe.reyn\"\n        }\n      ],\n      \"status\": \"Published\",\n      \"createdAt\": \"1956-02-12T23:56:13.291Z\",\n      \"updatedAt\": \"1953-03-23T03:23:27.062Z\"\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf5b058e-1f25-4666-ba88-13cf66ca534d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "criticaldataelements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f7530341-4476-4596-a93d-6031832c6989",
+          "name": "Microsoft Purview Create a critical data element",
+          "request": {
+            "name": "Microsoft Purview Create a critical data element",
+            "description": {
+              "content": "Create a new critical data element definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "criticaldataelements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "076fd06c-bcd1-485f-86ae-92f82382d9ed",
+              "name": "Critical data element created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "criticaldataelements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"9218ed30-a0a2-82a2-e5a1-31d78f30467b\",\n      \"displayName\": \"string\",\n      \"mail\": \"YC0@BGZKMn.ao\"\n    },\n    {\n      \"id\": \"eae8faef-d9ef-b104-7fa7-7d15e51f95c2\",\n      \"displayName\": \"string\",\n      \"mail\": \"2a-sQN0Jvs@ENcYVRPirMnDSUkEOHdqrI.ymt\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"businessDomainId\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"c99e6db5-b93f-e8f6-0d2f-ee3a609970b5\",\n      \"displayName\": \"string\",\n      \"mail\": \"AR0Ht@XuegHaqwkqtx.ir\"\n    },\n    {\n      \"id\": \"35901a8f-da91-950d-5e2b-7ed11e956985\",\n      \"displayName\": \"string\",\n      \"mail\": \"ggFNWbZ0oRV@Pc.aruz\"\n    }\n  ],\n  \"status\": \"Draft\",\n  \"createdAt\": \"1970-12-06T05:27:40.204Z\",\n  \"updatedAt\": \"1982-09-14T15:30:45.096Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98d8921e-81a3-4fe2-8e40-73d6391cd822",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "criticaldataelements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"9218ed30-a0a2-82a2-e5a1-31d78f30467b\",\n      \"displayName\": \"string\",\n      \"mail\": \"YC0@BGZKMn.ao\"\n    },\n    {\n      \"id\": \"eae8faef-d9ef-b104-7fa7-7d15e51f95c2\",\n      \"displayName\": \"string\",\n      \"mail\": \"2a-sQN0Jvs@ENcYVRPirMnDSUkEOHdqrI.ymt\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "715389a4-e999-4071-a9e5-d31644c87662",
+      "name": "Data Products",
+      "description": {
+        "content": "Operations for managing data products",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "467c5c88-c93c-4b53-ad8d-d38e94a27f6f",
+          "name": "Microsoft Purview List data products",
+          "request": {
+            "name": "Microsoft Purview List data products",
+            "description": {
+              "content": "List all data products in the Purview unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "160722d5-3804-456b-9a7a-ec2e524bc80d",
+              "name": "Data products listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"a610c964-4279-34f5-3eb1-a562dcc0b4a7\",\n          \"displayName\": \"string\",\n          \"mail\": \"Eoz8KGCffHDk@RMxBjiykCNPsmJAMrjJhMJIuyCpMCxRK.rwq\"\n        },\n        {\n          \"id\": \"706a6b20-ae39-5bcb-1c75-8da654443813\",\n          \"displayName\": \"string\",\n          \"mail\": \"Z4oBgbJ@KrPQuPWqfKuCly.ekw\"\n        }\n      ],\n      \"status\": \"Published\",\n      \"dataAssets\": [\n        {\n          \"assetId\": \"string\",\n          \"assetType\": \"string\"\n        },\n        {\n          \"assetId\": \"string\",\n          \"assetType\": \"string\"\n        }\n      ],\n      \"createdAt\": \"1947-07-21T17:46:07.691Z\",\n      \"updatedAt\": \"2019-01-06T20:23:18.338Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"6ca64505-3f74-a9b9-f461-5ad09f885e8e\",\n          \"displayName\": \"string\",\n          \"mail\": \"HDcuDDxkB5PF@UnpAZjOumIiorYkUJifMuVqnbKLmvlfe.ns\"\n        },\n        {\n          \"id\": \"3a732174-9dd8-44b8-8ee6-e23b5ac58e01\",\n          \"displayName\": \"string\",\n          \"mail\": \"EOpV4@kqoIw.hsr\"\n        }\n      ],\n      \"status\": \"Published\",\n      \"dataAssets\": [\n        {\n          \"assetId\": \"string\",\n          \"assetType\": \"string\"\n        },\n        {\n          \"assetId\": \"string\",\n          \"assetType\": \"string\"\n        }\n      ],\n      \"createdAt\": \"2003-08-14T17:42:40.844Z\",\n      \"updatedAt\": \"2004-12-18T22:41:32.050Z\"\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71f22aa7-19d5-43ec-9981-0b1a0a7ab607",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f2c5b4ec-2865-4e58-b393-b4ce99c28536",
+          "name": "Microsoft Purview Create a data product",
+          "request": {
+            "name": "Microsoft Purview Create a data product",
+            "description": {
+              "content": "Create a new data product in the unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f2f64ce1-1b11-4cbb-b7ef-87e2c2a5c5fa",
+              "name": "Data product created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"c965496c-ec12-dca0-d79d-46d9c56d2460\",\n      \"displayName\": \"string\",\n      \"mail\": \"dQL6JopA7a@XccCUGALW.lmcc\"\n    },\n    {\n      \"id\": \"669f872f-d9a0-1af5-5084-97ea47df22ba\",\n      \"displayName\": \"string\",\n      \"mail\": \"6apodMU@OzvgEzijmHMncXylgtqIHL.wvj\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"businessDomainId\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"41586922-3915-f147-75fb-add12cff15bc\",\n      \"displayName\": \"string\",\n      \"mail\": \"gYIaqx8PzD@Uef.lfk\"\n    },\n    {\n      \"id\": \"220afc01-ba6a-4ec9-addc-4f6491c15073\",\n      \"displayName\": \"string\",\n      \"mail\": \"0poaaUKOpgdR2h6@zbZvhHH.kfd\"\n    }\n  ],\n  \"status\": \"Draft\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    },\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    }\n  ],\n  \"createdAt\": \"2014-08-23T05:12:26.415Z\",\n  \"updatedAt\": \"2002-11-09T20:22:32.934Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3168c358-3e5d-4f26-a888-51a3ab555141",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"c965496c-ec12-dca0-d79d-46d9c56d2460\",\n      \"displayName\": \"string\",\n      \"mail\": \"dQL6JopA7a@XccCUGALW.lmcc\"\n    },\n    {\n      \"id\": \"669f872f-d9a0-1af5-5084-97ea47df22ba\",\n      \"displayName\": \"string\",\n      \"mail\": \"6apodMU@OzvgEzijmHMncXylgtqIHL.wvj\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cd62723-8524-48ee-a256-9042dbf94fb4",
+          "name": "Microsoft Purview Get a data product",
+          "request": {
+            "name": "Microsoft Purview Get a data product",
+            "description": {
+              "content": "Get a data product by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts",
+                ":dataProductId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataProductId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4fcb7370-ab65-432e-a9aa-8c92993613c1",
+              "name": "Data product retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"businessDomainId\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"41586922-3915-f147-75fb-add12cff15bc\",\n      \"displayName\": \"string\",\n      \"mail\": \"gYIaqx8PzD@Uef.lfk\"\n    },\n    {\n      \"id\": \"220afc01-ba6a-4ec9-addc-4f6491c15073\",\n      \"displayName\": \"string\",\n      \"mail\": \"0poaaUKOpgdR2h6@zbZvhHH.kfd\"\n    }\n  ],\n  \"status\": \"Draft\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    },\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    }\n  ],\n  \"createdAt\": \"2014-08-23T05:12:26.415Z\",\n  \"updatedAt\": \"2002-11-09T20:22:32.934Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a88f428b-e708-4b69-b362-98aba0508262",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e87169e1-5ae5-4cac-aede-bb92af16d378",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "12185342-69e1-4098-92c9-8df172d4874a",
+          "name": "Microsoft Purview Update a data product",
+          "request": {
+            "name": "Microsoft Purview Update a data product",
+            "description": {
+              "content": "Update a data product by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts",
+                ":dataProductId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataProductId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "65662949-7669-47d9-ba04-9b823cc05329",
+              "name": "Data product updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"c965496c-ec12-dca0-d79d-46d9c56d2460\",\n      \"displayName\": \"string\",\n      \"mail\": \"dQL6JopA7a@XccCUGALW.lmcc\"\n    },\n    {\n      \"id\": \"669f872f-d9a0-1af5-5084-97ea47df22ba\",\n      \"displayName\": \"string\",\n      \"mail\": \"6apodMU@OzvgEzijmHMncXylgtqIHL.wvj\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"businessDomainId\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"41586922-3915-f147-75fb-add12cff15bc\",\n      \"displayName\": \"string\",\n      \"mail\": \"gYIaqx8PzD@Uef.lfk\"\n    },\n    {\n      \"id\": \"220afc01-ba6a-4ec9-addc-4f6491c15073\",\n      \"displayName\": \"string\",\n      \"mail\": \"0poaaUKOpgdR2h6@zbZvhHH.kfd\"\n    }\n  ],\n  \"status\": \"Draft\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    },\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    }\n  ],\n  \"createdAt\": \"2014-08-23T05:12:26.415Z\",\n  \"updatedAt\": \"2002-11-09T20:22:32.934Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "008b5bb2-bec5-4b71-8676-ec2b3f50aa1b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"c965496c-ec12-dca0-d79d-46d9c56d2460\",\n      \"displayName\": \"string\",\n      \"mail\": \"dQL6JopA7a@XccCUGALW.lmcc\"\n    },\n    {\n      \"id\": \"669f872f-d9a0-1af5-5084-97ea47df22ba\",\n      \"displayName\": \"string\",\n      \"mail\": \"6apodMU@OzvgEzijmHMncXylgtqIHL.wvj\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7e6d262-6fec-4cab-9527-a48f086af9aa",
+          "name": "Microsoft Purview Delete a data product",
+          "request": {
+            "name": "Microsoft Purview Delete a data product",
+            "description": {
+              "content": "Delete a data product by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts",
+                ":dataProductId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataProductId",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "98bc2983-65cf-42c1-b809-ae88478fc328",
+              "name": "Data product deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a33dcfe8-3cf2-442e-8f3b-61332311d91d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "29a02e70-7979-4153-80a3-5bf311d7155c",
+      "name": "Glossary Terms",
+      "description": {
+        "content": "Operations for managing glossary terms in the unified catalog",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0bcd2d0a-4d73-477f-aa18-b0ac5df2e90c",
+          "name": "Microsoft Purview List glossary terms",
+          "request": {
+            "name": "Microsoft Purview List glossary terms",
+            "description": {
+              "content": "List glossary terms in the Purview unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "glossaryterms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c3f7cfc-7ff2-424a-813d-a9b6578d003e",
+              "name": "Glossary terms listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "glossaryterms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"businessDomainId\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"string\",\n      \"businessDomainId\": \"string\"\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d63fe212-922b-4e00-983c-dbe073d2c5e5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "glossaryterms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "264bbe4f-4d76-49ac-8111-8b6b0646dcf0",
+      "name": "OKRs",
+      "description": {
+        "content": "Operations for managing Objectives and Key Results",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9bad3ffd-9785-4ad7-95e0-5e9c75a015ec",
+          "name": "Microsoft Purview List OKRs",
+          "request": {
+            "name": "Microsoft Purview List OKRs",
+            "description": {
+              "content": "List all Objectives and Key Results in the Purview unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "okrs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1788e18f-a367-4808-9dc1-463d4d9f3dea",
+              "name": "OKRs listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "okrs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"type\": \"KeyResult\",\n      \"parentOkrId\": \"string\",\n      \"status\": \"Draft\",\n      \"createdAt\": \"1973-07-07T02:53:44.159Z\",\n      \"updatedAt\": \"1954-11-16T10:12:33.135Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"type\": \"Objective\",\n      \"parentOkrId\": \"string\",\n      \"status\": \"Published\",\n      \"createdAt\": \"1984-08-13T13:40:49.461Z\",\n      \"updatedAt\": \"1963-11-19T06:01:53.462Z\"\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "166472e4-9355-49e7-a161-78127f018656",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "okrs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c2a84fd1-dcbf-4ab7-9eec-6b696c4468a7",
+          "name": "Microsoft Purview Create an OKR",
+          "request": {
+            "name": "Microsoft Purview Create an OKR",
+            "description": {
+              "content": "Create a new Objective and Key Result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "okrs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Microsoft Purview account",
+                  "type": "any",
+                  "value": "{{accountName}}",
+                  "key": "accountName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"parentOkrId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "49e94009-1fa4-49b6-aa0d-5c871495a938",
+              "name": "OKR created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "okrs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"parentOkrId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"businessDomainId\": \"string\",\n  \"type\": \"Objective\",\n  \"parentOkrId\": \"string\",\n  \"status\": \"Published\",\n  \"createdAt\": \"2004-06-22T04:56:04.830Z\",\n  \"updatedAt\": \"2015-10-03T04:41:32.713Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "db0db4cd-9190-45bf-8eaf-7fe0c6f38210",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "okrs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Microsoft Purview account",
+                      "type": "any",
+                      "value": "{{accountName}}",
+                      "key": "accountName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"type\": \"<string>\",\n  \"parentOkrId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The name of the Microsoft Purview account",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myaccount",
+      "key": "accountName"
+    },
+    {
+      "type": "string",
+      "value": "https://{{accountName}}.purview.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://purview.azure.net/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f97626b5-42d1-4ee9-9cb9-164bd7ae0847",
+    "name": "Microsoft Purview Unified Catalog API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for programmatically integrating and managing the Microsoft Purview Unified Catalog. Supports operations on business domains, glossary terms, data products, OKRs, critical data elements, and data access policies.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

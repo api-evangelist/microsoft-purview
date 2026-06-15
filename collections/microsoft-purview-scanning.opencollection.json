@@ -1,0 +1,703 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Scanning API",
+    "version": "Thu Aug 31 2023 20:00:00 GMT-0400 (Eastern Daylight Time)"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Get a data source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the data source"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a data source by name."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create or replace a data source",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the data source"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or replaces a data source registration in the Purview account."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a data source",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the data source"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes a data source registration."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List data sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists data sources in Data catalog."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Get a scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a scan information for a given data source."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create or replace a scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the data source"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the scan"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or replaces an instance of a scan for a given data source."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes the scan associated with the data source."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List scans by data source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists scans in a data source."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scan Result",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Run a scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName/runs/:runId",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "runId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the scan run"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scanLevel",
+                "value": "",
+                "type": "query",
+                "description": "The level of scan (Full or Incremental)"
+              }
+            ]
+          },
+          "docs": "Runs the scan for a data source."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Cancel a scan run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName/runs/:runId/:cancel",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "runId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Cancels a running scan."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List scan history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName/runs",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists the scan history of a scan."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Triggers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Get a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets trigger information for a scan."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create or replace a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or replaces an instance of a trigger for scheduling scans."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes the trigger associated with the scan."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Enable a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default/:enable",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Enables a trigger for scheduled scanning."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Disable a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default/:disable",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Disables a trigger for scheduled scanning."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Classification Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Get a classification rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/classificationrules/:classificationRuleName",
+            "params": [
+              {
+                "name": "classificationRuleName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a classification rule by name."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create or replace a classification rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/classificationrules/:classificationRuleName",
+            "params": [
+              {
+                "name": "classificationRuleName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or replaces a classification rule."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a classification rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/classificationrules/:classificationRuleName",
+            "params": [
+              {
+                "name": "classificationRuleName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes a classification rule."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List classification rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/classificationrules",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists classification rules in the account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Scan Rulesets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Get a scan ruleset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/scanrulesets/:scanRulesetName",
+            "params": [
+              {
+                "name": "scanRulesetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a scan ruleset by name."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create or replace a scan ruleset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/scanrulesets/:scanRulesetName",
+            "params": [
+              {
+                "name": "scanRulesetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or replaces a scan ruleset."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a scan ruleset",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/scanrulesets/:scanRulesetName",
+            "params": [
+              {
+                "name": "scanRulesetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes a scan ruleset."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List scan rulesets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{accountName}.scan.purview.azure.com/scan/scanrulesets",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists scan rulesets in the account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

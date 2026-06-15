@@ -1,0 +1,3226 @@
+{
+  "item": [
+    {
+      "id": "489a9c1b-a850-4e88-be9f-ea2dbc162d82",
+      "name": "Accounts",
+      "description": {
+        "content": "Operations for managing Purview accounts",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de69ac7e-d49e-4bea-a524-c2f67e719fcf",
+          "name": "Microsoft Purview Create or update a Purview account",
+          "request": {
+            "name": "Microsoft Purview Create or update a Purview account",
+            "description": {
+              "content": "Create or update an account resource in the specified resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Purview",
+                "accounts",
+                ":accountName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountName",
+                  "description": "(Required) The name of the Purview account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"<string>\",\n        \"principalId\": \"<string>\"\n      },\n      \"key_1\": {\n        \"clientId\": \"<string>\",\n        \"principalId\": \"<string>\"\n      }\n    }\n  },\n  \"location\": \"<string>\",\n  \"properties\": {\n    \"cloudConnectors\": {},\n    \"endpoints\": {\n      \"catalog\": \"<string>\",\n      \"guardian\": \"<string>\",\n      \"scan\": \"<string>\"\n    },\n    \"managedResourceGroupName\": \"<string>\",\n    \"publicNetworkAccess\": \"<string>\"\n  },\n  \"sku\": {\n    \"capacity\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3f9a5763-a237-4f08-891f-ae122b7a2179",
+              "name": "Account updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identity\": {\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"location\": \"<string>\",\n  \"properties\": {\n    \"cloudConnectors\": {},\n    \"endpoints\": {\n      \"catalog\": \"string\",\n      \"guardian\": \"string\",\n      \"scan\": \"string\"\n    },\n    \"managedResourceGroupName\": \"string\",\n    \"publicNetworkAccess\": \"Disabled\"\n  },\n  \"sku\": {\n    \"capacity\": 2155,\n    \"name\": \"Standard\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"identity\": {\n    \"principalId\": \"string\",\n    \"tenantId\": \"string\",\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_2\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_3\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"location\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"cloudConnectors\": {\n      \"awsExternalId\": \"string\"\n    },\n    \"createdAt\": \"1988-05-12T07:49:05.843Z\",\n    \"createdBy\": \"string\",\n    \"createdByObjectId\": \"string\",\n    \"endpoints\": {\n      \"catalog\": \"string\",\n      \"guardian\": \"string\",\n      \"scan\": \"string\"\n    },\n    \"friendlyName\": \"string\",\n    \"managedResourceGroupName\": \"string\",\n    \"managedResources\": {\n      \"eventHubNamespace\": \"string\",\n      \"resourceGroup\": \"string\",\n      \"storageAccount\": \"string\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"properties\": {\n          \"privateEndpoint\": {\n            \"id\": \"string\"\n          },\n          \"privateLinkServiceConnectionState\": {\n            \"actionsRequired\": \"string\",\n            \"description\": \"string\",\n            \"status\": \"Disconnected\"\n          },\n          \"provisioningState\": \"string\"\n        },\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"properties\": {\n          \"privateEndpoint\": {\n            \"id\": \"string\"\n          },\n          \"privateLinkServiceConnectionState\": {\n            \"actionsRequired\": \"string\",\n            \"description\": \"string\",\n            \"status\": \"Unknown\"\n          },\n          \"provisioningState\": \"string\"\n        },\n        \"type\": \"string\"\n      }\n    ],\n    \"provisioningState\": \"Deleting\",\n    \"publicNetworkAccess\": \"Disabled\"\n  },\n  \"sku\": {\n    \"capacity\": 4420,\n    \"name\": \"Standard\"\n  },\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df3fe066-5672-402f-b699-d8ba58b2aea2",
+              "name": "Account creation initiated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identity\": {\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"location\": \"<string>\",\n  \"properties\": {\n    \"cloudConnectors\": {},\n    \"endpoints\": {\n      \"catalog\": \"string\",\n      \"guardian\": \"string\",\n      \"scan\": \"string\"\n    },\n    \"managedResourceGroupName\": \"string\",\n    \"publicNetworkAccess\": \"Disabled\"\n  },\n  \"sku\": {\n    \"capacity\": 2155,\n    \"name\": \"Standard\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"identity\": {\n    \"principalId\": \"string\",\n    \"tenantId\": \"string\",\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_2\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_3\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"location\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"cloudConnectors\": {\n      \"awsExternalId\": \"string\"\n    },\n    \"createdAt\": \"1988-05-12T07:49:05.843Z\",\n    \"createdBy\": \"string\",\n    \"createdByObjectId\": \"string\",\n    \"endpoints\": {\n      \"catalog\": \"string\",\n      \"guardian\": \"string\",\n      \"scan\": \"string\"\n    },\n    \"friendlyName\": \"string\",\n    \"managedResourceGroupName\": \"string\",\n    \"managedResources\": {\n      \"eventHubNamespace\": \"string\",\n      \"resourceGroup\": \"string\",\n      \"storageAccount\": \"string\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"properties\": {\n          \"privateEndpoint\": {\n            \"id\": \"string\"\n          },\n          \"privateLinkServiceConnectionState\": {\n            \"actionsRequired\": \"string\",\n            \"description\": \"string\",\n            \"status\": \"Disconnected\"\n          },\n          \"provisioningState\": \"string\"\n        },\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"properties\": {\n          \"privateEndpoint\": {\n            \"id\": \"string\"\n          },\n          \"privateLinkServiceConnectionState\": {\n            \"actionsRequired\": \"string\",\n            \"description\": \"string\",\n            \"status\": \"Unknown\"\n          },\n          \"provisioningState\": \"string\"\n        },\n        \"type\": \"string\"\n      }\n    ],\n    \"provisioningState\": \"Deleting\",\n    \"publicNetworkAccess\": \"Disabled\"\n  },\n  \"sku\": {\n    \"capacity\": 4420,\n    \"name\": \"Standard\"\n  },\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd115a53-97fb-4a9d-b36d-ffee99b51553",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identity\": {\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"location\": \"<string>\",\n  \"properties\": {\n    \"cloudConnectors\": {},\n    \"endpoints\": {\n      \"catalog\": \"string\",\n      \"guardian\": \"string\",\n      \"scan\": \"string\"\n    },\n    \"managedResourceGroupName\": \"string\",\n    \"publicNetworkAccess\": \"Disabled\"\n  },\n  \"sku\": {\n    \"capacity\": 2155,\n    \"name\": \"Standard\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4cc8cc12-0a2d-47e8-b381-233bcb8499d8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identity\": {\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"location\": \"<string>\",\n  \"properties\": {\n    \"cloudConnectors\": {},\n    \"endpoints\": {\n      \"catalog\": \"string\",\n      \"guardian\": \"string\",\n      \"scan\": \"string\"\n    },\n    \"managedResourceGroupName\": \"string\",\n    \"publicNetworkAccess\": \"Disabled\"\n  },\n  \"sku\": {\n    \"capacity\": 2155,\n    \"name\": \"Standard\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "573bbf6f-3578-4d63-b4bc-c2453585b406",
+          "name": "Microsoft Purview Get a Purview account",
+          "request": {
+            "name": "Microsoft Purview Get a Purview account",
+            "description": {
+              "content": "Gets the account resource for a given account name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Purview",
+                "accounts",
+                ":accountName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountName",
+                  "description": "(Required) The name of the Purview account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a8e8984b-7e0e-49f7-a848-81bfb9dc580e",
+              "name": "Account retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"identity\": {\n    \"principalId\": \"string\",\n    \"tenantId\": \"string\",\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_2\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_3\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"location\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"cloudConnectors\": {\n      \"awsExternalId\": \"string\"\n    },\n    \"createdAt\": \"1988-05-12T07:49:05.843Z\",\n    \"createdBy\": \"string\",\n    \"createdByObjectId\": \"string\",\n    \"endpoints\": {\n      \"catalog\": \"string\",\n      \"guardian\": \"string\",\n      \"scan\": \"string\"\n    },\n    \"friendlyName\": \"string\",\n    \"managedResourceGroupName\": \"string\",\n    \"managedResources\": {\n      \"eventHubNamespace\": \"string\",\n      \"resourceGroup\": \"string\",\n      \"storageAccount\": \"string\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"properties\": {\n          \"privateEndpoint\": {\n            \"id\": \"string\"\n          },\n          \"privateLinkServiceConnectionState\": {\n            \"actionsRequired\": \"string\",\n            \"description\": \"string\",\n            \"status\": \"Disconnected\"\n          },\n          \"provisioningState\": \"string\"\n        },\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"properties\": {\n          \"privateEndpoint\": {\n            \"id\": \"string\"\n          },\n          \"privateLinkServiceConnectionState\": {\n            \"actionsRequired\": \"string\",\n            \"description\": \"string\",\n            \"status\": \"Unknown\"\n          },\n          \"provisioningState\": \"string\"\n        },\n        \"type\": \"string\"\n      }\n    ],\n    \"provisioningState\": \"Deleting\",\n    \"publicNetworkAccess\": \"Disabled\"\n  },\n  \"sku\": {\n    \"capacity\": 4420,\n    \"name\": \"Standard\"\n  },\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3bffffa7-7b18-41d3-97c4-3b9b85f51488",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ba915f77-d1be-4ef5-9dfe-50c835581d23",
+              "name": "Account not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1946b602-bed1-4b39-9a8d-7b764548a683",
+          "name": "Microsoft Purview Update a Purview account",
+          "request": {
+            "name": "Microsoft Purview Update a Purview account",
+            "description": {
+              "content": "Patches the account resource with the given properties.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Purview",
+                "accounts",
+                ":accountName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountName",
+                  "description": "(Required) The name of the Purview account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"identity\": {\n    \"type\": \"<string>\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"<string>\",\n        \"principalId\": \"<string>\"\n      },\n      \"key_1\": {\n        \"clientId\": \"<string>\",\n        \"principalId\": \"<string>\"\n      },\n      \"key_2\": {\n        \"clientId\": \"<string>\",\n        \"principalId\": \"<string>\"\n      },\n      \"key_3\": {\n        \"clientId\": \"<string>\",\n        \"principalId\": \"<string>\"\n      }\n    }\n  },\n  \"properties\": {\n    \"managedResourceGroupName\": \"<string>\",\n    \"publicNetworkAccess\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4efbe7a8-ba2e-4dae-8624-d817c550936d",
+              "name": "Account updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identity\": {\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"properties\": {\n    \"managedResourceGroupName\": \"<string>\",\n    \"publicNetworkAccess\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"identity\": {\n    \"principalId\": \"string\",\n    \"tenantId\": \"string\",\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_2\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_3\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"location\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"cloudConnectors\": {\n      \"awsExternalId\": \"string\"\n    },\n    \"createdAt\": \"1988-05-12T07:49:05.843Z\",\n    \"createdBy\": \"string\",\n    \"createdByObjectId\": \"string\",\n    \"endpoints\": {\n      \"catalog\": \"string\",\n      \"guardian\": \"string\",\n      \"scan\": \"string\"\n    },\n    \"friendlyName\": \"string\",\n    \"managedResourceGroupName\": \"string\",\n    \"managedResources\": {\n      \"eventHubNamespace\": \"string\",\n      \"resourceGroup\": \"string\",\n      \"storageAccount\": \"string\"\n    },\n    \"privateEndpointConnections\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"properties\": {\n          \"privateEndpoint\": {\n            \"id\": \"string\"\n          },\n          \"privateLinkServiceConnectionState\": {\n            \"actionsRequired\": \"string\",\n            \"description\": \"string\",\n            \"status\": \"Disconnected\"\n          },\n          \"provisioningState\": \"string\"\n        },\n        \"type\": \"string\"\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"properties\": {\n          \"privateEndpoint\": {\n            \"id\": \"string\"\n          },\n          \"privateLinkServiceConnectionState\": {\n            \"actionsRequired\": \"string\",\n            \"description\": \"string\",\n            \"status\": \"Unknown\"\n          },\n          \"provisioningState\": \"string\"\n        },\n        \"type\": \"string\"\n      }\n    ],\n    \"provisioningState\": \"Deleting\",\n    \"publicNetworkAccess\": \"Disabled\"\n  },\n  \"sku\": {\n    \"capacity\": 4420,\n    \"name\": \"Standard\"\n  },\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc0ae6bf-c036-4029-abfc-647f2e1f7be2",
+              "name": "Account update accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identity\": {\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"properties\": {\n    \"managedResourceGroupName\": \"<string>\",\n    \"publicNetworkAccess\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af451622-b654-48fa-af7b-0066a57d8b1c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"identity\": {\n    \"type\": \"None\",\n    \"userAssignedIdentities\": {\n      \"key_0\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      },\n      \"key_1\": {\n        \"clientId\": \"string\",\n        \"principalId\": \"string\"\n      }\n    }\n  },\n  \"properties\": {\n    \"managedResourceGroupName\": \"<string>\",\n    \"publicNetworkAccess\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3ede3bec-a32e-4238-aa97-e8e0132b5c44",
+          "name": "Microsoft Purview Delete a Purview account",
+          "request": {
+            "name": "Microsoft Purview Delete a Purview account",
+            "description": {
+              "content": "Deletes the account resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Purview",
+                "accounts",
+                ":accountName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountName",
+                  "description": "(Required) The name of the Purview account"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9763e48b-0f1d-4a9f-bcb3-c65cb0c372cf",
+              "name": "Account deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "47bebe66-8ed1-4cc7-ba42-6bf57e43824c",
+              "name": "Account deletion accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3a667754-d5e1-4552-970d-931ae0cd1d79",
+              "name": "Account not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c9e37d1b-82b5-4777-be99-32a80eca6b9b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1d34bd8b-9ab6-4f5a-9615-83ffcf1b71e5",
+          "name": "Microsoft Purview List accounts by resource group",
+          "request": {
+            "name": "Microsoft Purview List accounts by resource group",
+            "description": {
+              "content": "Gets the accounts resources by resource group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Purview",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skipToken",
+                  "value": "<string>",
+                  "description": "The skip token for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8194d356-fd21-4f63-bb09-051607b7ddf1",
+              "name": "Accounts listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    },
+                    {
+                      "key": "$skipToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"identity\": {\n        \"principalId\": \"string\",\n        \"tenantId\": \"string\",\n        \"type\": \"UserAssigned\",\n        \"userAssignedIdentities\": {\n          \"key_0\": {\n            \"clientId\": \"string\",\n            \"principalId\": \"string\"\n          }\n        }\n      },\n      \"location\": \"string\",\n      \"name\": \"string\",\n      \"properties\": {\n        \"cloudConnectors\": {\n          \"awsExternalId\": \"string\"\n        },\n        \"createdAt\": \"1948-07-31T07:25:58.423Z\",\n        \"createdBy\": \"string\",\n        \"createdByObjectId\": \"string\",\n        \"endpoints\": {\n          \"catalog\": \"string\",\n          \"guardian\": \"string\",\n          \"scan\": \"string\"\n        },\n        \"friendlyName\": \"string\",\n        \"managedResourceGroupName\": \"string\",\n        \"managedResources\": {\n          \"eventHubNamespace\": \"string\",\n          \"resourceGroup\": \"string\",\n          \"storageAccount\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"properties\": {\n              \"privateEndpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"privateLinkServiceConnectionState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"provisioningState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"properties\": {\n              \"privateEndpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"privateLinkServiceConnectionState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"provisioningState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": \"string\"\n          }\n        ],\n        \"provisioningState\": \"Creating\",\n        \"publicNetworkAccess\": \"NotSpecified\"\n      },\n      \"sku\": {\n        \"capacity\": 3673,\n        \"name\": \"Standard\"\n      },\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"type\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"identity\": {\n        \"principalId\": \"string\",\n        \"tenantId\": \"string\",\n        \"type\": \"SystemAssigned\",\n        \"userAssignedIdentities\": {\n          \"key_0\": {\n            \"clientId\": \"string\",\n            \"principalId\": \"string\"\n          }\n        }\n      },\n      \"location\": \"string\",\n      \"name\": \"string\",\n      \"properties\": {\n        \"cloudConnectors\": {\n          \"awsExternalId\": \"string\"\n        },\n        \"createdAt\": \"1976-07-02T05:07:18.795Z\",\n        \"createdBy\": \"string\",\n        \"createdByObjectId\": \"string\",\n        \"endpoints\": {\n          \"catalog\": \"string\",\n          \"guardian\": \"string\",\n          \"scan\": \"string\"\n        },\n        \"friendlyName\": \"string\",\n        \"managedResourceGroupName\": \"string\",\n        \"managedResources\": {\n          \"eventHubNamespace\": \"string\",\n          \"resourceGroup\": \"string\",\n          \"storageAccount\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"properties\": {\n              \"privateEndpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"privateLinkServiceConnectionState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"provisioningState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"properties\": {\n              \"privateEndpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"privateLinkServiceConnectionState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"provisioningState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": \"string\"\n          }\n        ],\n        \"provisioningState\": \"Canceled\",\n        \"publicNetworkAccess\": \"NotSpecified\"\n      },\n      \"sku\": {\n        \"capacity\": 2300,\n        \"name\": \"Standard\"\n      },\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"type\": \"string\"\n    }\n  ],\n  \"nextLink\": \"string\",\n  \"count\": 520\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48dfa07b-55c0-4d03-aead-591d8f18039b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    },
+                    {
+                      "key": "$skipToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7fa2c8e9-478b-4119-a85a-c71038d8e918",
+          "name": "Microsoft Purview List accounts by subscription",
+          "request": {
+            "name": "Microsoft Purview List accounts by subscription",
+            "description": {
+              "content": "Gets the accounts resources by subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "providers",
+                "Microsoft.Purview",
+                "accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skipToken",
+                  "value": "<string>",
+                  "description": "The skip token for pagination"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "741ff6ec-a4ce-404a-bdb1-ca33d936eb69",
+              "name": "Accounts listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    },
+                    {
+                      "key": "$skipToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"identity\": {\n        \"principalId\": \"string\",\n        \"tenantId\": \"string\",\n        \"type\": \"UserAssigned\",\n        \"userAssignedIdentities\": {\n          \"key_0\": {\n            \"clientId\": \"string\",\n            \"principalId\": \"string\"\n          }\n        }\n      },\n      \"location\": \"string\",\n      \"name\": \"string\",\n      \"properties\": {\n        \"cloudConnectors\": {\n          \"awsExternalId\": \"string\"\n        },\n        \"createdAt\": \"1948-07-31T07:25:58.423Z\",\n        \"createdBy\": \"string\",\n        \"createdByObjectId\": \"string\",\n        \"endpoints\": {\n          \"catalog\": \"string\",\n          \"guardian\": \"string\",\n          \"scan\": \"string\"\n        },\n        \"friendlyName\": \"string\",\n        \"managedResourceGroupName\": \"string\",\n        \"managedResources\": {\n          \"eventHubNamespace\": \"string\",\n          \"resourceGroup\": \"string\",\n          \"storageAccount\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"properties\": {\n              \"privateEndpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"privateLinkServiceConnectionState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"provisioningState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"properties\": {\n              \"privateEndpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"privateLinkServiceConnectionState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"provisioningState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": \"string\"\n          }\n        ],\n        \"provisioningState\": \"Creating\",\n        \"publicNetworkAccess\": \"NotSpecified\"\n      },\n      \"sku\": {\n        \"capacity\": 3673,\n        \"name\": \"Standard\"\n      },\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"type\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"identity\": {\n        \"principalId\": \"string\",\n        \"tenantId\": \"string\",\n        \"type\": \"SystemAssigned\",\n        \"userAssignedIdentities\": {\n          \"key_0\": {\n            \"clientId\": \"string\",\n            \"principalId\": \"string\"\n          }\n        }\n      },\n      \"location\": \"string\",\n      \"name\": \"string\",\n      \"properties\": {\n        \"cloudConnectors\": {\n          \"awsExternalId\": \"string\"\n        },\n        \"createdAt\": \"1976-07-02T05:07:18.795Z\",\n        \"createdBy\": \"string\",\n        \"createdByObjectId\": \"string\",\n        \"endpoints\": {\n          \"catalog\": \"string\",\n          \"guardian\": \"string\",\n          \"scan\": \"string\"\n        },\n        \"friendlyName\": \"string\",\n        \"managedResourceGroupName\": \"string\",\n        \"managedResources\": {\n          \"eventHubNamespace\": \"string\",\n          \"resourceGroup\": \"string\",\n          \"storageAccount\": \"string\"\n        },\n        \"privateEndpointConnections\": [\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"properties\": {\n              \"privateEndpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"privateLinkServiceConnectionState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"provisioningState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": \"string\"\n          },\n          {\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"properties\": {\n              \"privateEndpoint\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"privateLinkServiceConnectionState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"provisioningState\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"type\": \"string\"\n          }\n        ],\n        \"provisioningState\": \"Canceled\",\n        \"publicNetworkAccess\": \"NotSpecified\"\n      },\n      \"sku\": {\n        \"capacity\": 2300,\n        \"name\": \"Standard\"\n      },\n      \"tags\": {\n        \"key_0\": \"string\"\n      },\n      \"type\": \"string\"\n    }\n  ],\n  \"nextLink\": \"string\",\n  \"count\": 520\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be7f2f44-0355-4694-8a43-2c146117efab",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    },
+                    {
+                      "key": "$skipToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cea364e0-1444-40cb-9bfe-1069cf8e3b9b",
+          "name": "Microsoft Purview List account keys",
+          "request": {
+            "name": "Microsoft Purview List account keys",
+            "description": {
+              "content": "Lists the keys asynchronous for the Purview account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Purview",
+                "accounts",
+                ":accountName",
+                "listkeys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountName",
+                  "description": "(Required) The name of the Purview account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "36cabb5c-7b20-4ec6-a785-442426787094",
+              "name": "Keys retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName",
+                    "listkeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"atlasKafkaPrimaryEndpoint\": \"string\",\n  \"atlasKafkaSecondaryEndpoint\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36e3eda8-a981-4975-8457-702d0f8eafc3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName",
+                    "listkeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5376406a-aed2-4d18-a583-0eb28dfcab3c",
+          "name": "Microsoft Purview Add root collection admin",
+          "request": {
+            "name": "Microsoft Purview Add root collection admin",
+            "description": {
+              "content": "Add the administrator for root collection associated with this account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Purview",
+                "accounts",
+                ":accountName",
+                "addRootCollectionAdmin"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountName",
+                  "description": "(Required) The name of the Purview account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"objectId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5a3a4850-63e1-4a67-953c-4fe5b0b2f984",
+              "name": "Admin added successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName",
+                    "addRootCollectionAdmin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e7ec4d5d-0a83-4c11-aec8-de43898e2985",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName",
+                    "addRootCollectionAdmin"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cb654abe-e871-4725-96c0-617a063b3937",
+          "name": "Microsoft Purview Check name availability",
+          "request": {
+            "name": "Microsoft Purview Check name availability",
+            "description": {
+              "content": "Checks the account name availability for the given subscription.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "providers",
+                "Microsoft.Purview",
+                "checkNameAvailability"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "95ea7307-bf32-455d-a003-4d41cf024376",
+              "name": "Name availability check completed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.Purview",
+                    "checkNameAvailability"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"nameAvailable\": true,\n  \"reason\": \"Invalid\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "214daa62-c427-4bc3-9534-fe9699cfc437",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "providers",
+                    "Microsoft.Purview",
+                    "checkNameAvailability"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "c27cee47-6579-4c64-923c-57e97188220c",
+      "name": "Operations",
+      "description": {
+        "content": "Operations available on the Purview resource provider",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "829ad65c-093c-4d6d-87ec-93905b427d82",
+          "name": "Microsoft Purview List available operations",
+          "request": {
+            "name": "Microsoft Purview List available operations",
+            "description": {
+              "content": "Lists the available operations for the Purview resource provider.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "providers",
+                "Microsoft.Purview",
+                "operations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b01e6473-8acc-43f8-b5b2-80d13dfb7ddb",
+              "name": "Operations listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers",
+                    "Microsoft.Purview",
+                    "operations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"display\": {\n        \"description\": \"string\",\n        \"operation\": \"string\",\n        \"provider\": \"string\",\n        \"resource\": \"string\"\n      },\n      \"isDataAction\": true,\n      \"name\": \"string\",\n      \"origin\": \"string\"\n    },\n    {\n      \"display\": {\n        \"description\": \"string\",\n        \"operation\": \"string\",\n        \"provider\": \"string\",\n        \"resource\": \"string\"\n      },\n      \"isDataAction\": true,\n      \"name\": \"string\",\n      \"origin\": \"string\"\n    }\n  ],\n  \"nextLink\": \"string\",\n  \"count\": 1643\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37f22368-4ed2-4ab8-b026-aada17cc41a5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "providers",
+                    "Microsoft.Purview",
+                    "operations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "59fe5dce-0050-4dc5-9483-8b61173470ab",
+      "name": "Private Endpoint Connections",
+      "description": {
+        "content": "Operations for managing private endpoint connections",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2c9f78f3-2cbc-4f66-9d9b-593ae4968684",
+          "name": "Microsoft Purview List private endpoint connections",
+          "request": {
+            "name": "Microsoft Purview List private endpoint connections",
+            "description": {
+              "content": "Gets private endpoint connections for the Purview account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Purview",
+                "accounts",
+                ":accountName",
+                "privateEndpointConnections"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountName",
+                  "description": "(Required) The name of the Purview account"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "588d5ac6-7415-4df7-8e4c-582cf48f2c67",
+              "name": "Private endpoint connections listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName",
+                    "privateEndpointConnections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"properties\": {\n        \"privateEndpoint\": {\n          \"id\": \"string\"\n        },\n        \"privateLinkServiceConnectionState\": {\n          \"actionsRequired\": \"string\",\n          \"description\": \"string\",\n          \"status\": \"Pending\"\n        },\n        \"provisioningState\": \"string\"\n      },\n      \"type\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"properties\": {\n        \"privateEndpoint\": {\n          \"id\": \"string\"\n        },\n        \"privateLinkServiceConnectionState\": {\n          \"actionsRequired\": \"string\",\n          \"description\": \"string\",\n          \"status\": \"Disconnected\"\n        },\n        \"provisioningState\": \"string\"\n      },\n      \"type\": \"string\"\n    }\n  ],\n  \"nextLink\": \"string\",\n  \"count\": 2078\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4bfc65aa-43b1-487e-9b0a-6674921b8eea",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName",
+                    "privateEndpointConnections"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e984601-f8c4-4c4c-bab8-e576e8eb1f9b",
+          "name": "Microsoft Purview Get a private endpoint connection",
+          "request": {
+            "name": "Microsoft Purview Get a private endpoint connection",
+            "description": {
+              "content": "Gets a private endpoint connection for the Purview account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "subscriptions",
+                ":subscriptionId",
+                "resourceGroups",
+                ":resourceGroupName",
+                "providers",
+                "Microsoft.Purview",
+                "accounts",
+                ":accountName",
+                "privateEndpointConnections",
+                ":privateEndpointConnectionName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-12-01",
+                  "description": "(Required) The API version"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "subscriptionId",
+                  "description": "(Required) The Azure subscription ID"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "resourceGroupName",
+                  "description": "(Required) The resource group name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "accountName",
+                  "description": "(Required) The name of the Purview account"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "privateEndpointConnectionName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "046c5838-d59d-4cf7-ab1e-daa37150e3c1",
+              "name": "Private endpoint connection retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName",
+                    "privateEndpointConnections",
+                    ":privateEndpointConnectionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "privateEndpointConnectionName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"privateEndpoint\": {\n      \"id\": \"string\"\n    },\n    \"privateLinkServiceConnectionState\": {\n      \"actionsRequired\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"Approved\"\n    },\n    \"provisioningState\": \"string\"\n  },\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69d705cf-4afe-4d20-8048-196c655a02ea",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName",
+                    "privateEndpointConnections",
+                    ":privateEndpointConnectionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "privateEndpointConnectionName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3dbb3b98-e7fc-463f-8db3-b68e503d579c",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "subscriptions",
+                    ":subscriptionId",
+                    "resourceGroups",
+                    ":resourceGroupName",
+                    "providers",
+                    "Microsoft.Purview",
+                    "accounts",
+                    ":accountName",
+                    "privateEndpointConnections",
+                    ":privateEndpointConnectionName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-12-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "subscriptionId",
+                      "description": "(Required) The Azure subscription ID"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "resourceGroupName",
+                      "description": "(Required) The resource group name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "accountName",
+                      "description": "(Required) The name of the Purview account"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "privateEndpointConnectionName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fb5102f3-b886-4f58-bb04-d81f3dce4198",
+    "name": "Microsoft Purview Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

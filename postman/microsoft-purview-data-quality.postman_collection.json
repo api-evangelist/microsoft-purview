@@ -1,0 +1,1943 @@
+{
+  "info": {
+    "_postman_id": "a7c71505-f83a-44cd-bba8-3d0dc5a444d0",
+    "name": "Microsoft Purview Data Quality API",
+    "description": "APIs for programmatically interacting with data quality rules, measuring data quality, and retrieving data quality scores for data assets. Supports data profiling, rule management, and quality assessment operations.\n\nContact Support:\n Name: Microsoft Purview Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-06-05T15:12:25.000Z",
+    "updatedAt": "2026-06-05T15:12:25.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a7c71505-f83a-44cd-bba8-3d0dc5a444d0"
+  },
+  "item": [
+    {
+      "name": "dataquality",
+      "item": [
+        {
+          "name": "rules",
+          "item": [
+            {
+              "name": "{ruleId}",
+              "item": [
+                {
+                  "name": "Microsoft Purview Get a data quality rule",
+                  "id": "997d5df5-3755-4210-9204-eaaf7ce9100f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "rules",
+                        ":ruleId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "e12c2a17-3f50-4dea-90a8-e010989eac9c",
+                          "key": "ruleId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get a data quality rule by its identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "97abc851-a289-4dba-b303-94c5a36bc88b",
+                      "name": "Data quality rule retrieved successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "rules",
+                            ":ruleId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ruleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-97abc851-a289-4dba-b303-94c5a36bc88b"
+                    },
+                    {
+                      "id": "29bd3a6e-915c-423d-a096-2e03895a3ecb",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "rules",
+                            ":ruleId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ruleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-29bd3a6e-915c-423d-a096-2e03895a3ecb"
+                    },
+                    {
+                      "id": "af57599d-d58e-4e23-961f-b9654a007264",
+                      "name": "Rule not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "rules",
+                            ":ruleId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ruleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-af57599d-d58e-4e23-961f-b9654a007264"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-997d5df5-3755-4210-9204-eaaf7ce9100f"
+                },
+                {
+                  "name": "Microsoft Purview Update a data quality rule",
+                  "id": "e3813d9f-7773-44f1-a5e7-92fe272e4198",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "rules",
+                        ":ruleId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7090cf57-ae54-45f1-a755-a5c745befc85",
+                          "key": "ruleId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Update an existing data quality rule."
+                  },
+                  "response": [
+                    {
+                      "id": "59911ba0-7cb2-49e8-b6f8-919ed1b729f3",
+                      "name": "Data quality rule updated successfully",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "rules",
+                            ":ruleId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ruleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-59911ba0-7cb2-49e8-b6f8-919ed1b729f3"
+                    },
+                    {
+                      "id": "d17758db-823b-4d6b-9642-c63aec792601",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "rules",
+                            ":ruleId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ruleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-d17758db-823b-4d6b-9642-c63aec792601"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-e3813d9f-7773-44f1-a5e7-92fe272e4198"
+                },
+                {
+                  "name": "Microsoft Purview Delete a data quality rule",
+                  "id": "f688b2bc-390a-43d6-8be4-e37a56a15671",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "rules",
+                        ":ruleId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "c2015a42-1a36-4ff9-9803-2450eb58dcc0",
+                          "key": "ruleId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Delete a data quality rule by its identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "5e90d16b-581e-432f-8233-f55409fefff7",
+                      "name": "Data quality rule deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "rules",
+                            ":ruleId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ruleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-5e90d16b-581e-432f-8233-f55409fefff7"
+                    },
+                    {
+                      "id": "f8e21ed2-ab51-4a85-b876-d0298871cae1",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/rules/:ruleId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "rules",
+                            ":ruleId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "ruleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-f8e21ed2-ab51-4a85-b876-d0298871cae1"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-f688b2bc-390a-43d6-8be4-e37a56a15671"
+                }
+              ],
+              "id": "a2cfb57c-7a6e-4c39-9b8f-1cd4d6492a4f",
+              "createdAt": "2026-06-05T15:12:25.000Z",
+              "updatedAt": "2026-06-05T15:12:25.000Z",
+              "uid": "35240-a2cfb57c-7a6e-4c39-9b8f-1cd4d6492a4f"
+            },
+            {
+              "name": "Microsoft Purview List data quality rules",
+              "id": "87d9be87-1963-44f7-990c-a20c2c3864e0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataquality/rules?api-version=2024-03-01-preview&maxpagesize=<integer>&skipToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataquality",
+                    "rules"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skipToken",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "List all data quality rules configured in the Purview account."
+              },
+              "response": [
+                {
+                  "id": "5f1d94a3-1fb5-4123-b16f-836bdae558f9",
+                  "name": "Data quality rules listed successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/rules?api-version=2024-03-01-preview&maxpagesize=<integer>&skipToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "rules"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        },
+                        {
+                          "key": "maxpagesize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "skipToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"ruleType\": \"Uniqueness\",\n      \"expression\": \"<string>\",\n      \"dimension\": \"<string>\",\n      \"severity\": \"High\",\n      \"isEnabled\": \"<boolean>\",\n      \"targetAssets\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"ruleType\": \"Uniqueness\",\n      \"expression\": \"<string>\",\n      \"dimension\": \"<string>\",\n      \"severity\": \"Critical\",\n      \"isEnabled\": \"<boolean>\",\n      \"targetAssets\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"createdAt\": \"<dateTime>\",\n      \"updatedAt\": \"<dateTime>\"\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-5f1d94a3-1fb5-4123-b16f-836bdae558f9"
+                },
+                {
+                  "id": "076e9579-9bff-4690-b10e-b655926e63bd",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/rules?api-version=2024-03-01-preview&maxpagesize=<integer>&skipToken=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "rules"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        },
+                        {
+                          "key": "maxpagesize",
+                          "value": "<integer>"
+                        },
+                        {
+                          "key": "skipToken",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-076e9579-9bff-4690-b10e-b655926e63bd"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:25.000Z",
+              "updatedAt": "2026-06-05T15:12:25.000Z",
+              "uid": "35240-87d9be87-1963-44f7-990c-a20c2c3864e0"
+            },
+            {
+              "name": "Microsoft Purview Create a data quality rule",
+              "id": "0e0b316a-1f24-4640-a03d-1d48b4e28569",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dataquality/rules?api-version=2024-03-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataquality",
+                    "rules"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ]
+                },
+                "description": "Create a new data quality rule for evaluating data assets."
+              },
+              "response": [
+                {
+                  "id": "3650b14d-a4f3-4cb8-8094-5f6edab52082",
+                  "name": "Data quality rule created successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/rules?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "rules"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-3650b14d-a4f3-4cb8-8094-5f6edab52082"
+                },
+                {
+                  "id": "a9beffc2-b183-43f9-9bf1-d756ffc2fd3f",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/rules?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "rules"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-a9beffc2-b183-43f9-9bf1-d756ffc2fd3f"
+                },
+                {
+                  "id": "360a07ca-9c9a-496b-9656-9d8e38468c1c",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"ruleType\": \"Accuracy\",\n  \"expression\": \"<string>\",\n  \"dimension\": \"<string>\",\n  \"severity\": \"Low\",\n  \"isEnabled\": \"<boolean>\",\n  \"targetAssets\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/rules?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "rules"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-360a07ca-9c9a-496b-9656-9d8e38468c1c"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:25.000Z",
+              "updatedAt": "2026-06-05T15:12:25.000Z",
+              "uid": "35240-0e0b316a-1f24-4640-a03d-1d48b4e28569"
+            }
+          ],
+          "id": "367be335-5b26-4131-ab78-08fd687865b8",
+          "createdAt": "2026-06-05T15:12:25.000Z",
+          "updatedAt": "2026-06-05T15:12:25.000Z",
+          "uid": "35240-367be335-5b26-4131-ab78-08fd687865b8"
+        },
+        {
+          "name": "scores",
+          "item": [
+            {
+              "name": "{scoreId}",
+              "item": [
+                {
+                  "name": "Microsoft Purview Get a data quality score",
+                  "id": "924bd5eb-f750-4321-80c7-64d6c2349591",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/scores/:scoreId?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "scores",
+                        ":scoreId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "1745e58c-d5fc-49c9-922d-d5454c1aada0",
+                          "key": "scoreId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get a specific data quality score by its identifier."
+                  },
+                  "response": [
+                    {
+                      "id": "acf0f715-fe92-4549-9c96-46df747327f0",
+                      "name": "Data quality score retrieved successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/scores/:scoreId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "scores",
+                            ":scoreId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "scoreId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"assetId\": \"<string>\",\n  \"assetName\": \"<string>\",\n  \"overallScore\": \"<float>\",\n  \"dimensionScores\": {\n    \"completeness\": \"<float>\",\n    \"uniqueness\": \"<float>\",\n    \"freshness\": \"<float>\",\n    \"accuracy\": \"<float>\",\n    \"consistency\": \"<float>\",\n    \"validity\": \"<float>\"\n  },\n  \"evaluatedAt\": \"<dateTime>\",\n  \"ruleResults\": [\n    {\n      \"ruleId\": \"<string>\",\n      \"ruleName\": \"<string>\",\n      \"status\": \"Passed\",\n      \"score\": \"<float>\",\n      \"details\": \"<string>\"\n    },\n    {\n      \"ruleId\": \"<string>\",\n      \"ruleName\": \"<string>\",\n      \"status\": \"Passed\",\n      \"score\": \"<float>\",\n      \"details\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-acf0f715-fe92-4549-9c96-46df747327f0"
+                    },
+                    {
+                      "id": "2c395903-6262-49b9-bac3-09c86d79bfb5",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/scores/:scoreId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "scores",
+                            ":scoreId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "scoreId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-2c395903-6262-49b9-bac3-09c86d79bfb5"
+                    },
+                    {
+                      "id": "9d916fc2-6ca1-4024-bd54-8593e6e4982b",
+                      "name": "Score not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/scores/:scoreId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "scores",
+                            ":scoreId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "scoreId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-9d916fc2-6ca1-4024-bd54-8593e6e4982b"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-924bd5eb-f750-4321-80c7-64d6c2349591"
+                }
+              ],
+              "id": "88d73650-fb05-42db-8a38-eb477b2342e0",
+              "createdAt": "2026-06-05T15:12:25.000Z",
+              "updatedAt": "2026-06-05T15:12:25.000Z",
+              "uid": "35240-88d73650-fb05-42db-8a38-eb477b2342e0"
+            },
+            {
+              "name": "Microsoft Purview List data quality scores",
+              "id": "d6d74813-d221-4bee-a3e4-11ea5d1a56c1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dataquality/scores?api-version=2024-03-01-preview&assetId=<string>&maxpagesize=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataquality",
+                    "scores"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "description": "Filter scores by data asset identifier",
+                      "key": "assetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ]
+                },
+                "description": "Retrieve data quality scores for data assets."
+              },
+              "response": [
+                {
+                  "id": "53ecdc9a-2f23-4da1-8c59-10205497d382",
+                  "name": "Data quality scores retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/scores?api-version=2024-03-01-preview&assetId=<string>&maxpagesize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "scores"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        },
+                        {
+                          "description": "Filter scores by data asset identifier",
+                          "key": "assetId",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "maxpagesize",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"assetId\": \"<string>\",\n      \"assetName\": \"<string>\",\n      \"overallScore\": \"<float>\",\n      \"dimensionScores\": {\n        \"completeness\": \"<float>\",\n        \"uniqueness\": \"<float>\",\n        \"freshness\": \"<float>\",\n        \"accuracy\": \"<float>\",\n        \"consistency\": \"<float>\",\n        \"validity\": \"<float>\"\n      },\n      \"evaluatedAt\": \"<dateTime>\",\n      \"ruleResults\": [\n        {\n          \"ruleId\": \"<string>\",\n          \"ruleName\": \"<string>\",\n          \"status\": \"Passed\",\n          \"score\": \"<float>\",\n          \"details\": \"<string>\"\n        },\n        {\n          \"ruleId\": \"<string>\",\n          \"ruleName\": \"<string>\",\n          \"status\": \"Failed\",\n          \"score\": \"<float>\",\n          \"details\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"assetId\": \"<string>\",\n      \"assetName\": \"<string>\",\n      \"overallScore\": \"<float>\",\n      \"dimensionScores\": {\n        \"completeness\": \"<float>\",\n        \"uniqueness\": \"<float>\",\n        \"freshness\": \"<float>\",\n        \"accuracy\": \"<float>\",\n        \"consistency\": \"<float>\",\n        \"validity\": \"<float>\"\n      },\n      \"evaluatedAt\": \"<dateTime>\",\n      \"ruleResults\": [\n        {\n          \"ruleId\": \"<string>\",\n          \"ruleName\": \"<string>\",\n          \"status\": \"Passed\",\n          \"score\": \"<float>\",\n          \"details\": \"<string>\"\n        },\n        {\n          \"ruleId\": \"<string>\",\n          \"ruleName\": \"<string>\",\n          \"status\": \"Passed\",\n          \"score\": \"<float>\",\n          \"details\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-53ecdc9a-2f23-4da1-8c59-10205497d382"
+                },
+                {
+                  "id": "c0e28d2a-fe41-4942-87a8-73db9463659f",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/scores?api-version=2024-03-01-preview&assetId=<string>&maxpagesize=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "scores"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        },
+                        {
+                          "description": "Filter scores by data asset identifier",
+                          "key": "assetId",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "maxpagesize",
+                          "value": "<integer>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-c0e28d2a-fe41-4942-87a8-73db9463659f"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:25.000Z",
+              "updatedAt": "2026-06-05T15:12:25.000Z",
+              "uid": "35240-d6d74813-d221-4bee-a3e4-11ea5d1a56c1"
+            }
+          ],
+          "id": "ce08e784-e1ad-4f93-900d-cde14bb81d26",
+          "createdAt": "2026-06-05T15:12:25.000Z",
+          "updatedAt": "2026-06-05T15:12:25.000Z",
+          "uid": "35240-ce08e784-e1ad-4f93-900d-cde14bb81d26"
+        },
+        {
+          "name": "profiling",
+          "item": [
+            {
+              "name": "{assetId}",
+              "item": [
+                {
+                  "name": "Microsoft Purview Run data profiling",
+                  "id": "ed8ece82-02cd-44ce-803b-fc127f1c76db",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sampleSize\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/profiling/:assetId?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "profiling",
+                        ":assetId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "d51db75c-803d-4b02-9b5d-87e3ce0c02c5",
+                          "key": "assetId",
+                          "value": "<string>",
+                          "description": "(Required) The data asset identifier"
+                        }
+                      ]
+                    },
+                    "description": "Initiate data profiling for a specific data asset."
+                  },
+                  "response": [
+                    {
+                      "id": "48c265ff-d6ae-4428-94c7-f787f9aa8357",
+                      "name": "Data profiling initiated successfully",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sampleSize\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/profiling/:assetId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "profiling",
+                            ":assetId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "assetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"assetId\": \"<string>\",\n  \"status\": \"Failed\",\n  \"profiledAt\": \"<dateTime>\",\n  \"rowCount\": \"<long>\",\n  \"columnProfiles\": [\n    {\n      \"columnName\": \"<string>\",\n      \"dataType\": \"<string>\",\n      \"nullCount\": \"<long>\",\n      \"nullPercentage\": \"<float>\",\n      \"distinctCount\": \"<long>\",\n      \"minValue\": \"<string>\",\n      \"maxValue\": \"<string>\",\n      \"meanValue\": \"<string>\",\n      \"standardDeviation\": \"<double>\",\n      \"topValues\": [\n        {\n          \"value\": \"<string>\",\n          \"count\": \"<long>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"count\": \"<long>\"\n        }\n      ]\n    },\n    {\n      \"columnName\": \"<string>\",\n      \"dataType\": \"<string>\",\n      \"nullCount\": \"<long>\",\n      \"nullPercentage\": \"<float>\",\n      \"distinctCount\": \"<long>\",\n      \"minValue\": \"<string>\",\n      \"maxValue\": \"<string>\",\n      \"meanValue\": \"<string>\",\n      \"standardDeviation\": \"<double>\",\n      \"topValues\": [\n        {\n          \"value\": \"<string>\",\n          \"count\": \"<long>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"count\": \"<long>\"\n        }\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-48c265ff-d6ae-4428-94c7-f787f9aa8357"
+                    },
+                    {
+                      "id": "9b1cff9f-aad9-49c7-a95f-6a6200b95910",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sampleSize\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/profiling/:assetId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "profiling",
+                            ":assetId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "assetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-9b1cff9f-aad9-49c7-a95f-6a6200b95910"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-ed8ece82-02cd-44ce-803b-fc127f1c76db"
+                },
+                {
+                  "name": "Microsoft Purview Get data profiling result",
+                  "id": "28a54c29-340d-4138-8871-b87b68fdb4d0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/profiling/:assetId?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "profiling",
+                        ":assetId"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0c054093-ca4f-44be-bd52-e2a684d2b8e0",
+                          "key": "assetId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get data profiling results for a specific data asset."
+                  },
+                  "response": [
+                    {
+                      "id": "94a7cf89-caf5-41b7-ad62-cc2d3ab63112",
+                      "name": "Data profiling result retrieved successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/profiling/:assetId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "profiling",
+                            ":assetId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "assetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"assetId\": \"<string>\",\n  \"status\": \"Failed\",\n  \"profiledAt\": \"<dateTime>\",\n  \"rowCount\": \"<long>\",\n  \"columnProfiles\": [\n    {\n      \"columnName\": \"<string>\",\n      \"dataType\": \"<string>\",\n      \"nullCount\": \"<long>\",\n      \"nullPercentage\": \"<float>\",\n      \"distinctCount\": \"<long>\",\n      \"minValue\": \"<string>\",\n      \"maxValue\": \"<string>\",\n      \"meanValue\": \"<string>\",\n      \"standardDeviation\": \"<double>\",\n      \"topValues\": [\n        {\n          \"value\": \"<string>\",\n          \"count\": \"<long>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"count\": \"<long>\"\n        }\n      ]\n    },\n    {\n      \"columnName\": \"<string>\",\n      \"dataType\": \"<string>\",\n      \"nullCount\": \"<long>\",\n      \"nullPercentage\": \"<float>\",\n      \"distinctCount\": \"<long>\",\n      \"minValue\": \"<string>\",\n      \"maxValue\": \"<string>\",\n      \"meanValue\": \"<string>\",\n      \"standardDeviation\": \"<double>\",\n      \"topValues\": [\n        {\n          \"value\": \"<string>\",\n          \"count\": \"<long>\"\n        },\n        {\n          \"value\": \"<string>\",\n          \"count\": \"<long>\"\n        }\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-94a7cf89-caf5-41b7-ad62-cc2d3ab63112"
+                    },
+                    {
+                      "id": "daa1f2ae-0784-42b1-98d1-107b5a2db7da",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/profiling/:assetId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "profiling",
+                            ":assetId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "assetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-daa1f2ae-0784-42b1-98d1-107b5a2db7da"
+                    },
+                    {
+                      "id": "caee9289-f91c-4bdd-9a00-8a50eedcc9d0",
+                      "name": "Not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/dataquality/profiling/:assetId?api-version=2024-03-01-preview",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "dataquality",
+                            "profiling",
+                            ":assetId"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) ",
+                              "key": "api-version",
+                              "value": "2024-03-01-preview"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "assetId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-06-05T15:12:25.000Z",
+                      "updatedAt": "2026-06-05T15:12:25.000Z",
+                      "uid": "35240-caee9289-f91c-4bdd-9a00-8a50eedcc9d0"
+                    }
+                  ],
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-28a54c29-340d-4138-8871-b87b68fdb4d0"
+                }
+              ],
+              "id": "1c7aa51d-fb8b-48cc-98e3-c8d715518681",
+              "createdAt": "2026-06-05T15:12:25.000Z",
+              "updatedAt": "2026-06-05T15:12:25.000Z",
+              "uid": "35240-1c7aa51d-fb8b-48cc-98e3-c8d715518681"
+            }
+          ],
+          "id": "591704a7-4bd4-4acd-a0eb-793f00ade5ad",
+          "createdAt": "2026-06-05T15:12:25.000Z",
+          "updatedAt": "2026-06-05T15:12:25.000Z",
+          "uid": "35240-591704a7-4bd4-4acd-a0eb-793f00ade5ad"
+        },
+        {
+          "name": "scans",
+          "item": [
+            {
+              "name": "Microsoft Purview Run a data quality scan",
+              "id": "53ca47d0-2dbb-46f4-860d-b2c60b5647fb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"assetIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ruleIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/dataquality/scans?api-version=2024-03-01-preview",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dataquality",
+                    "scans"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ]
+                },
+                "description": "Initiate a data quality scan to evaluate rules against data assets."
+              },
+              "response": [
+                {
+                  "id": "0eadeecc-d611-4380-a481-a5911cc56415",
+                  "name": "Data quality scan initiated",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ruleIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/scans?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "scans"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Accepted",
+                  "code": 202,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"scanId\": \"<string>\",\n  \"status\": \"Accepted\",\n  \"startTime\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-0eadeecc-d611-4380-a481-a5911cc56415"
+                },
+                {
+                  "id": "8a1db5d1-276d-4994-9160-d58420c7f95b",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"assetIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"ruleIds\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/dataquality/scans?api-version=2024-03-01-preview",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dataquality",
+                        "scans"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) ",
+                          "key": "api-version",
+                          "value": "2024-03-01-preview"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-06-05T15:12:25.000Z",
+                  "updatedAt": "2026-06-05T15:12:25.000Z",
+                  "uid": "35240-8a1db5d1-276d-4994-9160-d58420c7f95b"
+                }
+              ],
+              "createdAt": "2026-06-05T15:12:25.000Z",
+              "updatedAt": "2026-06-05T15:12:25.000Z",
+              "uid": "35240-53ca47d0-2dbb-46f4-860d-b2c60b5647fb"
+            }
+          ],
+          "id": "e88bdba1-7276-4b5d-ba5e-4518ca8d653d",
+          "createdAt": "2026-06-05T15:12:25.000Z",
+          "updatedAt": "2026-06-05T15:12:25.000Z",
+          "uid": "35240-e88bdba1-7276-4b5d-ba5e-4518ca8d653d"
+        }
+      ],
+      "id": "676374fa-e5b4-4831-befc-5570d94a0a9d",
+      "createdAt": "2026-06-05T15:12:25.000Z",
+      "updatedAt": "2026-06-05T15:12:25.000Z",
+      "uid": "35240-676374fa-e5b4-4831-befc-5570d94a0a9d"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://purview.azure.net/.default",
+        "type": "string"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "accountName",
+      "value": "myaccount"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{accountName}}.purview.azure.com"
+    }
+  ]
+}

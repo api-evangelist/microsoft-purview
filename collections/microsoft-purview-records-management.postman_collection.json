@@ -1,0 +1,2683 @@
+{
+  "item": [
+    {
+      "id": "6660f772-e9e7-4c11-9586-b22111f0c7e6",
+      "name": "Retention Event Types",
+      "description": {
+        "content": "Operations for managing retention event types",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d8a35128-45ed-4256-9e3d-6cd87650c31e",
+          "name": "Microsoft Purview List retention event types",
+          "request": {
+            "name": "Microsoft Purview List retention event types",
+            "description": {
+              "content": "Get a list of retention event types.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "triggerTypes",
+                "retentionEventTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9045c7b3-ca29-437f-afd9-6beff465f6bb",
+              "name": "Retention event types listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"createdDateTime\": \"1952-10-04T14:52:45.076Z\",\n      \"lastModifiedDateTime\": \"2020-05-27T10:10:44.346Z\",\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"createdDateTime\": \"1948-12-18T21:33:40.321Z\",\n      \"lastModifiedDateTime\": \"2009-07-06T16:29:01.387Z\",\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      }\n    }\n  ],\n  \"@odata.nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "95e84257-28d9-422f-8512-e59cb0eba7db",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c35f8dc-8f01-411f-952c-e5e0b5ae4157",
+          "name": "Microsoft Purview Create a retention event type",
+          "request": {
+            "name": "Microsoft Purview Create a retention event type",
+            "description": {
+              "content": "Create a new retention event type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "triggerTypes",
+                "retentionEventTypes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8390d1bd-42c7-4493-adc1-5a0d09f81bc0",
+              "name": "Retention event type created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"createdDateTime\": \"2025-06-27T20:04:09.263Z\",\n  \"lastModifiedDateTime\": \"2018-11-10T23:20:04.565Z\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0a3658f-e0b6-4106-a248-c40487f4da8b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "09fd53e0-389e-4138-8a6c-eba8e35bad74",
+          "name": "Microsoft Purview Get a retention event type",
+          "request": {
+            "name": "Microsoft Purview Get a retention event type",
+            "description": {
+              "content": "Get a retention event type by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "triggerTypes",
+                "retentionEventTypes",
+                ":retentionEventTypeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retentionEventTypeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "efc4d0a2-8b37-4fe6-af2e-4c7e401913de",
+              "name": "Retention event type retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes",
+                    ":retentionEventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"createdDateTime\": \"2025-06-27T20:04:09.263Z\",\n  \"lastModifiedDateTime\": \"2018-11-10T23:20:04.565Z\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "71cc4313-4284-44a6-a0e2-e2a341334f8d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes",
+                    ":retentionEventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9fd6b140-8077-44c2-9213-58373e4e2f02",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes",
+                    ":retentionEventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3231257b-61bf-451c-a7c1-466d8e6a9511",
+          "name": "Microsoft Purview Update a retention event type",
+          "request": {
+            "name": "Microsoft Purview Update a retention event type",
+            "description": {
+              "content": "Update the properties of a retention event type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "triggerTypes",
+                "retentionEventTypes",
+                ":retentionEventTypeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retentionEventTypeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a00ef1b0-b680-4f2b-9a4a-37b5ed7893c3",
+              "name": "Retention event type updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes",
+                    ":retentionEventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"createdDateTime\": \"2025-06-27T20:04:09.263Z\",\n  \"lastModifiedDateTime\": \"2018-11-10T23:20:04.565Z\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ac3147de-52da-40d3-9e7d-3497224d3d5d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes",
+                    ":retentionEventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89c62544-256c-48e8-b0b8-b92b3bd166da",
+          "name": "Microsoft Purview Delete a retention event type",
+          "request": {
+            "name": "Microsoft Purview Delete a retention event type",
+            "description": {
+              "content": "Delete a retention event type.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "triggerTypes",
+                "retentionEventTypes",
+                ":retentionEventTypeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retentionEventTypeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12bb0a5c-27bc-4133-b995-ce679ea8f5f0",
+              "name": "Retention event type deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes",
+                    ":retentionEventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "05baeeca-a825-487e-a9ef-3c48168bc359",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggerTypes",
+                    "retentionEventTypes",
+                    ":retentionEventTypeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventTypeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1b7ca261-d5a0-4d96-adce-f08abc2696d9",
+      "name": "Retention Events",
+      "description": {
+        "content": "Operations for managing retention events",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73c16487-2dd6-404c-89eb-5da4bdaf32af",
+          "name": "Microsoft Purview List retention events",
+          "request": {
+            "name": "Microsoft Purview List retention events",
+            "description": {
+              "content": "Get a list of retention events.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "triggers",
+                "retentionEvents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf2265a0-9d65-4d18-b3e6-13141c897af7",
+              "name": "Retention events listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"eventTriggerDateTime\": \"1957-03-01T03:18:29.675Z\",\n      \"eventQueries\": [\n        {\n          \"queryType\": \"string\",\n          \"query\": \"string\"\n        },\n        {\n          \"queryType\": \"string\",\n          \"query\": \"string\"\n        }\n      ],\n      \"retentionEventType\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\",\n        \"description\": \"string\",\n        \"createdDateTime\": \"1985-08-30T03:18:16.124Z\",\n        \"lastModifiedDateTime\": \"1974-07-16T00:11:38.906Z\",\n        \"createdBy\": {\n          \"user\": {\n            \"displayName\": \"string\",\n            \"id\": \"string\"\n          }\n        },\n        \"lastModifiedBy\": {\n          \"user\": {\n            \"displayName\": \"string\",\n            \"id\": \"string\"\n          }\n        }\n      },\n      \"eventStatus\": {\n        \"error\": {\n          \"code\": \"string\",\n          \"message\": \"string\"\n        },\n        \"status\": \"unknownFutureValue\"\n      },\n      \"createdDateTime\": \"1997-09-28T20:41:19.173Z\",\n      \"lastModifiedDateTime\": \"2008-01-10T21:51:50.947Z\",\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"eventTriggerDateTime\": \"1986-09-10T20:32:26.560Z\",\n      \"eventQueries\": [\n        {\n          \"queryType\": \"string\",\n          \"query\": \"string\"\n        },\n        {\n          \"queryType\": \"string\",\n          \"query\": \"string\"\n        }\n      ],\n      \"retentionEventType\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\",\n        \"description\": \"string\",\n        \"createdDateTime\": \"1988-01-18T19:34:31.811Z\",\n        \"lastModifiedDateTime\": \"2018-03-20T20:56:58.238Z\",\n        \"createdBy\": {\n          \"user\": {\n            \"displayName\": \"string\",\n            \"id\": \"string\"\n          }\n        },\n        \"lastModifiedBy\": {\n          \"user\": {\n            \"displayName\": \"string\",\n            \"id\": \"string\"\n          }\n        }\n      },\n      \"eventStatus\": {\n        \"error\": {\n          \"code\": \"string\",\n          \"message\": \"string\"\n        },\n        \"status\": \"unknownFutureValue\"\n      },\n      \"createdDateTime\": \"2015-06-03T08:14:41.048Z\",\n      \"lastModifiedDateTime\": \"1948-06-29T15:13:28.138Z\",\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      }\n    }\n  ],\n  \"@odata.nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77117309-f404-40c5-a09d-943ed9364de4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9704c1ef-e1a3-410c-b2a5-a1a6d411431b",
+          "name": "Microsoft Purview Create a retention event",
+          "request": {
+            "name": "Microsoft Purview Create a retention event",
+            "description": {
+              "content": "Create a new retention event to trigger event-based retention.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "triggers",
+                "retentionEvents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"eventTriggerDateTime\": \"<dateTime>\",\n  \"eventQueries\": [\n    {\n      \"queryType\": \"<string>\",\n      \"query\": \"<string>\"\n    },\n    {\n      \"queryType\": \"<string>\",\n      \"query\": \"<string>\"\n    }\n  ],\n  \"retentionEventType\": {\n    \"displayName\": \"<string>\",\n    \"description\": \"<string>\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    }\n  },\n  \"eventStatus\": {\n    \"error\": {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"status\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "00841c69-7ad8-4a69-a987-f8d100177208",
+              "name": "Retention event created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"eventTriggerDateTime\": \"<dateTime>\",\n  \"eventQueries\": [\n    {\n      \"queryType\": \"<string>\",\n      \"query\": \"<string>\"\n    },\n    {\n      \"queryType\": \"<string>\",\n      \"query\": \"<string>\"\n    }\n  ],\n  \"retentionEventType\": {\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"eventStatus\": {\n    \"error\": {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"status\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"eventTriggerDateTime\": \"1981-09-10T20:38:30.318Z\",\n  \"eventQueries\": [\n    {\n      \"queryType\": \"string\",\n      \"query\": \"string\"\n    },\n    {\n      \"queryType\": \"string\",\n      \"query\": \"string\"\n    }\n  ],\n  \"retentionEventType\": {\n    \"id\": \"string\",\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdDateTime\": \"1947-09-28T09:45:01.153Z\",\n    \"lastModifiedDateTime\": \"1947-09-21T08:43:34.241Z\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"eventStatus\": {\n    \"error\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    \"status\": \"pending\"\n  },\n  \"createdDateTime\": \"1978-11-18T17:45:27.518Z\",\n  \"lastModifiedDateTime\": \"2005-12-27T19:31:07.816Z\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8566158a-a7cd-4c2c-bf2f-4ccc05b5966d",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"eventTriggerDateTime\": \"<dateTime>\",\n  \"eventQueries\": [\n    {\n      \"queryType\": \"<string>\",\n      \"query\": \"<string>\"\n    },\n    {\n      \"queryType\": \"<string>\",\n      \"query\": \"<string>\"\n    }\n  ],\n  \"retentionEventType\": {\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"eventStatus\": {\n    \"error\": {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"status\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f870a24d-6315-4ab3-999a-1613d314f943",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"eventTriggerDateTime\": \"<dateTime>\",\n  \"eventQueries\": [\n    {\n      \"queryType\": \"<string>\",\n      \"query\": \"<string>\"\n    },\n    {\n      \"queryType\": \"<string>\",\n      \"query\": \"<string>\"\n    }\n  ],\n  \"retentionEventType\": {\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"eventStatus\": {\n    \"error\": {\n      \"code\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    \"status\": \"<string>\"\n  },\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3841deb6-c246-43c4-ba85-cd8d76a812f4",
+          "name": "Microsoft Purview Get a retention event",
+          "request": {
+            "name": "Microsoft Purview Get a retention event",
+            "description": {
+              "content": "Get a retention event by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "triggers",
+                "retentionEvents",
+                ":retentionEventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retentionEventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c085a095-8958-4e38-87c4-e3fea998c8ec",
+              "name": "Retention event retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents",
+                    ":retentionEventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"eventTriggerDateTime\": \"1981-09-10T20:38:30.318Z\",\n  \"eventQueries\": [\n    {\n      \"queryType\": \"string\",\n      \"query\": \"string\"\n    },\n    {\n      \"queryType\": \"string\",\n      \"query\": \"string\"\n    }\n  ],\n  \"retentionEventType\": {\n    \"id\": \"string\",\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdDateTime\": \"1947-09-28T09:45:01.153Z\",\n    \"lastModifiedDateTime\": \"1947-09-21T08:43:34.241Z\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"eventStatus\": {\n    \"error\": {\n      \"code\": \"string\",\n      \"message\": \"string\"\n    },\n    \"status\": \"pending\"\n  },\n  \"createdDateTime\": \"1978-11-18T17:45:27.518Z\",\n  \"lastModifiedDateTime\": \"2005-12-27T19:31:07.816Z\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ddb34bde-1aa3-4d10-a53b-8a8baf8dadc3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents",
+                    ":retentionEventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "621c69e0-25b6-493f-9358-8a3f92bada2d",
+              "name": "Retention event not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents",
+                    ":retentionEventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fc2ecf73-575c-4be1-bca1-0601781ebda2",
+          "name": "Microsoft Purview Delete a retention event",
+          "request": {
+            "name": "Microsoft Purview Delete a retention event",
+            "description": {
+              "content": "Delete a retention event.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "triggers",
+                "retentionEvents",
+                ":retentionEventId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retentionEventId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d3488b32-0d96-40b3-b723-50172110bf3b",
+              "name": "Retention event deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents",
+                    ":retentionEventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f3484ff2-140d-4a8b-8413-89866140a777",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "triggers",
+                    "retentionEvents",
+                    ":retentionEventId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionEventId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "f925ff00-f5a6-4c55-9951-6b4a4e8e2184",
+      "name": "Retention Labels",
+      "description": {
+        "content": "Operations for managing retention labels",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33f756ca-b8b6-4f36-980d-4dbe4e6b7c5e",
+          "name": "Microsoft Purview List retention labels",
+          "request": {
+            "name": "Microsoft Purview List retention labels",
+            "description": {
+              "content": "Get a list of retention labels configured in the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "labels",
+                "retentionLabels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Expand related entities (e.g., retentionEventType, descriptors)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89cc83ea-8323-4e91-9dc0-438df518f015",
+              "name": "Retention labels listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"descriptionForAdmins\": \"string\",\n      \"descriptionForUsers\": \"string\",\n      \"isInUse\": false,\n      \"retentionTrigger\": \"dateLabeled\",\n      \"behaviorDuringRetentionPeriod\": \"retainAsRecord\",\n      \"actionAfterRetentionPeriod\": \"delete\",\n      \"retentionDuration\": {\n        \"@odata.type\": \"string\",\n        \"days\": 7347\n      },\n      \"defaultRecordBehavior\": \"startLocked\",\n      \"labelToBeApplied\": \"string\",\n      \"createdDateTime\": \"1968-06-25T14:12:33.903Z\",\n      \"lastModifiedDateTime\": \"1954-06-18T01:58:36.713Z\",\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"retentionEventType\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\",\n        \"description\": \"string\",\n        \"createdDateTime\": \"1956-11-16T18:51:35.081Z\",\n        \"lastModifiedDateTime\": \"2018-04-21T12:49:32.444Z\",\n        \"createdBy\": {\n          \"user\": {\n            \"displayName\": \"string\",\n            \"id\": \"string\"\n          }\n        },\n        \"lastModifiedBy\": {\n          \"user\": {\n            \"displayName\": \"string\",\n            \"id\": \"string\"\n          }\n        }\n      },\n      \"descriptors\": {\n        \"authorityTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"categoryTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"citationTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\",\n          \"citationUrl\": \"https://YFmOoPtyoxKhp.tekmrS3zdlKw-QULVj52IhP.Ldr8ZCqQ-A++6iRpk2E6HDRYiHGSb,p3Cegx68Y1kl-kq\",\n          \"citationJurisdiction\": \"string\"\n        },\n        \"departmentTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"filePlanReferenceTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"descriptionForAdmins\": \"string\",\n      \"descriptionForUsers\": \"string\",\n      \"isInUse\": true,\n      \"retentionTrigger\": \"dateLabeled\",\n      \"behaviorDuringRetentionPeriod\": \"doNotRetain\",\n      \"actionAfterRetentionPeriod\": \"none\",\n      \"retentionDuration\": {\n        \"@odata.type\": \"string\",\n        \"days\": 7960\n      },\n      \"defaultRecordBehavior\": \"startUnlocked\",\n      \"labelToBeApplied\": \"string\",\n      \"createdDateTime\": \"2011-07-20T23:06:19.431Z\",\n      \"lastModifiedDateTime\": \"1973-09-13T01:09:23.547Z\",\n      \"createdBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"lastModifiedBy\": {\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      },\n      \"retentionEventType\": {\n        \"id\": \"string\",\n        \"displayName\": \"string\",\n        \"description\": \"string\",\n        \"createdDateTime\": \"2019-01-21T15:29:25.612Z\",\n        \"lastModifiedDateTime\": \"1969-12-23T02:51:38.452Z\",\n        \"createdBy\": {\n          \"user\": {\n            \"displayName\": \"string\",\n            \"id\": \"string\"\n          }\n        },\n        \"lastModifiedBy\": {\n          \"user\": {\n            \"displayName\": \"string\",\n            \"id\": \"string\"\n          }\n        }\n      },\n      \"descriptors\": {\n        \"authorityTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"categoryTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"citationTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\",\n          \"citationUrl\": \"http://nOkqFvHcZWglQWbGGrHnaZhtDgHipgXq.drAD-uavF4D5RPJOFQhMPFLpVXy\",\n          \"citationJurisdiction\": \"string\"\n        },\n        \"departmentTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        },\n        \"filePlanReferenceTemplate\": {\n          \"id\": \"string\",\n          \"displayName\": \"string\"\n        }\n      }\n    }\n  ],\n  \"@odata.nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ee59f89f-a29f-4cf6-8db8-6cf96f016c57",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b0b43cf-d339-40e0-8cf9-ebe99a931aaa",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd13d61c-b1e2-4d4d-a1e2-ca114ac7bca3",
+          "name": "Microsoft Purview Create a retention label",
+          "request": {
+            "name": "Microsoft Purview Create a retention label",
+            "description": {
+              "content": "Create a new retention label for data lifecycle management.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "labels",
+                "retentionLabels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"descriptionForAdmins\": \"<string>\",\n  \"descriptionForUsers\": \"<string>\",\n  \"retentionTrigger\": \"<string>\",\n  \"behaviorDuringRetentionPeriod\": \"<string>\",\n  \"actionAfterRetentionPeriod\": \"<string>\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"<string>\",\n    \"days\": \"<integer>\"\n  },\n  \"defaultRecordBehavior\": \"<string>\",\n  \"labelToBeApplied\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"retentionEventType\": {\n    \"displayName\": \"<string>\",\n    \"description\": \"<string>\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"citationUrl\": \"<uri>\",\n      \"citationJurisdiction\": \"<string>\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e8e41c96-350e-4297-b83d-eae5f3007f0f",
+              "name": "Retention label created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"descriptionForAdmins\": \"<string>\",\n  \"descriptionForUsers\": \"<string>\",\n  \"retentionTrigger\": \"<string>\",\n  \"behaviorDuringRetentionPeriod\": \"<string>\",\n  \"actionAfterRetentionPeriod\": \"<string>\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"<string>\",\n    \"days\": \"<integer>\"\n  },\n  \"defaultRecordBehavior\": \"<string>\",\n  \"labelToBeApplied\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"retentionEventType\": {\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"citationUrl\": \"https://cfgxgBocsAHVfSHnrFCbiUEMKVKjLi.hfiyjq5wposeB-KQdEJMS+RY8R-0n,JqXN5UcIBLTlvTnCGc9J\",\n      \"citationJurisdiction\": \"string\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"descriptionForAdmins\": \"string\",\n  \"descriptionForUsers\": \"string\",\n  \"isInUse\": false,\n  \"retentionTrigger\": \"dateModified\",\n  \"behaviorDuringRetentionPeriod\": \"retainAsRecord\",\n  \"actionAfterRetentionPeriod\": \"startDispositionReview\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"string\",\n    \"days\": 9637\n  },\n  \"defaultRecordBehavior\": \"startUnlocked\",\n  \"labelToBeApplied\": \"string\",\n  \"createdDateTime\": \"1964-08-19T01:04:54.959Z\",\n  \"lastModifiedDateTime\": \"1964-04-23T23:07:28.055Z\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"retentionEventType\": {\n    \"id\": \"string\",\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdDateTime\": \"2002-07-01T03:04:24.905Z\",\n    \"lastModifiedDateTime\": \"1949-01-15T00:08:40.840Z\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"citationUrl\": \"https://ykKMClydq.hndgbGBEa2XPnY-iVFN6Jb58vF\",\n      \"citationJurisdiction\": \"string\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd4e6399-15b3-4d18-abe9-e63443db7223",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"descriptionForAdmins\": \"<string>\",\n  \"descriptionForUsers\": \"<string>\",\n  \"retentionTrigger\": \"<string>\",\n  \"behaviorDuringRetentionPeriod\": \"<string>\",\n  \"actionAfterRetentionPeriod\": \"<string>\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"<string>\",\n    \"days\": \"<integer>\"\n  },\n  \"defaultRecordBehavior\": \"<string>\",\n  \"labelToBeApplied\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"retentionEventType\": {\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"citationUrl\": \"https://cfgxgBocsAHVfSHnrFCbiUEMKVKjLi.hfiyjq5wposeB-KQdEJMS+RY8R-0n,JqXN5UcIBLTlvTnCGc9J\",\n      \"citationJurisdiction\": \"string\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "153aa789-9989-424c-b5e0-06c56b8572a2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"descriptionForAdmins\": \"<string>\",\n  \"descriptionForUsers\": \"<string>\",\n  \"retentionTrigger\": \"<string>\",\n  \"behaviorDuringRetentionPeriod\": \"<string>\",\n  \"actionAfterRetentionPeriod\": \"<string>\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"<string>\",\n    \"days\": \"<integer>\"\n  },\n  \"defaultRecordBehavior\": \"<string>\",\n  \"labelToBeApplied\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"retentionEventType\": {\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"citationUrl\": \"https://cfgxgBocsAHVfSHnrFCbiUEMKVKjLi.hfiyjq5wposeB-KQdEJMS+RY8R-0n,JqXN5UcIBLTlvTnCGc9J\",\n      \"citationJurisdiction\": \"string\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b402cf5-f9cc-4e49-8f48-9cae28d29b52",
+          "name": "Microsoft Purview Get a retention label",
+          "request": {
+            "name": "Microsoft Purview Get a retention label",
+            "description": {
+              "content": "Get a retention label by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "labels",
+                "retentionLabels",
+                ":retentionLabelId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retentionLabelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3f62b22c-d12c-4662-b36d-ec58868a9dbd",
+              "name": "Retention label retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels",
+                    ":retentionLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"descriptionForAdmins\": \"string\",\n  \"descriptionForUsers\": \"string\",\n  \"isInUse\": false,\n  \"retentionTrigger\": \"dateModified\",\n  \"behaviorDuringRetentionPeriod\": \"retainAsRecord\",\n  \"actionAfterRetentionPeriod\": \"startDispositionReview\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"string\",\n    \"days\": 9637\n  },\n  \"defaultRecordBehavior\": \"startUnlocked\",\n  \"labelToBeApplied\": \"string\",\n  \"createdDateTime\": \"1964-08-19T01:04:54.959Z\",\n  \"lastModifiedDateTime\": \"1964-04-23T23:07:28.055Z\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"retentionEventType\": {\n    \"id\": \"string\",\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdDateTime\": \"2002-07-01T03:04:24.905Z\",\n    \"lastModifiedDateTime\": \"1949-01-15T00:08:40.840Z\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"citationUrl\": \"https://ykKMClydq.hndgbGBEa2XPnY-iVFN6Jb58vF\",\n      \"citationJurisdiction\": \"string\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6594abd6-d6bf-4cbf-b08d-f3a14d9be22e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels",
+                    ":retentionLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "30abb2c9-7092-45fb-abb8-93d012f87d74",
+              "name": "Retention label not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels",
+                    ":retentionLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b892e501-e111-4f29-a681-c375972b11e4",
+          "name": "Microsoft Purview Update a retention label",
+          "request": {
+            "name": "Microsoft Purview Update a retention label",
+            "description": {
+              "content": "Update the properties of a retention label.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "labels",
+                "retentionLabels",
+                ":retentionLabelId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retentionLabelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"descriptionForAdmins\": \"<string>\",\n  \"descriptionForUsers\": \"<string>\",\n  \"retentionTrigger\": \"<string>\",\n  \"behaviorDuringRetentionPeriod\": \"<string>\",\n  \"actionAfterRetentionPeriod\": \"<string>\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"<string>\",\n    \"days\": \"<integer>\"\n  },\n  \"defaultRecordBehavior\": \"<string>\",\n  \"labelToBeApplied\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  },\n  \"retentionEventType\": {\n    \"displayName\": \"<string>\",\n    \"description\": \"<string>\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"<string>\",\n        \"id\": \"<string>\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"citationUrl\": \"<uri>\",\n      \"citationJurisdiction\": \"<string>\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"<string>\",\n      \"displayName\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c57c9102-fc55-4cdb-9480-33914a78168d",
+              "name": "Retention label updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels",
+                    ":retentionLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"descriptionForAdmins\": \"<string>\",\n  \"descriptionForUsers\": \"<string>\",\n  \"retentionTrigger\": \"<string>\",\n  \"behaviorDuringRetentionPeriod\": \"<string>\",\n  \"actionAfterRetentionPeriod\": \"<string>\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"<string>\",\n    \"days\": \"<integer>\"\n  },\n  \"defaultRecordBehavior\": \"<string>\",\n  \"labelToBeApplied\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"retentionEventType\": {\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"citationUrl\": \"https://cfgxgBocsAHVfSHnrFCbiUEMKVKjLi.hfiyjq5wposeB-KQdEJMS+RY8R-0n,JqXN5UcIBLTlvTnCGc9J\",\n      \"citationJurisdiction\": \"string\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"descriptionForAdmins\": \"string\",\n  \"descriptionForUsers\": \"string\",\n  \"isInUse\": false,\n  \"retentionTrigger\": \"dateModified\",\n  \"behaviorDuringRetentionPeriod\": \"retainAsRecord\",\n  \"actionAfterRetentionPeriod\": \"startDispositionReview\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"string\",\n    \"days\": 9637\n  },\n  \"defaultRecordBehavior\": \"startUnlocked\",\n  \"labelToBeApplied\": \"string\",\n  \"createdDateTime\": \"1964-08-19T01:04:54.959Z\",\n  \"lastModifiedDateTime\": \"1964-04-23T23:07:28.055Z\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"retentionEventType\": {\n    \"id\": \"string\",\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdDateTime\": \"2002-07-01T03:04:24.905Z\",\n    \"lastModifiedDateTime\": \"1949-01-15T00:08:40.840Z\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"citationUrl\": \"https://ykKMClydq.hndgbGBEa2XPnY-iVFN6Jb58vF\",\n      \"citationJurisdiction\": \"string\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4f80b305-3ad2-48cd-bcd4-8dfd3e991330",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels",
+                    ":retentionLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"descriptionForAdmins\": \"<string>\",\n  \"descriptionForUsers\": \"<string>\",\n  \"retentionTrigger\": \"<string>\",\n  \"behaviorDuringRetentionPeriod\": \"<string>\",\n  \"actionAfterRetentionPeriod\": \"<string>\",\n  \"retentionDuration\": {\n    \"@odata.type\": \"<string>\",\n    \"days\": \"<integer>\"\n  },\n  \"defaultRecordBehavior\": \"<string>\",\n  \"labelToBeApplied\": \"<string>\",\n  \"createdBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"lastModifiedBy\": {\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  },\n  \"retentionEventType\": {\n    \"displayName\": \"string\",\n    \"description\": \"string\",\n    \"createdBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    },\n    \"lastModifiedBy\": {\n      \"user\": {\n        \"displayName\": \"string\",\n        \"id\": \"string\"\n      }\n    }\n  },\n  \"descriptors\": {\n    \"authorityTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"categoryTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"citationTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"citationUrl\": \"https://cfgxgBocsAHVfSHnrFCbiUEMKVKjLi.hfiyjq5wposeB-KQdEJMS+RY8R-0n,JqXN5UcIBLTlvTnCGc9J\",\n      \"citationJurisdiction\": \"string\"\n    },\n    \"departmentTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    },\n    \"filePlanReferenceTemplate\": {\n      \"id\": \"string\",\n      \"displayName\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80cf0be5-ba4a-4931-a910-561861fb800e",
+          "name": "Microsoft Purview Delete a retention label",
+          "request": {
+            "name": "Microsoft Purview Delete a retention label",
+            "description": {
+              "content": "Delete a retention label that is no longer needed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "labels",
+                "retentionLabels",
+                ":retentionLabelId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "retentionLabelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7686c86b-00be-4ac7-9c9f-f8b20706f8ee",
+              "name": "Retention label deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels",
+                    ":retentionLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "36225125-f46f-43cb-930e-737239023f73",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels",
+                    ":retentionLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ae209a2-7953-40c2-8ded-af50a1bca902",
+              "name": "Retention label not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "labels",
+                    "retentionLabels",
+                    ":retentionLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "retentionLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://graph.microsoft.com/v1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "RecordsManagement.Read.All RecordsManagement.ReadWrite.All"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b54998e0-f583-40fe-851e-683cf4b5862c",
+    "name": "Microsoft Purview Records Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing retention labels, retention policies, and disposition review through Microsoft Graph. Helps organizations manage data retention and deletion to meet legal obligations and compliance regulations.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}
