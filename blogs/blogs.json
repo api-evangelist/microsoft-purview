@@ -2,20 +2,11 @@
   "repo": "microsoft-purview",
   "feeds": [
     {
-      "source": "https://techcommunity.microsoft.com/t5/microsoft-purview-blog/bg-p/MicrosoftPurviewBlog/rss",
-      "feed_url": "https://techcommunity.microsoft.com/t5/microsoft-purview-blog/bg-p/MicrosoftPurviewBlog/rss",
-      "title": "",
+      "source": "https://techcommunity.microsoft.com/t5/microsoft-purview-blog/bg-p/MicrosoftPurviewBlog",
       "saved": 0,
-      "method": "none"
-    },
-    {
-      "source": "https://learn.microsoft.com/en-us/purview/whats-new",
-      "feed_url": "https://learn.microsoft.com/en-us/purview/whats-new",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "error": "302 redirect to microsoftonline auth login"
     }
   ],
-  "fetched": "2026-06-14T20:42:17Z",
+  "fetched": "2026-06-27T12:54:25Z",
   "post_count": 0
 }
