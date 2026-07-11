@@ -271,6 +271,8 @@ apis:
       - type: Reference
         url: https://learn.microsoft.com/en-us/graph/compliance-concept-overview
 common:
+  - type: OAuthScopes
+    url: scopes/microsoft-purview-scopes.yml
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/microsoft-purview/overview
   - type: Arazzo

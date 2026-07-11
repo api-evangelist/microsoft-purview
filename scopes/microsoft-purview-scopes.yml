@@ -1,0 +1,140 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/microsoft-purview-account-openapi.yml, openapi/microsoft-purview-catalog-openapi.yml,
+  openapi/microsoft-purview-data-map-openapi.yml, openapi/microsoft-purview-data-quality-openapi.yml,
+  openapi/microsoft-purview-data-security-governance-openapi.yml, openapi/microsoft-purview-ediscovery-openapi.yml,
+  openapi/microsoft-purview-information-protection-openapi.yml, openapi/microsoft-purview-metadata-policies-openapi.yml,
+  openapi/microsoft-purview-records-management-openapi.yml, openapi/microsoft-purview-scanning-openapi.yml,
+  openapi/microsoft-purview-unified-catalog-openapi.yml, openapi/microsoft-purview-workflow-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/microsoft-purview-account-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Azure Active Directory OAuth2 authentication
+- name: oauth2
+  source: openapi/microsoft-purview-catalog-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Azure Active Directory OAuth2 authentication
+- name: oauth2
+  source: openapi/microsoft-purview-data-map-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Azure Active Directory OAuth2 authentication
+- name: oauth2
+  source: openapi/microsoft-purview-data-quality-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Azure Active Directory OAuth2 authentication
+- name: oauth2
+  source: openapi/microsoft-purview-data-security-governance-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Microsoft Identity Platform OAuth2
+- name: oauth2
+  source: openapi/microsoft-purview-ediscovery-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  description: Microsoft Identity Platform OAuth2
+- name: oauth2
+  source: openapi/microsoft-purview-information-protection-openapi.yml
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+    tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
+  description: Microsoft Identity Platform OAuth2
+- name: oauth2
+  source: openapi/microsoft-purview-metadata-policies-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Azure Active Directory OAuth2 authentication
+- name: oauth2
+  source: openapi/microsoft-purview-records-management-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Microsoft Identity Platform OAuth2
+- name: oauth2
+  source: openapi/microsoft-purview-scanning-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Azure Active Directory OAuth2 authentication
+- name: oauth2
+  source: openapi/microsoft-purview-unified-catalog-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Azure Active Directory OAuth2 authentication
+- name: oauth2
+  source: openapi/microsoft-purview-workflow-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+  description: Azure Active Directory OAuth2 authentication
+scopes:
+- scope: InformationProtectionPolicy.Read
+  description: Read information protection policies
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-purview-information-protection-openapi.yml
+- scope: InformationProtectionPolicy.Read.All
+  description: Read all information protection policies
+  flows:
+  - authorizationCode
+  - clientCredentials
+  sources:
+  - openapi/microsoft-purview-data-security-governance-openapi.yml
+  - openapi/microsoft-purview-information-protection-openapi.yml
+- scope: RecordsManagement.Read.All
+  description: Read records management settings
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-purview-records-management-openapi.yml
+- scope: RecordsManagement.ReadWrite.All
+  description: Read and write records management settings
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-purview-records-management-openapi.yml
+- scope: eDiscovery.Read.All
+  description: Read eDiscovery data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-purview-ediscovery-openapi.yml
+- scope: eDiscovery.ReadWrite.All
+  description: Read and write eDiscovery data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/microsoft-purview-ediscovery-openapi.yml
+- scope: https://management.azure.com/.default
+  description: Access Azure Resource Manager
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-purview-account-openapi.yml
+- scope: https://purview.azure.net/.default
+  description: Access Microsoft Purview
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/microsoft-purview-catalog-openapi.yml
+  - openapi/microsoft-purview-data-map-openapi.yml
+  - openapi/microsoft-purview-data-quality-openapi.yml
+  - openapi/microsoft-purview-metadata-policies-openapi.yml
+  - openapi/microsoft-purview-scanning-openapi.yml
+  - openapi/microsoft-purview-unified-catalog-openapi.yml
+  - openapi/microsoft-purview-workflow-openapi.yml
