@@ -2,11 +2,10 @@
   "repo": "microsoft-purview",
   "feeds": [
     {
-      "source": "https://techcommunity.microsoft.com/t5/microsoft-purview-blog/bg-p/MicrosoftPurviewBlog",
-      "saved": 0,
-      "error": "302 redirect to microsoftonline auth login"
+      "source": "https://learn.microsoft.com/en-us/purview/whats-new",
+      "error": "HTTPError"
     }
   ],
-  "fetched": "2026-06-27T12:54:25Z",
+  "fetched": "2026-07-11T11:50:51Z",
   "post_count": 0
 }
