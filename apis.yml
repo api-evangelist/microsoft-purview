@@ -271,6 +271,8 @@ apis:
       - type: Reference
         url: https://learn.microsoft.com/en-us/graph/compliance-concept-overview
 common:
+  - type: AgenticAccess
+    url: agentic-access/microsoft-purview-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/microsoft-purview-vulnerability-disclosure.yml
   - type: DomainSecurity
