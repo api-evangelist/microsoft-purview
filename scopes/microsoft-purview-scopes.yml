@@ -1,5 +1,18 @@
-generated: '2026-07-11'
-method: derived
+generated: '2026-06-20'
+method: searched
+docs:
+  data_plane: https://learn.microsoft.com/en-us/purview/data-gov-api-rest-data-plane
+  management_plane: https://learn.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
+  graph_permissions: https://learn.microsoft.com/en-us/graph/permissions-reference
+notes: >-
+  Azure data/management-plane access uses resource-level .default scopes
+  (https://purview.azure.net/.default for the Purview data plane,
+  https://management.azure.com/.default for the ARM Account API) issued by the
+  Microsoft identity platform; fine-grained authorization is then enforced by
+  Purview collection roles (Metadata Policies) and Azure RBAC rather than by
+  granular OAuth scopes. The Graph-based APIs use granular Microsoft Graph
+  application/delegated permissions (eDiscovery.*, RecordsManagement.*,
+  InformationProtectionPolicy.*), documented in the Graph permissions reference.
 source: openapi/microsoft-purview-account-openapi.yml, openapi/microsoft-purview-catalog-openapi.yml,
   openapi/microsoft-purview-data-map-openapi.yml, openapi/microsoft-purview-data-quality-openapi.yml,
   openapi/microsoft-purview-data-security-governance-openapi.yml, openapi/microsoft-purview-ediscovery-openapi.yml,

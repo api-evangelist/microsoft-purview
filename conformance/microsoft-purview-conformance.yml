@@ -1,0 +1,73 @@
+generated: '2026-06-20'
+method: derived
+source: >-
+  Derived from openapi/*.yml (securitySchemes, api-version parameter, error
+  responses, pagination fields) and Microsoft's documented platform conventions
+  (Azure REST guidelines, Microsoft Graph, Microsoft identity platform,
+  Microsoft Purview compliance offerings at
+  https://learn.microsoft.com/en-us/purview/compliance-manager-overview and the
+  Microsoft Trust Center).
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      Every spec declares an oauth2 securityScheme against the Microsoft
+      identity platform (login.microsoftonline.com) — clientCredentials on the
+      Azure data/management plane, authorizationCode + clientCredentials on the
+      Graph APIs.
+  - id: oidc
+    conforms: true
+    evidence: >-
+      The Microsoft identity platform publishes OIDC discovery at
+      login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
+      (captured in well-known/).
+  - id: odata
+    conforms: true
+    evidence: >-
+      The Graph-based APIs (eDiscovery, Information Protection, Records
+      Management, DSPM) are OData v4 — @odata.nextLink paging, $filter/$select
+      query options, and the OData error envelope.
+  - id: apache-atlas
+    conforms: true
+    evidence: >-
+      The Catalog and Data Map APIs implement the Apache Atlas type system and
+      REST surface (AtlasEntity, AtlasGlossary, AtlasClassification, AtlasTypeDef).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      No responses use application/problem+json; Azure uses the ARM error
+      envelope {"error":{"code","message"}}, Atlas uses
+      {"requestId","errorCode","errorMessage"}, and Graph uses the OData error
+      envelope.
+  - id: pagination
+    conforms: true
+    evidence: >-
+      Azure data-plane list operations page with continuationToken/skipToken;
+      Graph/OData operations page with @odata.nextLink.
+  - id: idempotency
+    conforms: partial
+    evidence: >-
+      Resource create/update on the Azure planes is PUT-based and thus
+      idempotent by resource id; there is no Idempotency-Key header for POST
+      operations.
+  - id: json-api
+    conforms: false
+    evidence: Responses are Atlas/OData/ARM JSON shapes, not JSON:API.
+  - id: soc2
+    conforms: true
+    evidence: >-
+      Microsoft Azure (Purview's platform) is covered by SOC 1/2/3 attestations
+      published on the Microsoft Trust Center.
+  - id: iso-27001
+    conforms: true
+    evidence: Azure is certified ISO/IEC 27001 (Microsoft Trust Center / Service Trust Portal).
+  - id: fedramp
+    conforms: true
+    evidence: >-
+      Microsoft Purview / Azure carries FedRAMP High authorization for the
+      appropriate cloud environments (Microsoft Trust Center).
+  - id: gdpr
+    conforms: true
+    evidence: >-
+      Purview is itself a GDPR/compliance tooling product; Microsoft commits to
+      GDPR via the Data Protection Addendum.

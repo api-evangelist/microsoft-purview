@@ -1,0 +1,83 @@
+generated: '2026-06-20'
+method: derived
+source: >-
+  Derived from openapi/*.yml (api-version parameters, security schemes,
+  pagination fields, error responses) and Microsoft's documented platform
+  conventions (Azure REST guidelines, Microsoft Graph, Microsoft identity
+  platform). Cross-links the repo's authentication/, scopes/, errors/,
+  lifecycle/, and rate-limits/ artifacts.
+description: >-
+  Cross-cutting request/response semantics for the Microsoft Purview API family.
+  Because Purview spans three Microsoft platforms (Azure data-plane, Azure
+  management-plane, Microsoft Graph), several conventions vary by API family and
+  are noted per plane.
+
+base_urls:
+  data_plane: https://{accountName}.purview.azure.com   # + /catalog, /datamap, /policystore, /workflow; scan on {accountName}.scan.purview.azure.com
+  management_plane: https://management.azure.com
+  graph_plane: https://graph.microsoft.com/v1.0
+
+authentication:
+  scheme: OAuth 2.0 bearer token (Microsoft identity platform / Azure AD)
+  flows: [clientCredentials, authorizationCode]
+  data_plane_scope: https://purview.azure.net/.default
+  management_plane_scope: https://management.azure.com/.default
+  graph_scopes: [eDiscovery.Read.All, eDiscovery.ReadWrite.All, RecordsManagement.Read.All, RecordsManagement.ReadWrite.All, InformationProtectionPolicy.Read.All]
+  docs: https://learn.microsoft.com/en-us/purview/data-gov-api-rest-data-plane
+  detail: authentication/microsoft-purview-authentication.yml
+
+versioning:
+  style: query-parameter (Azure) / path-segment (Graph)
+  azure_param: api-version
+  azure_format: date-based (e.g. 2023-09-01, 2024-03-01-preview)
+  graph_segment: /v1.0 or /beta
+  required: true
+  docs: https://learn.microsoft.com/en-us/purview/whats-new
+  detail: lifecycle/microsoft-purview-lifecycle.yml
+
+idempotency:
+  supported: partial
+  mechanism: >-
+    No Idempotency-Key header. Azure resource create/update is PUT-based and
+    idempotent by resource id (qualifiedName / GUID / account name). Atlas
+    entity upserts dedupe on qualifiedName + typeName.
+  applies_to: PUT resource operations
+  detail: null
+
+pagination:
+  data_plane:
+    style: continuation-token
+    request_params: [limit, offset, continuationToken]
+    response_fields: ['@search.count', continuationToken]
+  graph_plane:
+    style: odata-nextlink
+    request_params: [$top, $skip, $skiptoken, $filter, $select, $orderby]
+    response_fields: ['@odata.nextLink', '@odata.count']
+  docs: https://learn.microsoft.com/en-us/graph/paging
+
+field_selection:
+  graph: OData $select (sparse fields) and $expand (related-entity expansion)
+  data_map: attributes returned by relationship/lineage depth parameters (depth, direction)
+
+request_tracing:
+  request_id_headers: [x-ms-request-id, x-ms-correlation-request-id, client-request-id]
+  response_echo: request-id is returned in the response headers and, on Graph errors, in error.innerError.request-id
+  docs: https://learn.microsoft.com/en-us/graph/errors
+
+error_envelope:
+  varies_by_plane: true
+  atlas: '{ "requestId", "errorCode", "errorMessage" }'
+  azure_arm: '{ "error": { "code", "message", "details" } }'
+  odata_graph: '{ "error": { "code", "message", "innerError" } }'
+  problem_details_rfc9457: false
+  detail: errors/microsoft-purview-problem-types.yml
+
+rate_limiting:
+  signaled: true
+  headers: [Retry-After, x-ms-ratelimit-remaining-*]
+  status: 429 on throttle
+  detail: rate-limits/microsoft-purview-rate-limits.yml
+
+content_type:
+  request: application/json
+  response: application/json

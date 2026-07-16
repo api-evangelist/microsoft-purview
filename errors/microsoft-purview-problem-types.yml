@@ -1,0 +1,47 @@
+generated: '2026-06-20'
+method: derived
+format: multi-envelope
+source: >-
+  Derived from the 4xx responses declared across openapi/*.yml (400/401/403/404
+  are the codes present) and Microsoft's documented error envelopes for the
+  three planes these APIs span. Purview does NOT use RFC 9457
+  application/problem+json. Three distinct error envelopes apply depending on the
+  API family.
+envelopes:
+  - name: atlas
+    applies_to: [Catalog API, Data Map API]
+    media_type: application/json
+    shape: '{ "requestId": string, "errorCode": string, "errorMessage": string }'
+    docs: https://learn.microsoft.com/en-us/rest/api/purview/datamap
+  - name: azure-arm
+    applies_to: [Account API, Scanning API, Metadata Policies API, Workflow API, Unified Catalog API, Data Quality API]
+    media_type: application/json
+    shape: '{ "error": { "code": string, "message": string, "details": [ { "code": string, "message": string } ] } }'
+    docs: https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design#handle-errors
+  - name: odata-graph
+    applies_to: [eDiscovery API, Information Protection API, Records Management API, Data Security and Governance API]
+    media_type: application/json
+    shape: '{ "error": { "code": string, "message": string, "innerError": { "request-id": string, "date": string } } }'
+    docs: https://learn.microsoft.com/en-us/graph/errors
+problems:
+  - status: 400
+    title: Bad Request
+    meaning: The request was malformed or a required parameter (often api-version) was missing or invalid.
+    remediation: Validate the request body and ensure the api-version query parameter is supplied and supported.
+  - status: 401
+    title: Unauthorized
+    meaning: Missing, expired, or invalid Azure AD bearer token, or the token lacks the required audience/scope.
+    remediation: Acquire a token from the Microsoft identity platform with the correct scope (e.g. https://purview.azure.net/.default, https://management.azure.com/.default, or the appropriate Graph permission).
+  - status: 403
+    title: Forbidden
+    meaning: The identity is authenticated but lacks the required collection role, Graph permission, or Azure RBAC assignment.
+    remediation: Grant the caller the appropriate Purview collection role (via Metadata Policies) or Azure RBAC/Graph permission.
+  - status: 404
+    title: Not Found
+    meaning: The requested entity, glossary term, scan, data source, case, or account does not exist.
+    remediation: Verify the resource identifier (GUID / qualifiedName / account name) and that the caller can see the containing collection.
+notes: >-
+  Only 400/401/403/404 are explicitly declared in the harvested specs; the Azure
+  and Graph platforms additionally return 429 (throttling, with Retry-After /
+  x-ms-ratelimit headers — see rate-limits/) and 5xx on transient failures, per
+  platform conventions.

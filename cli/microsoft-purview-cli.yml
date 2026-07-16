@@ -1,0 +1,48 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/cli/azure/purview — the `az purview` Azure
+  CLI extension (management plane). Also PowerShell Az.Purview. The data-plane
+  (catalog/scanning/data-map operations) is driven through the SDKs in
+  packages/ and REST, not the CLI; the CLI covers account provisioning and
+  administration.
+name: az purview
+kind: azure-cli-extension
+requires: Azure CLI >= 2.15.0 (extension auto-installs on first use)
+install:
+  - method: az-extension
+    command: az extension add --name purview
+  - method: auto
+    note: The purview extension installs automatically the first time you run an `az purview` command.
+docs: https://learn.microsoft.com/en-us/cli/azure/purview
+plane: management
+command_groups:
+  - group: az purview account
+    description: Manage Microsoft Purview accounts.
+    commands:
+      - az purview account create
+      - az purview account delete
+      - az purview account list
+      - az purview account show
+      - az purview account update
+      - az purview account add-root-collection-admin
+      - az purview account list-key
+      - az purview account update-key
+      - az purview account wait
+  - group: az purview default-account
+    description: Manage the default Purview account for a subscription/tenant.
+    commands:
+      - az purview default-account show
+      - az purview default-account set
+      - az purview default-account remove
+  - group: az purview kafka-configuration
+    description: Manage Kafka configuration for streaming ingestion notifications.
+    commands:
+      - az purview kafka-configuration create
+      - az purview kafka-configuration delete
+      - az purview kafka-configuration list
+      - az purview kafka-configuration show
+related:
+  - name: Az.Purview PowerShell module
+    url: https://learn.microsoft.com/en-us/powershell/module/az.purview
+    note: PowerShell equivalent for account provisioning/administration.

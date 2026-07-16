@@ -1,0 +1,49 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  https://learn.microsoft.com/en-us/purview/whats-new,
+  https://learn.microsoft.com/en-us/rest/api/purview/,
+  https://learn.microsoft.com/en-us/graph/versioning-and-support,
+  https://azure.microsoft.com/en-us/support/legal/sla/,
+  https://status.azure.com. Versions per API taken from the harvested
+  openapi/*.yml info.version fields.
+versioning:
+  scheme: date-based (Azure) / channel-based (Graph v1.0 + beta)
+  mechanism: >-
+    Azure data/management-plane APIs select a version with the required
+    api-version query parameter (date strings, some -preview). Microsoft Graph
+    APIs select a channel via the /v1.0 or /beta path segment.
+  current_versions:
+    catalog: 2022-08-01-preview
+    data-map: 2023-09-01
+    scanning: 2023-09-01
+    account: 2021-12-01
+    metadata-policies: 2021-07-01-preview
+    workflow: 2023-10-01-preview
+    unified-catalog: 2024-03-01-preview
+    data-quality: 2024-03-01-preview
+    graph-apis: v1.0 (eDiscovery, Information Protection, Records Management, DSPM)
+  docs: https://learn.microsoft.com/en-us/rest/api/purview/
+deprecation:
+  policy_url: https://learn.microsoft.com/en-us/graph/versioning-and-support
+  sunset_header: false
+  notes: >-
+    Azure keeps prior api-version dates callable; -preview versions may change
+    or be removed without the stability guarantees of GA versions. Graph beta is
+    explicitly non-production. Microsoft has superseded the Catalog data-plane
+    client libraries with the Data Map libraries. Changes are announced on the
+    Purview "What's new" page rather than via RFC 8594 Sunset/Deprecation headers.
+  changelog: https://learn.microsoft.com/en-us/purview/whats-new
+sla:
+  url: https://azure.microsoft.com/en-us/support/legal/sla/
+  public_uptime_target: "99.9%"
+  notes: >-
+    Microsoft Purview is covered by an Azure SLA (99.9% for the governance
+    service tiers); exact figures depend on the specific capability and tier —
+    see the per-service Azure SLA document.
+status_page: https://status.azure.com/
+deprecated_operations: []
+notes: >-
+  No operations are flagged `deprecated: true` in the harvested specs. The
+  notable product-level supersession is the Catalog data-plane being folded into
+  the Data Map (both the API surface and the SDKs).

@@ -1,0 +1,168 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  Registry lookups (PyPI, npm, NuGet, Maven Central) plus the Azure SDK for
+  Purview landing page (https://azure.github.io/azure-sdk-for-python/purview.html,
+  https://azure.github.io/azure-sdk-for-java/purview.html) and the Microsoft
+  Graph SDKs used for the Purview eDiscovery / Information Protection / Records
+  Management / Data Security & Governance Graph endpoints. All packages verified
+  to return 200 from their registry JSON API.
+notes: >-
+  Microsoft ships per-service data-plane client libraries for the Purview
+  account/catalog/scanning/data-map surface (Python azure-purview-*, JS
+  @azure-rest/purview-*, .NET Azure.Analytics.Purview.*, Java
+  com.azure:azure-analytics-purview-*). The management-plane account API is
+  covered by azure-mgmt-purview. The Graph-based Purview APIs (eDiscovery,
+  Information Protection, Records Management, DSPM) use the Microsoft Graph SDKs.
+  The Catalog data-plane libraries are superseded by the Data Map libraries
+  (Microsoft's guidance), which is recorded on those entries.
+packages:
+  # ---- Python (PyPI) ----
+  - language: python
+    registry: pypi
+    name: azure-purview-datamap
+    url: https://pypi.org/project/azure-purview-datamap/
+    install: pip install azure-purview-datamap
+    official: true
+    covers: [Data Map API, Catalog API]
+  - language: python
+    registry: pypi
+    name: azure-purview-catalog
+    url: https://pypi.org/project/azure-purview-catalog/
+    install: pip install azure-purview-catalog
+    official: true
+    covers: [Catalog API]
+    superseded_by: azure-purview-datamap
+  - language: python
+    registry: pypi
+    name: azure-purview-scanning
+    url: https://pypi.org/project/azure-purview-scanning/
+    install: pip install azure-purview-scanning
+    official: true
+    covers: [Scanning API]
+  - language: python
+    registry: pypi
+    name: azure-purview-administration
+    url: https://pypi.org/project/azure-purview-administration/
+    install: pip install azure-purview-administration
+    official: true
+    covers: [Account API, Metadata Policies API]
+  - language: python
+    registry: pypi
+    name: azure-purview-account
+    url: https://pypi.org/project/azure-purview-account/
+    install: pip install azure-purview-account
+    official: true
+    covers: [Account API]
+  - language: python
+    registry: pypi
+    name: azure-purview-workflow
+    url: https://pypi.org/project/azure-purview-workflow/
+    install: pip install azure-purview-workflow
+    official: true
+    covers: [Workflow API]
+  - language: python
+    registry: pypi
+    name: azure-mgmt-purview
+    url: https://pypi.org/project/azure-mgmt-purview/
+    install: pip install azure-mgmt-purview
+    official: true
+    covers: [Account API]
+    plane: management
+  # ---- JavaScript / TypeScript (npm) ----
+  - language: javascript
+    registry: npm
+    name: "@azure-rest/purview-datamap"
+    url: https://www.npmjs.com/package/@azure-rest/purview-datamap
+    install: npm install @azure-rest/purview-datamap
+    official: true
+    covers: [Data Map API]
+  - language: javascript
+    registry: npm
+    name: "@azure-rest/purview-catalog"
+    url: https://www.npmjs.com/package/@azure-rest/purview-catalog
+    install: npm install @azure-rest/purview-catalog
+    official: true
+    covers: [Catalog API]
+    superseded_by: "@azure-rest/purview-datamap"
+  - language: javascript
+    registry: npm
+    name: "@azure-rest/purview-scanning"
+    url: https://www.npmjs.com/package/@azure-rest/purview-scanning
+    install: npm install @azure-rest/purview-scanning
+    official: true
+    covers: [Scanning API]
+  - language: javascript
+    registry: npm
+    name: "@azure-rest/purview-administration"
+    url: https://www.npmjs.com/package/@azure-rest/purview-administration
+    install: npm install @azure-rest/purview-administration
+    official: true
+    covers: [Account API, Metadata Policies API]
+  - language: javascript
+    registry: npm
+    name: "@azure-rest/purview-account"
+    url: https://www.npmjs.com/package/@azure-rest/purview-account
+    install: npm install @azure-rest/purview-account
+    official: true
+    covers: [Account API]
+  - language: javascript
+    registry: npm
+    name: "@azure-rest/purview-sharing"
+    url: https://www.npmjs.com/package/@azure-rest/purview-sharing
+    install: npm install @azure-rest/purview-sharing
+    official: true
+    covers: [Data Sharing]
+  - language: javascript
+    registry: npm
+    name: "@microsoft/microsoft-graph-client"
+    url: https://www.npmjs.com/package/@microsoft/microsoft-graph-client
+    install: npm install @microsoft/microsoft-graph-client
+    official: true
+    covers: [eDiscovery API, Information Protection API, Records Management API, Data Security and Governance API]
+  # ---- .NET (NuGet) ----
+  - language: dotnet
+    registry: nuget
+    name: Azure.Analytics.Purview.DataMap
+    url: https://www.nuget.org/packages/Azure.Analytics.Purview.DataMap
+    install: dotnet add package Azure.Analytics.Purview.DataMap
+    official: true
+    covers: [Data Map API, Catalog API]
+  - language: dotnet
+    registry: nuget
+    name: Azure.Analytics.Purview.Catalog
+    url: https://www.nuget.org/packages/Azure.Analytics.Purview.Catalog/
+    install: dotnet add package Azure.Analytics.Purview.Catalog
+    official: true
+    covers: [Catalog API]
+    superseded_by: Azure.Analytics.Purview.DataMap
+    notes: Marked obsolete as of 2024-06-01 by Microsoft.
+  - language: dotnet
+    registry: nuget
+    name: Azure.Analytics.Purview.Sharing
+    url: https://www.nuget.org/packages/Azure.Analytics.Purview.Sharing
+    install: dotnet add package Azure.Analytics.Purview.Sharing
+    official: true
+    covers: [Data Sharing]
+  # ---- Java (Maven Central) ----
+  - language: java
+    registry: maven
+    name: com.azure:azure-analytics-purview-catalog
+    url: https://central.sonatype.com/artifact/com.azure/azure-analytics-purview-catalog
+    install: "implementation 'com.azure:azure-analytics-purview-catalog'"
+    official: true
+    covers: [Catalog API]
+  - language: java
+    registry: maven
+    name: com.azure:azure-analytics-purview-scanning
+    url: https://central.sonatype.com/artifact/com.azure/azure-analytics-purview-scanning
+    install: "implementation 'com.azure:azure-analytics-purview-scanning'"
+    official: true
+    covers: [Scanning API]
+  - language: java
+    registry: maven
+    name: com.azure:azure-analytics-purview-sharing
+    url: https://central.sonatype.com/artifact/com.azure/azure-analytics-purview-sharing
+    install: "implementation 'com.azure:azure-analytics-purview-sharing'"
+    official: true
+    covers: [Data Sharing]

@@ -6,7 +6,7 @@ description: >-
 image: https://www.microsoft.com/en-us/microsoft-365/blog/wp-content/uploads/sites/2/2021/04/Microsoft-Purview-logo.png
 url: https://www.microsoft.com/en-us/security/business/microsoft-purview
 created: 2024-01-15T00:00:00.000Z
-modified: '2026-05-19'
+modified: '2026-06-20'
 specificationVersion: '0.19'
 tags:
   - Compliance
@@ -281,6 +281,64 @@ common:
     url: authentication/microsoft-purview-authentication.yml
   - type: OAuthScopes
     url: scopes/microsoft-purview-scopes.yml
+  - type: Packages
+    url: packages/microsoft-purview-packages.yml
+  - type: WellKnown
+    url: well-known/microsoft-purview-well-known.yml
+  - type: MCPServer
+    url: mcp/microsoft-purview-mcp.yml
+  - type: LLMsTxt
+    url: llms/microsoft-purview-llms.txt
+  - type: Conformance
+    url: conformance/microsoft-purview-conformance.yml
+  - type: ErrorCatalog
+    url: errors/microsoft-purview-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/microsoft-purview-lifecycle.yml
+  - type: Conventions
+    url: conventions/microsoft-purview-conventions.yml
+  - type: DataModel
+    url: data-model/microsoft-purview-data-model.yml
+  - type: CLI
+    url: cli/microsoft-purview-cli.yml
+  - type: ChangeLog
+    url: changelog/microsoft-purview-changelog.yml
+  - type: Overlay
+    url: overlays/microsoft-purview-account-overlay.yaml
+    name: Microsoft Purview Account API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-catalog-overlay.yaml
+    name: Microsoft Purview Catalog API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-data-map-overlay.yaml
+    name: Microsoft Purview Data Map API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-data-quality-overlay.yaml
+    name: Microsoft Purview Data Quality API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-data-security-governance-overlay.yaml
+    name: Microsoft Purview Data Security and Governance API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-ediscovery-overlay.yaml
+    name: Microsoft Purview eDiscovery API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-information-protection-overlay.yaml
+    name: Microsoft Purview Information Protection API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-metadata-policies-overlay.yaml
+    name: Microsoft Purview Metadata Policies API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-records-management-overlay.yaml
+    name: Microsoft Purview Records Management API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-scanning-overlay.yaml
+    name: Microsoft Purview Scanning API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-unified-catalog-overlay.yaml
+    name: Microsoft Purview Unified Catalog API enhancements
+  - type: Overlay
+    url: overlays/microsoft-purview-workflow-overlay.yaml
+    name: Microsoft Purview Workflow API enhancements
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/microsoft-purview/overview
   - type: Arazzo

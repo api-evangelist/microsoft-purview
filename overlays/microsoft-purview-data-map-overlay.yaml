@@ -1,0 +1,18 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Microsoft Purview Data Map API
+  version: 1.0.0
+extends: openapi/microsoft-purview-data-map-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: microsoft-purview
+    x-apievangelist-enriched: '2026-06-20'
+    x-apievangelist-artifacts:
+    - authentication/microsoft-purview-authentication.yml
+    - scopes/microsoft-purview-scopes.yml
+    - conventions/microsoft-purview-conventions.yml
+    - errors/microsoft-purview-problem-types.yml
+    - lifecycle/microsoft-purview-lifecycle.yml
+    - data-model/microsoft-purview-data-model.yml
+    - packages/microsoft-purview-packages.yml

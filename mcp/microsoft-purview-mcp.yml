@@ -1,0 +1,43 @@
+generated: '2026-06-20'
+method: searched
+status: published
+source: >-
+  https://github.com/microsoft/purview-dlm-mcp and the Microsoft MCP catalog
+  https://github.com/microsoft/mcp. Microsoft does not (as of this writing)
+  operate a hosted/remote MCP server for the Purview governance data-plane
+  (Catalog / Data Map / Scanning). The one first-party Purview MCP server is
+  the open-source DLM Diagnostics server below, which targets Data Lifecycle
+  Management troubleshooting in Exchange Online via read-only PowerShell.
+  The broader Azure MCP Server (https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/overview)
+  can reach Azure resources but does not expose the Purview data-plane as tools.
+description: >-
+  First-party Microsoft MCP server for Purview Data Lifecycle Management
+  diagnostics. Local stdio server (TypeScript, @modelcontextprotocol/sdk) that
+  authenticates to Exchange Online with MSAL interactive auth and exposes a
+  curated set of read-only diagnostic tools. Not a general-purpose wrapper of
+  the Purview REST APIs cataloged in this repo.
+server:
+  name: purview-dlm-mcp
+  vendor: microsoft
+  transport: stdio
+  repo: https://github.com/microsoft/purview-dlm-mcp
+  runtime: node
+  auth: msal-interactive
+tools:
+  - name: run_powershell
+    description: Execute curated, read-only Exchange Online PowerShell diagnostic commands.
+  - name: get_execution_log
+    description: Retrieve a full audit trail of the diagnostic session.
+  - name: ask_learn
+    description: Look up Microsoft Learn documentation relevant to the diagnosis.
+  - name: create_issue
+    description: Report an issue with the MCP server to GitHub.
+  - name: submit_feedback
+    description: Collect structured diagnostic-session feedback.
+related:
+  - name: Azure MCP Server
+    url: https://learn.microsoft.com/en-us/azure/developer/azure-mcp-server/overview
+    note: General Azure resource access; does not expose the Purview data-plane operations.
+  - name: Microsoft Learn MCP Server
+    url: https://learn.microsoft.com/en-us/training/support/mcp
+    note: Documentation retrieval across Microsoft Learn (includes Purview docs).

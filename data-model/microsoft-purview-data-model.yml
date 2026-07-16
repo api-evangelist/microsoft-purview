@@ -1,0 +1,81 @@
+generated: '2026-06-20'
+method: derived
+source: >-
+  Derived from the json-schema/*.json objects harvested from openapi/*.yml
+  (Apache Atlas types for the Catalog/Data Map, plus the Scanning, Unified
+  Catalog, Data Quality, and Graph resources) and the Purview REST object
+  reference (https://learn.microsoft.com/en-us/rest/api/purview/). Relationships
+  use has_one / has_many / belongs_to with the referencing field.
+docs: https://learn.microsoft.com/en-us/rest/api/purview/
+notation: >-
+  The Catalog/Data Map are an Apache Atlas graph: entities carry a GUID and a
+  qualifiedName, are typed by AtlasTypeDef, tagged with AtlasClassification,
+  linked to AtlasGlossaryTerm, and connected by AtlasRelationship and lineage.
+entities:
+  # ---- Catalog / Data Map (Apache Atlas) ----
+  - {name: AtlasEntity, key: guid + qualifiedName, domain: data-map, description: A typed data asset (table, column, file, process) in the map.}
+  - {name: AtlasTypeDef, key: name, domain: data-map, description: A type definition (entity/relationship/classification/struct/enum) in the Atlas type system.}
+  - {name: AtlasClassification, key: typeName, domain: data-map, description: A classification/tag applied to an entity (e.g. a sensitivity tag).}
+  - {name: AtlasRelationship, key: guid, domain: data-map, description: A typed edge between two entities.}
+  - {name: AtlasLineageInfo, key: baseEntityGuid, domain: data-map, description: Upstream/downstream lineage graph rooted at an entity.}
+  - {name: AtlasGlossary, key: guid, domain: glossary, description: A container of glossary categories and terms.}
+  - {name: AtlasGlossaryCategory, key: guid, domain: glossary, description: A category grouping glossary terms.}
+  - {name: AtlasGlossaryTerm, key: guid, domain: glossary, description: A business term that can be assigned to entities.}
+  # ---- Scanning ----
+  - {name: DataSource, key: name, domain: scanning, description: A registered data source to scan.}
+  - {name: Scan, key: name, domain: scanning, description: A scan definition against a data source.}
+  - {name: ScanResult, key: runId, domain: scanning, description: The outcome of a scan run.}
+  - {name: ScanRuleset, key: name, domain: scanning, description: A reusable set of classification rules for scans.}
+  - {name: ClassificationRule, key: name, domain: scanning, description: A rule that classifies scanned data.}
+  - {name: Trigger, key: name, domain: scanning, description: A schedule that launches a scan.}
+  # ---- Metadata Policies ----
+  - {name: MetadataPolicy, key: id, domain: policies, description: A collection-scoped access policy.}
+  - {name: MetadataRole, key: id, domain: policies, description: A role referenced by metadata policies.}
+  - {name: CollectionReference, key: referenceName, domain: policies, description: A collection that scopes assets and permissions.}
+  # ---- Unified Catalog ----
+  - {name: BusinessDomain, key: id, domain: unified-catalog, description: A governance domain grouping data products and terms.}
+  - {name: DataProduct, key: id, domain: unified-catalog, description: A published, governed data product.}
+  - {name: GlossaryTerm, key: id, domain: unified-catalog, description: A unified-catalog business term.}
+  - {name: CriticalDataElement, key: id, domain: unified-catalog, description: A critical data element tracked for governance.}
+  - {name: Okr, key: id, domain: unified-catalog, description: An objective/key-result attached to a business domain.}
+  # ---- Data Quality ----
+  - {name: DataQualityRule, key: id, domain: data-quality, description: A rule that measures the quality of a data asset.}
+  - {name: DataQualityScore, key: id, domain: data-quality, description: A computed quality score for an asset.}
+  # ---- Workflow ----
+  - {name: Workflow, key: id, domain: workflow, description: An approval/automation workflow definition.}
+  - {name: WorkflowRun, key: id, domain: workflow, description: An execution instance of a workflow.}
+  - {name: WorkflowTask, key: id, domain: workflow, description: A task (e.g. approval) within a workflow run.}
+  # ---- Graph resources ----
+  - {name: ediscoveryCase, key: id, domain: ediscovery, description: An eDiscovery case (Microsoft Graph).}
+  - {name: ediscoveryCustodian, key: id, domain: ediscovery, description: A custodian within a case.}
+  - {name: ediscoverySearch, key: id, domain: ediscovery, description: A search within a case.}
+  - {name: ediscoveryReviewSet, key: id, domain: ediscovery, description: A review set of collected content.}
+  - {name: sensitivityLabel, key: id, domain: information-protection, description: A sensitivity label (Microsoft Graph).}
+  - {name: retentionLabel, key: id, domain: records-management, description: A retention label (Microsoft Graph).}
+relationships:
+  - {from: AtlasEntity, to: AtlasClassification, kind: has_many, via: classifications}
+  - {from: AtlasEntity, to: AtlasGlossaryTerm, kind: has_many, via: meanings}
+  - {from: AtlasEntity, to: AtlasTypeDef, kind: belongs_to, via: typeName}
+  - {from: AtlasEntity, to: AtlasRelationship, kind: has_many, via: relationshipAttributes}
+  - {from: AtlasEntity, to: AtlasLineageInfo, kind: has_one, via: guid}
+  - {from: AtlasGlossary, to: AtlasGlossaryCategory, kind: has_many, via: categories}
+  - {from: AtlasGlossary, to: AtlasGlossaryTerm, kind: has_many, via: terms}
+  - {from: AtlasGlossaryTerm, to: AtlasGlossaryCategory, kind: has_many, via: categories}
+  - {from: AtlasGlossaryTerm, to: AtlasEntity, kind: has_many, via: assignedEntities}
+  - {from: Scan, to: DataSource, kind: belongs_to, via: dataSourceName}
+  - {from: Scan, to: ScanRuleset, kind: belongs_to, via: scanRulesetName}
+  - {from: Scan, to: Trigger, kind: has_one, via: scanName}
+  - {from: Scan, to: ScanResult, kind: has_many, via: runId}
+  - {from: ScanRuleset, to: ClassificationRule, kind: has_many, via: rules}
+  - {from: MetadataPolicy, to: CollectionReference, kind: belongs_to, via: collection}
+  - {from: MetadataPolicy, to: MetadataRole, kind: has_many, via: roles}
+  - {from: BusinessDomain, to: DataProduct, kind: has_many, via: domain}
+  - {from: BusinessDomain, to: GlossaryTerm, kind: has_many, via: domain}
+  - {from: BusinessDomain, to: Okr, kind: has_many, via: domain}
+  - {from: DataProduct, to: CriticalDataElement, kind: has_many, via: dataProductId}
+  - {from: DataQualityScore, to: DataQualityRule, kind: belongs_to, via: ruleId}
+  - {from: Workflow, to: WorkflowRun, kind: has_many, via: workflowId}
+  - {from: WorkflowRun, to: WorkflowTask, kind: has_many, via: runId}
+  - {from: ediscoveryCase, to: ediscoveryCustodian, kind: has_many, via: caseId}
+  - {from: ediscoveryCase, to: ediscoverySearch, kind: has_many, via: caseId}
+  - {from: ediscoveryCase, to: ediscoveryReviewSet, kind: has_many, via: caseId}

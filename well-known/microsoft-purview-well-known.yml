@@ -1,0 +1,39 @@
+generated: '2026-06-20'
+method: searched
+notes: >-
+  The Purview data-plane hosts are per-account templated
+  (https://{accountName}.purview.azure.com, {accountName}.scan.purview.azure.com)
+  and cannot be probed without an account, and they do not serve public
+  /.well-known documents. The management-plane host (management.azure.com) and
+  the Microsoft Graph host (graph.microsoft.com) return 400/401 at
+  /.well-known/* (auth required, no public discovery doc). The authorization
+  server for every Purview API is the Microsoft identity platform
+  (login.microsoftonline.com), whose OIDC discovery document IS public and is
+  captured here — it is the OIDC/OAuth2 metadata that governs token issuance for
+  all of these APIs.
+hosts:
+  - host: https://login.microsoftonline.com
+    role: authorization-server (Microsoft identity platform / Azure AD)
+    documents:
+      - path: /common/v2.0/.well-known/openid-configuration
+        status: 200
+        file: microsoft-purview-openid-configuration.json
+  - host: https://graph.microsoft.com
+    role: api (Graph-based Purview APIs)
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 401
+      - path: /.well-known/oauth-authorization-server
+        status: 401
+      - path: /.well-known/security.txt
+        status: 401
+  - host: https://management.azure.com
+    role: api (management-plane Account API)
+    documents:
+      - path: /.well-known/openid-configuration
+        status: 400
+      - path: /.well-known/security.txt
+        status: 400
+  - host: https://{accountName}.purview.azure.com
+    role: api (data-plane; per-account, not publicly probeable)
+    documents: []

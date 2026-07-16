@@ -1,0 +1,53 @@
+# Microsoft Purview
+
+> Microsoft Purview is a comprehensive data governance and security service that helps organizations discover, catalog, classify, and manage their data estate across on-premises, multi-cloud, and SaaS environments. It exposes a family of REST APIs spanning the governance data-plane (Catalog, Data Map, Scanning, Metadata Policies, Workflow, Unified Catalog, Data Quality), the Azure management plane (Account), and Microsoft Graph (eDiscovery, Information Protection, Records Management, Data Security & Governance).
+
+When installing Microsoft Purview client libraries, always check the registry for the current version rather than relying on memorized version numbers. Python: `pip index versions azure-purview-datamap` (PyPI). JavaScript: `npm view @azure-rest/purview-datamap version` (npm). .NET: `Azure.Analytics.Purview.DataMap` on NuGet. Java: `com.azure:azure-analytics-purview-catalog` on Maven Central. The Graph-based Purview APIs use the Microsoft Graph SDKs (e.g. `@microsoft/microsoft-graph-client`). Prefer the Data Map libraries over the older Catalog libraries, which Microsoft has superseded.
+
+Every Purview API authenticates with the Microsoft identity platform (Azure AD) via OAuth 2.0. Data-plane calls use the scope `https://purview.azure.net/.default`; the management-plane Account API uses `https://management.azure.com/.default`; Graph APIs use Graph permissions (e.g. `eDiscovery.Read.All`, `RecordsManagement.ReadWrite.All`, `InformationProtectionPolicy.Read.All`). All calls require an `api-version` query parameter on the Azure data/management planes.
+
+## APIs
+- [Catalog API](https://learn.microsoft.com/en-us/purview/catalog-api): Apache Atlas-based catalog of data assets, classifications, and glossary terms.
+- [Data Map API](https://learn.microsoft.com/en-us/purview/data-map-api): Unified data map — entities, lineage, relationships, discovery queries.
+- [Scanning API](https://learn.microsoft.com/en-us/purview/scanning-api): Register data sources and schedule/trigger automated scans.
+- [Account API](https://learn.microsoft.com/en-us/rest/api/purview/account): Provision and administer Purview accounts (Azure Resource Manager).
+- [Metadata Policies API](https://learn.microsoft.com/en-us/purview/metadata-policies): Collection-level permissions and role assignments.
+- [Workflow API](https://learn.microsoft.com/en-us/purview/workflow-api): Approval workflows for governance tasks.
+- [Unified Catalog API](https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-api-overview): Business domains, glossary terms, data products, OKRs, critical data elements.
+- [Data Quality API](https://learn.microsoft.com/en-us/rest/api/purview/unified-catalog-data-quality): Data quality rules, profiling, and quality scores.
+- [eDiscovery API](https://learn.microsoft.com/en-us/graph/api/resources/security-ediscovery-apioverview): Cases, custodians, review sets, searches, exports (Microsoft Graph).
+- [Information Protection API](https://learn.microsoft.com/en-us/graph/security-information-protection-overview): Sensitivity labels and label evaluation (Microsoft Graph).
+- [Records Management API](https://learn.microsoft.com/en-us/graph/api/resources/security-recordsmanagement-overview): Retention labels/policies and disposition review (Microsoft Graph).
+- [Data Security and Governance API](https://learn.microsoft.com/en-us/graph/security-datasecurityandgovernance-overview): Protection scopes and process-content DLP enforcement (Microsoft Graph).
+
+## Specs
+- [Catalog OpenAPI](openapi/microsoft-purview-catalog-openapi.yml)
+- [Data Map OpenAPI](openapi/microsoft-purview-data-map-openapi.yml)
+- [Scanning OpenAPI](openapi/microsoft-purview-scanning-openapi.yml)
+- [Account OpenAPI](openapi/microsoft-purview-account-openapi.yml)
+- [Metadata Policies OpenAPI](openapi/microsoft-purview-metadata-policies-openapi.yml)
+- [Workflow OpenAPI](openapi/microsoft-purview-workflow-openapi.yml)
+- [Unified Catalog OpenAPI](openapi/microsoft-purview-unified-catalog-openapi.yml)
+- [Data Quality OpenAPI](openapi/microsoft-purview-data-quality-openapi.yml)
+- [eDiscovery OpenAPI](openapi/microsoft-purview-ediscovery-openapi.yml)
+- [Information Protection OpenAPI](openapi/microsoft-purview-information-protection-openapi.yml)
+- [Records Management OpenAPI](openapi/microsoft-purview-records-management-openapi.yml)
+- [Data Security & Governance OpenAPI](openapi/microsoft-purview-data-security-governance-openapi.yml)
+
+## Docs
+- [REST API reference](https://learn.microsoft.com/en-us/rest/api/purview/)
+- [Authentication (data plane REST)](https://learn.microsoft.com/en-us/purview/data-gov-api-rest-data-plane)
+- [Using the REST APIs tutorial](https://learn.microsoft.com/en-us/purview/tutorial-using-rest-apis)
+- [Python SDK](https://learn.microsoft.com/en-us/purview/data-gov-python-sdk)
+- [What's new](https://learn.microsoft.com/en-us/purview/whats-new)
+- [Pricing](https://azure.microsoft.com/en-us/pricing/details/purview/)
+
+## Artifacts
+- [Packages / SDKs](packages/microsoft-purview-packages.yml)
+- [Authentication profile](authentication/microsoft-purview-authentication.yml)
+- [OAuth scopes](scopes/microsoft-purview-scopes.yml)
+- [Conventions](conventions/microsoft-purview-conventions.yml)
+- [Error catalog](errors/microsoft-purview-problem-types.yml)
+- [Lifecycle](lifecycle/microsoft-purview-lifecycle.yml)
+- [Data model](data-model/microsoft-purview-data-model.yml)
+- [CLI](cli/microsoft-purview-cli.yml)
