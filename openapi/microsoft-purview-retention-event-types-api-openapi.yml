@@ -1,0 +1,186 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Retention Event Types API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Retention Event Types
+  description: Operations for managing retention event types
+paths:
+  /security/triggerTypes/retentionEventTypes:
+    get:
+      operationId: listRetentionEventTypes
+      summary: Microsoft Purview List retention event types
+      description: Get a list of retention event types.
+      tags:
+      - Retention Event Types
+      parameters:
+      - name: $top
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: $filter
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Retention event types listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/RetentionEventType'
+                  '@odata.nextLink':
+                    type: string
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createRetentionEventType
+      summary: Microsoft Purview Create a retention event type
+      description: Create a new retention event type.
+      tags:
+      - Retention Event Types
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetentionEventType'
+      responses:
+        '201':
+          description: Retention event type created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionEventType'
+        '401':
+          description: Unauthorized
+  /security/triggerTypes/retentionEventTypes/{retentionEventTypeId}:
+    get:
+      operationId: getRetentionEventType
+      summary: Microsoft Purview Get a retention event type
+      description: Get a retention event type by its identifier.
+      tags:
+      - Retention Event Types
+      parameters:
+      - name: retentionEventTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Retention event type retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionEventType'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+    patch:
+      operationId: updateRetentionEventType
+      summary: Microsoft Purview Update a retention event type
+      description: Update the properties of a retention event type.
+      tags:
+      - Retention Event Types
+      parameters:
+      - name: retentionEventTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RetentionEventType'
+      responses:
+        '200':
+          description: Retention event type updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RetentionEventType'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteRetentionEventType
+      summary: Microsoft Purview Delete a retention event type
+      description: Delete a retention event type.
+      tags:
+      - Retention Event Types
+      parameters:
+      - name: retentionEventTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Retention event type deleted successfully
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    IdentitySet:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            displayName:
+              type: string
+            id:
+              type: string
+    RetentionEventType:
+      type: object
+      description: A retention event type
+      properties:
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+        description:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+        lastModifiedBy:
+          $ref: '#/components/schemas/IdentitySet'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

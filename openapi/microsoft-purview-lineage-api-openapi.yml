@@ -1,0 +1,374 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Lineage API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Lineage
+  description: Operations for tracking data lineage
+paths:
+  /api/atlas/v2/lineage/{guid}:
+    get:
+      operationId: getLineageByGuid
+      summary: Microsoft Purview Get lineage by GUID
+      description: Get lineage info of the entity specified by GUID.
+      tags:
+      - Lineage
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: direction
+        in: query
+        required: true
+        description: The direction of lineage (INPUT, OUTPUT, BOTH)
+        schema:
+          type: string
+          enum:
+          - INPUT
+          - OUTPUT
+          - BOTH
+      - name: depth
+        in: query
+        description: The number of hops for lineage
+        schema:
+          type: integer
+          format: int32
+          default: 3
+      responses:
+        '200':
+          description: Lineage info retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtlasLineageInfo'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Entity not found
+  /api/atlas/v2/lineage/{guid}/next:
+    get:
+      operationId: getLineageNextPage
+      summary: Microsoft Purview Get next page of lineage
+      description: Return immediate next page lineage info about entity with pagination.
+      tags:
+      - Lineage
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: direction
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - INPUT
+          - OUTPUT
+          - BOTH
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Next page of lineage retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtlasLineageInfo'
+        '401':
+          description: Unauthorized
+  /api/atlas/v2/lineage/uniqueAttribute/type/{typeName}:
+    get:
+      operationId: lineageGetByUniqueAttribute
+      summary: Microsoft Purview Get lineage by unique attribute
+      description: Return lineage info about entity. In addition to the typeName path parameter, attribute key-value pair(s) can be provided.
+      tags:
+      - Lineage
+      parameters:
+      - name: typeName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      - name: direction
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - INPUT
+          - OUTPUT
+          - BOTH
+      - name: depth
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 3
+      responses:
+        '200':
+          description: Lineage info retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtlasLineageInfo_2'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    TimeBoundary:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
+    AtlasClassification:
+      type: object
+      description: A classification instance
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        entityGuid:
+          type: string
+          format: uuid
+        entityStatus:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        propagate:
+          type: boolean
+        removePropagationsOnEntityDelete:
+          type: boolean
+        validityPeriods:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeBoundary'
+    AtlasTermAssignmentHeader:
+      type: object
+      properties:
+        confidence:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        description:
+          type: string
+        displayText:
+          type: string
+        expression:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - DISCOVERED
+          - PROPOSED
+          - IMPORTED
+          - VALIDATED
+          - DEPRECATED
+          - OBSOLETE
+          - OTHER
+        steward:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
+    AtlasLineageInfo_2:
+      type: object
+      properties:
+        baseEntityGuid:
+          type: string
+          format: uuid
+        guidEntityMap:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntityHeader_2'
+        lineageDepth:
+          type: integer
+          format: int32
+        lineageDirection:
+          type: string
+          enum:
+          - INPUT
+          - OUTPUT
+          - BOTH
+        relations:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineageRelation'
+    ParentRelation:
+      type: object
+      properties:
+        childEntityId:
+          type: string
+          format: uuid
+        parentEntityId:
+          type: string
+          format: uuid
+        relationshipId:
+          type: string
+          format: uuid
+    AtlasEntityHeader:
+      type: object
+      description: An instance of an entity header
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        classificationNames:
+          type: array
+          items:
+            type: string
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasClassification'
+        displayText:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        labels:
+          type: array
+          items:
+            type: string
+        meaningNames:
+          type: array
+          items:
+            type: string
+        meanings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTermAssignmentHeader'
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+    LineageRelation:
+      type: object
+      properties:
+        fromEntityId:
+          type: string
+          format: uuid
+        relationshipId:
+          type: string
+          format: uuid
+        toEntityId:
+          type: string
+          format: uuid
+    AtlasLineageInfo:
+      type: object
+      description: Lineage information for an entity
+      properties:
+        baseEntityGuid:
+          type: string
+          format: uuid
+        childrenCount:
+          type: integer
+          format: int32
+        guidEntityMap:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntityHeader'
+        lineageDepth:
+          type: integer
+          format: int32
+        lineageDirection:
+          type: string
+          enum:
+          - INPUT
+          - OUTPUT
+          - BOTH
+        lineageWidth:
+          type: integer
+          format: int32
+        parentRelations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParentRelation'
+        relations:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineageRelation'
+    AtlasEntityHeader_2:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        classificationNames:
+          type: array
+          items:
+            type: string
+        displayText:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        labels:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

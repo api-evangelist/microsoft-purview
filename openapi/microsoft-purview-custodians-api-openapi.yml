@@ -1,0 +1,121 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Custodians API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Custodians
+  description: Operations for managing custodians within cases
+paths:
+  /security/cases/ediscoveryCases/{ediscoveryCaseId}/custodians:
+    get:
+      operationId: listCustodians
+      summary: Microsoft Purview List custodians in a case
+      description: Get the list of custodians associated with an eDiscovery case.
+      tags:
+      - Custodians
+      parameters:
+      - name: ediscoveryCaseId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Custodians listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EdiscoveryCustodian'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createCustodian
+      summary: Microsoft Purview Add a custodian to a case
+      description: Create a new custodian and add them to an eDiscovery case.
+      tags:
+      - Custodians
+      parameters:
+      - name: ediscoveryCaseId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdiscoveryCustodian'
+      responses:
+        '201':
+          description: Custodian added successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdiscoveryCustodian'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    EdiscoveryCustodian:
+      type: object
+      description: A custodian in an eDiscovery case
+      properties:
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+          readOnly: true
+        email:
+          type: string
+        status:
+          type: string
+          enum:
+          - active
+          - released
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        holdStatus:
+          type: string
+          enum:
+          - notApplied
+          - applied
+          - applying
+          - removing
+          - partial
+        acknowledgedDateTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

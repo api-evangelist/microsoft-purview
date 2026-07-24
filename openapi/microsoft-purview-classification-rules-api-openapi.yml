@@ -1,0 +1,212 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Classification Rules API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Classification Rules
+  description: Operations for managing classification rules
+paths:
+  /scan/classificationrules/{classificationRuleName}:
+    put:
+      operationId: createOrReplaceClassificationRule
+      summary: Microsoft Purview Create or replace a classification rule
+      description: Creates or replaces a classification rule.
+      tags:
+      - Classification Rules
+      parameters:
+      - name: classificationRuleName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ClassificationRule'
+      responses:
+        '200':
+          description: Classification rule updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRule'
+        '201':
+          description: Classification rule created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRule'
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getClassificationRule
+      summary: Microsoft Purview Get a classification rule
+      description: Gets a classification rule by name.
+      tags:
+      - Classification Rules
+      parameters:
+      - name: classificationRuleName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Classification rule retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRule'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Classification rule not found
+    delete:
+      operationId: deleteClassificationRule
+      summary: Microsoft Purview Delete a classification rule
+      description: Deletes a classification rule.
+      tags:
+      - Classification Rules
+      parameters:
+      - name: classificationRuleName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Classification rule deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Classification rule not found
+  /scan/classificationrules:
+    get:
+      operationId: listClassificationRules
+      summary: Microsoft Purview List classification rules
+      description: Lists classification rules in the account.
+      tags:
+      - Classification Rules
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Classification rules listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClassificationRuleList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ClassificationRule:
+      type: object
+      description: A classification rule definition
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        kind:
+          type: string
+          enum:
+          - Custom
+          - System
+        properties:
+          type: object
+          properties:
+            description:
+              type: string
+            classificationName:
+              type: string
+            ruleStatus:
+              type: string
+              enum:
+              - Enabled
+              - Disabled
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+            version:
+              type: integer
+              format: int32
+            dataPatterns:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationRulePattern'
+            columnPatterns:
+              type: array
+              items:
+                $ref: '#/components/schemas/ClassificationRulePattern'
+    ClassificationRulePattern:
+      type: object
+      properties:
+        kind:
+          type: string
+          enum:
+          - Regex
+        pattern:
+          type: string
+    ClassificationRuleList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationRule'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

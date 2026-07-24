@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Data Profiling API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Data Profiling
+  description: Operations for data profiling operations
+paths:
+  /dataquality/profiling/{assetId}:
+    post:
+      operationId: runDataProfiling
+      summary: Microsoft Purview Run data profiling
+      description: Initiate data profiling for a specific data asset.
+      tags:
+      - Data Profiling
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        description: The data asset identifier
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2024-03-01-preview
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfilingRequest'
+      responses:
+        '202':
+          description: Data profiling initiated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfilingResult'
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getDataProfilingResult
+      summary: Microsoft Purview Get data profiling result
+      description: Get data profiling results for a specific data asset.
+      tags:
+      - Data Profiling
+      parameters:
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2024-03-01-preview
+      responses:
+        '200':
+          description: Data profiling result retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfilingResult'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+components:
+  schemas:
+    ColumnProfile:
+      type: object
+      properties:
+        columnName:
+          type: string
+        dataType:
+          type: string
+        nullCount:
+          type: integer
+          format: int64
+        nullPercentage:
+          type: number
+          format: float
+        distinctCount:
+          type: integer
+          format: int64
+        minValue:
+          type: string
+        maxValue:
+          type: string
+        meanValue:
+          type: string
+        standardDeviation:
+          type: number
+          format: double
+        topValues:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              count:
+                type: integer
+                format: int64
+    ProfilingRequest:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: string
+        sampleSize:
+          type: integer
+          format: int32
+    ProfilingResult:
+      type: object
+      properties:
+        assetId:
+          type: string
+        status:
+          type: string
+          enum:
+          - InProgress
+          - Completed
+          - Failed
+        profiledAt:
+          type: string
+          format: date-time
+        rowCount:
+          type: integer
+          format: int64
+        columnProfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnProfile'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

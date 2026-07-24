@@ -1,0 +1,116 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Review Sets API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Review Sets
+  description: Operations for managing review sets
+paths:
+  /security/cases/ediscoveryCases/{ediscoveryCaseId}/reviewSets:
+    get:
+      operationId: listReviewSets
+      summary: Microsoft Purview List review sets in a case
+      description: Get the list of review sets associated with an eDiscovery case.
+      tags:
+      - Review Sets
+      parameters:
+      - name: ediscoveryCaseId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Review sets listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EdiscoveryReviewSet'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createReviewSet
+      summary: Microsoft Purview Create a review set
+      description: Create a new review set in an eDiscovery case.
+      tags:
+      - Review Sets
+      parameters:
+      - name: ediscoveryCaseId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdiscoveryReviewSet'
+      responses:
+        '201':
+          description: Review set created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdiscoveryReviewSet'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    IdentitySet:
+      type: object
+      properties:
+        application:
+          $ref: '#/components/schemas/Identity'
+        device:
+          $ref: '#/components/schemas/Identity'
+        user:
+          $ref: '#/components/schemas/Identity'
+    EdiscoveryReviewSet:
+      type: object
+      description: A review set for reviewing collected data
+      properties:
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+    Identity:
+      type: object
+      properties:
+        displayName:
+          type: string
+        id:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

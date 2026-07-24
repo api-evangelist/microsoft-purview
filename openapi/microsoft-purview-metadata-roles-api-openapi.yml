@@ -1,0 +1,106 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Metadata Roles API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Metadata Roles
+  description: Operations for managing metadata roles
+paths:
+  /metadataRoles:
+    get:
+      operationId: listMetadataRoles
+      summary: Microsoft Purview List metadata roles
+      description: Lists the metadata roles available in the Purview account.
+      tags:
+      - Metadata Roles
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2021-07-01-preview
+      responses:
+        '200':
+          description: Metadata roles listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetadataRoleList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    AttributeMatcher:
+      type: object
+      properties:
+        attributeName:
+          type: string
+        attributeValueIncludes:
+          type: string
+        attributeValueIncludedIn:
+          type: array
+          items:
+            type: string
+        attributeValueExcludes:
+          type: string
+        attributeValueExcludedIn:
+          type: array
+          items:
+            type: string
+    MetadataRole:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        properties:
+          type: object
+          properties:
+            provisioningState:
+              type: string
+            roleType:
+              type: string
+            friendlyName:
+              type: string
+            description:
+              type: string
+            cnfCondition:
+              type: array
+              items:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttributeMatcher'
+    MetadataRoleList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataRole'
+        nextLink:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

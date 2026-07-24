@@ -1,0 +1,285 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Data Sources API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Data Sources
+  description: Operations for managing data source registrations
+paths:
+  /scan/datasources/{dataSourceName}:
+    put:
+      operationId: createOrReplaceDataSource
+      summary: Microsoft Purview Create or replace a data source
+      description: Creates or replaces a data source registration in the Purview account.
+      tags:
+      - Data Sources
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        description: The name of the data source
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataSource'
+      responses:
+        '200':
+          description: Data source updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSource'
+        '201':
+          description: Data source created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSource'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getDataSource
+      summary: Microsoft Purview Get a data source
+      description: Gets a data source by name.
+      tags:
+      - Data Sources
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        description: The name of the data source
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Data source retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSource'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Data source not found
+    delete:
+      operationId: deleteDataSource
+      summary: Microsoft Purview Delete a data source
+      description: Deletes a data source registration.
+      tags:
+      - Data Sources
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        description: The name of the data source
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Data source deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSource'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Data source not found
+  /scan/datasources:
+    get:
+      operationId: listDataSources
+      summary: Microsoft Purview List data sources
+      description: Lists data sources in Data catalog.
+      tags:
+      - Data Sources
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Data sources listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataSourceList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    DataSource:
+      type: object
+      description: A registered data source
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        kind:
+          type: string
+          description: The data source type
+          enum:
+          - AzureSubscription
+          - AzureResourceGroup
+          - AzureSynapseWorkspace
+          - AzureSynapse
+          - AdlsGen1
+          - AdlsGen2
+          - AmazonAccount
+          - AmazonS3
+          - AmazonSql
+          - AzureCosmosDb
+          - AzureDataExplorer
+          - AzureFileService
+          - AzureSqlDatabase
+          - AzureSqlDatabaseManagedInstance
+          - AzureSqlDataWarehouse
+          - AzureMySql
+          - AzurePostgreSql
+          - AzureStorage
+          - Teradata
+          - Oracle
+          - SapS4Hana
+          - SapEcc
+          - PowerBI
+        properties:
+          type: object
+          description: Data source properties
+          properties:
+            endpoint:
+              type: string
+            resourceGroup:
+              type: string
+            subscriptionId:
+              type: string
+            location:
+              type: string
+            resourceName:
+              type: string
+            resourceId:
+              type: string
+            collection:
+              $ref: '#/components/schemas/CollectionReference'
+            dataSourceCollectionMovingState:
+              type: integer
+              format: int32
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+        scans:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scan'
+    DataSourceList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSource'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    Scan:
+      type: object
+      description: A scan configuration
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        kind:
+          type: string
+          description: The scan type
+        properties:
+          type: object
+          properties:
+            scanRulesetName:
+              type: string
+            scanRulesetType:
+              type: string
+              enum:
+              - Custom
+              - System
+            collection:
+              $ref: '#/components/schemas/CollectionReference'
+            connectedVia:
+              $ref: '#/components/schemas/ConnectedVia'
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+            lastScheduled:
+              type: string
+              format: date-time
+    CollectionReference:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        type:
+          type: string
+    ConnectedVia:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        integrationRuntimeType:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

@@ -1,0 +1,837 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Entity API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Entity
+  description: Operations for managing catalog entities
+paths:
+  /api/atlas/v2/entity:
+    post:
+      operationId: createOrUpdateEntity
+      summary: Microsoft Purview Create or update an entity
+      description: Create or update an entity. Existing entity is matched using its unique guid if supplied or by its unique attributes such as qualifiedName.
+      tags:
+      - Entity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AtlasEntityWithExtInfo'
+      responses:
+        '200':
+          description: Entity created or updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityMutationResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /api/atlas/v2/entity/guid/{guid}:
+    get:
+      operationId: getEntityByGuid
+      summary: Microsoft Purview Get entity by GUID
+      description: Get complete definition of an entity given its GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        description: The globally unique identifier of the entity
+        schema:
+          type: string
+          format: uuid
+      - name: minExtInfo
+        in: query
+        description: Whether to return minimal information for referred entities
+        schema:
+          type: boolean
+          default: false
+      - name: ignoreRelationships
+        in: query
+        description: Whether to ignore relationships
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Entity retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtlasEntityWithExtInfo'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Entity not found
+    delete:
+      operationId: deleteEntityByGuid
+      summary: Microsoft Purview Delete an entity by GUID
+      description: Delete an entity identified by its GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        description: The globally unique identifier of the entity
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Entity deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityMutationResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Entity not found
+  /api/atlas/v2/entity/bulk:
+    get:
+      operationId: listEntitiesByGuids
+      summary: Microsoft Purview List entities by GUIDs
+      description: List entities in bulk identified by their GUIDs.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: query
+        required: true
+        description: List of GUIDs of entities to retrieve
+        schema:
+          type: array
+          items:
+            type: string
+      - name: minExtInfo
+        in: query
+        description: Whether to return minimal information for referred entities
+        schema:
+          type: boolean
+          default: false
+      - name: ignoreRelationships
+        in: query
+        description: Whether to ignore relationships
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Entities retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtlasEntitiesWithExtInfo'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: bulkCreateOrUpdateEntities
+      summary: Microsoft Purview Create or update entities in bulk
+      description: Create or update entities in bulk. Existing entity is matched using its unique guid if supplied or by its unique attributes.
+      tags:
+      - Entity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AtlasEntitiesWithExtInfo'
+      responses:
+        '200':
+          description: Entities created or updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityMutationResponse'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: bulkDeleteEntities
+      summary: Microsoft Purview Delete entities in bulk
+      description: Delete a list of entities in bulk identified by their GUIDs or unique attributes.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: query
+        required: true
+        description: List of GUIDs of entities to delete
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: Entities deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityMutationResponse'
+        '401':
+          description: Unauthorized
+  /api/atlas/v2/entity/guid/{guid}/classification/{classificationName}:
+    get:
+      operationId: getEntityClassification
+      summary: Microsoft Purview Get classification for entity
+      description: Get classification for a given entity represented by a GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        description: The globally unique identifier of the entity
+        schema:
+          type: string
+          format: uuid
+      - name: classificationName
+        in: path
+        required: true
+        description: The name of the classification
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Classification retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtlasClassification'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+    delete:
+      operationId: removeEntityClassification
+      summary: Microsoft Purview Remove classification from entity
+      description: Delete a given classification from an existing entity represented by a GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: classificationName
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Classification removed successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /api/atlas/v2/entity/guid/{guid}/classifications:
+    get:
+      operationId: listEntityClassifications
+      summary: Microsoft Purview List classifications for entity
+      description: List classifications for a given entity represented by a GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        description: The globally unique identifier of the entity
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Classifications retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtlasClassifications'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+    post:
+      operationId: addEntityClassifications
+      summary: Microsoft Purview Add classifications to entity
+      description: Add classifications to an existing entity represented by a GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AtlasClassification'
+      responses:
+        '204':
+          description: Classifications added successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    put:
+      operationId: updateEntityClassifications
+      summary: Microsoft Purview Update classifications on entity
+      description: Update classifications to an existing entity represented by a GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AtlasClassification'
+      responses:
+        '204':
+          description: Classifications updated successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /api/atlas/v2/entity/guid/{guid}/labels:
+    post:
+      operationId: addEntityLabels
+      summary: Microsoft Purview Add labels to entity
+      description: Add given labels to a given entity identified by its GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '204':
+          description: Labels added successfully
+        '401':
+          description: Unauthorized
+    put:
+      operationId: setEntityLabels
+      summary: Microsoft Purview Set labels on entity
+      description: Set labels to a given entity identified by its GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '204':
+          description: Labels set successfully
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: removeEntityLabels
+      summary: Microsoft Purview Remove labels from entity
+      description: Delete given labels from a given entity identified by its GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+      responses:
+        '204':
+          description: Labels removed successfully
+        '401':
+          description: Unauthorized
+  /api/atlas/v2/entity/bulk/setClassifications:
+    post:
+      operationId: bulkSetClassifications
+      summary: Microsoft Purview Set classifications on entities in bulk
+      description: Set classifications on entities in bulk.
+      tags:
+      - Entity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AtlasEntityHeaders'
+      responses:
+        '200':
+          description: Classifications set successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        '401':
+          description: Unauthorized
+  /api/atlas/v2/entity/guid/{guid}/businessmetadata:
+    post:
+      operationId: addOrUpdateBusinessMetadata
+      summary: Microsoft Purview Add or update business metadata on entity
+      description: Add business metadata to an entity.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: isOverwrite
+        in: query
+        description: Whether to overwrite existing business metadata
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+      responses:
+        '204':
+          description: Business metadata added successfully
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: removeBusinessMetadata
+      summary: Microsoft Purview Remove business metadata from entity
+      description: Remove business metadata from an entity.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: object
+      responses:
+        '204':
+          description: Business metadata removed successfully
+        '401':
+          description: Unauthorized
+  /api/atlas/v2/entity/bulk/collection/{collectionId}:
+    post:
+      operationId: moveEntitiesToCollection
+      summary: Microsoft Purview Move entities to collection
+      description: Move existing entities to the target collection.
+      tags:
+      - Entity
+      parameters:
+      - name: collectionId
+        in: path
+        required: true
+        description: The collection identifier
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveEntitiesRequest'
+      responses:
+        '200':
+          description: Entities moved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityMutationResponse'
+        '401':
+          description: Unauthorized
+  /api/atlas/v2/entity/guid/{guid}/header:
+    get:
+      operationId: entityGetHeader
+      summary: Microsoft Purview Get entity header
+      description: Get entity header given its GUID.
+      tags:
+      - Entity
+      parameters:
+      - name: guid
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Entity header retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AtlasEntityHeader_2'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+components:
+  schemas:
+    TimeBoundary:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
+    AtlasClassification:
+      type: object
+      description: A classification instance
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        entityGuid:
+          type: string
+          format: uuid
+        entityStatus:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        propagate:
+          type: boolean
+        removePropagationsOnEntityDelete:
+          type: boolean
+        validityPeriods:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeBoundary'
+    MoveEntitiesRequest:
+      type: object
+      properties:
+        entityGuids:
+          type: array
+          items:
+            type: string
+            format: uuid
+    AtlasEntityWithExtInfo:
+      type: object
+      description: An instance of an entity along with extended info
+      properties:
+        entity:
+          $ref: '#/components/schemas/AtlasEntity'
+        referredEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntity'
+    AtlasTermAssignmentHeader:
+      type: object
+      properties:
+        confidence:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        description:
+          type: string
+        displayText:
+          type: string
+        expression:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - DISCOVERED
+          - PROPOSED
+          - IMPORTED
+          - VALIDATED
+          - DEPRECATED
+          - OBSOLETE
+          - OTHER
+        steward:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
+    AtlasEntitiesWithExtInfo:
+      type: object
+      description: A collection of entities with extended info
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasEntity'
+        referredEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntity'
+    AtlasEntityHeader:
+      type: object
+      description: An instance of an entity header
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        classificationNames:
+          type: array
+          items:
+            type: string
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasClassification'
+        displayText:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        labels:
+          type: array
+          items:
+            type: string
+        meaningNames:
+          type: array
+          items:
+            type: string
+        meanings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTermAssignmentHeader'
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+    AtlasEntityHeaders:
+      type: object
+      description: Collection of entity headers for bulk operations
+      properties:
+        guidHeaderMap:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntityHeader'
+    AtlasClassifications:
+      type: object
+      description: A paginated list of classifications
+      properties:
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasClassification'
+        pageSize:
+          type: integer
+          format: int32
+        sortBy:
+          type: string
+        sortType:
+          type: string
+        startIndex:
+          type: integer
+          format: int64
+        totalCount:
+          type: integer
+          format: int64
+    EntityMutationResponse:
+      type: object
+      description: The mutation response result of an entity operation
+      properties:
+        guidAssignments:
+          type: object
+          additionalProperties:
+            type: string
+        mutatedEntities:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/AtlasEntityHeader'
+        partialUpdatedEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasEntityHeader'
+    AtlasEntity:
+      type: object
+      description: An instance of an entity along with extended info such as classification and referenced entities
+      properties:
+        attributes:
+          type: object
+          description: The attributes of the entity
+          additionalProperties: true
+        typeName:
+          type: string
+          description: The name of the type
+        lastModifiedTS:
+          type: string
+          description: ETag for concurrency control
+        businessAttributes:
+          type: object
+          additionalProperties: true
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasClassification'
+        createTime:
+          type: integer
+          format: int64
+        createdBy:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        homeId:
+          type: string
+        labels:
+          type: array
+          items:
+            type: string
+        meanings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTermAssignmentHeader'
+        provenanceType:
+          type: integer
+          format: int32
+        proxy:
+          type: boolean
+        relationshipAttributes:
+          type: object
+          additionalProperties: true
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        updateTime:
+          type: integer
+          format: int64
+        updatedBy:
+          type: string
+        version:
+          type: integer
+          format: int64
+        collectionId:
+          type: string
+    AtlasEntityHeader_2:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        classificationNames:
+          type: array
+          items:
+            type: string
+        displayText:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        labels:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

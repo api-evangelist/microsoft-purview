@@ -1,0 +1,223 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Scan Result API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Scan Result
+  description: Operations for running scans and viewing scan results
+paths:
+  /scan/datasources/{dataSourceName}/scans/{scanName}/runs/{runId}:
+    put:
+      operationId: runScan
+      summary: Microsoft Purview Run a scan
+      description: Runs the scan for a data source.
+      tags:
+      - Scan Result
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: scanName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: runId
+        in: path
+        required: true
+        description: The unique identifier for the scan run
+        schema:
+          type: string
+          format: uuid
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      - name: scanLevel
+        in: query
+        description: The level of scan (Full or Incremental)
+        schema:
+          type: string
+          enum:
+          - Full
+          - Incremental
+      responses:
+        '202':
+          description: Scan run accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '401':
+          description: Unauthorized
+  /scan/datasources/{dataSourceName}/scans/{scanName}/runs/{runId}/:cancel:
+    post:
+      operationId: cancelScan
+      summary: Microsoft Purview Cancel a scan run
+      description: Cancels a running scan.
+      tags:
+      - Scan Result
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: scanName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: runId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '202':
+          description: Scan cancellation accepted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '401':
+          description: Unauthorized
+  /scan/datasources/{dataSourceName}/scans/{scanName}/runs:
+    get:
+      operationId: listScanHistory
+      summary: Microsoft Purview List scan history
+      description: Lists the scan history of a scan.
+      tags:
+      - Scan Result
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: scanName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan history retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanResultList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ScanResult:
+      type: object
+      description: The result of a scan run
+      properties:
+        parentId:
+          type: string
+        id:
+          type: string
+        resourceId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Accepted
+          - InProgress
+          - TransientFailure
+          - Succeeded
+          - Failed
+          - Canceled
+        assetsDiscovered:
+          type: integer
+          format: int64
+        assetsClassified:
+          type: integer
+          format: int64
+        diagnostics:
+          type: object
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        scanRulesetVersion:
+          type: integer
+          format: int32
+        scanRulesetType:
+          type: string
+          enum:
+          - Custom
+          - System
+        scanLevelType:
+          type: string
+          enum:
+          - Full
+          - Incremental
+        errorMessage:
+          type: string
+    OperationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+    ScanResultList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScanResult'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

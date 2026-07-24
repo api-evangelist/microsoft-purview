@@ -1,0 +1,184 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Scan Rulesets API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Scan Rulesets
+  description: Operations for managing scan rulesets
+paths:
+  /scan/scanrulesets/{scanRulesetName}:
+    put:
+      operationId: createOrReplaceScanRuleset
+      summary: Microsoft Purview Create or replace a scan ruleset
+      description: Creates or replaces a scan ruleset.
+      tags:
+      - Scan Rulesets
+      parameters:
+      - name: scanRulesetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScanRuleset'
+      responses:
+        '200':
+          description: Scan ruleset updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanRuleset'
+        '201':
+          description: Scan ruleset created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanRuleset'
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getScanRuleset
+      summary: Microsoft Purview Get a scan ruleset
+      description: Gets a scan ruleset by name.
+      tags:
+      - Scan Rulesets
+      parameters:
+      - name: scanRulesetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan ruleset retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanRuleset'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Scan ruleset not found
+    delete:
+      operationId: deleteScanRuleset
+      summary: Microsoft Purview Delete a scan ruleset
+      description: Deletes a scan ruleset.
+      tags:
+      - Scan Rulesets
+      parameters:
+      - name: scanRulesetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan ruleset deleted successfully
+        '401':
+          description: Unauthorized
+  /scan/scanrulesets:
+    get:
+      operationId: listScanRulesets
+      summary: Microsoft Purview List scan rulesets
+      description: Lists scan rulesets in the account.
+      tags:
+      - Scan Rulesets
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan rulesets listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanRulesetList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ScanRulesetList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScanRuleset'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    ScanRuleset:
+      type: object
+      description: A scan ruleset configuration
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        kind:
+          type: string
+        properties:
+          type: object
+          properties:
+            description:
+              type: string
+            includedCustomClassificationRuleNames:
+              type: array
+              items:
+                type: string
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

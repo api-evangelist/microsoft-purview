@@ -1,0 +1,134 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Critical Data Elements API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Critical Data Elements
+  description: Operations for managing critical data elements
+paths:
+  /criticaldataelements:
+    get:
+      operationId: listCriticalDataElements
+      summary: Microsoft Purview List critical data elements
+      description: List all critical data elements in the Purview unified catalog.
+      tags:
+      - Critical Data Elements
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2024-03-01-preview
+      - name: maxpagesize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: Critical data elements listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CriticalDataElementList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createCriticalDataElement
+      summary: Microsoft Purview Create a critical data element
+      description: Create a new critical data element definition.
+      tags:
+      - Critical Data Elements
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2024-03-01-preview
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriticalDataElement'
+      responses:
+        '201':
+          description: Critical data element created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CriticalDataElement'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    CriticalDataElement:
+      type: object
+      description: A critical data element definition
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        businessDomainId:
+          type: string
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/GovernanceContact'
+        status:
+          type: string
+          enum:
+          - Draft
+          - Published
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    GovernanceContact:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        displayName:
+          type: string
+        mail:
+          type: string
+          format: email
+    CriticalDataElementList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/CriticalDataElement'
+        nextLink:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

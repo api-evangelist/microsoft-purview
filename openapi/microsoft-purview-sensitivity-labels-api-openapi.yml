@@ -1,65 +1,48 @@
 openapi: 3.1.0
 info:
-  title: Microsoft Purview Information Protection API
-  description: >-
-    APIs for accessing and managing sensitivity labels through Microsoft Graph.
-    Enables applications to apply, update, and delete sensitivity labels,
-    evaluate label actions, and enforce information protection policies
-    programmatically.
-  version: v1.0
+  title: Microsoft Purview Account Accounts Sensitivity Labels API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
   contact:
     name: Microsoft Purview Support
-    url: https://learn.microsoft.com/en-us/graph/security-information-protection-overview
+    url: https://learn.microsoft.com/en-us/purview/
   license:
     name: Microsoft API License
     url: https://azure.microsoft.com/en-us/support/legal/
 servers:
-  - url: https://graph.microsoft.com/v1.0
-    description: Microsoft Graph v1.0 endpoint
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
 security:
-  - oauth2: []
+- oauth2: []
 tags:
-  - name: Label Policy Settings
-    description: Operations for managing label policy settings
-  - name: Sensitivity Labels
-    description: Operations for managing sensitivity labels
+- name: Sensitivity Labels
+  description: Operations for accessing tenant-level sensitivity labels
 paths:
-  /security/informationProtection/sensitivityLabels:
+  /security/dataSecurityAndGovernance/sensitivityLabels:
     get:
-      operationId: listSensitivityLabels
-      summary: Microsoft Purview List sensitivity labels
-      description: >-
-        Get a list of sensitivity labels available to the signed-in user or
-        the organization.
+      operationId: listTenantSensitivityLabels
+      summary: Microsoft Purview List tenant sensitivity labels
+      description: List the sensitivity labels available for the entire tenant. When using application permissions, returns all labels for the tenant by default.
       tags:
-        - Sensitivity Labels
+      - Sensitivity Labels
       parameters:
-        - name: $top
-          in: query
-          schema:
-            type: integer
-            format: int32
-        - name: $skip
-          in: query
-          schema:
-            type: integer
-            format: int32
-        - name: $filter
-          in: query
-          schema:
-            type: string
-        - name: $select
-          in: query
-          schema:
-            type: string
-        - name: $orderby
-          in: query
-          schema:
-            type: string
-        - name: $count
-          in: query
-          schema:
-            type: boolean
+      - name: $top
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: $filter
+        in: query
+        schema:
+          type: string
+      - name: $select
+        in: query
+        schema:
+          type: string
+      - name: $count
+        in: query
+        schema:
+          type: boolean
       responses:
         '200':
           description: Sensitivity labels listed successfully
@@ -81,19 +64,19 @@ paths:
           description: Unauthorized
         '403':
           description: Forbidden
-  /security/informationProtection/sensitivityLabels/{sensitivityLabelId}:
+  /security/dataSecurityAndGovernance/sensitivityLabels/{sensitivityLabelId}:
     get:
-      operationId: getSensitivityLabel
-      summary: Microsoft Purview Get a sensitivity label
-      description: Get a sensitivity label by its identifier.
+      operationId: getTenantSensitivityLabel
+      summary: Microsoft Purview Get a tenant sensitivity label
+      description: Get a sensitivity label by its identifier at the tenant level.
       tags:
-        - Sensitivity Labels
+      - Sensitivity Labels
       parameters:
-        - name: sensitivityLabelId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: sensitivityLabelId
+        in: path
+        required: true
+        schema:
+          type: string
       responses:
         '200':
           description: Sensitivity label retrieved successfully
@@ -104,60 +87,41 @@ paths:
         '401':
           description: Unauthorized
         '404':
-          description: Sensitivity label not found
-  /users/{userId}/security/informationProtection/sensitivityLabels:
+          description: Not found
+  /security/informationProtection/sensitivityLabels:
     get:
-      operationId: listUserSensitivityLabels
-      summary: Microsoft Purview List sensitivity labels for user
-      description: Get a list of sensitivity labels available to a specific user.
+      operationId: listSensitivityLabels
+      summary: Microsoft Purview List sensitivity labels
+      description: Get a list of sensitivity labels available to the signed-in user or the organization.
       tags:
-        - Sensitivity Labels
+      - Sensitivity Labels
       parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: $top
-          in: query
-          schema:
-            type: integer
-            format: int32
-        - name: $filter
-          in: query
-          schema:
-            type: string
-      responses:
-        '200':
-          description: User sensitivity labels listed successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  value:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/SensitivityLabel'
-        '401':
-          description: Unauthorized
-  /me/security/informationProtection/sensitivityLabels:
-    get:
-      operationId: listMySensitivityLabels
-      summary: Microsoft Purview List my sensitivity labels
-      description: Get a list of sensitivity labels available to the signed-in user.
-      tags:
-        - Sensitivity Labels
-      parameters:
-        - name: $top
-          in: query
-          schema:
-            type: integer
-            format: int32
-        - name: $filter
-          in: query
-          schema:
-            type: string
+      - name: $top
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: $skip
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: $filter
+        in: query
+        schema:
+          type: string
+      - name: $select
+        in: query
+        schema:
+          type: string
+      - name: $orderby
+        in: query
+        schema:
+          type: string
+      - name: $count
+        in: query
+        schema:
+          type: boolean
       responses:
         '200':
           description: Sensitivity labels listed successfully
@@ -169,18 +133,114 @@ paths:
                   value:
                     type: array
                     items:
-                      $ref: '#/components/schemas/SensitivityLabel'
+                      $ref: '#/components/schemas/SensitivityLabel_2'
+                  '@odata.nextLink':
+                    type: string
+                  '@odata.count':
+                    type: integer
+                    format: int64
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /security/informationProtection/sensitivityLabels/{sensitivityLabelId}:
+    get:
+      operationId: getSensitivityLabel
+      summary: Microsoft Purview Get a sensitivity label
+      description: Get a sensitivity label by its identifier.
+      tags:
+      - Sensitivity Labels
+      parameters:
+      - name: sensitivityLabelId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Sensitivity label retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SensitivityLabel_2'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Sensitivity label not found
+  /users/{userId}/security/informationProtection/sensitivityLabels:
+    get:
+      operationId: listUserSensitivityLabels
+      summary: Microsoft Purview List sensitivity labels for user
+      description: Get a list of sensitivity labels available to a specific user.
+      tags:
+      - Sensitivity Labels
+      parameters:
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: $top
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: $filter
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User sensitivity labels listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SensitivityLabel_2'
+        '401':
+          description: Unauthorized
+  /me/security/informationProtection/sensitivityLabels:
+    get:
+      operationId: listMySensitivityLabels
+      summary: Microsoft Purview List my sensitivity labels
+      description: Get a list of sensitivity labels available to the signed-in user.
+      tags:
+      - Sensitivity Labels
+      parameters:
+      - name: $top
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: $filter
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Sensitivity labels listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SensitivityLabel_2'
         '401':
           description: Unauthorized
   /security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateApplication:
     post:
       operationId: evaluateApplication
       summary: Microsoft Purview Evaluate sensitivity label application
-      description: >-
-        Compute the sensitivity label that should be applied and return the set
-        of actions that must be taken to correctly label the information.
+      description: Compute the sensitivity label that should be applied and return the set of actions that must be taken to correctly label the information.
       tags:
-        - Sensitivity Labels
+      - Sensitivity Labels
       requestBody:
         required: true
         content:
@@ -210,11 +270,9 @@ paths:
     post:
       operationId: evaluateRemoval
       summary: Microsoft Purview Evaluate sensitivity label removal
-      description: >-
-        Indicate to the consuming application what actions should be taken to
-        remove the label information.
+      description: Indicate to the consuming application what actions should be taken to remove the label information.
       tags:
-        - Sensitivity Labels
+      - Sensitivity Labels
       requestBody:
         required: true
         content:
@@ -244,11 +302,9 @@ paths:
     post:
       operationId: evaluateClassificationResults
       summary: Microsoft Purview Evaluate classification results
-      description: >-
-        Using classification results, compute the sensitivity label that should
-        be applied and the set of actions that must be taken.
+      description: Using classification results, compute the sensitivity label that should be applied and the set of actions that must be taken.
       tags:
-        - Sensitivity Labels
+      - Sensitivity Labels
       requestBody:
         required: true
         content:
@@ -282,18 +338,18 @@ paths:
       summary: Microsoft Purview Assign sensitivity label to drive item
       description: Asynchronously assign a sensitivity label to a file in SharePoint or OneDrive.
       tags:
-        - Sensitivity Labels
+      - Sensitivity Labels
       parameters:
-        - name: driveId
-          in: path
-          required: true
-          schema:
-            type: string
-        - name: driveItemId
-          in: path
-          required: true
-          schema:
-            type: string
+      - name: driveId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: driveItemId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         required: true
         content:
@@ -305,7 +361,10 @@ paths:
                   type: string
                 assignmentMethod:
                   type: string
-                  enum: [standard, privileged, auto]
+                  enum:
+                  - standard
+                  - privileged
+                  - auto
                 justificationText:
                   type: string
       responses:
@@ -318,36 +377,34 @@ paths:
                 type: string
         '401':
           description: Unauthorized
-  /security/informationProtection/labelPolicySettings:
-    get:
-      operationId: getLabelPolicySettings
-      summary: Microsoft Purview Get label policy settings
-      description: Read the properties and relationships of an informationProtectionPolicySetting object.
-      tags:
-        - Label Policy Settings
-      responses:
-        '200':
-          description: Label policy settings retrieved successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InformationProtectionPolicySetting'
-        '401':
-          description: Unauthorized
 components:
-  securitySchemes:
-    oauth2:
-      type: oauth2
-      description: Microsoft Identity Platform OAuth2
-      flows:
-        authorizationCode:
-          authorizationUrl: https://login.microsoftonline.com/common/oauth2/v2.0/authorize
-          tokenUrl: https://login.microsoftonline.com/common/oauth2/v2.0/token
-          scopes:
-            InformationProtectionPolicy.Read: Read information protection policies
-            InformationProtectionPolicy.Read.All: Read all information protection policies
   schemas:
-    SensitivityLabel:
+    DowngradeJustification:
+      type: object
+      properties:
+        isDowngradeJustified:
+          type: boolean
+        justificationMessage:
+          type: string
+    KeyValuePair:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+    ClassificationResult:
+      type: object
+      properties:
+        sensitiveTypeId:
+          type: string
+        confidenceLevel:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+    SensitivityLabel_2:
       type: object
       description: A sensitivity label for information protection
       properties:
@@ -382,6 +439,52 @@ components:
               type: string
             name:
               type: string
+    SensitivityLabel:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        description:
+          type: string
+        color:
+          type: string
+        sensitivity:
+          type: integer
+          format: int32
+        tooltip:
+          type: string
+        isActive:
+          type: boolean
+        isAppliable:
+          type: boolean
+        contentFormats:
+          type: array
+          items:
+            type: string
+        hasProtection:
+          type: boolean
+    InformationProtectionAction:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
+    LabelingOptions:
+      type: object
+      properties:
+        assignmentMethod:
+          type: string
+          enum:
+          - standard
+          - privileged
+          - auto
+        labelId:
+          type: string
+          format: uuid
+        downgradeJustification:
+          $ref: '#/components/schemas/DowngradeJustification'
     ContentInfo:
       type: object
       properties:
@@ -391,63 +494,20 @@ components:
           type: string
         state:
           type: string
-          enum: [rest, motion, use]
+          enum:
+          - rest
+          - motion
+          - use
         metadata:
           type: array
           items:
             $ref: '#/components/schemas/KeyValuePair'
-    KeyValuePair:
-      type: object
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-    LabelingOptions:
-      type: object
-      properties:
-        assignmentMethod:
-          type: string
-          enum: [standard, privileged, auto]
-        labelId:
-          type: string
-          format: uuid
-        downgradeJustification:
-          $ref: '#/components/schemas/DowngradeJustification'
-    DowngradeJustification:
-      type: object
-      properties:
-        isDowngradeJustified:
-          type: boolean
-        justificationMessage:
-          type: string
-    ClassificationResult:
-      type: object
-      properties:
-        sensitiveTypeId:
-          type: string
-        confidenceLevel:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
-    InformationProtectionAction:
-      type: object
-      properties:
-        '@odata.type':
-          type: string
-    InformationProtectionPolicySetting:
-      type: object
-      properties:
-        id:
-          type: string
-          readOnly: true
-        moreInfoUrl:
-          type: string
-        isMandatory:
-          type: boolean
-        isDowngradeJustificationRequired:
-          type: boolean
-        defaultLabelId:
-          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

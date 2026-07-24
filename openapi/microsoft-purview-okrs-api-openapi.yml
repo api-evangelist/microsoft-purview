@@ -1,0 +1,126 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts OKRs API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: OKRs
+  description: Operations for managing Objectives and Key Results
+paths:
+  /okrs:
+    get:
+      operationId: listOKRs
+      summary: Microsoft Purview List OKRs
+      description: List all Objectives and Key Results in the Purview unified catalog.
+      tags:
+      - OKRs
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2024-03-01-preview
+      - name: maxpagesize
+        in: query
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OKRs listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OKRList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createOKR
+      summary: Microsoft Purview Create an OKR
+      description: Create a new Objective and Key Result.
+      tags:
+      - OKRs
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2024-03-01-preview
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OKR'
+      responses:
+        '201':
+          description: OKR created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OKR'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    OKR:
+      type: object
+      description: An Objective and Key Result
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        businessDomainId:
+          type: string
+        type:
+          type: string
+          enum:
+          - Objective
+          - KeyResult
+        parentOkrId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Draft
+          - Published
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    OKRList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/OKR'
+        nextLink:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

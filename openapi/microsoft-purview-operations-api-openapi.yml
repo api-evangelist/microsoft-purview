@@ -1,0 +1,90 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Operations API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Operations
+  description: Operations available on the Purview resource provider
+paths:
+  /providers/Microsoft.Purview/operations:
+    get:
+      operationId: listOperations
+      summary: Microsoft Purview List available operations
+      description: Lists the available operations for the Purview resource provider.
+      tags:
+      - Operations
+      parameters:
+      - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Operations listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    Operation:
+      type: object
+      properties:
+        display:
+          type: object
+          properties:
+            description:
+              type: string
+            operation:
+              type: string
+            provider:
+              type: string
+            resource:
+              type: string
+        isDataAction:
+          type: boolean
+        name:
+          type: string
+        origin:
+          type: string
+    OperationList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+  parameters:
+    ApiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version
+      schema:
+        type: string
+        default: '2021-12-01'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

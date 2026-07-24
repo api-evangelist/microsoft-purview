@@ -1,0 +1,100 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Approval API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Approval
+  description: Operations for approving or rejecting workflow tasks
+paths:
+  /approvals/{taskId}/approve:
+    post:
+      operationId: approveApproval
+      summary: Microsoft Purview Approve a workflow approval task
+      description: Approve an approval task in a workflow.
+      tags:
+      - Approval
+      parameters:
+      - name: taskId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2023-10-01-preview
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+                  description: The approval comment
+      responses:
+        '200':
+          description: Approval approved successfully
+        '401':
+          description: Unauthorized
+  /approvals/{taskId}/reject:
+    post:
+      operationId: rejectApproval
+      summary: Microsoft Purview Reject a workflow approval task
+      description: Reject an approval task in a workflow.
+      tags:
+      - Approval
+      parameters:
+      - name: taskId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2023-10-01-preview
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+                  description: The rejection reason
+      responses:
+        '200':
+          description: Approval rejected successfully
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

@@ -1,0 +1,94 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Protection Scopes API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Protection Scopes
+  description: Operations for computing protection scopes
+paths:
+  /security/dataSecurityAndGovernance/protectionScopes/microsoft.graph.security.computeProtectionScopes:
+    post:
+      operationId: computeProtectionScopes
+      summary: Microsoft Purview Compute protection scopes
+      description: Compute the protection scopes applicable to content to determine which DLP policies should be enforced.
+      tags:
+      - Protection Scopes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contentInfo:
+                  $ref: '#/components/schemas/ContentInfo'
+      responses:
+        '200':
+          description: Protection scopes computed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ProtectionScope'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ContentInfo:
+      type: object
+      properties:
+        contentFormat:
+          type: string
+        identifier:
+          type: string
+        state:
+          type: string
+          enum:
+          - rest
+          - motion
+          - use
+        metadata:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    ProtectionScope:
+      type: object
+      properties:
+        id:
+          type: string
+        scopeType:
+          type: string
+        policyId:
+          type: string
+        policyName:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

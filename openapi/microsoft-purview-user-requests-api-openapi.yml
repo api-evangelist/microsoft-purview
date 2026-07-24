@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts User Requests API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: User Requests
+  description: Operations for submitting user requests
+paths:
+  /userrequests:
+    post:
+      operationId: submitUserRequest
+      summary: Microsoft Purview Submit a user request
+      description: Submit a user request to trigger a workflow.
+      tags:
+      - User Requests
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2023-10-01-preview
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequestPayload'
+      responses:
+        '200':
+          description: User request submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRequestResponse'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    UserRequestResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        workflowRunIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+    UserRequestPayload:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              payload:
+                type: object
+        comment:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

@@ -1,0 +1,134 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Legal Holds API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Legal Holds
+  description: Operations for managing legal holds
+paths:
+  /security/cases/ediscoveryCases/{ediscoveryCaseId}/legalHolds:
+    get:
+      operationId: listLegalHolds
+      summary: Microsoft Purview List legal holds
+      description: Get the list of legal holds associated with an eDiscovery case.
+      tags:
+      - Legal Holds
+      parameters:
+      - name: ediscoveryCaseId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Legal holds listed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/EdiscoveryHoldPolicy'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createLegalHold
+      summary: Microsoft Purview Create a legal hold
+      description: Create a legal hold policy within an eDiscovery case.
+      tags:
+      - Legal Holds
+      parameters:
+      - name: ediscoveryCaseId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EdiscoveryHoldPolicy'
+      responses:
+        '201':
+          description: Legal hold created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EdiscoveryHoldPolicy'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    EdiscoveryHoldPolicy:
+      type: object
+      description: A legal hold policy
+      properties:
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+        description:
+          type: string
+        isEnabled:
+          type: boolean
+        status:
+          type: string
+          enum:
+          - pending
+          - error
+          - success
+          - unknownFutureValue
+          readOnly: true
+        contentQuery:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+    IdentitySet:
+      type: object
+      properties:
+        application:
+          $ref: '#/components/schemas/Identity'
+        device:
+          $ref: '#/components/schemas/Identity'
+        user:
+          $ref: '#/components/schemas/Identity'
+    Identity:
+      type: object
+      properties:
+        displayName:
+          type: string
+        id:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

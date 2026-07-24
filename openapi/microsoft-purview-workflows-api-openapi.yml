@@ -1,0 +1,98 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Workflows API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Workflows
+  description: Operations for listing workflows
+paths:
+  /workflows:
+    get:
+      operationId: listWorkflows
+      summary: Microsoft Purview List all workflows
+      description: List all workflows in the Purview account.
+      tags:
+      - Workflows
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2023-10-01-preview
+      responses:
+        '200':
+          description: Workflows listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    WorkflowTrigger:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - when_term_creation_is_requested
+          - when_term_deletion_is_requested
+          - when_term_update_is_requested
+          - when_data_access_grant_is_requested
+          - when_asset_update_is_requested
+        underGlossaryHierarchy:
+          type: string
+        underCollection:
+          type: string
+    Workflow:
+      type: object
+      description: A workflow definition
+      properties:
+        id:
+          type: string
+          format: uuid
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowTrigger'
+        name:
+          type: string
+        isEnabled:
+          type: boolean
+        description:
+          type: string
+        actionDag:
+          type: object
+          description: The directed acyclic graph of actions
+    WorkflowList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workflow'
+        nextLink:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

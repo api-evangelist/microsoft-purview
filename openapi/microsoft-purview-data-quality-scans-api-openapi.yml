@@ -1,0 +1,86 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Data Quality Scans API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Data Quality Scans
+  description: Operations for running data quality scans
+paths:
+  /dataquality/scans:
+    post:
+      operationId: runDataQualityScan
+      summary: Microsoft Purview Run a data quality scan
+      description: Initiate a data quality scan to evaluate rules against data assets.
+      tags:
+      - Data Quality Scans
+      parameters:
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2024-03-01-preview
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataQualityScanRequest'
+      responses:
+        '202':
+          description: Data quality scan initiated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityScanResult'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    DataQualityScanRequest:
+      type: object
+      properties:
+        assetIds:
+          type: array
+          items:
+            type: string
+        ruleIds:
+          type: array
+          items:
+            type: string
+    DataQualityScanResult:
+      type: object
+      properties:
+        scanId:
+          type: string
+        status:
+          type: string
+          enum:
+          - Accepted
+          - InProgress
+          - Completed
+          - Failed
+        startTime:
+          type: string
+          format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

@@ -1,0 +1,187 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts DLP Policies API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: DLP Policies
+  description: Operations for evaluating DLP policies on content
+paths:
+  /security/dataSecurityAndGovernance/sensitivityLabels/microsoft.graph.security.evaluateApplication:
+    post:
+      operationId: evaluateDlpApplication
+      summary: Microsoft Purview Evaluate DLP application for content
+      description: Evaluate which DLP policies apply to the given content and compute the set of actions that should be taken.
+      tags:
+      - DLP Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contentInfo:
+                  $ref: '#/components/schemas/ContentInfo'
+                labelingOptions:
+                  $ref: '#/components/schemas/LabelingOptions'
+      responses:
+        '200':
+          description: DLP evaluation result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  value:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InformationProtectionAction'
+        '401':
+          description: Unauthorized
+  /security/dataSecurityAndGovernance/processContent:
+    post:
+      operationId: processContent
+      summary: Microsoft Purview Process content for DLP
+      description: Process content through DLP pipeline to evaluate and enforce data loss prevention policies at runtime.
+      tags:
+      - DLP Policies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                contentInfo:
+                  $ref: '#/components/schemas/ContentInfo'
+                classificationResults:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/ClassificationResult'
+      responses:
+        '200':
+          description: Content processed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  actions:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DlpAction'
+                  matchedRules:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DlpMatchedRule'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ClassificationResult:
+      type: object
+      properties:
+        sensitiveTypeId:
+          type: string
+        confidenceLevel:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+    InformationProtectionAction:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
+    DlpAction:
+      type: object
+      properties:
+        actionType:
+          type: string
+          enum:
+          - notifyUser
+          - blockAccess
+          - auditOnly
+          - encrypt
+          - applyLabel
+        description:
+          type: string
+        policyId:
+          type: string
+    ContentInfo:
+      type: object
+      properties:
+        contentFormat:
+          type: string
+        identifier:
+          type: string
+        state:
+          type: string
+          enum:
+          - rest
+          - motion
+          - use
+        metadata:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    DlpMatchedRule:
+      type: object
+      properties:
+        ruleId:
+          type: string
+        ruleName:
+          type: string
+        policyId:
+          type: string
+        policyName:
+          type: string
+        severity:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DlpAction'
+    LabelingOptions:
+      type: object
+      properties:
+        assignmentMethod:
+          type: string
+          enum:
+          - standard
+          - privileged
+          - auto
+        labelId:
+          type: string
+          format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

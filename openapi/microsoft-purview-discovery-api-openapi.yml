@@ -1,0 +1,241 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Discovery API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Discovery
+  description: Operations for searching and discovering data assets
+paths:
+  /api/search/query:
+    post:
+      operationId: searchQuery
+      summary: Microsoft Purview Search data assets
+      description: Get data using search.
+      tags:
+      - Discovery
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+      responses:
+        '200':
+          description: Search results retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResult'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /api/search/suggest:
+    post:
+      operationId: searchSuggest
+      summary: Microsoft Purview Get search suggestions
+      description: Get search suggestions by query criteria.
+      tags:
+      - Discovery
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SuggestRequest'
+      responses:
+        '200':
+          description: Suggestions retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuggestResult'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /api/search/autocomplete:
+    post:
+      operationId: searchAutoComplete
+      summary: Microsoft Purview Get auto complete options
+      description: Get auto complete options for search.
+      tags:
+      - Discovery
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AutoCompleteRequest'
+      responses:
+        '200':
+          description: Auto complete results retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoCompleteResult'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    TermSearchResultValue:
+      type: object
+      properties:
+        name:
+          type: string
+        glossaryName:
+          type: string
+        guid:
+          type: string
+          format: uuid
+    AutoCompleteResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutoCompleteResultValue'
+    SearchResult:
+      type: object
+      description: Search result
+      properties:
+        searchCount:
+          type: integer
+          format: int32
+        searchFacets:
+          type: object
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResultValue'
+    AutoCompleteRequest:
+      type: object
+      properties:
+        keywords:
+          type: string
+        limit:
+          type: integer
+          format: int32
+        filter:
+          type: object
+    SearchResultValue:
+      type: object
+      properties:
+        searchScore:
+          type: number
+          format: float
+        searchHighlights:
+          type: object
+        objectType:
+          type: string
+        createTime:
+          type: integer
+          format: int64
+        updateTime:
+          type: integer
+          format: int64
+        id:
+          type: string
+        name:
+          type: string
+        qualifiedName:
+          type: string
+        entityType:
+          type: string
+        description:
+          type: string
+        classification:
+          type: array
+          items:
+            type: string
+        label:
+          type: array
+          items:
+            type: string
+        term:
+          type: array
+          items:
+            $ref: '#/components/schemas/TermSearchResultValue'
+        owner:
+          type: string
+        assetType:
+          type: array
+          items:
+            type: string
+    SearchFacetItem:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        facet:
+          type: string
+        sort:
+          type: object
+    SearchRequest:
+      type: object
+      description: Search request payload
+      properties:
+        keywords:
+          type: string
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        filter:
+          type: object
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchFacetItem'
+        taxonomySetting:
+          type: object
+    AutoCompleteResultValue:
+      type: object
+      properties:
+        text:
+          type: string
+        queryPlusText:
+          type: string
+    SuggestResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResultValue'
+    SuggestRequest:
+      type: object
+      properties:
+        keywords:
+          type: string
+        limit:
+          type: integer
+          format: int32
+        filter:
+          type: object
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

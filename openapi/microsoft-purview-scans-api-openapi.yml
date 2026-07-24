@@ -1,0 +1,237 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Scans API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Scans
+  description: Operations for managing scan configurations
+paths:
+  /scan/datasources/{dataSourceName}/scans/{scanName}:
+    put:
+      operationId: createOrReplaceScan
+      summary: Microsoft Purview Create or replace a scan
+      description: Creates or replaces an instance of a scan for a given data source.
+      tags:
+      - Scans
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        description: The name of the data source
+        schema:
+          type: string
+      - name: scanName
+        in: path
+        required: true
+        description: The name of the scan
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Scan'
+      responses:
+        '200':
+          description: Scan updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '201':
+          description: Scan created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getScan
+      summary: Microsoft Purview Get a scan
+      description: Gets a scan information for a given data source.
+      tags:
+      - Scans
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: scanName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Scan not found
+    delete:
+      operationId: deleteScan
+      summary: Microsoft Purview Delete a scan
+      description: Deletes the scan associated with the data source.
+      tags:
+      - Scans
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: scanName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Scan deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scan'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Scan not found
+  /scan/datasources/{dataSourceName}/scans:
+    get:
+      operationId: listScansByDataSource
+      summary: Microsoft Purview List scans by data source
+      description: Lists scans in a data source.
+      tags:
+      - Scans
+      parameters:
+      - name: dataSourceName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2023-09-01'
+      responses:
+        '200':
+          description: Scans listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScanList'
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    ScanList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scan'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    CollectionReference:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        type:
+          type: string
+    ConnectedVia:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        integrationRuntimeType:
+          type: string
+    Scan:
+      type: object
+      description: A scan configuration
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+        kind:
+          type: string
+          description: The scan type
+        properties:
+          type: object
+          properties:
+            scanRulesetName:
+              type: string
+            scanRulesetType:
+              type: string
+              enum:
+              - Custom
+              - System
+            collection:
+              $ref: '#/components/schemas/CollectionReference'
+            connectedVia:
+              $ref: '#/components/schemas/ConnectedVia'
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+            lastScheduled:
+              type: string
+              format: date-time
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

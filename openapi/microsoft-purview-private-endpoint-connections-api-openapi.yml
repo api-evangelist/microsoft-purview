@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Private Endpoint Connections API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Private Endpoint Connections
+  description: Operations for managing private endpoint connections
+paths:
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections
+  : get:
+      operationId: listPrivateEndpointConnections
+      summary: Microsoft Purview List private endpoint connections
+      description: Gets private endpoint connections for the Purview account.
+      tags:
+      - Private Endpoint Connections
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/AccountName'
+      - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Private endpoint connections listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateEndpointConnectionList'
+        '401':
+          description: Unauthorized
+  ? /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Purview/accounts/{accountName}/privateEndpointConnections/{privateEndpointConnectionName}
+  : get:
+      operationId: getPrivateEndpointConnection
+      summary: Microsoft Purview Get a private endpoint connection
+      description: Gets a private endpoint connection for the Purview account.
+      tags:
+      - Private Endpoint Connections
+      parameters:
+      - $ref: '#/components/parameters/SubscriptionId'
+      - $ref: '#/components/parameters/ResourceGroupName'
+      - $ref: '#/components/parameters/AccountName'
+      - name: privateEndpointConnectionName
+        in: path
+        required: true
+        schema:
+          type: string
+      - $ref: '#/components/parameters/ApiVersion'
+      responses:
+        '200':
+          description: Private endpoint connection retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrivateEndpointConnection'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+components:
+  schemas:
+    PrivateEndpointConnection:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
+        properties:
+          type: object
+          properties:
+            privateEndpoint:
+              type: object
+              properties:
+                id:
+                  type: string
+            privateLinkServiceConnectionState:
+              type: object
+              properties:
+                actionsRequired:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                  enum:
+                  - Unknown
+                  - Pending
+                  - Approved
+                  - Rejected
+                  - Disconnected
+            provisioningState:
+              type: string
+              readOnly: true
+        type:
+          type: string
+          readOnly: true
+    PrivateEndpointConnectionList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivateEndpointConnection'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+  parameters:
+    ResourceGroupName:
+      name: resourceGroupName
+      in: path
+      required: true
+      description: The resource group name
+      schema:
+        type: string
+    ApiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version
+      schema:
+        type: string
+        default: '2021-12-01'
+    AccountName:
+      name: accountName
+      in: path
+      required: true
+      description: The name of the Purview account
+      schema:
+        type: string
+    SubscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The Azure subscription ID
+      schema:
+        type: string
+        format: uuid
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager

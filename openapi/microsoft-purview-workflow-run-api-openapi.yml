@@ -1,0 +1,135 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Account Accounts Workflow Run API
+  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
+  version: 2021-12-01
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+- url: https://management.azure.com
+  description: Azure Resource Manager endpoint
+security:
+- oauth2: []
+tags:
+- name: Workflow Run
+  description: Operations for managing workflow runs
+paths:
+  /workflowruns/{workflowRunId}:
+    get:
+      operationId: getWorkflowRun
+      summary: Microsoft Purview Get a workflow run
+      description: Get a workflow run by its identifier.
+      tags:
+      - Workflow Run
+      parameters:
+      - name: workflowRunId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2023-10-01-preview
+      responses:
+        '200':
+          description: Workflow run retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRun'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow run not found
+  /workflowruns/{workflowRunId}/cancel:
+    post:
+      operationId: cancelWorkflowRun
+      summary: Microsoft Purview Cancel a workflow run
+      description: Cancel a running workflow run.
+      tags:
+      - Workflow Run
+      parameters:
+      - name: workflowRunId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: api-version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: 2023-10-01-preview
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+                  description: The reason for cancellation
+      responses:
+        '200':
+          description: Workflow run cancelled successfully
+        '401':
+          description: Unauthorized
+components:
+  schemas:
+    WorkflowRun:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        workflowId:
+          type: string
+          format: uuid
+        startTime:
+          type: string
+          format: date-time
+        requestor:
+          type: string
+          format: uuid
+        userRequestId:
+          type: string
+          format: uuid
+        runPayload:
+          type: object
+        status:
+          type: string
+          enum:
+          - InProgress
+          - Completed
+          - Canceling
+          - CancellationFailed
+          - Cancelled
+          - Failed
+          - NotStarted
+        endTime:
+          type: string
+          format: date-time
+        cancelTime:
+          type: string
+          format: date-time
+        cancelComment:
+          type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://management.azure.com/.default: Access Azure Resource Manager
