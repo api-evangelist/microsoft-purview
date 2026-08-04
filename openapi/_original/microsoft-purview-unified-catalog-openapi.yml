@@ -1,0 +1,657 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Unified Catalog API
+  description: >-
+    APIs for programmatically integrating and managing the Microsoft Purview
+    Unified Catalog. Supports operations on business domains, glossary terms,
+    data products, OKRs, critical data elements, and data access policies.
+  version: 2024-03-01-preview
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+  - url: https://{accountName}.purview.azure.com
+    description: Microsoft Purview Unified Catalog API endpoint
+    variables:
+      accountName:
+        description: The name of the Microsoft Purview account
+        default: myaccount
+security:
+  - oauth2: []
+tags:
+  - name: Business Domains
+    description: Operations for managing business domains
+  - name: Critical Data Elements
+    description: Operations for managing critical data elements
+  - name: Data Products
+    description: Operations for managing data products
+  - name: Glossary Terms
+    description: Operations for managing glossary terms in the unified catalog
+  - name: OKRs
+    description: Operations for managing Objectives and Key Results
+paths:
+  /businessdomains:
+    get:
+      operationId: listBusinessDomains
+      summary: Microsoft Purview List business domains
+      description: List all business domains in the Purview unified catalog.
+      tags:
+        - Business Domains
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+        - name: maxpagesize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: skipToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Business domains listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessDomainList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createBusinessDomain
+      summary: Microsoft Purview Create a business domain
+      description: Create a new business domain in the unified catalog.
+      tags:
+        - Business Domains
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessDomain'
+      responses:
+        '201':
+          description: Business domain created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessDomain'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /businessdomains/{businessDomainId}:
+    get:
+      operationId: getBusinessDomain
+      summary: Microsoft Purview Get a business domain
+      description: Get a business domain by its identifier.
+      tags:
+        - Business Domains
+      parameters:
+        - name: businessDomainId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      responses:
+        '200':
+          description: Business domain retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessDomain'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+    patch:
+      operationId: updateBusinessDomain
+      summary: Microsoft Purview Update a business domain
+      description: Update a business domain by its identifier.
+      tags:
+        - Business Domains
+      parameters:
+        - name: businessDomainId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BusinessDomain'
+      responses:
+        '200':
+          description: Business domain updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BusinessDomain'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteBusinessDomain
+      summary: Microsoft Purview Delete a business domain
+      description: Delete a business domain by its identifier.
+      tags:
+        - Business Domains
+      parameters:
+        - name: businessDomainId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      responses:
+        '204':
+          description: Business domain deleted successfully
+        '401':
+          description: Unauthorized
+  /dataproducts:
+    get:
+      operationId: listDataProducts
+      summary: Microsoft Purview List data products
+      description: List all data products in the Purview unified catalog.
+      tags:
+        - Data Products
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+        - name: maxpagesize
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Data products listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataProductList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createDataProduct
+      summary: Microsoft Purview Create a data product
+      description: Create a new data product in the unified catalog.
+      tags:
+        - Data Products
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataProduct'
+      responses:
+        '201':
+          description: Data product created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataProduct'
+        '401':
+          description: Unauthorized
+  /dataproducts/{dataProductId}:
+    get:
+      operationId: getDataProduct
+      summary: Microsoft Purview Get a data product
+      description: Get a data product by its identifier.
+      tags:
+        - Data Products
+      parameters:
+        - name: dataProductId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      responses:
+        '200':
+          description: Data product retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataProduct'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+    patch:
+      operationId: updateDataProduct
+      summary: Microsoft Purview Update a data product
+      description: Update a data product by its identifier.
+      tags:
+        - Data Products
+      parameters:
+        - name: dataProductId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataProduct'
+      responses:
+        '200':
+          description: Data product updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataProduct'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteDataProduct
+      summary: Microsoft Purview Delete a data product
+      description: Delete a data product by its identifier.
+      tags:
+        - Data Products
+      parameters:
+        - name: dataProductId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      responses:
+        '204':
+          description: Data product deleted successfully
+        '401':
+          description: Unauthorized
+  /glossaryterms:
+    get:
+      operationId: listUnifiedGlossaryTerms
+      summary: Microsoft Purview List glossary terms
+      description: List glossary terms in the Purview unified catalog.
+      tags:
+        - Glossary Terms
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+        - name: maxpagesize
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Glossary terms listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlossaryTermList'
+        '401':
+          description: Unauthorized
+  /okrs:
+    get:
+      operationId: listOKRs
+      summary: Microsoft Purview List OKRs
+      description: List all Objectives and Key Results in the Purview unified catalog.
+      tags:
+        - OKRs
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+        - name: maxpagesize
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: OKRs listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OKRList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createOKR
+      summary: Microsoft Purview Create an OKR
+      description: Create a new Objective and Key Result.
+      tags:
+        - OKRs
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OKR'
+      responses:
+        '201':
+          description: OKR created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OKR'
+        '401':
+          description: Unauthorized
+  /criticaldataelements:
+    get:
+      operationId: listCriticalDataElements
+      summary: Microsoft Purview List critical data elements
+      description: List all critical data elements in the Purview unified catalog.
+      tags:
+        - Critical Data Elements
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+        - name: maxpagesize
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Critical data elements listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CriticalDataElementList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createCriticalDataElement
+      summary: Microsoft Purview Create a critical data element
+      description: Create a new critical data element definition.
+      tags:
+        - Critical Data Elements
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CriticalDataElement'
+      responses:
+        '201':
+          description: Critical data element created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CriticalDataElement'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://purview.azure.net/.default: Access Microsoft Purview
+  schemas:
+    BusinessDomain:
+      type: object
+      description: A business domain in the unified catalog
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/GovernanceContact'
+        stewards:
+          type: array
+          items:
+            $ref: '#/components/schemas/GovernanceContact'
+        parentDomainId:
+          type: string
+        status:
+          type: string
+          enum: [Draft, Published, Expired]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    BusinessDomainList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/BusinessDomain'
+        nextLink:
+          type: string
+    DataProduct:
+      type: object
+      description: A data product in the unified catalog
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        businessDomainId:
+          type: string
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/GovernanceContact'
+        status:
+          type: string
+          enum: [Draft, Published, Expired]
+        dataAssets:
+          type: array
+          items:
+            type: object
+            properties:
+              assetId:
+                type: string
+              assetType:
+                type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    DataProductList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataProduct'
+        nextLink:
+          type: string
+    GlossaryTermList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              description:
+                type: string
+              status:
+                type: string
+              businessDomainId:
+                type: string
+        nextLink:
+          type: string
+    OKR:
+      type: object
+      description: An Objective and Key Result
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        businessDomainId:
+          type: string
+        type:
+          type: string
+          enum: [Objective, KeyResult]
+        parentOkrId:
+          type: string
+        status:
+          type: string
+          enum: [Draft, Published]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    OKRList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/OKR'
+        nextLink:
+          type: string
+    CriticalDataElement:
+      type: object
+      description: A critical data element definition
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        businessDomainId:
+          type: string
+        owners:
+          type: array
+          items:
+            $ref: '#/components/schemas/GovernanceContact'
+        status:
+          type: string
+          enum: [Draft, Published]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    CriticalDataElementList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/CriticalDataElement'
+        nextLink:
+          type: string
+    GovernanceContact:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        displayName:
+          type: string
+        mail:
+          type: string
+          format: email

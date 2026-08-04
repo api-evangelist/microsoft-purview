@@ -1,0 +1,540 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Data Quality API
+  description: >-
+    APIs for programmatically interacting with data quality rules, measuring data
+    quality, and retrieving data quality scores for data assets. Supports data
+    profiling, rule management, and quality assessment operations.
+  version: 2024-03-01-preview
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+  - url: https://{accountName}.purview.azure.com
+    description: Microsoft Purview Data Quality API endpoint
+    variables:
+      accountName:
+        description: The name of the Microsoft Purview account
+        default: myaccount
+security:
+  - oauth2: []
+tags:
+  - name: Data Profiling
+    description: Operations for data profiling operations
+  - name: Data Quality Rules
+    description: Operations for managing data quality rules
+  - name: Data Quality Scans
+    description: Operations for running data quality scans
+  - name: Data Quality Scores
+    description: Operations for retrieving data quality scores
+paths:
+  /dataquality/rules:
+    get:
+      operationId: listDataQualityRules
+      summary: Microsoft Purview List data quality rules
+      description: List all data quality rules configured in the Purview account.
+      tags:
+        - Data Quality Rules
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+        - name: maxpagesize
+          in: query
+          schema:
+            type: integer
+            format: int32
+        - name: skipToken
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Data quality rules listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityRuleList'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createDataQualityRule
+      summary: Microsoft Purview Create a data quality rule
+      description: Create a new data quality rule for evaluating data assets.
+      tags:
+        - Data Quality Rules
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataQualityRule'
+      responses:
+        '201':
+          description: Data quality rule created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityRule'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /dataquality/rules/{ruleId}:
+    get:
+      operationId: getDataQualityRule
+      summary: Microsoft Purview Get a data quality rule
+      description: Get a data quality rule by its identifier.
+      tags:
+        - Data Quality Rules
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      responses:
+        '200':
+          description: Data quality rule retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityRule'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Rule not found
+    patch:
+      operationId: updateDataQualityRule
+      summary: Microsoft Purview Update a data quality rule
+      description: Update an existing data quality rule.
+      tags:
+        - Data Quality Rules
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataQualityRule'
+      responses:
+        '200':
+          description: Data quality rule updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityRule'
+        '401':
+          description: Unauthorized
+    delete:
+      operationId: deleteDataQualityRule
+      summary: Microsoft Purview Delete a data quality rule
+      description: Delete a data quality rule by its identifier.
+      tags:
+        - Data Quality Rules
+      parameters:
+        - name: ruleId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      responses:
+        '204':
+          description: Data quality rule deleted successfully
+        '401':
+          description: Unauthorized
+  /dataquality/scores:
+    get:
+      operationId: listDataQualityScores
+      summary: Microsoft Purview List data quality scores
+      description: Retrieve data quality scores for data assets.
+      tags:
+        - Data Quality Scores
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+        - name: assetId
+          in: query
+          description: Filter scores by data asset identifier
+          schema:
+            type: string
+        - name: maxpagesize
+          in: query
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: Data quality scores retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityScoreList'
+        '401':
+          description: Unauthorized
+  /dataquality/scores/{scoreId}:
+    get:
+      operationId: getDataQualityScore
+      summary: Microsoft Purview Get a data quality score
+      description: Get a specific data quality score by its identifier.
+      tags:
+        - Data Quality Scores
+      parameters:
+        - name: scoreId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      responses:
+        '200':
+          description: Data quality score retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityScore'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Score not found
+  /dataquality/profiling/{assetId}:
+    post:
+      operationId: runDataProfiling
+      summary: Microsoft Purview Run data profiling
+      description: Initiate data profiling for a specific data asset.
+      tags:
+        - Data Profiling
+      parameters:
+        - name: assetId
+          in: path
+          required: true
+          description: The data asset identifier
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProfilingRequest'
+      responses:
+        '202':
+          description: Data profiling initiated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfilingResult'
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getDataProfilingResult
+      summary: Microsoft Purview Get data profiling result
+      description: Get data profiling results for a specific data asset.
+      tags:
+        - Data Profiling
+      parameters:
+        - name: assetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      responses:
+        '200':
+          description: Data profiling result retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfilingResult'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /dataquality/scans:
+    post:
+      operationId: runDataQualityScan
+      summary: Microsoft Purview Run a data quality scan
+      description: Initiate a data quality scan to evaluate rules against data assets.
+      tags:
+        - Data Quality Scans
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2024-03-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataQualityScanRequest'
+      responses:
+        '202':
+          description: Data quality scan initiated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataQualityScanResult'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://purview.azure.net/.default: Access Microsoft Purview
+  schemas:
+    DataQualityRule:
+      type: object
+      description: A data quality rule definition
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        ruleType:
+          type: string
+          enum: [Completeness, Uniqueness, Freshness, Accuracy, Consistency, Validity]
+        expression:
+          type: string
+        dimension:
+          type: string
+        severity:
+          type: string
+          enum: [Low, Medium, High, Critical]
+        isEnabled:
+          type: boolean
+        targetAssets:
+          type: array
+          items:
+            type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    DataQualityRuleList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataQualityRule'
+        nextLink:
+          type: string
+    DataQualityScore:
+      type: object
+      description: A data quality score for a data asset
+      properties:
+        id:
+          type: string
+        assetId:
+          type: string
+        assetName:
+          type: string
+        overallScore:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 100
+        dimensionScores:
+          type: object
+          properties:
+            completeness:
+              type: number
+              format: float
+            uniqueness:
+              type: number
+              format: float
+            freshness:
+              type: number
+              format: float
+            accuracy:
+              type: number
+              format: float
+            consistency:
+              type: number
+              format: float
+            validity:
+              type: number
+              format: float
+        evaluatedAt:
+          type: string
+          format: date-time
+        ruleResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/RuleResult'
+    RuleResult:
+      type: object
+      properties:
+        ruleId:
+          type: string
+        ruleName:
+          type: string
+        status:
+          type: string
+          enum: [Passed, Failed, Error, NotApplicable]
+        score:
+          type: number
+          format: float
+        details:
+          type: string
+    DataQualityScoreList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataQualityScore'
+        nextLink:
+          type: string
+    ProfilingRequest:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: string
+        sampleSize:
+          type: integer
+          format: int32
+    ProfilingResult:
+      type: object
+      properties:
+        assetId:
+          type: string
+        status:
+          type: string
+          enum: [InProgress, Completed, Failed]
+        profiledAt:
+          type: string
+          format: date-time
+        rowCount:
+          type: integer
+          format: int64
+        columnProfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnProfile'
+    ColumnProfile:
+      type: object
+      properties:
+        columnName:
+          type: string
+        dataType:
+          type: string
+        nullCount:
+          type: integer
+          format: int64
+        nullPercentage:
+          type: number
+          format: float
+        distinctCount:
+          type: integer
+          format: int64
+        minValue:
+          type: string
+        maxValue:
+          type: string
+        meanValue:
+          type: string
+        standardDeviation:
+          type: number
+          format: double
+        topValues:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              count:
+                type: integer
+                format: int64
+    DataQualityScanRequest:
+      type: object
+      properties:
+        assetIds:
+          type: array
+          items:
+            type: string
+        ruleIds:
+          type: array
+          items:
+            type: string
+    DataQualityScanResult:
+      type: object
+      properties:
+        scanId:
+          type: string
+        status:
+          type: string
+          enum: [Accepted, InProgress, Completed, Failed]
+        startTime:
+          type: string
+          format: date-time

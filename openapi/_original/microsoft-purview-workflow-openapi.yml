@@ -1,0 +1,601 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Purview Workflow API
+  description: >-
+    APIs for managing workflows and approval processes for data governance tasks.
+    Supports defining custom approval workflows for glossary term management and
+    other governance operations within Purview.
+  version: 2023-10-01-preview
+  contact:
+    name: Microsoft Purview Support
+    url: https://learn.microsoft.com/en-us/purview/
+  license:
+    name: Microsoft API License
+    url: https://azure.microsoft.com/en-us/support/legal/
+servers:
+  - url: https://{accountName}.purview.azure.com/workflow
+    description: Microsoft Purview Workflow API endpoint
+    variables:
+      accountName:
+        description: The name of the Microsoft Purview account
+        default: myaccount
+security:
+  - oauth2: []
+tags:
+  - name: Approval
+    description: Operations for approving or rejecting workflow tasks
+  - name: User Requests
+    description: Operations for submitting user requests
+  - name: Workflow
+    description: Operations for managing individual workflows
+  - name: Workflow Run
+    description: Operations for managing workflow runs
+  - name: Workflow Task
+    description: Operations for managing workflow tasks
+  - name: Workflows
+    description: Operations for listing workflows
+paths:
+  /workflows:
+    get:
+      operationId: listWorkflows
+      summary: Microsoft Purview List all workflows
+      description: List all workflows in the Purview account.
+      tags:
+        - Workflows
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      responses:
+        '200':
+          description: Workflows listed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowList'
+        '401':
+          description: Unauthorized
+  /workflows/{workflowId}:
+    put:
+      operationId: createOrReplaceWorkflow
+      summary: Microsoft Purview Create or replace a workflow
+      description: Create or replace a workflow definition.
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          description: The workflow identifier
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowCreateOrUpdateCommand'
+      responses:
+        '200':
+          description: Workflow created or updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workflow'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getWorkflow
+      summary: Microsoft Purview Get a workflow
+      description: Get a specific workflow by its identifier.
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      responses:
+        '200':
+          description: Workflow retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workflow'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow not found
+    delete:
+      operationId: deleteWorkflow
+      summary: Microsoft Purview Delete a workflow
+      description: Delete a workflow by its identifier.
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      responses:
+        '204':
+          description: Workflow deleted successfully
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow not found
+  /workflows/{workflowId}/validate:
+    post:
+      operationId: validateWorkflow
+      summary: Microsoft Purview Validate a workflow
+      description: Validate a workflow definition without creating it.
+      tags:
+        - Workflow
+      parameters:
+        - name: workflowId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowCreateOrUpdateCommand'
+      responses:
+        '200':
+          description: Workflow validation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationResult'
+        '401':
+          description: Unauthorized
+  /workflowruns/{workflowRunId}:
+    get:
+      operationId: getWorkflowRun
+      summary: Microsoft Purview Get a workflow run
+      description: Get a workflow run by its identifier.
+      tags:
+        - Workflow Run
+      parameters:
+        - name: workflowRunId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      responses:
+        '200':
+          description: Workflow run retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowRun'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow run not found
+  /workflowruns/{workflowRunId}/cancel:
+    post:
+      operationId: cancelWorkflowRun
+      summary: Microsoft Purview Cancel a workflow run
+      description: Cancel a running workflow run.
+      tags:
+        - Workflow Run
+      parameters:
+        - name: workflowRunId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+                  description: The reason for cancellation
+      responses:
+        '200':
+          description: Workflow run cancelled successfully
+        '401':
+          description: Unauthorized
+  /workflowtasks/{taskId}:
+    get:
+      operationId: getWorkflowTask
+      summary: Microsoft Purview Get a workflow task
+      description: Get a workflow task by its identifier.
+      tags:
+        - Workflow Task
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      responses:
+        '200':
+          description: Workflow task retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowTask'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow task not found
+  /workflowtasks/{taskId}/reassign:
+    post:
+      operationId: reassignWorkflowTask
+      summary: Microsoft Purview Reassign a workflow task
+      description: Reassign a workflow task to a different user.
+      tags:
+        - Workflow Task
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                reassignments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      reassignFrom:
+                        type: string
+                        format: uuid
+                      reassignTo:
+                        type: string
+                        format: uuid
+      responses:
+        '200':
+          description: Task reassigned successfully
+        '401':
+          description: Unauthorized
+  /approvals/{taskId}/approve:
+    post:
+      operationId: approveApproval
+      summary: Microsoft Purview Approve a workflow approval task
+      description: Approve an approval task in a workflow.
+      tags:
+        - Approval
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+                  description: The approval comment
+      responses:
+        '200':
+          description: Approval approved successfully
+        '401':
+          description: Unauthorized
+  /approvals/{taskId}/reject:
+    post:
+      operationId: rejectApproval
+      summary: Microsoft Purview Reject a workflow approval task
+      description: Reject an approval task in a workflow.
+      tags:
+        - Approval
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  type: string
+                  description: The rejection reason
+      responses:
+        '200':
+          description: Approval rejected successfully
+        '401':
+          description: Unauthorized
+  /userrequests:
+    post:
+      operationId: submitUserRequest
+      summary: Microsoft Purview Submit a user request
+      description: Submit a user request to trigger a workflow.
+      tags:
+        - User Requests
+      parameters:
+        - name: api-version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2023-10-01-preview'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRequestPayload'
+      responses:
+        '200':
+          description: User request submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRequestResponse'
+        '401':
+          description: Unauthorized
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: Azure Active Directory OAuth2 authentication
+      flows:
+        clientCredentials:
+          tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
+          scopes:
+            https://purview.azure.net/.default: Access Microsoft Purview
+  schemas:
+    Workflow:
+      type: object
+      description: A workflow definition
+      properties:
+        id:
+          type: string
+          format: uuid
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowTrigger'
+        name:
+          type: string
+        isEnabled:
+          type: boolean
+        description:
+          type: string
+        actionDag:
+          type: object
+          description: The directed acyclic graph of actions
+    WorkflowCreateOrUpdateCommand:
+      type: object
+      properties:
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowTrigger'
+        name:
+          type: string
+        isEnabled:
+          type: boolean
+        description:
+          type: string
+        actionDag:
+          type: object
+    WorkflowTrigger:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - when_term_creation_is_requested
+            - when_term_deletion_is_requested
+            - when_term_update_is_requested
+            - when_data_access_grant_is_requested
+            - when_asset_update_is_requested
+        underGlossaryHierarchy:
+          type: string
+        underCollection:
+          type: string
+    WorkflowList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workflow'
+        nextLink:
+          type: string
+    WorkflowRun:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        workflowId:
+          type: string
+          format: uuid
+        startTime:
+          type: string
+          format: date-time
+        requestor:
+          type: string
+          format: uuid
+        userRequestId:
+          type: string
+          format: uuid
+        runPayload:
+          type: object
+        status:
+          type: string
+          enum: [InProgress, Completed, Canceling, CancellationFailed, Cancelled, Failed, NotStarted]
+        endTime:
+          type: string
+          format: date-time
+        cancelTime:
+          type: string
+          format: date-time
+        cancelComment:
+          type: string
+    WorkflowTask:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        workflowRunId:
+          type: string
+          format: uuid
+        workflowId:
+          type: string
+          format: uuid
+        requestor:
+          type: string
+          format: uuid
+        title:
+          type: string
+        createdTime:
+          type: string
+          format: date-time
+        lastUpdateTime:
+          type: string
+          format: date-time
+        payload:
+          type: object
+        reminderInfo:
+          type: object
+        expiryInfo:
+          type: object
+        type:
+          type: string
+          enum: [Approval, SimpleTask]
+        status:
+          type: string
+          enum: [InProgress, Pending, Completed, Cancelled]
+    UserRequestPayload:
+      type: object
+      properties:
+        operations:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              payload:
+                type: object
+        comment:
+          type: string
+    UserRequestResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        workflowRunIds:
+          type: array
+          items:
+            type: string
+            format: uuid
+    ValidationResult:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              severity:
+                type: string
+              message:
+                type: string
