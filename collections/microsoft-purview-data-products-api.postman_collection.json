@@ -1,0 +1,914 @@
+{
+  "item": [
+    {
+      "id": "c13c5a82-91ae-445c-9ce5-977c225be355",
+      "name": "Data Products",
+      "description": {
+        "content": "Operations for managing data products",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "34270637-92eb-441d-bc24-5cccf8c046ca",
+          "name": "Microsoft Purview List data products",
+          "request": {
+            "name": "Microsoft Purview List data products",
+            "description": {
+              "content": "List all data products in the Purview unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "84bcc40e-3252-49e3-a01a-ffad98305a33",
+              "name": "Data products listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"54828ae0-da66-403e-c325-d1c775258e7d\",\n          \"displayName\": \"string\",\n          \"mail\": \"koRb5YX@WfCVZVZtOidDqFztvuhRJKev.yui\"\n        },\n        {\n          \"id\": \"a9f43b23-41a6-2d39-132b-43288537392b\",\n          \"displayName\": \"string\",\n          \"mail\": \"pU2zN2vsHo@uFFAYVIBGxhZHU.bge\"\n        }\n      ],\n      \"status\": \"Draft\",\n      \"dataAssets\": [\n        {\n          \"assetId\": \"string\",\n          \"assetType\": \"string\"\n        },\n        {\n          \"assetId\": \"string\",\n          \"assetType\": \"string\"\n        }\n      ],\n      \"createdAt\": \"1958-01-05T10:36:07.044Z\",\n      \"updatedAt\": \"2021-03-26T03:16:30.025Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"ca9f0527-81b2-8852-5492-fec5719934aa\",\n          \"displayName\": \"string\",\n          \"mail\": \"AKCNT7HN@UMUKMWIzfGdqvcranXHbzeFWA.zwgi\"\n        },\n        {\n          \"id\": \"af686862-78bb-3c3d-8c6a-182374bf6055\",\n          \"displayName\": \"string\",\n          \"mail\": \"pNx@HNNWYxn.pgj\"\n        }\n      ],\n      \"status\": \"Expired\",\n      \"dataAssets\": [\n        {\n          \"assetId\": \"string\",\n          \"assetType\": \"string\"\n        },\n        {\n          \"assetId\": \"string\",\n          \"assetType\": \"string\"\n        }\n      ],\n      \"createdAt\": \"1983-09-29T03:18:45.115Z\",\n      \"updatedAt\": \"1991-11-26T02:36:46.072Z\"\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cae20ae3-e5f0-434a-ac7d-ca5ce834ff6c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "764e0d4e-4915-4c2e-9930-a094613bb2da",
+          "name": "Microsoft Purview Create a data product",
+          "request": {
+            "name": "Microsoft Purview Create a data product",
+            "description": {
+              "content": "Create a new data product in the unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "635b12da-19ce-42b4-9233-89a51cd965bf",
+              "name": "Data product created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"b2d47f31-5e3e-8799-e566-fd78f06d61a1\",\n      \"displayName\": \"string\",\n      \"mail\": \"sLKRHH@BQiDxQkKgVStYe.kva\"\n    },\n    {\n      \"id\": \"f5282283-599a-f948-7fa8-ec7e55cf3f54\",\n      \"displayName\": \"string\",\n      \"mail\": \"I48dVw6@Ti.vew\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"businessDomainId\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"1cead40c-1617-f35c-5085-e723ba597c64\",\n      \"displayName\": \"string\",\n      \"mail\": \"I0E3L8mS@tDjxNxKJopZUbNZCOvAOqmYmmK.rb\"\n    },\n    {\n      \"id\": \"a4cdac28-6bc1-808c-b0c8-188ab08df308\",\n      \"displayName\": \"string\",\n      \"mail\": \"hmRcvp2oQ@yz.vhtx\"\n    }\n  ],\n  \"status\": \"Draft\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    },\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    }\n  ],\n  \"createdAt\": \"1977-02-16T19:49:21.886Z\",\n  \"updatedAt\": \"2001-01-14T02:44:41.003Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2be6e441-d473-42f3-b26d-1d055f9cd384",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"b2d47f31-5e3e-8799-e566-fd78f06d61a1\",\n      \"displayName\": \"string\",\n      \"mail\": \"sLKRHH@BQiDxQkKgVStYe.kva\"\n    },\n    {\n      \"id\": \"f5282283-599a-f948-7fa8-ec7e55cf3f54\",\n      \"displayName\": \"string\",\n      \"mail\": \"I48dVw6@Ti.vew\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdfc0194-9e4e-4e78-b325-bb8321fe73fc",
+          "name": "Microsoft Purview Get a data product",
+          "request": {
+            "name": "Microsoft Purview Get a data product",
+            "description": {
+              "content": "Get a data product by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts",
+                ":dataProductId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataProductId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "111634d2-e549-4874-9488-8a6a6b4ee3f2",
+              "name": "Data product retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"businessDomainId\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"1cead40c-1617-f35c-5085-e723ba597c64\",\n      \"displayName\": \"string\",\n      \"mail\": \"I0E3L8mS@tDjxNxKJopZUbNZCOvAOqmYmmK.rb\"\n    },\n    {\n      \"id\": \"a4cdac28-6bc1-808c-b0c8-188ab08df308\",\n      \"displayName\": \"string\",\n      \"mail\": \"hmRcvp2oQ@yz.vhtx\"\n    }\n  ],\n  \"status\": \"Draft\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    },\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    }\n  ],\n  \"createdAt\": \"1977-02-16T19:49:21.886Z\",\n  \"updatedAt\": \"2001-01-14T02:44:41.003Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14267425-27bb-4ea9-81ed-6d7333472c19",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fcc5a96c-ad0d-4ae7-989a-febb210866c2",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1efbda0a-66ea-4283-aa1f-ac13efe28956",
+          "name": "Microsoft Purview Update a data product",
+          "request": {
+            "name": "Microsoft Purview Update a data product",
+            "description": {
+              "content": "Update a data product by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts",
+                ":dataProductId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataProductId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1ff1e0b2-51dc-49f3-b569-752ac0425de1",
+              "name": "Data product updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"b2d47f31-5e3e-8799-e566-fd78f06d61a1\",\n      \"displayName\": \"string\",\n      \"mail\": \"sLKRHH@BQiDxQkKgVStYe.kva\"\n    },\n    {\n      \"id\": \"f5282283-599a-f948-7fa8-ec7e55cf3f54\",\n      \"displayName\": \"string\",\n      \"mail\": \"I48dVw6@Ti.vew\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"businessDomainId\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"1cead40c-1617-f35c-5085-e723ba597c64\",\n      \"displayName\": \"string\",\n      \"mail\": \"I0E3L8mS@tDjxNxKJopZUbNZCOvAOqmYmmK.rb\"\n    },\n    {\n      \"id\": \"a4cdac28-6bc1-808c-b0c8-188ab08df308\",\n      \"displayName\": \"string\",\n      \"mail\": \"hmRcvp2oQ@yz.vhtx\"\n    }\n  ],\n  \"status\": \"Draft\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    },\n    {\n      \"assetId\": \"string\",\n      \"assetType\": \"string\"\n    }\n  ],\n  \"createdAt\": \"1977-02-16T19:49:21.886Z\",\n  \"updatedAt\": \"2001-01-14T02:44:41.003Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47a6d593-8806-4ddd-85d1-8dfaad338099",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"b2d47f31-5e3e-8799-e566-fd78f06d61a1\",\n      \"displayName\": \"string\",\n      \"mail\": \"sLKRHH@BQiDxQkKgVStYe.kva\"\n    },\n    {\n      \"id\": \"f5282283-599a-f948-7fa8-ec7e55cf3f54\",\n      \"displayName\": \"string\",\n      \"mail\": \"I48dVw6@Ti.vew\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"dataAssets\": [\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    },\n    {\n      \"assetId\": \"<string>\",\n      \"assetType\": \"<string>\"\n    }\n  ],\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4827781e-ea16-4c5a-a6b2-b9ef9f0232d3",
+          "name": "Microsoft Purview Delete a data product",
+          "request": {
+            "name": "Microsoft Purview Delete a data product",
+            "description": {
+              "content": "Delete a data product by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataproducts",
+                ":dataProductId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataProductId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d028166-4d99-4564-9046-a837231d2276",
+              "name": "Data product deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c781012c-b64a-4830-a058-e3bc06e494cc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataproducts",
+                    ":dataProductId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataProductId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a69804f6-8405-4b01-9843-1f13d023c38a",
+    "name": "Microsoft Purview Account Accounts Data Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

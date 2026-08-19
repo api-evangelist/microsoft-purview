@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Relationship API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Relationship",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Create a relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/relationship",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new relationship between entities."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update a relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/api/atlas/v2/relationship",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing relationship between entities."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get relationship by GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/relationship/guid/:guid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "extendedInfo",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return extended information"
+              }
+            ]
+          },
+          "docs": "Get relationship information between entities by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a relationship",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/relationship/guid/:guid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a relationship between entities by its GUID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

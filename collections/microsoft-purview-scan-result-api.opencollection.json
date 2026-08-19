@@ -1,0 +1,130 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Scan Result API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Scan Result",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Run a scan",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/scan/datasources/:dataSourceName/scans/:scanName/runs/:runId",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "runId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the scan run"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "scanLevel",
+                "value": "",
+                "type": "query",
+                "description": "The level of scan (Full or Incremental)"
+              }
+            ]
+          },
+          "docs": "Runs the scan for a data source."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Cancel a scan run",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/scan/datasources/:dataSourceName/scans/:scanName/runs/:runId/:cancel",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "runId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Cancels a running scan."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List scan history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/scan/datasources/:dataSourceName/scans/:scanName/runs",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists the scan history of a scan."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

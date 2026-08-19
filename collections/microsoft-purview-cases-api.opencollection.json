@@ -1,0 +1,140 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Cases API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List eDiscovery cases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/security/cases/ediscoveryCases",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of eDiscovery cases in the organization."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create an eDiscovery case",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/security/cases/ediscoveryCases",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new eDiscovery case for investigation or litigation."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get an eDiscovery case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/security/cases/ediscoveryCases/:ediscoveryCaseId",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an eDiscovery case by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update an eDiscovery case",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://management.azure.com/security/cases/ediscoveryCases/:ediscoveryCaseId",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of an eDiscovery case."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete an eDiscovery case",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/security/cases/ediscoveryCases/:ediscoveryCaseId",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an eDiscovery case and all associated data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

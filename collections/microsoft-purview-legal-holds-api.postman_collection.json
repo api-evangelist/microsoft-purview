@@ -1,0 +1,384 @@
+{
+  "item": [
+    {
+      "id": "5abb1fa4-ea2a-4ad1-9429-441f2f742b01",
+      "name": "Legal Holds",
+      "description": {
+        "content": "Operations for managing legal holds",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fbb42118-a38f-4c22-a49b-cc5800630011",
+          "name": "Microsoft Purview List legal holds",
+          "request": {
+            "name": "Microsoft Purview List legal holds",
+            "description": {
+              "content": "Get the list of legal holds associated with an eDiscovery case.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "cases",
+                "ediscoveryCases",
+                ":ediscoveryCaseId",
+                "legalHolds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ediscoveryCaseId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "631823a1-2906-426c-83bb-896960196df5",
+              "name": "Legal holds listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "cases",
+                    "ediscoveryCases",
+                    ":ediscoveryCaseId",
+                    "legalHolds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ediscoveryCaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"isEnabled\": false,\n      \"status\": \"error\",\n      \"contentQuery\": \"string\",\n      \"createdDateTime\": \"1984-12-23T11:33:01.464Z\",\n      \"lastModifiedDateTime\": \"1987-02-27T08:07:06.770Z\",\n      \"createdBy\": {\n        \"application\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"device\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"description\": \"string\",\n      \"isEnabled\": false,\n      \"status\": \"error\",\n      \"contentQuery\": \"string\",\n      \"createdDateTime\": \"2007-05-22T12:07:31.616Z\",\n      \"lastModifiedDateTime\": \"1959-03-07T02:59:30.907Z\",\n      \"createdBy\": {\n        \"application\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"device\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        },\n        \"user\": {\n          \"displayName\": \"string\",\n          \"id\": \"string\"\n        }\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "32aacfe5-f251-4aaf-b9e9-4bdb9495775a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "cases",
+                    "ediscoveryCases",
+                    ":ediscoveryCaseId",
+                    "legalHolds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ediscoveryCaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb618f34-1667-47ef-b61c-9eb91f6a7c20",
+          "name": "Microsoft Purview Create a legal hold",
+          "request": {
+            "name": "Microsoft Purview Create a legal hold",
+            "description": {
+              "content": "Create a legal hold policy within an eDiscovery case.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "cases",
+                "ediscoveryCases",
+                ":ediscoveryCaseId",
+                "legalHolds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ediscoveryCaseId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"contentQuery\": \"<string>\",\n  \"createdBy\": {\n    \"application\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    \"device\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    },\n    \"user\": {\n      \"displayName\": \"<string>\",\n      \"id\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "67829598-697b-4db9-b637-6f4f97ec0c0e",
+              "name": "Legal hold created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "cases",
+                    "ediscoveryCases",
+                    ":ediscoveryCaseId",
+                    "legalHolds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ediscoveryCaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"contentQuery\": \"<string>\",\n  \"createdBy\": {\n    \"application\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    },\n    \"device\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    },\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"description\": \"string\",\n  \"isEnabled\": false,\n  \"status\": \"pending\",\n  \"contentQuery\": \"string\",\n  \"createdDateTime\": \"1975-09-05T21:55:25.349Z\",\n  \"lastModifiedDateTime\": \"1949-11-26T09:40:40.575Z\",\n  \"createdBy\": {\n    \"application\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    },\n    \"device\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    },\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "40155444-da9a-40c8-a325-572dc711e467",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "cases",
+                    "ediscoveryCases",
+                    ":ediscoveryCaseId",
+                    "legalHolds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ediscoveryCaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"isEnabled\": \"<boolean>\",\n  \"contentQuery\": \"<string>\",\n  \"createdBy\": {\n    \"application\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    },\n    \"device\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    },\n    \"user\": {\n      \"displayName\": \"string\",\n      \"id\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5008c282-e8df-49df-9266-33d9f986291c",
+    "name": "Microsoft Purview Account Accounts Legal Holds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

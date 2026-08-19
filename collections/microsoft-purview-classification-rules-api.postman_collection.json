@@ -1,0 +1,871 @@
+{
+  "item": [
+    {
+      "id": "8e98cdc2-3223-45b0-a39c-9f572f230760",
+      "name": "Classification Rules",
+      "description": {
+        "content": "Operations for managing classification rules",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ddd5e7c9-815a-4034-80ab-1ec322f5a6b2",
+          "name": "Microsoft Purview Create or replace a classification rule",
+          "request": {
+            "name": "Microsoft Purview Create or replace a classification rule",
+            "description": {
+              "content": "Creates or replaces a classification rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "classificationrules",
+                ":classificationRuleName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "classificationRuleName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"classificationName\": \"<string>\",\n    \"ruleStatus\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\",\n    \"version\": \"<integer>\",\n    \"dataPatterns\": [\n      {\n        \"kind\": \"<string>\",\n        \"pattern\": \"<string>\"\n      },\n      {\n        \"kind\": \"<string>\",\n        \"pattern\": \"<string>\"\n      }\n    ],\n    \"columnPatterns\": [\n      {\n        \"kind\": \"<string>\",\n        \"pattern\": \"<string>\"\n      },\n      {\n        \"kind\": \"<string>\",\n        \"pattern\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4b8cfae7-0d02-4e6f-ad13-c413466d6198",
+              "name": "Classification rule updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules",
+                    ":classificationRuleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "classificationRuleName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"classificationName\": \"<string>\",\n    \"ruleStatus\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\",\n    \"version\": \"<integer>\",\n    \"dataPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ],\n    \"columnPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"System\",\n  \"properties\": {\n    \"description\": \"string\",\n    \"classificationName\": \"string\",\n    \"ruleStatus\": \"Disabled\",\n    \"createdAt\": \"1999-01-23T21:57:31.887Z\",\n    \"lastModifiedAt\": \"2021-07-25T18:29:07.309Z\",\n    \"version\": 5256,\n    \"dataPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ],\n    \"columnPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "006d3fde-0c7b-4751-b1ef-680245c83a7f",
+              "name": "Classification rule created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules",
+                    ":classificationRuleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "classificationRuleName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"classificationName\": \"<string>\",\n    \"ruleStatus\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\",\n    \"version\": \"<integer>\",\n    \"dataPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ],\n    \"columnPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"System\",\n  \"properties\": {\n    \"description\": \"string\",\n    \"classificationName\": \"string\",\n    \"ruleStatus\": \"Disabled\",\n    \"createdAt\": \"1999-01-23T21:57:31.887Z\",\n    \"lastModifiedAt\": \"2021-07-25T18:29:07.309Z\",\n    \"version\": 5256,\n    \"dataPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ],\n    \"columnPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53dd4a32-053b-4533-8694-3321f9fa997e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules",
+                    ":classificationRuleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "classificationRuleName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"classificationName\": \"<string>\",\n    \"ruleStatus\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\",\n    \"version\": \"<integer>\",\n    \"dataPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ],\n    \"columnPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bde40442-039d-4db4-b66e-c351fbc4bf9e",
+          "name": "Microsoft Purview Get a classification rule",
+          "request": {
+            "name": "Microsoft Purview Get a classification rule",
+            "description": {
+              "content": "Gets a classification rule by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "classificationrules",
+                ":classificationRuleName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "classificationRuleName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a030c900-9373-4d02-9075-83e70194cb4b",
+              "name": "Classification rule retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules",
+                    ":classificationRuleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "classificationRuleName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"System\",\n  \"properties\": {\n    \"description\": \"string\",\n    \"classificationName\": \"string\",\n    \"ruleStatus\": \"Disabled\",\n    \"createdAt\": \"1999-01-23T21:57:31.887Z\",\n    \"lastModifiedAt\": \"2021-07-25T18:29:07.309Z\",\n    \"version\": 5256,\n    \"dataPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ],\n    \"columnPatterns\": [\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      },\n      {\n        \"kind\": \"Regex\",\n        \"pattern\": \"string\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea686fa8-51f2-47ca-9399-faa20ef64a5c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules",
+                    ":classificationRuleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "classificationRuleName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cfbe18ca-d385-458a-bf86-80f1eec4c956",
+              "name": "Classification rule not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules",
+                    ":classificationRuleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "classificationRuleName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5711b076-c3e1-458e-8acc-b8bdb5d50915",
+          "name": "Microsoft Purview Delete a classification rule",
+          "request": {
+            "name": "Microsoft Purview Delete a classification rule",
+            "description": {
+              "content": "Deletes a classification rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "classificationrules",
+                ":classificationRuleName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "classificationRuleName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "abbdf2aa-bbca-4c2a-8f7e-c518f740be41",
+              "name": "Classification rule deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules",
+                    ":classificationRuleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "classificationRuleName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e8daaad6-3972-4063-888a-380f3269f989",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules",
+                    ":classificationRuleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "classificationRuleName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04853c2e-0ef2-477f-8b03-d7f323979dd3",
+              "name": "Classification rule not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules",
+                    ":classificationRuleName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "classificationRuleName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ddad7928-e9a5-417e-8e00-e464bc8377f1",
+          "name": "Microsoft Purview List classification rules",
+          "request": {
+            "name": "Microsoft Purview List classification rules",
+            "description": {
+              "content": "Lists classification rules in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "classificationrules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a1fe0ac2-251d-4349-8195-b6a01dd2d0fc",
+              "name": "Classification rules listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"System\",\n      \"properties\": {\n        \"description\": \"string\",\n        \"classificationName\": \"string\",\n        \"ruleStatus\": \"Disabled\",\n        \"createdAt\": \"1947-12-27T00:29:03.987Z\",\n        \"lastModifiedAt\": \"1959-06-05T23:57:44.021Z\",\n        \"version\": 9372,\n        \"dataPatterns\": [\n          {\n            \"kind\": \"Regex\",\n            \"pattern\": \"string\"\n          },\n          {\n            \"kind\": \"Regex\",\n            \"pattern\": \"string\"\n          }\n        ],\n        \"columnPatterns\": [\n          {\n            \"kind\": \"Regex\",\n            \"pattern\": \"string\"\n          },\n          {\n            \"kind\": \"Regex\",\n            \"pattern\": \"string\"\n          }\n        ]\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"System\",\n      \"properties\": {\n        \"description\": \"string\",\n        \"classificationName\": \"string\",\n        \"ruleStatus\": \"Disabled\",\n        \"createdAt\": \"1946-10-16T13:44:09.661Z\",\n        \"lastModifiedAt\": \"1949-03-22T21:53:25.530Z\",\n        \"version\": 3561,\n        \"dataPatterns\": [\n          {\n            \"kind\": \"Regex\",\n            \"pattern\": \"string\"\n          },\n          {\n            \"kind\": \"Regex\",\n            \"pattern\": \"string\"\n          }\n        ],\n        \"columnPatterns\": [\n          {\n            \"kind\": \"Regex\",\n            \"pattern\": \"string\"\n          },\n          {\n            \"kind\": \"Regex\",\n            \"pattern\": \"string\"\n          }\n        ]\n      }\n    }\n  ],\n  \"nextLink\": \"string\",\n  \"count\": 2001\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "988c082b-3e40-4196-8675-169c872215f5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "classificationrules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "18cf8b03-aecb-46e4-9847-987ad35e904c",
+    "name": "Microsoft Purview Account Accounts Classification Rules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

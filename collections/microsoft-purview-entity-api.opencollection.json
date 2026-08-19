@@ -1,0 +1,447 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Entity API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Entity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Create or update an entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/entity",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update an entity. Existing entity is matched using its unique guid if supplied or by its unique attributes such as qualifiedName."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get entity by GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path",
+                "description": "The globally unique identifier of the entity"
+              },
+              {
+                "name": "minExtInfo",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return minimal information for referred entities"
+              },
+              {
+                "name": "ignoreRelationships",
+                "value": "",
+                "type": "query",
+                "description": "Whether to ignore relationships"
+              }
+            ]
+          },
+          "docs": "Get complete definition of an entity given its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete an entity by GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path",
+                "description": "The globally unique identifier of the entity"
+              }
+            ]
+          },
+          "docs": "Delete an entity identified by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List entities by GUIDs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/entity/bulk",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "query",
+                "description": "List of GUIDs of entities to retrieve"
+              },
+              {
+                "name": "minExtInfo",
+                "value": "",
+                "type": "query",
+                "description": "Whether to return minimal information for referred entities"
+              },
+              {
+                "name": "ignoreRelationships",
+                "value": "",
+                "type": "query",
+                "description": "Whether to ignore relationships"
+              }
+            ]
+          },
+          "docs": "List entities in bulk identified by their GUIDs."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create or update entities in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/entity/bulk",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create or update entities in bulk. Existing entity is matched using its unique guid if supplied or by its unique attributes."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete entities in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/entity/bulk",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "query",
+                "description": "List of GUIDs of entities to delete"
+              }
+            ]
+          },
+          "docs": "Delete a list of entities in bulk identified by their GUIDs or unique attributes."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get classification for entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/classification/:classificationName",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path",
+                "description": "The globally unique identifier of the entity"
+              },
+              {
+                "name": "classificationName",
+                "value": "",
+                "type": "path",
+                "description": "The name of the classification"
+              }
+            ]
+          },
+          "docs": "Get classification for a given entity represented by a GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Remove classification from entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/classification/:classificationName",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "classificationName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a given classification from an existing entity represented by a GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List classifications for entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/classifications",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path",
+                "description": "The globally unique identifier of the entity"
+              }
+            ]
+          },
+          "docs": "List classifications for a given entity represented by a GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Add classifications to entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/classifications",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add classifications to an existing entity represented by a GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update classifications on entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/classifications",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update classifications to an existing entity represented by a GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Add labels to entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/labels",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add given labels to a given entity identified by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Set labels on entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/labels",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set labels to a given entity identified by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Remove labels from entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/labels",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete given labels from a given entity identified by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Set classifications on entities in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/entity/bulk/setClassifications",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set classifications on entities in bulk."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Add or update business metadata on entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/businessmetadata",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "isOverwrite",
+                "value": "",
+                "type": "query",
+                "description": "Whether to overwrite existing business metadata"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add business metadata to an entity."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Remove business metadata from entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/businessmetadata",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Remove business metadata from an entity."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Move entities to collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/entity/bulk/collection/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "The collection identifier"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Move existing entities to the target collection."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get entity header",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/entity/guid/:guid/header",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get entity header given its GUID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

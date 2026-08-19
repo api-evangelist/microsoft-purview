@@ -1,0 +1,431 @@
+{
+  "item": [
+    {
+      "id": "bbb51a9b-1c6d-4d13-b6ea-05cd963ee33b",
+      "name": "Data Quality Scores",
+      "description": {
+        "content": "Operations for retrieving data quality scores",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ae426c1f-da9f-4dbe-991e-acb26921b162",
+          "name": "Microsoft Purview List data quality scores",
+          "request": {
+            "name": "Microsoft Purview List data quality scores",
+            "description": {
+              "content": "Retrieve data quality scores for data assets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataquality",
+                "scores"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "assetId",
+                  "value": "<string>",
+                  "description": "Filter scores by data asset identifier"
+                },
+                {
+                  "disabled": false,
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7fc31741-1ef4-44e2-a72a-3bfd28a62731",
+              "name": "Data quality scores retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "scores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"assetId\": \"string\",\n      \"assetName\": \"string\",\n      \"overallScore\": 79.44527692353066,\n      \"dimensionScores\": {\n        \"completeness\": 8697.951824712323,\n        \"uniqueness\": 3899.153836291751,\n        \"freshness\": 5795.1989346134205,\n        \"accuracy\": 7629.928472926475,\n        \"consistency\": 5439.079830554178,\n        \"validity\": 3530.2824936753564\n      },\n      \"evaluatedAt\": \"1950-11-24T10:47:05.142Z\",\n      \"ruleResults\": [\n        {\n          \"ruleId\": \"string\",\n          \"ruleName\": \"string\",\n          \"status\": \"Failed\",\n          \"score\": 870.1166045907682,\n          \"details\": \"string\"\n        },\n        {\n          \"ruleId\": \"string\",\n          \"ruleName\": \"string\",\n          \"status\": \"Passed\",\n          \"score\": 5157.993497252756,\n          \"details\": \"string\"\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"assetId\": \"string\",\n      \"assetName\": \"string\",\n      \"overallScore\": 4.76454483247789,\n      \"dimensionScores\": {\n        \"completeness\": 7460.708749071036,\n        \"uniqueness\": 9896.685661186057,\n        \"freshness\": 7600.902413295101,\n        \"accuracy\": 7541.316495667851,\n        \"consistency\": 6863.713627146842,\n        \"validity\": 7717.517414403204\n      },\n      \"evaluatedAt\": \"1980-12-15T22:09:40.323Z\",\n      \"ruleResults\": [\n        {\n          \"ruleId\": \"string\",\n          \"ruleName\": \"string\",\n          \"status\": \"Passed\",\n          \"score\": 2132.2319944002766,\n          \"details\": \"string\"\n        },\n        {\n          \"ruleId\": \"string\",\n          \"ruleName\": \"string\",\n          \"status\": \"NotApplicable\",\n          \"score\": 2676.584251210643,\n          \"details\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9b27d526-3198-4fb5-bd58-30c2274d088b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "scores"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "assetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a8d55bd-1f93-44a8-b741-506c52729df2",
+          "name": "Microsoft Purview Get a data quality score",
+          "request": {
+            "name": "Microsoft Purview Get a data quality score",
+            "description": {
+              "content": "Get a specific data quality score by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataquality",
+                "scores",
+                ":scoreId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scoreId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "344b0933-7a16-44b2-971a-06ee931eebcd",
+              "name": "Data quality score retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "scores",
+                    ":scoreId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scoreId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"assetId\": \"string\",\n  \"assetName\": \"string\",\n  \"overallScore\": 51.09960559971237,\n  \"dimensionScores\": {\n    \"completeness\": 522.8698750442406,\n    \"uniqueness\": 433.39577864823787,\n    \"freshness\": 2583.977109227148,\n    \"accuracy\": 7302.8581210014445,\n    \"consistency\": 77.24641903422702,\n    \"validity\": 9284.293676297102\n  },\n  \"evaluatedAt\": \"1998-07-18T22:37:46.715Z\",\n  \"ruleResults\": [\n    {\n      \"ruleId\": \"string\",\n      \"ruleName\": \"string\",\n      \"status\": \"Failed\",\n      \"score\": 49.77179585184843,\n      \"details\": \"string\"\n    },\n    {\n      \"ruleId\": \"string\",\n      \"ruleName\": \"string\",\n      \"status\": \"NotApplicable\",\n      \"score\": 3561.091132039498,\n      \"details\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a0fc4032-0108-490d-a9f1-67a422bf5a9b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "scores",
+                    ":scoreId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scoreId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8bf0df09-527d-4623-90ca-de56e16a313f",
+              "name": "Score not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "scores",
+                    ":scoreId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scoreId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "34f7a5f8-a86a-4174-864f-5694286e98e4",
+    "name": "Microsoft Purview Account Accounts Data Quality Scores API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

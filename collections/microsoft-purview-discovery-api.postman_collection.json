@@ -1,0 +1,652 @@
+{
+  "item": [
+    {
+      "id": "f281ea70-e373-4b2e-8cb3-6e0cba377b2a",
+      "name": "Discovery",
+      "description": {
+        "content": "Operations for searching and discovering data assets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f7d6271b-4298-4c06-8ffd-2d7ce68e33cc",
+          "name": "Microsoft Purview Search data assets",
+          "request": {
+            "name": "Microsoft Purview Search data assets",
+            "description": {
+              "content": "Get data using search.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keywords\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\",\n  \"facets\": [\n    {\n      \"count\": \"<integer>\",\n      \"facet\": \"<string>\",\n      \"sort\": \"<object>\"\n    },\n    {\n      \"count\": \"<integer>\",\n      \"facet\": \"<string>\",\n      \"sort\": \"<object>\"\n    }\n  ],\n  \"taxonomySetting\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "38081ee4-5446-4d35-b3c9-4b4a6649a57f",
+              "name": "Search results retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\",\n  \"facets\": [\n    {\n      \"count\": 6251,\n      \"facet\": \"string\",\n      \"sort\": {}\n    },\n    {\n      \"count\": 3092,\n      \"facet\": \"string\",\n      \"sort\": {}\n    }\n  ],\n  \"taxonomySetting\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"searchCount\": 8531,\n  \"searchFacets\": {},\n  \"value\": [\n    {\n      \"searchScore\": 9917.948020296717,\n      \"searchHighlights\": {},\n      \"objectType\": \"string\",\n      \"createTime\": 1839,\n      \"updateTime\": 9700,\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"qualifiedName\": \"string\",\n      \"entityType\": \"string\",\n      \"description\": \"string\",\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ],\n      \"label\": [\n        \"string\",\n        \"string\"\n      ],\n      \"term\": [\n        {\n          \"name\": \"string\",\n          \"glossaryName\": \"string\",\n          \"guid\": \"04559120-666c-1759-3652-2281e61bd591\"\n        },\n        {\n          \"name\": \"string\",\n          \"glossaryName\": \"string\",\n          \"guid\": \"1f87d447-2f37-349a-8d27-c158ea153811\"\n        }\n      ],\n      \"owner\": \"string\",\n      \"assetType\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"searchScore\": 8786.973703714137,\n      \"searchHighlights\": {},\n      \"objectType\": \"string\",\n      \"createTime\": 635,\n      \"updateTime\": 4647,\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"qualifiedName\": \"string\",\n      \"entityType\": \"string\",\n      \"description\": \"string\",\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ],\n      \"label\": [\n        \"string\",\n        \"string\"\n      ],\n      \"term\": [\n        {\n          \"name\": \"string\",\n          \"glossaryName\": \"string\",\n          \"guid\": \"331d6316-534c-866a-4d89-565ce2b63443\"\n        },\n        {\n          \"name\": \"string\",\n          \"glossaryName\": \"string\",\n          \"guid\": \"374da654-8ca2-f5ce-abc9-5841aceea3d2\"\n        }\n      ],\n      \"owner\": \"string\",\n      \"assetType\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1d79a4f6-0e9d-4231-9cc3-04bf6244d7ad",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\",\n  \"facets\": [\n    {\n      \"count\": 6251,\n      \"facet\": \"string\",\n      \"sort\": {}\n    },\n    {\n      \"count\": 3092,\n      \"facet\": \"string\",\n      \"sort\": {}\n    }\n  ],\n  \"taxonomySetting\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e4f5040d-f1a5-4417-b09f-4c74fa8278fd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\",\n  \"facets\": [\n    {\n      \"count\": 6251,\n      \"facet\": \"string\",\n      \"sort\": {}\n    },\n    {\n      \"count\": 3092,\n      \"facet\": \"string\",\n      \"sort\": {}\n    }\n  ],\n  \"taxonomySetting\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb4a8bef-ae2a-44a8-8f19-cab54c78bfa1",
+          "name": "Microsoft Purview Get search suggestions",
+          "request": {
+            "name": "Microsoft Purview Get search suggestions",
+            "description": {
+              "content": "Get search suggestions by query criteria.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "suggest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keywords\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "df7f7ef6-793d-40cb-9a9b-16ca0a65d53d",
+              "name": "Suggestions retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"searchScore\": 3757.994097462969,\n      \"searchHighlights\": {},\n      \"objectType\": \"string\",\n      \"createTime\": 3762,\n      \"updateTime\": 9309,\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"qualifiedName\": \"string\",\n      \"entityType\": \"string\",\n      \"description\": \"string\",\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ],\n      \"label\": [\n        \"string\",\n        \"string\"\n      ],\n      \"term\": [\n        {\n          \"name\": \"string\",\n          \"glossaryName\": \"string\",\n          \"guid\": \"c60d68de-0caf-5d50-3bf7-54e6f930df87\"\n        },\n        {\n          \"name\": \"string\",\n          \"glossaryName\": \"string\",\n          \"guid\": \"733efc9b-5b1f-6f1f-7e18-60b0f26581b1\"\n        }\n      ],\n      \"owner\": \"string\",\n      \"assetType\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"searchScore\": 4053.264122560236,\n      \"searchHighlights\": {},\n      \"objectType\": \"string\",\n      \"createTime\": 3848,\n      \"updateTime\": 9987,\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"qualifiedName\": \"string\",\n      \"entityType\": \"string\",\n      \"description\": \"string\",\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ],\n      \"label\": [\n        \"string\",\n        \"string\"\n      ],\n      \"term\": [\n        {\n          \"name\": \"string\",\n          \"glossaryName\": \"string\",\n          \"guid\": \"9ab89a5d-bf4e-4c20-c5c0-19f1946b04b5\"\n        },\n        {\n          \"name\": \"string\",\n          \"glossaryName\": \"string\",\n          \"guid\": \"762fc5cf-12b8-2144-7d6e-e34bd4a6db8e\"\n        }\n      ],\n      \"owner\": \"string\",\n      \"assetType\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4869e2a6-1c29-45ae-b909-404f945dce41",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7051f87c-1488-4461-8df0-58d3ccd775ee",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "923d35da-0d39-4c65-aaa6-29c08725fd0c",
+          "name": "Microsoft Purview Get auto complete options",
+          "request": {
+            "name": "Microsoft Purview Get auto complete options",
+            "description": {
+              "content": "Get auto complete options for search.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "search",
+                "autocomplete"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"keywords\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "34701e86-1e17-46aa-ab53-dbd969d1fd2f",
+              "name": "Auto complete results retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"text\": \"string\",\n      \"queryPlusText\": \"string\"\n    },\n    {\n      \"text\": \"string\",\n      \"queryPlusText\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "160b50eb-094d-41d5-aa71-93dcf7c5c557",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e6be608-b49c-4ec4-af7c-b2204c73f56b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search",
+                    "autocomplete"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"keywords\": \"<string>\",\n  \"limit\": \"<integer>\",\n  \"filter\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6523a378-55f2-4a0d-a81d-9379d3be059f",
+    "name": "Microsoft Purview Account Accounts Discovery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

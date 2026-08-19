@@ -1,0 +1,460 @@
+{
+  "item": [
+    {
+      "id": "93983e9b-84ad-432d-90cf-9b2d1fc47831",
+      "name": "Data Profiling",
+      "description": {
+        "content": "Operations for data profiling operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aecfaad6-24d6-41d5-b6a0-e120d9c37ad2",
+          "name": "Microsoft Purview Run data profiling",
+          "request": {
+            "name": "Microsoft Purview Run data profiling",
+            "description": {
+              "content": "Initiate data profiling for a specific data asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataquality",
+                "profiling",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) The data asset identifier"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sampleSize\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "41c32549-8430-4e2d-a7b1-c7c0aa86a75f",
+              "name": "Data profiling initiated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "profiling",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The data asset identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sampleSize\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"string\",\n  \"status\": \"InProgress\",\n  \"profiledAt\": \"1964-12-22T17:37:07.899Z\",\n  \"rowCount\": 3860,\n  \"columnProfiles\": [\n    {\n      \"columnName\": \"string\",\n      \"dataType\": \"string\",\n      \"nullCount\": 1107,\n      \"nullPercentage\": 2410.9208922086677,\n      \"distinctCount\": 2007,\n      \"minValue\": \"string\",\n      \"maxValue\": \"string\",\n      \"meanValue\": \"string\",\n      \"standardDeviation\": 5343.431173011119,\n      \"topValues\": [\n        {\n          \"value\": \"string\",\n          \"count\": 6148\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 1566\n        }\n      ]\n    },\n    {\n      \"columnName\": \"string\",\n      \"dataType\": \"string\",\n      \"nullCount\": 5237,\n      \"nullPercentage\": 1575.8583603209897,\n      \"distinctCount\": 5613,\n      \"minValue\": \"string\",\n      \"maxValue\": \"string\",\n      \"meanValue\": \"string\",\n      \"standardDeviation\": 4736.19515665654,\n      \"topValues\": [\n        {\n          \"value\": \"string\",\n          \"count\": 1820\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 7314\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "75370333-9ff2-41f8-b5a4-aa3a683dab0d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "profiling",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) The data asset identifier"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"columns\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"sampleSize\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c04a0a09-0f62-4a71-a3fd-bc9c1b7bf97d",
+          "name": "Microsoft Purview Get data profiling result",
+          "request": {
+            "name": "Microsoft Purview Get data profiling result",
+            "description": {
+              "content": "Get data profiling results for a specific data asset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dataquality",
+                "profiling",
+                ":assetId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "assetId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f036e90f-91bd-469a-9b4a-43523135b270",
+              "name": "Data profiling result retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "profiling",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"assetId\": \"string\",\n  \"status\": \"InProgress\",\n  \"profiledAt\": \"1964-12-22T17:37:07.899Z\",\n  \"rowCount\": 3860,\n  \"columnProfiles\": [\n    {\n      \"columnName\": \"string\",\n      \"dataType\": \"string\",\n      \"nullCount\": 1107,\n      \"nullPercentage\": 2410.9208922086677,\n      \"distinctCount\": 2007,\n      \"minValue\": \"string\",\n      \"maxValue\": \"string\",\n      \"meanValue\": \"string\",\n      \"standardDeviation\": 5343.431173011119,\n      \"topValues\": [\n        {\n          \"value\": \"string\",\n          \"count\": 6148\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 1566\n        }\n      ]\n    },\n    {\n      \"columnName\": \"string\",\n      \"dataType\": \"string\",\n      \"nullCount\": 5237,\n      \"nullPercentage\": 1575.8583603209897,\n      \"distinctCount\": 5613,\n      \"minValue\": \"string\",\n      \"maxValue\": \"string\",\n      \"meanValue\": \"string\",\n      \"standardDeviation\": 4736.19515665654,\n      \"topValues\": [\n        {\n          \"value\": \"string\",\n          \"count\": 1820\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 7314\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1395bd53-3519-4ccd-9282-477e47cf0c5a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "profiling",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8c8f93eb-9274-49a3-b2bb-3acd05d21481",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dataquality",
+                    "profiling",
+                    ":assetId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "assetId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a247b4de-f5fe-4107-87f0-12b5c3f1f72f",
+    "name": "Microsoft Purview Account Accounts Data Profiling API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

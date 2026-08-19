@@ -1,0 +1,384 @@
+{
+  "item": [
+    {
+      "id": "9a67ca87-4737-4c01-a9ec-2171d7efde61",
+      "name": "Custodians",
+      "description": {
+        "content": "Operations for managing custodians within cases",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b515669f-549a-426c-8cc9-a5be78e8d745",
+          "name": "Microsoft Purview List custodians in a case",
+          "request": {
+            "name": "Microsoft Purview List custodians in a case",
+            "description": {
+              "content": "Get the list of custodians associated with an eDiscovery case.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "cases",
+                "ediscoveryCases",
+                ":ediscoveryCaseId",
+                "custodians"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ediscoveryCaseId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6be35086-047f-457a-812b-22214e0d8fba",
+              "name": "Custodians listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "cases",
+                    "ediscoveryCases",
+                    ":ediscoveryCaseId",
+                    "custodians"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ediscoveryCaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"email\": \"string\",\n      \"status\": \"active\",\n      \"createdDateTime\": \"1964-10-21T10:16:49.038Z\",\n      \"lastModifiedDateTime\": \"1969-01-02T00:06:11.834Z\",\n      \"holdStatus\": \"notApplied\",\n      \"acknowledgedDateTime\": \"1981-01-20T15:29:02.273Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"displayName\": \"string\",\n      \"email\": \"string\",\n      \"status\": \"active\",\n      \"createdDateTime\": \"2000-10-30T00:39:00.730Z\",\n      \"lastModifiedDateTime\": \"2008-05-20T11:56:50.070Z\",\n      \"holdStatus\": \"applying\",\n      \"acknowledgedDateTime\": \"1992-10-21T02:29:40.259Z\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e58f349-9f29-4f4e-9fc9-bed6a48a841f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "cases",
+                    "ediscoveryCases",
+                    ":ediscoveryCaseId",
+                    "custodians"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ediscoveryCaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2bfe371f-4293-4788-a252-61bf8abcc91b",
+          "name": "Microsoft Purview Add a custodian to a case",
+          "request": {
+            "name": "Microsoft Purview Add a custodian to a case",
+            "description": {
+              "content": "Create a new custodian and add them to an eDiscovery case.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "cases",
+                "ediscoveryCases",
+                ":ediscoveryCaseId",
+                "custodians"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "ediscoveryCaseId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"<string>\",\n  \"status\": \"<string>\",\n  \"holdStatus\": \"<string>\",\n  \"acknowledgedDateTime\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f0d757f8-41a0-49fd-b069-8dfc11707978",
+              "name": "Custodian added successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "cases",
+                    "ediscoveryCases",
+                    ":ediscoveryCaseId",
+                    "custodians"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ediscoveryCaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"status\": \"<string>\",\n  \"holdStatus\": \"<string>\",\n  \"acknowledgedDateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"displayName\": \"string\",\n  \"email\": \"string\",\n  \"status\": \"active\",\n  \"createdDateTime\": \"2022-03-23T08:52:24.241Z\",\n  \"lastModifiedDateTime\": \"2006-05-01T05:42:56.885Z\",\n  \"holdStatus\": \"applied\",\n  \"acknowledgedDateTime\": \"1989-09-17T15:59:27.346Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d607832-b219-4f58-a29e-fb97ecbee486",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "cases",
+                    "ediscoveryCases",
+                    ":ediscoveryCaseId",
+                    "custodians"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "ediscoveryCaseId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"<string>\",\n  \"status\": \"<string>\",\n  \"holdStatus\": \"<string>\",\n  \"acknowledgedDateTime\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "09712411-0ecf-4824-984d-512858f1ea92",
+    "name": "Microsoft Purview Account Accounts Custodians API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

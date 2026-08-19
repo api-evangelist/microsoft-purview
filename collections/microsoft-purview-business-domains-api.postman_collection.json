@@ -1,0 +1,979 @@
+{
+  "item": [
+    {
+      "id": "66623caa-9bba-4188-bb68-26ba343ae784",
+      "name": "Business Domains",
+      "description": {
+        "content": "Operations for managing business domains",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0ff931a6-80a7-4001-ad34-57edead0f1ae",
+          "name": "Microsoft Purview List business domains",
+          "request": {
+            "name": "Microsoft Purview List business domains",
+            "description": {
+              "content": "List all business domains in the Purview unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skipToken",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "891c3922-d987-4e9d-a5d9-9fa968ea3c7e",
+              "name": "Business domains listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skipToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"6a086e9d-545d-16a9-73d6-4d369d686705\",\n          \"displayName\": \"string\",\n          \"mail\": \"Pxh6O17P7qcip2j@sBPmAaPTVGHi.nn\"\n        },\n        {\n          \"id\": \"20ddef3d-45e9-8cb3-a941-4b631e0883a4\",\n          \"displayName\": \"string\",\n          \"mail\": \"OM-Z9rdfBTd@OwkNLnvndQFEbDHyHaPJudoeNSF.cf\"\n        }\n      ],\n      \"stewards\": [\n        {\n          \"id\": \"9d092f3b-323b-65e2-1fe8-8b8745650cc4\",\n          \"displayName\": \"string\",\n          \"mail\": \"IUmmnCX2o3fr9V6@KDTEwDCaqvsiMutxHVkIpRKvBpjBQ.kzl\"\n        },\n        {\n          \"id\": \"799a8e60-ded2-4047-47b4-3a49da67a46e\",\n          \"displayName\": \"string\",\n          \"mail\": \"zPfEWESHa@pgZCvWjhIiLhRvtkLSN.wy\"\n        }\n      ],\n      \"parentDomainId\": \"string\",\n      \"status\": \"Expired\",\n      \"createdAt\": \"1996-03-03T20:03:36.840Z\",\n      \"updatedAt\": \"2023-09-23T23:05:43.759Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"f1c1f4a9-f8a4-c4b5-dd26-0682f3154277\",\n          \"displayName\": \"string\",\n          \"mail\": \"nbId@diVScNhqIiuFP.mm\"\n        },\n        {\n          \"id\": \"a1f51751-bdb3-5f63-5859-22aed71c30df\",\n          \"displayName\": \"string\",\n          \"mail\": \"hBgvxjA@fJSChHpogbpvgpjBoKodldnDjLrePRNw.zy\"\n        }\n      ],\n      \"stewards\": [\n        {\n          \"id\": \"f609bad2-311b-7212-f48a-45803bedf35e\",\n          \"displayName\": \"string\",\n          \"mail\": \"klrLDD@AHoJ.cipn\"\n        },\n        {\n          \"id\": \"d22ef9a5-478f-8ada-d27c-769f8918727a\",\n          \"displayName\": \"string\",\n          \"mail\": \"Wc8nvr3@tFEfYoVGBomtierQN.tszm\"\n        }\n      ],\n      \"parentDomainId\": \"string\",\n      \"status\": \"Expired\",\n      \"createdAt\": \"1970-06-19T19:37:51.698Z\",\n      \"updatedAt\": \"1949-12-28T18:20:54.061Z\"\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c00d1e85-fe12-4133-bc20-c9d6df7ab42c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skipToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a58e4ad5-9281-44ed-a5a2-249942d90198",
+          "name": "Microsoft Purview Create a business domain",
+          "request": {
+            "name": "Microsoft Purview Create a business domain",
+            "description": {
+              "content": "Create a new business domain in the unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2d062c27-4b02-4e0c-bd1d-bfc40956b2cb",
+              "name": "Business domain created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"0abf767a-ddae-24b6-98e8-0270cfd27ccd\",\n      \"displayName\": \"string\",\n      \"mail\": \"nmZeyP0RCGJokW4@OEjPSUGxojLasUzbuJunoOAzOIZzagk.ierz\"\n    },\n    {\n      \"id\": \"863d3732-4666-f5ac-f9d6-171bf92b6658\",\n      \"displayName\": \"string\",\n      \"mail\": \"jw9pE@QzPYCFJsCkEgZs.ng\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"3f27b7ab-eaeb-74a8-1d2d-0d21c2cf154d\",\n      \"displayName\": \"string\",\n      \"mail\": \"55lu1A0b-tJcTD@RhyXwVqGPwJF.qaz\"\n    },\n    {\n      \"id\": \"fb54ebf0-b952-4b82-0422-280e0bda0ca0\",\n      \"displayName\": \"string\",\n      \"mail\": \"Qkp8I7DDQwxb@cvpwPUawUYkCpBrsYKOdQpBY.uybk\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"454001c9-40b6-2755-e359-a6ed0b772cba\",\n      \"displayName\": \"string\",\n      \"mail\": \"j-ETbOWxyO@JxdzXzT.ool\"\n    },\n    {\n      \"id\": \"cfc8791d-ae2d-bdbc-af0b-d2454f661907\",\n      \"displayName\": \"string\",\n      \"mail\": \"b9pRBq-jiYw1t@DHHryeoPedExz.hv\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"851b2fd6-5f8c-4b15-a07e-83fb9009b869\",\n      \"displayName\": \"string\",\n      \"mail\": \"VXHV-FG@IztTIgDfpTzwBJvOMQZ.lhn\"\n    },\n    {\n      \"id\": \"5672e454-5026-7033-2284-cd2995b413a3\",\n      \"displayName\": \"string\",\n      \"mail\": \"nRMERos7HSk@fOZLXGPfJScc.zc\"\n    }\n  ],\n  \"parentDomainId\": \"string\",\n  \"status\": \"Expired\",\n  \"createdAt\": \"1969-08-06T17:22:23.713Z\",\n  \"updatedAt\": \"2009-07-23T05:39:17.846Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e299e21-a2e4-4ded-b9d5-ab5c83ff88cb",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"0abf767a-ddae-24b6-98e8-0270cfd27ccd\",\n      \"displayName\": \"string\",\n      \"mail\": \"nmZeyP0RCGJokW4@OEjPSUGxojLasUzbuJunoOAzOIZzagk.ierz\"\n    },\n    {\n      \"id\": \"863d3732-4666-f5ac-f9d6-171bf92b6658\",\n      \"displayName\": \"string\",\n      \"mail\": \"jw9pE@QzPYCFJsCkEgZs.ng\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"3f27b7ab-eaeb-74a8-1d2d-0d21c2cf154d\",\n      \"displayName\": \"string\",\n      \"mail\": \"55lu1A0b-tJcTD@RhyXwVqGPwJF.qaz\"\n    },\n    {\n      \"id\": \"fb54ebf0-b952-4b82-0422-280e0bda0ca0\",\n      \"displayName\": \"string\",\n      \"mail\": \"Qkp8I7DDQwxb@cvpwPUawUYkCpBrsYKOdQpBY.uybk\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8256689-12e7-4511-b301-bad54ff3664f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"0abf767a-ddae-24b6-98e8-0270cfd27ccd\",\n      \"displayName\": \"string\",\n      \"mail\": \"nmZeyP0RCGJokW4@OEjPSUGxojLasUzbuJunoOAzOIZzagk.ierz\"\n    },\n    {\n      \"id\": \"863d3732-4666-f5ac-f9d6-171bf92b6658\",\n      \"displayName\": \"string\",\n      \"mail\": \"jw9pE@QzPYCFJsCkEgZs.ng\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"3f27b7ab-eaeb-74a8-1d2d-0d21c2cf154d\",\n      \"displayName\": \"string\",\n      \"mail\": \"55lu1A0b-tJcTD@RhyXwVqGPwJF.qaz\"\n    },\n    {\n      \"id\": \"fb54ebf0-b952-4b82-0422-280e0bda0ca0\",\n      \"displayName\": \"string\",\n      \"mail\": \"Qkp8I7DDQwxb@cvpwPUawUYkCpBrsYKOdQpBY.uybk\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "66c52346-ae61-484b-8b62-46fe7374503a",
+          "name": "Microsoft Purview Get a business domain",
+          "request": {
+            "name": "Microsoft Purview Get a business domain",
+            "description": {
+              "content": "Get a business domain by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains",
+                ":businessDomainId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessDomainId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "19de16de-4b02-445c-8cfa-3072439bd081",
+              "name": "Business domain retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"454001c9-40b6-2755-e359-a6ed0b772cba\",\n      \"displayName\": \"string\",\n      \"mail\": \"j-ETbOWxyO@JxdzXzT.ool\"\n    },\n    {\n      \"id\": \"cfc8791d-ae2d-bdbc-af0b-d2454f661907\",\n      \"displayName\": \"string\",\n      \"mail\": \"b9pRBq-jiYw1t@DHHryeoPedExz.hv\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"851b2fd6-5f8c-4b15-a07e-83fb9009b869\",\n      \"displayName\": \"string\",\n      \"mail\": \"VXHV-FG@IztTIgDfpTzwBJvOMQZ.lhn\"\n    },\n    {\n      \"id\": \"5672e454-5026-7033-2284-cd2995b413a3\",\n      \"displayName\": \"string\",\n      \"mail\": \"nRMERos7HSk@fOZLXGPfJScc.zc\"\n    }\n  ],\n  \"parentDomainId\": \"string\",\n  \"status\": \"Expired\",\n  \"createdAt\": \"1969-08-06T17:22:23.713Z\",\n  \"updatedAt\": \"2009-07-23T05:39:17.846Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "018f8fc2-8c4b-4106-94b3-49df2738675f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6d2085c-d19f-450a-ad67-eb2b8ce1bc9c",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fb34ba68-04a6-46ec-a1d2-cf8c1f38985c",
+          "name": "Microsoft Purview Update a business domain",
+          "request": {
+            "name": "Microsoft Purview Update a business domain",
+            "description": {
+              "content": "Update a business domain by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains",
+                ":businessDomainId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessDomainId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "acb97277-a98d-44b4-a3fb-de3c743282dd",
+              "name": "Business domain updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"0abf767a-ddae-24b6-98e8-0270cfd27ccd\",\n      \"displayName\": \"string\",\n      \"mail\": \"nmZeyP0RCGJokW4@OEjPSUGxojLasUzbuJunoOAzOIZzagk.ierz\"\n    },\n    {\n      \"id\": \"863d3732-4666-f5ac-f9d6-171bf92b6658\",\n      \"displayName\": \"string\",\n      \"mail\": \"jw9pE@QzPYCFJsCkEgZs.ng\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"3f27b7ab-eaeb-74a8-1d2d-0d21c2cf154d\",\n      \"displayName\": \"string\",\n      \"mail\": \"55lu1A0b-tJcTD@RhyXwVqGPwJF.qaz\"\n    },\n    {\n      \"id\": \"fb54ebf0-b952-4b82-0422-280e0bda0ca0\",\n      \"displayName\": \"string\",\n      \"mail\": \"Qkp8I7DDQwxb@cvpwPUawUYkCpBrsYKOdQpBY.uybk\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"454001c9-40b6-2755-e359-a6ed0b772cba\",\n      \"displayName\": \"string\",\n      \"mail\": \"j-ETbOWxyO@JxdzXzT.ool\"\n    },\n    {\n      \"id\": \"cfc8791d-ae2d-bdbc-af0b-d2454f661907\",\n      \"displayName\": \"string\",\n      \"mail\": \"b9pRBq-jiYw1t@DHHryeoPedExz.hv\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"851b2fd6-5f8c-4b15-a07e-83fb9009b869\",\n      \"displayName\": \"string\",\n      \"mail\": \"VXHV-FG@IztTIgDfpTzwBJvOMQZ.lhn\"\n    },\n    {\n      \"id\": \"5672e454-5026-7033-2284-cd2995b413a3\",\n      \"displayName\": \"string\",\n      \"mail\": \"nRMERos7HSk@fOZLXGPfJScc.zc\"\n    }\n  ],\n  \"parentDomainId\": \"string\",\n  \"status\": \"Expired\",\n  \"createdAt\": \"1969-08-06T17:22:23.713Z\",\n  \"updatedAt\": \"2009-07-23T05:39:17.846Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3127b6ac-159f-44af-b621-4f9a2730930d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"0abf767a-ddae-24b6-98e8-0270cfd27ccd\",\n      \"displayName\": \"string\",\n      \"mail\": \"nmZeyP0RCGJokW4@OEjPSUGxojLasUzbuJunoOAzOIZzagk.ierz\"\n    },\n    {\n      \"id\": \"863d3732-4666-f5ac-f9d6-171bf92b6658\",\n      \"displayName\": \"string\",\n      \"mail\": \"jw9pE@QzPYCFJsCkEgZs.ng\"\n    }\n  ],\n  \"stewards\": [\n    {\n      \"id\": \"3f27b7ab-eaeb-74a8-1d2d-0d21c2cf154d\",\n      \"displayName\": \"string\",\n      \"mail\": \"55lu1A0b-tJcTD@RhyXwVqGPwJF.qaz\"\n    },\n    {\n      \"id\": \"fb54ebf0-b952-4b82-0422-280e0bda0ca0\",\n      \"displayName\": \"string\",\n      \"mail\": \"Qkp8I7DDQwxb@cvpwPUawUYkCpBrsYKOdQpBY.uybk\"\n    }\n  ],\n  \"parentDomainId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3da93a16-9558-4580-9fcd-c8e3cb43316c",
+          "name": "Microsoft Purview Delete a business domain",
+          "request": {
+            "name": "Microsoft Purview Delete a business domain",
+            "description": {
+              "content": "Delete a business domain by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "businessdomains",
+                ":businessDomainId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "businessDomainId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ab07367-c98a-45d5-a4a7-9720bf05d8fa",
+              "name": "Business domain deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0f93ec6-3839-42db-b0dd-4aa978b8dc43",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "businessdomains",
+                    ":businessDomainId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "businessDomainId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c1250632-e2a0-471f-923d-c99e911abd22",
+    "name": "Microsoft Purview Account Accounts Business Domains API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

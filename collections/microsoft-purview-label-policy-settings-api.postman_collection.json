@@ -1,0 +1,172 @@
+{
+  "item": [
+    {
+      "id": "abe1fb0d-7717-4745-846d-e3227ded5cae",
+      "name": "Label Policy Settings",
+      "description": {
+        "content": "Operations for managing label policy settings",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "eabc9057-a58c-4f37-9ce0-42e30bab1deb",
+          "name": "Microsoft Purview Get label policy settings",
+          "request": {
+            "name": "Microsoft Purview Get label policy settings",
+            "description": {
+              "content": "Read the properties and relationships of an informationProtectionPolicySetting object.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "informationProtection",
+                "labelPolicySettings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49d57b22-32bb-469a-871a-28617170cbe5",
+              "name": "Label policy settings retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "labelPolicySettings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"moreInfoUrl\": \"string\",\n  \"isMandatory\": true,\n  \"isDowngradeJustificationRequired\": false,\n  \"defaultLabelId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1eae76c1-88a0-4bab-9aeb-e930a4d2effd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "labelPolicySettings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "debd6b8d-737b-488e-b4d0-dd6b22b3433c",
+    "name": "Microsoft Purview Account Accounts Label Policy Settings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

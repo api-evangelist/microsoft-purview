@@ -1,0 +1,817 @@
+{
+  "item": [
+    {
+      "id": "303a999e-b4df-457e-bdab-839463a0eab1",
+      "name": "Scan Rulesets",
+      "description": {
+        "content": "Operations for managing scan rulesets",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "94d4da55-9982-42ea-9a17-f1d564e3fd0f",
+          "name": "Microsoft Purview Create or replace a scan ruleset",
+          "request": {
+            "name": "Microsoft Purview Create or replace a scan ruleset",
+            "description": {
+              "content": "Creates or replaces a scan ruleset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "scanrulesets",
+                ":scanRulesetName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scanRulesetName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"includedCustomClassificationRuleNames\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee3effb1-8dda-4e0f-af55-201e11dcae64",
+              "name": "Scan ruleset updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets",
+                    ":scanRulesetName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanRulesetName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"includedCustomClassificationRuleNames\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"string\",\n  \"properties\": {\n    \"description\": \"string\",\n    \"includedCustomClassificationRuleNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"createdAt\": \"1974-02-05T14:11:59.833Z\",\n    \"lastModifiedAt\": \"1996-01-06T03:52:38.117Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fdc23ce3-c44f-4203-9c21-f5a8468c4f57",
+              "name": "Scan ruleset created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets",
+                    ":scanRulesetName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanRulesetName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"includedCustomClassificationRuleNames\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"string\",\n  \"properties\": {\n    \"description\": \"string\",\n    \"includedCustomClassificationRuleNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"createdAt\": \"1974-02-05T14:11:59.833Z\",\n    \"lastModifiedAt\": \"1996-01-06T03:52:38.117Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04cd7fca-9d8e-4f92-96c8-1f8a7c6206ee",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets",
+                    ":scanRulesetName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanRulesetName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"includedCustomClassificationRuleNames\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "17107e53-c79e-46c5-94e3-014733a576e5",
+          "name": "Microsoft Purview Get a scan ruleset",
+          "request": {
+            "name": "Microsoft Purview Get a scan ruleset",
+            "description": {
+              "content": "Gets a scan ruleset by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "scanrulesets",
+                ":scanRulesetName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scanRulesetName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46844c9e-02f9-4a4b-b67e-d5c2caafe41f",
+              "name": "Scan ruleset retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets",
+                    ":scanRulesetName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanRulesetName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"string\",\n  \"properties\": {\n    \"description\": \"string\",\n    \"includedCustomClassificationRuleNames\": [\n      \"string\",\n      \"string\"\n    ],\n    \"createdAt\": \"1974-02-05T14:11:59.833Z\",\n    \"lastModifiedAt\": \"1996-01-06T03:52:38.117Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dd6e1679-bd80-4724-bea0-3b03446ba521",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets",
+                    ":scanRulesetName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanRulesetName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3b0c25a2-f01e-4864-9c43-8b7176c8de7d",
+              "name": "Scan ruleset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets",
+                    ":scanRulesetName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanRulesetName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c48671f4-3bee-43c5-b0da-525d2fc894fb",
+          "name": "Microsoft Purview Delete a scan ruleset",
+          "request": {
+            "name": "Microsoft Purview Delete a scan ruleset",
+            "description": {
+              "content": "Deletes a scan ruleset.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "scanrulesets",
+                ":scanRulesetName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scanRulesetName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef55ab56-f763-451d-84a3-30e0eb2d3a6b",
+              "name": "Scan ruleset deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets",
+                    ":scanRulesetName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanRulesetName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0fa9c680-0177-4af2-a05c-40960d1b8b32",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets",
+                    ":scanRulesetName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanRulesetName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45f5654b-1694-4470-a866-bd76a2a85876",
+          "name": "Microsoft Purview List scan rulesets",
+          "request": {
+            "name": "Microsoft Purview List scan rulesets",
+            "description": {
+              "content": "Lists scan rulesets in the account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "scanrulesets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7736fad1-8275-49e0-a378-b5cecb3ad462",
+              "name": "Scan rulesets listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"description\": \"string\",\n        \"includedCustomClassificationRuleNames\": [\n          \"string\",\n          \"string\"\n        ],\n        \"createdAt\": \"1997-07-16T07:26:47.684Z\",\n        \"lastModifiedAt\": \"1970-03-12T22:42:55.632Z\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"description\": \"string\",\n        \"includedCustomClassificationRuleNames\": [\n          \"string\",\n          \"string\"\n        ],\n        \"createdAt\": \"1963-08-06T22:19:37.249Z\",\n        \"lastModifiedAt\": \"1958-08-04T00:28:34.432Z\"\n      }\n    }\n  ],\n  \"nextLink\": \"string\",\n  \"count\": 7888\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c0e51b8a-1ebb-4c6e-b8c7-0ecae5b0dca4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "scanrulesets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6cce8af0-449e-4a62-bef1-aaeffd4aa248",
+    "name": "Microsoft Purview Account Accounts Scan Rulesets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

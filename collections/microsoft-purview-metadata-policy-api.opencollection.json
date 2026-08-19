@@ -1,0 +1,105 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Metadata Policy API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metadata Policy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Get a metadata policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/metadataPolicies/:policyId",
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the metadata policy"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets a metadata policy by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update a metadata policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/metadataPolicies/:policyId",
+            "params": [
+              {
+                "name": "policyId",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the metadata policy"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a metadata policy with the given identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List all metadata policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/metadataPolicies",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "collectionName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by collection name"
+              }
+            ]
+          },
+          "docs": "List or get metadata policies for the Purview account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

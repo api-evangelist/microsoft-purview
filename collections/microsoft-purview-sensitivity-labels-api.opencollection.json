@@ -1,0 +1,264 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Sensitivity Labels API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sensitivity Labels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List tenant sensitivity labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/security/dataSecurityAndGovernance/sensitivityLabels",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List the sensitivity labels available for the entire tenant. When using application permissions, returns all labels for the tenant by default."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get a tenant sensitivity label",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/security/dataSecurityAndGovernance/sensitivityLabels/:sensitivityLabelId",
+            "params": [
+              {
+                "name": "sensitivityLabelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a sensitivity label by its identifier at the tenant level."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List sensitivity labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/security/informationProtection/sensitivityLabels",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of sensitivity labels available to the signed-in user or the organization."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get a sensitivity label",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/security/informationProtection/sensitivityLabels/:sensitivityLabelId",
+            "params": [
+              {
+                "name": "sensitivityLabelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a sensitivity label by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List sensitivity labels for user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/users/:userId/security/informationProtection/sensitivityLabels",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of sensitivity labels available to a specific user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List my sensitivity labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/me/security/informationProtection/sensitivityLabels",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of sensitivity labels available to the signed-in user."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Evaluate sensitivity label application",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateApplication",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Compute the sensitivity label that should be applied and return the set of actions that must be taken to correctly label the information."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Evaluate sensitivity label removal",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateRemoval",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Indicate to the consuming application what actions should be taken to remove the label information."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Evaluate classification results",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/security/informationProtection/sensitivityLabels/microsoft.graph.security.evaluateClassificationResults",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Using classification results, compute the sensitivity label that should be applied and the set of actions that must be taken."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Assign sensitivity label to drive item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/drives/:driveId/items/:driveItemId/assignSensitivityLabel",
+            "params": [
+              {
+                "name": "driveId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "driveItemId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Asynchronously assign a sensitivity label to a file in SharePoint or OneDrive."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

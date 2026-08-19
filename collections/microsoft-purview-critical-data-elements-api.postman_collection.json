@@ -1,0 +1,359 @@
+{
+  "item": [
+    {
+      "id": "952bfe66-b871-4819-87c2-4b7b62118980",
+      "name": "Critical Data Elements",
+      "description": {
+        "content": "Operations for managing critical data elements",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ac9a9f3e-3ce9-4fb3-bd1e-49bd3a158224",
+          "name": "Microsoft Purview List critical data elements",
+          "request": {
+            "name": "Microsoft Purview List critical data elements",
+            "description": {
+              "content": "List all critical data elements in the Purview unified catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "criticaldataelements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "maxpagesize",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b1dd73c0-2264-4f24-8b60-eff4d41c4281",
+              "name": "Critical data elements listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "criticaldataelements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"70bb2e3b-e818-2755-4238-c483a98a1095\",\n          \"displayName\": \"string\",\n          \"mail\": \"3Te9pde-m5o@NMVgxnHplZcRBVxgbAPMvpcDDcWzE.dj\"\n        },\n        {\n          \"id\": \"4e87b0cd-6286-3a67-61e9-8b39205fd9c4\",\n          \"displayName\": \"string\",\n          \"mail\": \"Xz7fxXsFu6e@dzBmsrA.ve\"\n        }\n      ],\n      \"status\": \"Draft\",\n      \"createdAt\": \"2016-08-14T20:13:45.835Z\",\n      \"updatedAt\": \"2007-12-14T01:25:06.509Z\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"businessDomainId\": \"string\",\n      \"owners\": [\n        {\n          \"id\": \"9e391ea6-67fc-53a4-ba6b-8dc6d3a7c7be\",\n          \"displayName\": \"string\",\n          \"mail\": \"t2XNv54@wWPylsywJKHIiLa.pdy\"\n        },\n        {\n          \"id\": \"40764ec6-107d-8ebd-60a3-98436240069d\",\n          \"displayName\": \"string\",\n          \"mail\": \"MhHZAFB7m@zdJckBaOpJZH.vsuj\"\n        }\n      ],\n      \"status\": \"Published\",\n      \"createdAt\": \"1981-12-09T20:43:52.494Z\",\n      \"updatedAt\": \"1957-05-06T03:04:58.906Z\"\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b7b3891b-b136-4ae4-9bc0-e0032cc2c981",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "criticaldataelements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    },
+                    {
+                      "key": "maxpagesize",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4788c20a-443a-4952-aac8-245551fef645",
+          "name": "Microsoft Purview Create a critical data element",
+          "request": {
+            "name": "Microsoft Purview Create a critical data element",
+            "description": {
+              "content": "Create a new critical data element definition.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "criticaldataelements"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2024-03-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"displayName\": \"<string>\",\n      \"mail\": \"<email>\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c7a536a0-b387-4863-a0cc-87dc72c47aff",
+              "name": "Critical data element created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "criticaldataelements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"bcf9f54d-fd72-504d-5072-92b3adf178a5\",\n      \"displayName\": \"string\",\n      \"mail\": \"uGnGJnujKB4rlkC@TjTSqBpkafoBVC.kn\"\n    },\n    {\n      \"id\": \"54ca8f4d-ea23-c025-a505-0f17ad6bbc7d\",\n      \"displayName\": \"string\",\n      \"mail\": \"d3MZReSVZjULDw@rQRlueZPGkUQQsGyFpDHXEJnaNOk.by\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"businessDomainId\": \"string\",\n  \"owners\": [\n    {\n      \"id\": \"a57bc1d6-2aef-2c67-1f68-e1ee4ee455fd\",\n      \"displayName\": \"string\",\n      \"mail\": \"oXSyEc2kxkGQGuM@lobXm.zf\"\n    },\n    {\n      \"id\": \"fbe6a0f3-4b92-9441-235e-53151251c0b6\",\n      \"displayName\": \"string\",\n      \"mail\": \"xlglZOUnRcI@KViFVKW.vlqj\"\n    }\n  ],\n  \"status\": \"Published\",\n  \"createdAt\": \"1992-12-24T11:06:05.799Z\",\n  \"updatedAt\": \"2020-06-13T15:05:48.207Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bac360f9-a838-41fe-9eaa-0145e14f17ef",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "criticaldataelements"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2024-03-01-preview"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"businessDomainId\": \"<string>\",\n  \"owners\": [\n    {\n      \"id\": \"bcf9f54d-fd72-504d-5072-92b3adf178a5\",\n      \"displayName\": \"string\",\n      \"mail\": \"uGnGJnujKB4rlkC@TjTSqBpkafoBVC.kn\"\n    },\n    {\n      \"id\": \"54ca8f4d-ea23-c025-a505-0f17ad6bbc7d\",\n      \"displayName\": \"string\",\n      \"mail\": \"d3MZReSVZjULDw@rQRlueZPGkUQQsGyFpDHXEJnaNOk.by\"\n    }\n  ],\n  \"status\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"updatedAt\": \"<dateTime>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ea4c0e74-7d96-4d98-884a-8d2aa1eebc1e",
+    "name": "Microsoft Purview Account Accounts Critical Data Elements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

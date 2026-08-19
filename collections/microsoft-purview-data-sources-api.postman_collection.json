@@ -1,0 +1,943 @@
+{
+  "item": [
+    {
+      "id": "af5740ca-1882-4cc2-ae47-7c72f4da59fc",
+      "name": "Data Sources",
+      "description": {
+        "content": "Operations for managing data source registrations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "308c9938-5070-4c45-8059-eb2ea97737b7",
+          "name": "Microsoft Purview Create or replace a data source",
+          "request": {
+            "name": "Microsoft Purview Create or replace a data source",
+            "description": {
+              "content": "Creates or replaces a data source registration in the Purview account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "datasources",
+                ":dataSourceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceName",
+                  "description": "(Required) The name of the data source"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"endpoint\": \"<string>\",\n    \"resourceGroup\": \"<string>\",\n    \"subscriptionId\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceName\": \"<string>\",\n    \"resourceId\": \"<string>\",\n    \"collection\": {\n      \"referenceName\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"dataSourceCollectionMovingState\": \"<integer>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"scans\": [\n    {\n      \"name\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"properties\": {\n        \"scanRulesetName\": \"<string>\",\n        \"scanRulesetType\": \"<string>\",\n        \"collection\": {\n          \"referenceName\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"<string>\",\n          \"integrationRuntimeType\": \"<string>\"\n        },\n        \"createdAt\": \"<dateTime>\",\n        \"lastModifiedAt\": \"<dateTime>\",\n        \"lastScheduled\": \"<dateTime>\"\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"kind\": \"<string>\",\n      \"properties\": {\n        \"scanRulesetName\": \"<string>\",\n        \"scanRulesetType\": \"<string>\",\n        \"collection\": {\n          \"referenceName\": \"<string>\",\n          \"type\": \"<string>\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"<string>\",\n          \"integrationRuntimeType\": \"<string>\"\n        },\n        \"createdAt\": \"<dateTime>\",\n        \"lastModifiedAt\": \"<dateTime>\",\n        \"lastScheduled\": \"<dateTime>\"\n      }\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "961c11f2-30e8-43a3-8f6c-bb58427cdd76",
+              "name": "Data source updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"endpoint\": \"<string>\",\n    \"resourceGroup\": \"<string>\",\n    \"subscriptionId\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceName\": \"<string>\",\n    \"resourceId\": \"<string>\",\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"dataSourceCollectionMovingState\": \"<integer>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"scans\": [\n    {\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1976-10-17T07:11:27.592Z\",\n        \"lastModifiedAt\": \"1991-05-22T22:02:20.607Z\",\n        \"lastScheduled\": \"2020-02-03T09:37:16.523Z\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1985-09-30T06:04:22.817Z\",\n        \"lastModifiedAt\": \"1992-01-02T13:43:41.571Z\",\n        \"lastScheduled\": \"2018-03-07T19:11:32.304Z\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"AzureSqlDatabaseManagedInstance\",\n  \"properties\": {\n    \"endpoint\": \"string\",\n    \"resourceGroup\": \"string\",\n    \"subscriptionId\": \"string\",\n    \"location\": \"string\",\n    \"resourceName\": \"string\",\n    \"resourceId\": \"string\",\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"dataSourceCollectionMovingState\": 9548,\n    \"createdAt\": \"1949-05-10T19:01:33.970Z\",\n    \"lastModifiedAt\": \"2017-08-25T15:50:02.610Z\"\n  },\n  \"scans\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1963-11-08T18:32:35.277Z\",\n        \"lastModifiedAt\": \"2022-02-01T06:19:36.646Z\",\n        \"lastScheduled\": \"1991-08-03T08:34:49.512Z\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1998-01-16T21:18:32.400Z\",\n        \"lastModifiedAt\": \"1950-01-08T11:17:41.070Z\",\n        \"lastScheduled\": \"1997-02-21T06:23:16.253Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "87ba65fa-6b22-4b33-bd85-f5a194585e11",
+              "name": "Data source created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"endpoint\": \"<string>\",\n    \"resourceGroup\": \"<string>\",\n    \"subscriptionId\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceName\": \"<string>\",\n    \"resourceId\": \"<string>\",\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"dataSourceCollectionMovingState\": \"<integer>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"scans\": [\n    {\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1976-10-17T07:11:27.592Z\",\n        \"lastModifiedAt\": \"1991-05-22T22:02:20.607Z\",\n        \"lastScheduled\": \"2020-02-03T09:37:16.523Z\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1985-09-30T06:04:22.817Z\",\n        \"lastModifiedAt\": \"1992-01-02T13:43:41.571Z\",\n        \"lastScheduled\": \"2018-03-07T19:11:32.304Z\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"AzureSqlDatabaseManagedInstance\",\n  \"properties\": {\n    \"endpoint\": \"string\",\n    \"resourceGroup\": \"string\",\n    \"subscriptionId\": \"string\",\n    \"location\": \"string\",\n    \"resourceName\": \"string\",\n    \"resourceId\": \"string\",\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"dataSourceCollectionMovingState\": 9548,\n    \"createdAt\": \"1949-05-10T19:01:33.970Z\",\n    \"lastModifiedAt\": \"2017-08-25T15:50:02.610Z\"\n  },\n  \"scans\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1963-11-08T18:32:35.277Z\",\n        \"lastModifiedAt\": \"2022-02-01T06:19:36.646Z\",\n        \"lastScheduled\": \"1991-08-03T08:34:49.512Z\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1998-01-16T21:18:32.400Z\",\n        \"lastModifiedAt\": \"1950-01-08T11:17:41.070Z\",\n        \"lastScheduled\": \"1997-02-21T06:23:16.253Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "989d0c3d-326c-487d-831e-5851763d42fc",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"endpoint\": \"<string>\",\n    \"resourceGroup\": \"<string>\",\n    \"subscriptionId\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceName\": \"<string>\",\n    \"resourceId\": \"<string>\",\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"dataSourceCollectionMovingState\": \"<integer>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"scans\": [\n    {\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1976-10-17T07:11:27.592Z\",\n        \"lastModifiedAt\": \"1991-05-22T22:02:20.607Z\",\n        \"lastScheduled\": \"2020-02-03T09:37:16.523Z\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1985-09-30T06:04:22.817Z\",\n        \"lastModifiedAt\": \"1992-01-02T13:43:41.571Z\",\n        \"lastScheduled\": \"2018-03-07T19:11:32.304Z\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15f13974-265c-46b0-8609-948f1566c41d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"kind\": \"<string>\",\n  \"properties\": {\n    \"endpoint\": \"<string>\",\n    \"resourceGroup\": \"<string>\",\n    \"subscriptionId\": \"<string>\",\n    \"location\": \"<string>\",\n    \"resourceName\": \"<string>\",\n    \"resourceId\": \"<string>\",\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"dataSourceCollectionMovingState\": \"<integer>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\"\n  },\n  \"scans\": [\n    {\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1976-10-17T07:11:27.592Z\",\n        \"lastModifiedAt\": \"1991-05-22T22:02:20.607Z\",\n        \"lastScheduled\": \"2020-02-03T09:37:16.523Z\"\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1985-09-30T06:04:22.817Z\",\n        \"lastModifiedAt\": \"1992-01-02T13:43:41.571Z\",\n        \"lastScheduled\": \"2018-03-07T19:11:32.304Z\"\n      }\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b99af2b0-c43a-4b33-8093-cdc525349929",
+          "name": "Microsoft Purview Get a data source",
+          "request": {
+            "name": "Microsoft Purview Get a data source",
+            "description": {
+              "content": "Gets a data source by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "datasources",
+                ":dataSourceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceName",
+                  "description": "(Required) The name of the data source"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6143de60-4ef0-41a6-acb8-2e0d9201e1d9",
+              "name": "Data source retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"AzureSqlDatabaseManagedInstance\",\n  \"properties\": {\n    \"endpoint\": \"string\",\n    \"resourceGroup\": \"string\",\n    \"subscriptionId\": \"string\",\n    \"location\": \"string\",\n    \"resourceName\": \"string\",\n    \"resourceId\": \"string\",\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"dataSourceCollectionMovingState\": 9548,\n    \"createdAt\": \"1949-05-10T19:01:33.970Z\",\n    \"lastModifiedAt\": \"2017-08-25T15:50:02.610Z\"\n  },\n  \"scans\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1963-11-08T18:32:35.277Z\",\n        \"lastModifiedAt\": \"2022-02-01T06:19:36.646Z\",\n        \"lastScheduled\": \"1991-08-03T08:34:49.512Z\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1998-01-16T21:18:32.400Z\",\n        \"lastModifiedAt\": \"1950-01-08T11:17:41.070Z\",\n        \"lastScheduled\": \"1997-02-21T06:23:16.253Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60148e79-e6b5-4f1b-9e61-3ac781e4465a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "33c762d1-a737-4cf3-9572-c91b9ab2cd96",
+              "name": "Data source not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d45c6b6f-930a-4822-ace0-5e621fd6a53c",
+          "name": "Microsoft Purview Delete a data source",
+          "request": {
+            "name": "Microsoft Purview Delete a data source",
+            "description": {
+              "content": "Deletes a data source registration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "datasources",
+                ":dataSourceName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceName",
+                  "description": "(Required) The name of the data source"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f96e964e-cfb0-4c34-aaf3-7c3f60074e8e",
+              "name": "Data source deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"kind\": \"AzureSqlDatabaseManagedInstance\",\n  \"properties\": {\n    \"endpoint\": \"string\",\n    \"resourceGroup\": \"string\",\n    \"subscriptionId\": \"string\",\n    \"location\": \"string\",\n    \"resourceName\": \"string\",\n    \"resourceId\": \"string\",\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"dataSourceCollectionMovingState\": 9548,\n    \"createdAt\": \"1949-05-10T19:01:33.970Z\",\n    \"lastModifiedAt\": \"2017-08-25T15:50:02.610Z\"\n  },\n  \"scans\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1963-11-08T18:32:35.277Z\",\n        \"lastModifiedAt\": \"2022-02-01T06:19:36.646Z\",\n        \"lastScheduled\": \"1991-08-03T08:34:49.512Z\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"string\",\n      \"properties\": {\n        \"scanRulesetName\": \"string\",\n        \"scanRulesetType\": \"System\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"connectedVia\": {\n          \"referenceName\": \"string\",\n          \"integrationRuntimeType\": \"string\"\n        },\n        \"createdAt\": \"1998-01-16T21:18:32.400Z\",\n        \"lastModifiedAt\": \"1950-01-08T11:17:41.070Z\",\n        \"lastScheduled\": \"1997-02-21T06:23:16.253Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e8e839b2-fd49-4039-af79-c57d5ddd238b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "158365b5-11dc-42ee-a38a-d054631152ee",
+              "name": "Data source not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) The name of the data source"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c888d154-7c11-4682-91cc-64626fe86a98",
+          "name": "Microsoft Purview List data sources",
+          "request": {
+            "name": "Microsoft Purview List data sources",
+            "description": {
+              "content": "Lists data sources in Data catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "datasources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b927778e-4c81-49bb-9940-4eb37d7b21c6",
+              "name": "Data sources listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"AzureDataExplorer\",\n      \"properties\": {\n        \"endpoint\": \"string\",\n        \"resourceGroup\": \"string\",\n        \"subscriptionId\": \"string\",\n        \"location\": \"string\",\n        \"resourceName\": \"string\",\n        \"resourceId\": \"string\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"dataSourceCollectionMovingState\": 4038,\n        \"createdAt\": \"1976-12-30T01:39:09.781Z\",\n        \"lastModifiedAt\": \"1947-06-27T13:18:41.635Z\"\n      },\n      \"scans\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"kind\": \"string\",\n          \"properties\": {\n            \"scanRulesetName\": \"string\",\n            \"scanRulesetType\": \"Custom\",\n            \"collection\": {\n              \"referenceName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"connectedVia\": {\n              \"referenceName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"integrationRuntimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"createdAt\": \"1994-07-12T06:55:11.697Z\",\n            \"lastModifiedAt\": \"2000-06-11T08:40:14.384Z\",\n            \"lastScheduled\": \"1983-12-24T05:20:20.571Z\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"kind\": \"string\",\n          \"properties\": {\n            \"scanRulesetName\": \"string\",\n            \"scanRulesetType\": \"System\",\n            \"collection\": {\n              \"referenceName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"connectedVia\": {\n              \"referenceName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"integrationRuntimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"createdAt\": \"2011-08-19T15:30:34.002Z\",\n            \"lastModifiedAt\": \"1956-06-13T20:40:42.089Z\",\n            \"lastScheduled\": \"2016-12-29T13:47:19.057Z\"\n          }\n        }\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"kind\": \"AmazonS3\",\n      \"properties\": {\n        \"endpoint\": \"string\",\n        \"resourceGroup\": \"string\",\n        \"subscriptionId\": \"string\",\n        \"location\": \"string\",\n        \"resourceName\": \"string\",\n        \"resourceId\": \"string\",\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"dataSourceCollectionMovingState\": 1805,\n        \"createdAt\": \"1947-01-11T03:36:53.842Z\",\n        \"lastModifiedAt\": \"2002-11-08T04:40:20.595Z\"\n      },\n      \"scans\": [\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"kind\": \"string\",\n          \"properties\": {\n            \"scanRulesetName\": \"string\",\n            \"scanRulesetType\": \"Custom\",\n            \"collection\": {\n              \"referenceName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"connectedVia\": {\n              \"referenceName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"integrationRuntimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"createdAt\": \"1974-12-09T21:02:12.367Z\",\n            \"lastModifiedAt\": \"2008-04-10T18:18:52.206Z\",\n            \"lastScheduled\": \"1963-10-16T07:40:31.816Z\"\n          }\n        },\n        {\n          \"id\": \"string\",\n          \"name\": \"string\",\n          \"kind\": \"string\",\n          \"properties\": {\n            \"scanRulesetName\": \"string\",\n            \"scanRulesetType\": \"System\",\n            \"collection\": {\n              \"referenceName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"type\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"connectedVia\": {\n              \"referenceName\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"integrationRuntimeType\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            \"createdAt\": \"1983-08-15T21:04:13.034Z\",\n            \"lastModifiedAt\": \"2019-06-07T00:49:48.827Z\",\n            \"lastScheduled\": \"1992-07-11T13:01:05.500Z\"\n          }\n        }\n      ]\n    }\n  ],\n  \"nextLink\": \"string\",\n  \"count\": 52\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aad8abf5-0474-48c2-9948-37a21b87d224",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8cec3a6d-bb28-4156-b568-c22fdbff7a7d",
+    "name": "Microsoft Purview Account Accounts Data Sources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

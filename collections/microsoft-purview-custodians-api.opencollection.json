@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Custodians API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Custodians",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List custodians in a case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/security/cases/ediscoveryCases/:ediscoveryCaseId/custodians",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the list of custodians associated with an eDiscovery case."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Add a custodian to a case",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/security/cases/ediscoveryCases/:ediscoveryCaseId/custodians",
+            "params": [
+              {
+                "name": "ediscoveryCaseId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new custodian and add them to an eDiscovery case."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

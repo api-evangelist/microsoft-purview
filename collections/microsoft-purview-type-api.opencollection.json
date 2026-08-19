@@ -1,0 +1,176 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Type API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Type",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List all type definitions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/types/typedefs",
+            "params": [
+              {
+                "name": "includeTermTemplate",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include term template definitions"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Type category filter"
+              }
+            ]
+          },
+          "docs": "List all type definitions in bulk."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create type definitions in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/types/typedefs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create all atlas type definitions in bulk."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update type definitions in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/api/atlas/v2/types/typedefs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update all types in bulk."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete type definitions in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/types/typedefs",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete API for all types in bulk."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List type definition headers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/types/typedefs/headers",
+            "params": [
+              {
+                "name": "includeTermTemplate",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all type definitions returned as a list of minimal information header."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get type definition by GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/types/typedef/guid/:guid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the type definition for the given GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get type definition by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/types/typedef/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the type definition by its name (unique)."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete type definition by name",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/types/typedef/name/:name",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete API for type identified by its name."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

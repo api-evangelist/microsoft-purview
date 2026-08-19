@@ -1,0 +1,1958 @@
+{
+  "item": [
+    {
+      "id": "6e862b22-0190-4075-98a7-93cf4ff2a273",
+      "name": "Sensitivity Labels",
+      "description": {
+        "content": "Operations for accessing tenant-level sensitivity labels",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "54b58271-ac7f-48f4-911b-9bfacfb27dfd",
+          "name": "Microsoft Purview List tenant sensitivity labels",
+          "request": {
+            "name": "Microsoft Purview List tenant sensitivity labels",
+            "description": {
+              "content": "List the sensitivity labels available for the entire tenant. When using application permissions, returns all labels for the tenant by default.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "dataSecurityAndGovernance",
+                "sensitivityLabels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$count",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27d4936a-0adb-4eed-bb8f-814d810c2319",
+              "name": "Sensitivity labels listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "dataSecurityAndGovernance",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"sensitivity\": 7151,\n      \"tooltip\": \"string\",\n      \"isActive\": true,\n      \"isAppliable\": true,\n      \"contentFormats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"hasProtection\": true\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"sensitivity\": 6461,\n      \"tooltip\": \"string\",\n      \"isActive\": true,\n      \"isAppliable\": true,\n      \"contentFormats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"hasProtection\": false\n    }\n  ],\n  \"@odata.nextLink\": \"string\",\n  \"@odata.count\": 7362\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "658cb766-fa3f-4c50-931c-6d3220f8463e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "dataSecurityAndGovernance",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "32bbb7fd-e87b-4a19-9d31-d95d8a787c71",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "dataSecurityAndGovernance",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bac74014-4af9-41fb-916e-c474defa69c5",
+          "name": "Microsoft Purview Get a tenant sensitivity label",
+          "request": {
+            "name": "Microsoft Purview Get a tenant sensitivity label",
+            "description": {
+              "content": "Get a sensitivity label by its identifier at the tenant level.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "dataSecurityAndGovernance",
+                "sensitivityLabels",
+                ":sensitivityLabelId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sensitivityLabelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d359ce2c-fb9f-4b29-bb67-3044f3439e32",
+              "name": "Sensitivity label retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "dataSecurityAndGovernance",
+                    "sensitivityLabels",
+                    ":sensitivityLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sensitivityLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"color\": \"string\",\n  \"sensitivity\": 1480,\n  \"tooltip\": \"string\",\n  \"isActive\": false,\n  \"isAppliable\": false,\n  \"contentFormats\": [\n    \"string\",\n    \"string\"\n  ],\n  \"hasProtection\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d9e9b3b-254f-41eb-9e10-d87f2839f08c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "dataSecurityAndGovernance",
+                    "sensitivityLabels",
+                    ":sensitivityLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sensitivityLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "37a751ac-2770-4124-9021-c72a479df908",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "dataSecurityAndGovernance",
+                    "sensitivityLabels",
+                    ":sensitivityLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sensitivityLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b374dbc6-1507-42c6-8cbb-ce1c744e577e",
+          "name": "Microsoft Purview List sensitivity labels",
+          "request": {
+            "name": "Microsoft Purview List sensitivity labels",
+            "description": {
+              "content": "Get a list of sensitivity labels available to the signed-in user or the organization.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "informationProtection",
+                "sensitivityLabels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$count",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f21c12c-2afa-42d2-b4db-965536a884cb",
+              "name": "Sensitivity labels listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"sensitivity\": 2369,\n      \"tooltip\": \"string\",\n      \"isActive\": false,\n      \"isAppliable\": false,\n      \"contentFormats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"hasProtection\": true,\n      \"parent\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"sensitivity\": 9020,\n      \"tooltip\": \"string\",\n      \"isActive\": true,\n      \"isAppliable\": true,\n      \"contentFormats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"hasProtection\": false,\n      \"parent\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      }\n    }\n  ],\n  \"@odata.nextLink\": \"string\",\n  \"@odata.count\": 5922\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b52fea0b-627c-4776-8a23-4183b7b0c5c5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "969d80c7-cd2a-4313-a37a-ee5b3cf13d33",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$count",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d71d21bb-c31c-48ab-8cc0-c4aff5e94b50",
+          "name": "Microsoft Purview Get a sensitivity label",
+          "request": {
+            "name": "Microsoft Purview Get a sensitivity label",
+            "description": {
+              "content": "Get a sensitivity label by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "informationProtection",
+                "sensitivityLabels",
+                ":sensitivityLabelId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "sensitivityLabelId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e660c6d9-254d-4b62-8a91-17d5ef2828bb",
+              "name": "Sensitivity label retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels",
+                    ":sensitivityLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sensitivityLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"color\": \"string\",\n  \"sensitivity\": 1488,\n  \"tooltip\": \"string\",\n  \"isActive\": true,\n  \"isAppliable\": true,\n  \"contentFormats\": [\n    \"string\",\n    \"string\"\n  ],\n  \"hasProtection\": true,\n  \"parent\": {\n    \"id\": \"string\",\n    \"name\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf6d5f75-629d-4d62-ab61-bb9e261c441f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels",
+                    ":sensitivityLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sensitivityLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "64e823ed-0c4f-4524-b3a6-95a710acffd4",
+              "name": "Sensitivity label not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels",
+                    ":sensitivityLabelId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "sensitivityLabelId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "65ba4bc2-d147-42a5-bea7-28545b8921a4",
+          "name": "Microsoft Purview List sensitivity labels for user",
+          "request": {
+            "name": "Microsoft Purview List sensitivity labels for user",
+            "description": {
+              "content": "Get a list of sensitivity labels available to a specific user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                ":userId",
+                "security",
+                "informationProtection",
+                "sensitivityLabels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89c6e5d9-0bce-427d-9fe4-f1d001c60d3a",
+              "name": "User sensitivity labels listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"sensitivity\": 8842,\n      \"tooltip\": \"string\",\n      \"isActive\": true,\n      \"isAppliable\": true,\n      \"contentFormats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"hasProtection\": false,\n      \"parent\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"sensitivity\": 482,\n      \"tooltip\": \"string\",\n      \"isActive\": true,\n      \"isAppliable\": false,\n      \"contentFormats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"hasProtection\": false,\n      \"parent\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7e7b0302-b281-401e-b91b-1288786abe51",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    ":userId",
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "566af1cd-54c9-49bf-b062-cacbf99e8c09",
+          "name": "Microsoft Purview List my sensitivity labels",
+          "request": {
+            "name": "Microsoft Purview List my sensitivity labels",
+            "description": {
+              "content": "Get a list of sensitivity labels available to the signed-in user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "me",
+                "security",
+                "informationProtection",
+                "sensitivityLabels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "83c43a34-0a4f-4f71-803c-78765cbeef98",
+              "name": "Sensitivity labels listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"sensitivity\": 8842,\n      \"tooltip\": \"string\",\n      \"isActive\": true,\n      \"isAppliable\": true,\n      \"contentFormats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"hasProtection\": false,\n      \"parent\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"color\": \"string\",\n      \"sensitivity\": 482,\n      \"tooltip\": \"string\",\n      \"isActive\": true,\n      \"isAppliable\": false,\n      \"contentFormats\": [\n        \"string\",\n        \"string\"\n      ],\n      \"hasProtection\": false,\n      \"parent\": {\n        \"id\": \"string\",\n        \"name\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5abd9013-ec0a-459a-9da6-a36fc8ca97b8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "me",
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4432bf7a-0d39-4bae-8cb7-6dec30205044",
+          "name": "Microsoft Purview Evaluate sensitivity label application",
+          "request": {
+            "name": "Microsoft Purview Evaluate sensitivity label application",
+            "description": {
+              "content": "Compute the sensitivity label that should be applied and return the set of actions that must be taken to correctly label the information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "informationProtection",
+                "sensitivityLabels",
+                "microsoft.graph.security.evaluateApplication"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contentInfo\": {\n    \"contentFormat\": \"<string>\",\n    \"identifier\": \"<string>\",\n    \"state\": \"<string>\",\n    \"metadata\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"labelingOptions\": {\n    \"assignmentMethod\": \"<string>\",\n    \"labelId\": \"<uuid>\",\n    \"downgradeJustification\": {\n      \"isDowngradeJustified\": \"<boolean>\",\n      \"justificationMessage\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5c67da83-660f-46b6-a4f5-796f5d84c884",
+              "name": "Evaluation result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels",
+                    "microsoft.graph.security.evaluateApplication"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contentInfo\": {\n    \"contentFormat\": \"string\",\n    \"identifier\": \"string\",\n    \"state\": \"motion\",\n    \"metadata\": [\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"labelingOptions\": {\n    \"assignmentMethod\": \"privileged\",\n    \"labelId\": \"01866f68-a8d1-c818-d0d7-430c5b4273b9\",\n    \"downgradeJustification\": {\n      \"isDowngradeJustified\": true,\n      \"justificationMessage\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"@odata.type\": \"string\"\n    },\n    {\n      \"@odata.type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5debd93f-2356-40c7-90af-7e4f9eb0e969",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels",
+                    "microsoft.graph.security.evaluateApplication"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contentInfo\": {\n    \"contentFormat\": \"string\",\n    \"identifier\": \"string\",\n    \"state\": \"motion\",\n    \"metadata\": [\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"labelingOptions\": {\n    \"assignmentMethod\": \"privileged\",\n    \"labelId\": \"01866f68-a8d1-c818-d0d7-430c5b4273b9\",\n    \"downgradeJustification\": {\n      \"isDowngradeJustified\": true,\n      \"justificationMessage\": \"string\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f0da8ef-ba64-4a8a-8aa2-e47de5ea99a7",
+          "name": "Microsoft Purview Evaluate sensitivity label removal",
+          "request": {
+            "name": "Microsoft Purview Evaluate sensitivity label removal",
+            "description": {
+              "content": "Indicate to the consuming application what actions should be taken to remove the label information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "informationProtection",
+                "sensitivityLabels",
+                "microsoft.graph.security.evaluateRemoval"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contentInfo\": {\n    \"contentFormat\": \"<string>\",\n    \"identifier\": \"<string>\",\n    \"state\": \"<string>\",\n    \"metadata\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"downgradeJustification\": {\n    \"isDowngradeJustified\": \"<boolean>\",\n    \"justificationMessage\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "616849ce-fa4c-4b8e-9c63-3304db35c583",
+              "name": "Removal evaluation result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels",
+                    "microsoft.graph.security.evaluateRemoval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contentInfo\": {\n    \"contentFormat\": \"string\",\n    \"identifier\": \"string\",\n    \"state\": \"use\",\n    \"metadata\": [\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"downgradeJustification\": {\n    \"isDowngradeJustified\": true,\n    \"justificationMessage\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"@odata.type\": \"string\"\n    },\n    {\n      \"@odata.type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5000eaaf-ed3b-46c1-be20-905e92c1d8b7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels",
+                    "microsoft.graph.security.evaluateRemoval"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contentInfo\": {\n    \"contentFormat\": \"string\",\n    \"identifier\": \"string\",\n    \"state\": \"use\",\n    \"metadata\": [\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"downgradeJustification\": {\n    \"isDowngradeJustified\": true,\n    \"justificationMessage\": \"string\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fc5aee0-6e3d-4dac-9910-ca5dbf8133af",
+          "name": "Microsoft Purview Evaluate classification results",
+          "request": {
+            "name": "Microsoft Purview Evaluate classification results",
+            "description": {
+              "content": "Using classification results, compute the sensitivity label that should be applied and the set of actions that must be taken.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "security",
+                "informationProtection",
+                "sensitivityLabels",
+                "microsoft.graph.security.evaluateClassificationResults"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contentInfo\": {\n    \"contentFormat\": \"<string>\",\n    \"identifier\": \"<string>\",\n    \"state\": \"<string>\",\n    \"metadata\": [\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  \"classificationResults\": [\n    {\n      \"sensitiveTypeId\": \"<string>\",\n      \"confidenceLevel\": \"<integer>\",\n      \"count\": \"<integer>\"\n    },\n    {\n      \"sensitiveTypeId\": \"<string>\",\n      \"confidenceLevel\": \"<integer>\",\n      \"count\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a7701927-9bda-409b-81bf-e5e30e15b4fb",
+              "name": "Classification evaluation result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels",
+                    "microsoft.graph.security.evaluateClassificationResults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contentInfo\": {\n    \"contentFormat\": \"string\",\n    \"identifier\": \"string\",\n    \"state\": \"rest\",\n    \"metadata\": [\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"classificationResults\": [\n    {\n      \"sensitiveTypeId\": \"string\",\n      \"confidenceLevel\": 4789,\n      \"count\": 3533\n    },\n    {\n      \"sensitiveTypeId\": \"string\",\n      \"confidenceLevel\": 3094,\n      \"count\": 8864\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"@odata.type\": \"string\"\n    },\n    {\n      \"@odata.type\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c78ea17-e83d-4961-8fac-1ac83943461c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "security",
+                    "informationProtection",
+                    "sensitivityLabels",
+                    "microsoft.graph.security.evaluateClassificationResults"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"contentInfo\": {\n    \"contentFormat\": \"string\",\n    \"identifier\": \"string\",\n    \"state\": \"rest\",\n    \"metadata\": [\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      },\n      {\n        \"name\": \"string\",\n        \"value\": \"string\"\n      }\n    ]\n  },\n  \"classificationResults\": [\n    {\n      \"sensitiveTypeId\": \"string\",\n      \"confidenceLevel\": 4789,\n      \"count\": 3533\n    },\n    {\n      \"sensitiveTypeId\": \"string\",\n      \"confidenceLevel\": 3094,\n      \"count\": 8864\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f3f1634-e5fb-4719-9172-30de65bfca0b",
+          "name": "Microsoft Purview Assign sensitivity label to drive item",
+          "request": {
+            "name": "Microsoft Purview Assign sensitivity label to drive item",
+            "description": {
+              "content": "Asynchronously assign a sensitivity label to a file in SharePoint or OneDrive.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "drives",
+                ":driveId",
+                "items",
+                ":driveItemId",
+                "assignSensitivityLabel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "driveId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "driveItemId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sensitivityLabelId\": \"<string>\",\n  \"assignmentMethod\": \"<string>\",\n  \"justificationText\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5b0de0d3-3d46-48eb-aade-21d75eb270a2",
+              "name": "Label assignment accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "drives",
+                    ":driveId",
+                    "items",
+                    ":driveItemId",
+                    "assignSensitivityLabel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "driveId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "driveItemId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sensitivityLabelId\": \"<string>\",\n  \"assignmentMethod\": \"<string>\",\n  \"justificationText\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "URL for checking the status of the operation",
+                  "key": "Location",
+                  "value": "string"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cd071d4d-fb4b-4b77-8699-31b8b76faacf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "drives",
+                    ":driveId",
+                    "items",
+                    ":driveItemId",
+                    "assignSensitivityLabel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "driveId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "driveItemId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sensitivityLabelId\": \"<string>\",\n  \"assignmentMethod\": \"<string>\",\n  \"justificationText\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8be6e952-79e5-44a6-ba27-50cd08628643",
+    "name": "Microsoft Purview Account Accounts Sensitivity Labels API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

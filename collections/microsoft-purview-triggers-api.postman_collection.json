@@ -1,0 +1,1266 @@
+{
+  "item": [
+    {
+      "id": "6ade2c14-ce7a-4212-89c1-005b6bfaf763",
+      "name": "Triggers",
+      "description": {
+        "content": "Operations for managing scan triggers and schedules",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d6d6b328-0143-4f2e-96a4-75fe3fc561c1",
+          "name": "Microsoft Purview Create or replace a scan trigger",
+          "request": {
+            "name": "Microsoft Purview Create or replace a scan trigger",
+            "description": {
+              "content": "Creates or replaces an instance of a trigger for scheduling scans.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "datasources",
+                ":dataSourceName",
+                "scans",
+                ":scanName",
+                "triggers",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scanName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"properties\": {\n    \"recurrence\": {\n      \"frequency\": \"<string>\",\n      \"interval\": \"<integer>\",\n      \"startTime\": \"<dateTime>\",\n      \"endTime\": \"<dateTime>\",\n      \"schedule\": {\n        \"hours\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"minutes\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"weekDays\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"monthDays\": [\n          \"<integer>\",\n          \"<integer>\"\n        ]\n      },\n      \"timeZone\": \"<string>\"\n    },\n    \"recurrenceInterval\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\",\n    \"lastScheduled\": \"<dateTime>\",\n    \"scanLevel\": \"<string>\",\n    \"incrementalScanStartTime\": \"<dateTime>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc878248-1b07-4117-854d-6af9859eaac0",
+              "name": "Trigger updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"properties\": {\n    \"recurrence\": {\n      \"frequency\": \"Week\",\n      \"interval\": 4613,\n      \"startTime\": \"1991-02-08T13:31:06.308Z\",\n      \"endTime\": \"2002-07-11T02:15:15.581Z\",\n      \"schedule\": {\n        \"hours\": [\n          9710,\n          2314\n        ],\n        \"minutes\": [\n          9011,\n          6420\n        ],\n        \"weekDays\": [\n          \"Tuesday\",\n          \"Wednesday\"\n        ],\n        \"monthDays\": [\n          3695,\n          1990\n        ]\n      },\n      \"timeZone\": \"string\"\n    },\n    \"recurrenceInterval\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\",\n    \"lastScheduled\": \"<dateTime>\",\n    \"scanLevel\": \"<string>\",\n    \"incrementalScanStartTime\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"recurrence\": {\n      \"frequency\": \"Week\",\n      \"interval\": 2907,\n      \"startTime\": \"1966-03-22T12:02:17.447Z\",\n      \"endTime\": \"1988-10-12T19:25:16.732Z\",\n      \"schedule\": {\n        \"hours\": [\n          4730,\n          9711\n        ],\n        \"minutes\": [\n          2440,\n          4599\n        ],\n        \"weekDays\": [\n          \"Thursday\",\n          \"Friday\"\n        ],\n        \"monthDays\": [\n          1841,\n          1233\n        ]\n      },\n      \"timeZone\": \"string\"\n    },\n    \"recurrenceInterval\": \"string\",\n    \"createdAt\": \"1966-01-09T10:30:42.686Z\",\n    \"lastModifiedAt\": \"1961-09-14T23:06:33.493Z\",\n    \"lastScheduled\": \"1995-10-03T23:43:25.655Z\",\n    \"scanLevel\": \"Incremental\",\n    \"incrementalScanStartTime\": \"1975-03-25T04:45:34.475Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1ede260d-b29b-4a42-98df-3c735cfdd002",
+              "name": "Trigger created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"properties\": {\n    \"recurrence\": {\n      \"frequency\": \"Week\",\n      \"interval\": 4613,\n      \"startTime\": \"1991-02-08T13:31:06.308Z\",\n      \"endTime\": \"2002-07-11T02:15:15.581Z\",\n      \"schedule\": {\n        \"hours\": [\n          9710,\n          2314\n        ],\n        \"minutes\": [\n          9011,\n          6420\n        ],\n        \"weekDays\": [\n          \"Tuesday\",\n          \"Wednesday\"\n        ],\n        \"monthDays\": [\n          3695,\n          1990\n        ]\n      },\n      \"timeZone\": \"string\"\n    },\n    \"recurrenceInterval\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\",\n    \"lastScheduled\": \"<dateTime>\",\n    \"scanLevel\": \"<string>\",\n    \"incrementalScanStartTime\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"recurrence\": {\n      \"frequency\": \"Week\",\n      \"interval\": 2907,\n      \"startTime\": \"1966-03-22T12:02:17.447Z\",\n      \"endTime\": \"1988-10-12T19:25:16.732Z\",\n      \"schedule\": {\n        \"hours\": [\n          4730,\n          9711\n        ],\n        \"minutes\": [\n          2440,\n          4599\n        ],\n        \"weekDays\": [\n          \"Thursday\",\n          \"Friday\"\n        ],\n        \"monthDays\": [\n          1841,\n          1233\n        ]\n      },\n      \"timeZone\": \"string\"\n    },\n    \"recurrenceInterval\": \"string\",\n    \"createdAt\": \"1966-01-09T10:30:42.686Z\",\n    \"lastModifiedAt\": \"1961-09-14T23:06:33.493Z\",\n    \"lastScheduled\": \"1995-10-03T23:43:25.655Z\",\n    \"scanLevel\": \"Incremental\",\n    \"incrementalScanStartTime\": \"1975-03-25T04:45:34.475Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "28d8c971-25c6-4fa4-86bc-14d802d670dc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"properties\": {\n    \"recurrence\": {\n      \"frequency\": \"Week\",\n      \"interval\": 4613,\n      \"startTime\": \"1991-02-08T13:31:06.308Z\",\n      \"endTime\": \"2002-07-11T02:15:15.581Z\",\n      \"schedule\": {\n        \"hours\": [\n          9710,\n          2314\n        ],\n        \"minutes\": [\n          9011,\n          6420\n        ],\n        \"weekDays\": [\n          \"Tuesday\",\n          \"Wednesday\"\n        ],\n        \"monthDays\": [\n          3695,\n          1990\n        ]\n      },\n      \"timeZone\": \"string\"\n    },\n    \"recurrenceInterval\": \"<string>\",\n    \"createdAt\": \"<dateTime>\",\n    \"lastModifiedAt\": \"<dateTime>\",\n    \"lastScheduled\": \"<dateTime>\",\n    \"scanLevel\": \"<string>\",\n    \"incrementalScanStartTime\": \"<dateTime>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e06f8a7-53fa-4017-8274-40934d961796",
+          "name": "Microsoft Purview Get a scan trigger",
+          "request": {
+            "name": "Microsoft Purview Get a scan trigger",
+            "description": {
+              "content": "Gets trigger information for a scan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "datasources",
+                ":dataSourceName",
+                "scans",
+                ":scanName",
+                "triggers",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scanName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ea2247cf-1706-40a1-96ac-f3dd24a98406",
+              "name": "Trigger retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"recurrence\": {\n      \"frequency\": \"Week\",\n      \"interval\": 2907,\n      \"startTime\": \"1966-03-22T12:02:17.447Z\",\n      \"endTime\": \"1988-10-12T19:25:16.732Z\",\n      \"schedule\": {\n        \"hours\": [\n          4730,\n          9711\n        ],\n        \"minutes\": [\n          2440,\n          4599\n        ],\n        \"weekDays\": [\n          \"Thursday\",\n          \"Friday\"\n        ],\n        \"monthDays\": [\n          1841,\n          1233\n        ]\n      },\n      \"timeZone\": \"string\"\n    },\n    \"recurrenceInterval\": \"string\",\n    \"createdAt\": \"1966-01-09T10:30:42.686Z\",\n    \"lastModifiedAt\": \"1961-09-14T23:06:33.493Z\",\n    \"lastScheduled\": \"1995-10-03T23:43:25.655Z\",\n    \"scanLevel\": \"Incremental\",\n    \"incrementalScanStartTime\": \"1975-03-25T04:45:34.475Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a9055132-beda-4db1-9a77-1b787e3142b0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d1596fb7-f250-4235-8dc3-910ef80d7d0b",
+              "name": "Trigger not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f617064-96b2-44f3-b0b3-7beceb950171",
+          "name": "Microsoft Purview Delete a scan trigger",
+          "request": {
+            "name": "Microsoft Purview Delete a scan trigger",
+            "description": {
+              "content": "Deletes the trigger associated with the scan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "datasources",
+                ":dataSourceName",
+                "scans",
+                ":scanName",
+                "triggers",
+                "default"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scanName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "af1c0963-af07-4f77-8919-30da2145353f",
+              "name": "Trigger deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4445d9df-7fcc-41be-a8f4-4c804ffb5fd6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d32b8466-c2ab-4755-95b7-fbdba7ce16d1",
+              "name": "Trigger not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61b55dda-e01f-4769-a15b-9bcf85ceeb1c",
+          "name": "Microsoft Purview Enable a scan trigger",
+          "request": {
+            "name": "Microsoft Purview Enable a scan trigger",
+            "description": {
+              "content": "Enables a trigger for scheduled scanning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "datasources",
+                ":dataSourceName",
+                "scans",
+                ":scanName",
+                "triggers",
+                "default",
+                ":enable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scanName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7b5b52e6-3858-45e1-9cd4-0b0ebf49dcad",
+              "name": "Trigger enabled successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default",
+                    ":enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"recurrence\": {\n      \"frequency\": \"Week\",\n      \"interval\": 2907,\n      \"startTime\": \"1966-03-22T12:02:17.447Z\",\n      \"endTime\": \"1988-10-12T19:25:16.732Z\",\n      \"schedule\": {\n        \"hours\": [\n          4730,\n          9711\n        ],\n        \"minutes\": [\n          2440,\n          4599\n        ],\n        \"weekDays\": [\n          \"Thursday\",\n          \"Friday\"\n        ],\n        \"monthDays\": [\n          1841,\n          1233\n        ]\n      },\n      \"timeZone\": \"string\"\n    },\n    \"recurrenceInterval\": \"string\",\n    \"createdAt\": \"1966-01-09T10:30:42.686Z\",\n    \"lastModifiedAt\": \"1961-09-14T23:06:33.493Z\",\n    \"lastScheduled\": \"1995-10-03T23:43:25.655Z\",\n    \"scanLevel\": \"Incremental\",\n    \"incrementalScanStartTime\": \"1975-03-25T04:45:34.475Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e9c31352-5999-4be0-993d-7a030f636443",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default",
+                    ":enable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7bbc2b5b-29d5-4ed4-8153-bf5a9590e05b",
+          "name": "Microsoft Purview Disable a scan trigger",
+          "request": {
+            "name": "Microsoft Purview Disable a scan trigger",
+            "description": {
+              "content": "Disables a trigger for scheduled scanning.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "scan",
+                "datasources",
+                ":dataSourceName",
+                "scans",
+                ":scanName",
+                "triggers",
+                "default",
+                ":disable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dataSourceName",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scanName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8692c599-3760-4bde-9e02-023eb3c96b9e",
+              "name": "Trigger disabled successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default",
+                    ":disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"properties\": {\n    \"recurrence\": {\n      \"frequency\": \"Week\",\n      \"interval\": 2907,\n      \"startTime\": \"1966-03-22T12:02:17.447Z\",\n      \"endTime\": \"1988-10-12T19:25:16.732Z\",\n      \"schedule\": {\n        \"hours\": [\n          4730,\n          9711\n        ],\n        \"minutes\": [\n          2440,\n          4599\n        ],\n        \"weekDays\": [\n          \"Thursday\",\n          \"Friday\"\n        ],\n        \"monthDays\": [\n          1841,\n          1233\n        ]\n      },\n      \"timeZone\": \"string\"\n    },\n    \"recurrenceInterval\": \"string\",\n    \"createdAt\": \"1966-01-09T10:30:42.686Z\",\n    \"lastModifiedAt\": \"1961-09-14T23:06:33.493Z\",\n    \"lastScheduled\": \"1995-10-03T23:43:25.655Z\",\n    \"scanLevel\": \"Incremental\",\n    \"incrementalScanStartTime\": \"1975-03-25T04:45:34.475Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d401e33e-c223-4722-9103-4691ad82aeb9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "scan",
+                    "datasources",
+                    ":dataSourceName",
+                    "scans",
+                    ":scanName",
+                    "triggers",
+                    "default",
+                    ":disable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dataSourceName",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scanName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "24a77d1f-3054-4dea-b281-00fd3080ad6a",
+    "name": "Microsoft Purview Account Accounts Triggers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

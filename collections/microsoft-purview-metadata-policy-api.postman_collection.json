@@ -1,0 +1,662 @@
+{
+  "item": [
+    {
+      "id": "8fe1faba-585a-45b7-982b-dcacaef1b147",
+      "name": "Metadata Policy",
+      "description": {
+        "content": "Operations for managing metadata policies",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aeb9cdf2-8518-4f9e-8da9-222b404dbdf0",
+          "name": "Microsoft Purview Get a metadata policy",
+          "request": {
+            "name": "Microsoft Purview Get a metadata policy",
+            "description": {
+              "content": "Gets a metadata policy by its identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadataPolicies",
+                ":policyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-07-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "policyId",
+                  "description": "(Required) The unique identifier of the metadata policy"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a6cbad82-f2c0-4ff7-a51e-ebe1f1b4174f",
+              "name": "Metadata policy retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadataPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) The unique identifier of the metadata policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"version\": 6567,\n  \"properties\": {\n    \"description\": \"string\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"parentCollectionName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97c858c8-4205-4e80-aeda-1a7557378962",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadataPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) The unique identifier of the metadata policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca9350c2-b832-4711-a59e-8831502a57c5",
+              "name": "Policy not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadataPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) The unique identifier of the metadata policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aa704c26-ae82-4213-b894-8a29ba1382b5",
+          "name": "Microsoft Purview Update a metadata policy",
+          "request": {
+            "name": "Microsoft Purview Update a metadata policy",
+            "description": {
+              "content": "Updates a metadata policy with the given identifier.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadataPolicies",
+                ":policyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-07-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "policyId",
+                  "description": "(Required) The unique identifier of the metadata policy"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"<string>\",\n        \"effect\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"<string>\",\n        \"effect\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"<string>\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"<string>\",\n        \"id\": \"<string>\",\n        \"name\": \"<string>\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"<string>\",\n              \"attributeValueIncludes\": \"<string>\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"<string>\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "476b1158-0811-4a67-b6c8-3d449caa30be",
+              "name": "Metadata policy updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadataPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) The unique identifier of the metadata policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Permit\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Permit\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"version\": 6567,\n  \"properties\": {\n    \"description\": \"string\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Deny\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"parentCollectionName\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23d3ac04-3557-4dc4-afb9-a709d5b4e3d2",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadataPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) The unique identifier of the metadata policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Permit\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Permit\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6df4c55-e39e-44db-8268-2163d763b86e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadataPolicies",
+                    ":policyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "policyId",
+                      "description": "(Required) The unique identifier of the metadata policy"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"version\": \"<integer>\",\n  \"properties\": {\n    \"description\": \"<string>\",\n    \"decisionRules\": [\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Permit\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"decisionrule\",\n        \"effect\": \"Permit\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"attributeRules\": [\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      },\n      {\n        \"kind\": \"attributerule\",\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"dnfCondition\": [\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ],\n          [\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            },\n            {\n              \"attributeName\": \"string\",\n              \"attributeValueIncludes\": \"string\",\n              \"attributeValueIncludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              \"attributeValueExcludes\": \"string\",\n              \"attributeValueExcludedIn\": [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            }\n          ]\n        ]\n      }\n    ],\n    \"collection\": {\n      \"referenceName\": \"string\",\n      \"type\": \"string\"\n    },\n    \"parentCollectionName\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0ffa86d2-88d0-453d-8eaa-293ac5367ba7",
+          "name": "Microsoft Purview List all metadata policies",
+          "request": {
+            "name": "Microsoft Purview List all metadata policies",
+            "description": {
+              "content": "List or get metadata policies for the Purview account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "metadataPolicies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2021-07-01-preview",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "collectionName",
+                  "value": "<string>",
+                  "description": "Filter by collection name"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "48b681d9-efec-499a-9bb0-44a09d5fe3bb",
+              "name": "Metadata policies listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadataPolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    },
+                    {
+                      "key": "collectionName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"values\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"version\": 1960,\n      \"properties\": {\n        \"description\": \"string\",\n        \"decisionRules\": [\n          {\n            \"kind\": \"decisionrule\",\n            \"effect\": \"Permit\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            ]\n          },\n          {\n            \"kind\": \"decisionrule\",\n            \"effect\": \"Permit\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            ]\n          }\n        ],\n        \"attributeRules\": [\n          {\n            \"kind\": \"attributerule\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            ]\n          },\n          {\n            \"kind\": \"attributerule\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            ]\n          }\n        ],\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"parentCollectionName\": \"string\"\n      }\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\",\n      \"version\": 2083,\n      \"properties\": {\n        \"description\": \"string\",\n        \"decisionRules\": [\n          {\n            \"kind\": \"decisionrule\",\n            \"effect\": \"Deny\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            ]\n          },\n          {\n            \"kind\": \"decisionrule\",\n            \"effect\": \"Permit\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            ]\n          }\n        ],\n        \"attributeRules\": [\n          {\n            \"kind\": \"attributerule\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            ]\n          },\n          {\n            \"kind\": \"attributerule\",\n            \"id\": \"string\",\n            \"name\": \"string\",\n            \"dnfCondition\": [\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ],\n              [\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                },\n                {\n                  \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n                }\n              ]\n            ]\n          }\n        ],\n        \"collection\": {\n          \"referenceName\": \"string\",\n          \"type\": \"string\"\n        },\n        \"parentCollectionName\": \"string\"\n      }\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89dcc488-87d4-4d7a-a16e-b81fb78d3a72",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "metadataPolicies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2021-07-01-preview"
+                    },
+                    {
+                      "key": "collectionName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5788ee9c-9672-480a-8d06-34f0bbfa4da1",
+    "name": "Microsoft Purview Account Accounts Metadata Policy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

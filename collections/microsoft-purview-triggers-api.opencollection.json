@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Triggers API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Triggers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Get a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Gets trigger information for a scan."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create or replace a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates or replaces an instance of a trigger for scheduling scans."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Deletes the trigger associated with the scan."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Enable a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default/:enable",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Enables a trigger for scheduled scanning."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Disable a scan trigger",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/scan/datasources/:dataSourceName/scans/:scanName/triggers/default/:disable",
+            "params": [
+              {
+                "name": "dataSourceName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "scanName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Disables a trigger for scheduled scanning."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

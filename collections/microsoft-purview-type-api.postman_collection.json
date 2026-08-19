@@ -1,0 +1,1513 @@
+{
+  "item": [
+    {
+      "id": "a29e3226-08fa-4207-8a1a-0100021e3339",
+      "name": "Type",
+      "description": {
+        "content": "Operations for managing type definitions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f6d6e73-b6ae-4f85-a91c-3c89c74be318",
+          "name": "Microsoft Purview List all type definitions",
+          "request": {
+            "name": "Microsoft Purview List all type definitions",
+            "description": {
+              "content": "List all type definitions in bulk.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "types",
+                "typedefs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeTermTemplate",
+                  "value": "false",
+                  "description": "Whether to include term template definitions"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Type category filter"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c815d72d-d137-4087-aefd-090c88f24b2c",
+              "name": "Type definitions retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeTermTemplate",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2163,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"3abc0342-f1b1-0e5e-140d-fff8fa1be763\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7412,\n      \"updatedBy\": \"string\",\n      \"version\": 9504,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 3731,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4666a70b-db98-7ed5-a875-f0c20d663609\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9404,\n      \"updatedBy\": \"string\",\n      \"version\": 3842,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 8803,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6d547d89-d679-7270-68d7-4a28367b992e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3615,\n      \"updatedBy\": \"string\",\n      \"version\": 175,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4515,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2ecb2b8a-18c5-7d13-a0bb-47732dd79db5\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3944,\n      \"updatedBy\": \"string\",\n      \"version\": 4021,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 8036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"c2bafaa6-5d56-84d3-1c48-849f8647a4a9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4462,\n      \"updatedBy\": \"string\",\n      \"version\": 4541,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 8140,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"20e3154c-4619-d635-f7b7-f4c55b80578f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 2633,\n      \"updatedBy\": \"string\",\n      \"version\": 1351,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 763,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"3c9c5bb6-60fb-aae4-7437-e22620d6799a\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7429,\n      \"updatedBy\": \"string\",\n      \"version\": 5453,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 5226,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"bec222c9-64d4-17ed-886b-0eb34afa8f89\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5906,\n      \"updatedBy\": \"string\",\n      \"version\": 1960,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 6494,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"279ac118-1818-dd36-90cb-37fbc0f9924b\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 281,\n      \"updatedBy\": \"string\",\n      \"version\": 1565,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 9557,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"334b7e40-b713-bfe6-c755-85150d3f35c2\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3239,\n      \"updatedBy\": \"string\",\n      \"version\": 133,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 6066,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"370c5d6f-8f53-fedc-8fd9-f21619311967\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4319,\n      \"updatedBy\": \"string\",\n      \"version\": 6377,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 312,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"99f208c5-3731-9afb-29f8-6e234970eb3c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7548,\n      \"updatedBy\": \"string\",\n      \"version\": 1990,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 572,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a7d17fc1-6763-7c07-a595-f84373b5cbd0\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 8849,\n      \"updatedBy\": \"string\",\n      \"version\": 9751,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 5690,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"26f4b555-3483-9186-653f-96d09e64f12c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9120,\n      \"updatedBy\": \"string\",\n      \"version\": 4160,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46ef9e87-f502-4beb-a1a0-a007e2c4a5cc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeTermTemplate",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "96b8d0ea-b238-4115-a87b-d8dec44aa3a9",
+          "name": "Microsoft Purview Create type definitions in bulk",
+          "request": {
+            "name": "Microsoft Purview Create type definitions in bulk",
+            "description": {
+              "content": "Create all atlas type definitions in bulk.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "types",
+                "typedefs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8bb64fd1-a2b1-4722-a71a-24dad3eed537",
+              "name": "Type definitions created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 806,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"838b01dc-c5c1-2e38-6f21-5cc3d552c44d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1149,\n      \"updatedBy\": \"string\",\n      \"version\": 3262,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 840,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"cdff617f-81c5-82da-77b4-672927dbea94\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4169,\n      \"updatedBy\": \"string\",\n      \"version\": 5845,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 751,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"e671b3c5-c62d-cb03-e0a2-4aab61531f5e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1753,\n      \"updatedBy\": \"string\",\n      \"version\": 8831,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2811,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6e376366-7c79-1688-508b-e7938d2d1f4f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3794,\n      \"updatedBy\": \"string\",\n      \"version\": 2095,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6409,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"22e9b4bd-6e16-e0ee-b036-676c62276a3f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5999,\n      \"updatedBy\": \"string\",\n      \"version\": 9033,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2655,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"361a3ac0-126e-ff1e-259f-af0906b1e7b9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 6675,\n      \"updatedBy\": \"string\",\n      \"version\": 2856,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 2760,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"728d4a30-159a-3b2d-046d-3bf923ab7628\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7644,\n      \"updatedBy\": \"string\",\n      \"version\": 4115,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 4423,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"de3458d0-e3c8-0802-14b7-176eeef7d097\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7971,\n      \"updatedBy\": \"string\",\n      \"version\": 9797,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2047,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"952a59c3-abd7-82d8-3776-fd6147755e31\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 763,\n      \"updatedBy\": \"string\",\n      \"version\": 7279,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4202,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"ef3b9738-ed10-738a-6f80-badb469fd859\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9346,\n      \"updatedBy\": \"string\",\n      \"version\": 3064,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 2165,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4887449b-e84f-8409-3892-d78473a15c99\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9752,\n      \"updatedBy\": \"string\",\n      \"version\": 5445,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a8f8b108-c0b2-f1bb-7cc5-f4d1fe30080d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3363,\n      \"updatedBy\": \"string\",\n      \"version\": 1093,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 870,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2d791937-8313-a50f-2d08-fda35f1ea76c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5452,\n      \"updatedBy\": \"string\",\n      \"version\": 8196,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 6761,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a1416fd1-e66a-f357-5b03-f7083a8542ec\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7088,\n      \"updatedBy\": \"string\",\n      \"version\": 3177,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2163,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"3abc0342-f1b1-0e5e-140d-fff8fa1be763\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7412,\n      \"updatedBy\": \"string\",\n      \"version\": 9504,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 3731,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4666a70b-db98-7ed5-a875-f0c20d663609\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9404,\n      \"updatedBy\": \"string\",\n      \"version\": 3842,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 8803,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6d547d89-d679-7270-68d7-4a28367b992e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3615,\n      \"updatedBy\": \"string\",\n      \"version\": 175,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4515,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2ecb2b8a-18c5-7d13-a0bb-47732dd79db5\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3944,\n      \"updatedBy\": \"string\",\n      \"version\": 4021,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 8036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"c2bafaa6-5d56-84d3-1c48-849f8647a4a9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4462,\n      \"updatedBy\": \"string\",\n      \"version\": 4541,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 8140,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"20e3154c-4619-d635-f7b7-f4c55b80578f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 2633,\n      \"updatedBy\": \"string\",\n      \"version\": 1351,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 763,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"3c9c5bb6-60fb-aae4-7437-e22620d6799a\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7429,\n      \"updatedBy\": \"string\",\n      \"version\": 5453,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 5226,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"bec222c9-64d4-17ed-886b-0eb34afa8f89\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5906,\n      \"updatedBy\": \"string\",\n      \"version\": 1960,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 6494,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"279ac118-1818-dd36-90cb-37fbc0f9924b\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 281,\n      \"updatedBy\": \"string\",\n      \"version\": 1565,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 9557,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"334b7e40-b713-bfe6-c755-85150d3f35c2\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3239,\n      \"updatedBy\": \"string\",\n      \"version\": 133,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 6066,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"370c5d6f-8f53-fedc-8fd9-f21619311967\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4319,\n      \"updatedBy\": \"string\",\n      \"version\": 6377,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 312,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"99f208c5-3731-9afb-29f8-6e234970eb3c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7548,\n      \"updatedBy\": \"string\",\n      \"version\": 1990,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 572,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a7d17fc1-6763-7c07-a595-f84373b5cbd0\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 8849,\n      \"updatedBy\": \"string\",\n      \"version\": 9751,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 5690,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"26f4b555-3483-9186-653f-96d09e64f12c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9120,\n      \"updatedBy\": \"string\",\n      \"version\": 4160,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b41b175c-a128-4733-af7d-f48226171679",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 806,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"838b01dc-c5c1-2e38-6f21-5cc3d552c44d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1149,\n      \"updatedBy\": \"string\",\n      \"version\": 3262,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 840,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"cdff617f-81c5-82da-77b4-672927dbea94\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4169,\n      \"updatedBy\": \"string\",\n      \"version\": 5845,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 751,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"e671b3c5-c62d-cb03-e0a2-4aab61531f5e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1753,\n      \"updatedBy\": \"string\",\n      \"version\": 8831,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2811,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6e376366-7c79-1688-508b-e7938d2d1f4f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3794,\n      \"updatedBy\": \"string\",\n      \"version\": 2095,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6409,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"22e9b4bd-6e16-e0ee-b036-676c62276a3f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5999,\n      \"updatedBy\": \"string\",\n      \"version\": 9033,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2655,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"361a3ac0-126e-ff1e-259f-af0906b1e7b9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 6675,\n      \"updatedBy\": \"string\",\n      \"version\": 2856,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 2760,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"728d4a30-159a-3b2d-046d-3bf923ab7628\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7644,\n      \"updatedBy\": \"string\",\n      \"version\": 4115,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 4423,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"de3458d0-e3c8-0802-14b7-176eeef7d097\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7971,\n      \"updatedBy\": \"string\",\n      \"version\": 9797,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2047,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"952a59c3-abd7-82d8-3776-fd6147755e31\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 763,\n      \"updatedBy\": \"string\",\n      \"version\": 7279,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4202,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"ef3b9738-ed10-738a-6f80-badb469fd859\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9346,\n      \"updatedBy\": \"string\",\n      \"version\": 3064,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 2165,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4887449b-e84f-8409-3892-d78473a15c99\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9752,\n      \"updatedBy\": \"string\",\n      \"version\": 5445,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a8f8b108-c0b2-f1bb-7cc5-f4d1fe30080d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3363,\n      \"updatedBy\": \"string\",\n      \"version\": 1093,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 870,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2d791937-8313-a50f-2d08-fda35f1ea76c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5452,\n      \"updatedBy\": \"string\",\n      \"version\": 8196,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 6761,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a1416fd1-e66a-f357-5b03-f7083a8542ec\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7088,\n      \"updatedBy\": \"string\",\n      \"version\": 3177,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7ecbd47b-7fda-416b-9913-72603913eb8d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 806,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"838b01dc-c5c1-2e38-6f21-5cc3d552c44d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1149,\n      \"updatedBy\": \"string\",\n      \"version\": 3262,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 840,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"cdff617f-81c5-82da-77b4-672927dbea94\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4169,\n      \"updatedBy\": \"string\",\n      \"version\": 5845,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 751,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"e671b3c5-c62d-cb03-e0a2-4aab61531f5e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1753,\n      \"updatedBy\": \"string\",\n      \"version\": 8831,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2811,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6e376366-7c79-1688-508b-e7938d2d1f4f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3794,\n      \"updatedBy\": \"string\",\n      \"version\": 2095,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6409,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"22e9b4bd-6e16-e0ee-b036-676c62276a3f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5999,\n      \"updatedBy\": \"string\",\n      \"version\": 9033,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2655,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"361a3ac0-126e-ff1e-259f-af0906b1e7b9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 6675,\n      \"updatedBy\": \"string\",\n      \"version\": 2856,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 2760,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"728d4a30-159a-3b2d-046d-3bf923ab7628\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7644,\n      \"updatedBy\": \"string\",\n      \"version\": 4115,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 4423,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"de3458d0-e3c8-0802-14b7-176eeef7d097\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7971,\n      \"updatedBy\": \"string\",\n      \"version\": 9797,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2047,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"952a59c3-abd7-82d8-3776-fd6147755e31\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 763,\n      \"updatedBy\": \"string\",\n      \"version\": 7279,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4202,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"ef3b9738-ed10-738a-6f80-badb469fd859\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9346,\n      \"updatedBy\": \"string\",\n      \"version\": 3064,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 2165,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4887449b-e84f-8409-3892-d78473a15c99\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9752,\n      \"updatedBy\": \"string\",\n      \"version\": 5445,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a8f8b108-c0b2-f1bb-7cc5-f4d1fe30080d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3363,\n      \"updatedBy\": \"string\",\n      \"version\": 1093,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 870,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2d791937-8313-a50f-2d08-fda35f1ea76c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5452,\n      \"updatedBy\": \"string\",\n      \"version\": 8196,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 6761,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a1416fd1-e66a-f357-5b03-f7083a8542ec\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7088,\n      \"updatedBy\": \"string\",\n      \"version\": 3177,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45d1a65b-d878-40f5-805e-c949ca60dcad",
+          "name": "Microsoft Purview Update type definitions in bulk",
+          "request": {
+            "name": "Microsoft Purview Update type definitions in bulk",
+            "description": {
+              "content": "Update all types in bulk.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "types",
+                "typedefs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b1fcce1e-8295-4087-a68a-dd4c21f01492",
+              "name": "Type definitions updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 806,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"838b01dc-c5c1-2e38-6f21-5cc3d552c44d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1149,\n      \"updatedBy\": \"string\",\n      \"version\": 3262,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 840,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"cdff617f-81c5-82da-77b4-672927dbea94\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4169,\n      \"updatedBy\": \"string\",\n      \"version\": 5845,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 751,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"e671b3c5-c62d-cb03-e0a2-4aab61531f5e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1753,\n      \"updatedBy\": \"string\",\n      \"version\": 8831,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2811,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6e376366-7c79-1688-508b-e7938d2d1f4f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3794,\n      \"updatedBy\": \"string\",\n      \"version\": 2095,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6409,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"22e9b4bd-6e16-e0ee-b036-676c62276a3f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5999,\n      \"updatedBy\": \"string\",\n      \"version\": 9033,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2655,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"361a3ac0-126e-ff1e-259f-af0906b1e7b9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 6675,\n      \"updatedBy\": \"string\",\n      \"version\": 2856,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 2760,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"728d4a30-159a-3b2d-046d-3bf923ab7628\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7644,\n      \"updatedBy\": \"string\",\n      \"version\": 4115,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 4423,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"de3458d0-e3c8-0802-14b7-176eeef7d097\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7971,\n      \"updatedBy\": \"string\",\n      \"version\": 9797,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2047,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"952a59c3-abd7-82d8-3776-fd6147755e31\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 763,\n      \"updatedBy\": \"string\",\n      \"version\": 7279,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4202,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"ef3b9738-ed10-738a-6f80-badb469fd859\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9346,\n      \"updatedBy\": \"string\",\n      \"version\": 3064,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 2165,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4887449b-e84f-8409-3892-d78473a15c99\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9752,\n      \"updatedBy\": \"string\",\n      \"version\": 5445,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a8f8b108-c0b2-f1bb-7cc5-f4d1fe30080d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3363,\n      \"updatedBy\": \"string\",\n      \"version\": 1093,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 870,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2d791937-8313-a50f-2d08-fda35f1ea76c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5452,\n      \"updatedBy\": \"string\",\n      \"version\": 8196,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 6761,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a1416fd1-e66a-f357-5b03-f7083a8542ec\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7088,\n      \"updatedBy\": \"string\",\n      \"version\": 3177,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2163,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"3abc0342-f1b1-0e5e-140d-fff8fa1be763\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7412,\n      \"updatedBy\": \"string\",\n      \"version\": 9504,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 3731,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4666a70b-db98-7ed5-a875-f0c20d663609\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9404,\n      \"updatedBy\": \"string\",\n      \"version\": 3842,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 8803,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6d547d89-d679-7270-68d7-4a28367b992e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3615,\n      \"updatedBy\": \"string\",\n      \"version\": 175,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4515,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2ecb2b8a-18c5-7d13-a0bb-47732dd79db5\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3944,\n      \"updatedBy\": \"string\",\n      \"version\": 4021,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 8036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"c2bafaa6-5d56-84d3-1c48-849f8647a4a9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4462,\n      \"updatedBy\": \"string\",\n      \"version\": 4541,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 8140,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"20e3154c-4619-d635-f7b7-f4c55b80578f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 2633,\n      \"updatedBy\": \"string\",\n      \"version\": 1351,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 763,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"3c9c5bb6-60fb-aae4-7437-e22620d6799a\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7429,\n      \"updatedBy\": \"string\",\n      \"version\": 5453,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 5226,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"bec222c9-64d4-17ed-886b-0eb34afa8f89\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5906,\n      \"updatedBy\": \"string\",\n      \"version\": 1960,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 6494,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"279ac118-1818-dd36-90cb-37fbc0f9924b\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 281,\n      \"updatedBy\": \"string\",\n      \"version\": 1565,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 9557,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"334b7e40-b713-bfe6-c755-85150d3f35c2\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3239,\n      \"updatedBy\": \"string\",\n      \"version\": 133,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 6066,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"370c5d6f-8f53-fedc-8fd9-f21619311967\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4319,\n      \"updatedBy\": \"string\",\n      \"version\": 6377,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 312,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"99f208c5-3731-9afb-29f8-6e234970eb3c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7548,\n      \"updatedBy\": \"string\",\n      \"version\": 1990,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 572,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a7d17fc1-6763-7c07-a595-f84373b5cbd0\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 8849,\n      \"updatedBy\": \"string\",\n      \"version\": 9751,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 5690,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"26f4b555-3483-9186-653f-96d09e64f12c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9120,\n      \"updatedBy\": \"string\",\n      \"version\": 4160,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "30a6981e-d581-475c-8c91-c2e21307064c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 806,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"838b01dc-c5c1-2e38-6f21-5cc3d552c44d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1149,\n      \"updatedBy\": \"string\",\n      \"version\": 3262,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 840,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"cdff617f-81c5-82da-77b4-672927dbea94\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4169,\n      \"updatedBy\": \"string\",\n      \"version\": 5845,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 751,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"e671b3c5-c62d-cb03-e0a2-4aab61531f5e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1753,\n      \"updatedBy\": \"string\",\n      \"version\": 8831,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2811,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6e376366-7c79-1688-508b-e7938d2d1f4f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3794,\n      \"updatedBy\": \"string\",\n      \"version\": 2095,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6409,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"22e9b4bd-6e16-e0ee-b036-676c62276a3f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5999,\n      \"updatedBy\": \"string\",\n      \"version\": 9033,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2655,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"361a3ac0-126e-ff1e-259f-af0906b1e7b9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 6675,\n      \"updatedBy\": \"string\",\n      \"version\": 2856,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 2760,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"728d4a30-159a-3b2d-046d-3bf923ab7628\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7644,\n      \"updatedBy\": \"string\",\n      \"version\": 4115,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 4423,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"de3458d0-e3c8-0802-14b7-176eeef7d097\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7971,\n      \"updatedBy\": \"string\",\n      \"version\": 9797,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2047,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"952a59c3-abd7-82d8-3776-fd6147755e31\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 763,\n      \"updatedBy\": \"string\",\n      \"version\": 7279,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4202,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"ef3b9738-ed10-738a-6f80-badb469fd859\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9346,\n      \"updatedBy\": \"string\",\n      \"version\": 3064,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 2165,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4887449b-e84f-8409-3892-d78473a15c99\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9752,\n      \"updatedBy\": \"string\",\n      \"version\": 5445,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a8f8b108-c0b2-f1bb-7cc5-f4d1fe30080d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3363,\n      \"updatedBy\": \"string\",\n      \"version\": 1093,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 870,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2d791937-8313-a50f-2d08-fda35f1ea76c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5452,\n      \"updatedBy\": \"string\",\n      \"version\": 8196,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 6761,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a1416fd1-e66a-f357-5b03-f7083a8542ec\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7088,\n      \"updatedBy\": \"string\",\n      \"version\": 3177,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e0f723bb-e8aa-4c1b-962c-8ba1f77ec1c9",
+          "name": "Microsoft Purview Delete type definitions in bulk",
+          "request": {
+            "name": "Microsoft Purview Delete type definitions in bulk",
+            "description": {
+              "content": "Delete API for all types in bulk.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "types",
+                "typedefs"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\",\n        \"key_3\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\",\n        \"key_2\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    },\n    {\n      \"category\": \"<string>\",\n      \"createTime\": \"<long>\",\n      \"createdBy\": \"<string>\",\n      \"dateFormatter\": \"<object>\",\n      \"description\": \"<string>\",\n      \"guid\": \"<uuid>\",\n      \"name\": \"<string>\",\n      \"options\": {\n        \"key_0\": \"<string>\"\n      },\n      \"typeVersion\": \"<string>\",\n      \"updateTime\": \"<long>\",\n      \"updatedBy\": \"<string>\",\n      \"version\": \"<long>\",\n      \"lastModifiedTS\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ecfba03f-0c43-44d9-b627-d14d9806d69a",
+              "name": "Type definitions deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 806,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"838b01dc-c5c1-2e38-6f21-5cc3d552c44d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1149,\n      \"updatedBy\": \"string\",\n      \"version\": 3262,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 840,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"cdff617f-81c5-82da-77b4-672927dbea94\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4169,\n      \"updatedBy\": \"string\",\n      \"version\": 5845,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 751,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"e671b3c5-c62d-cb03-e0a2-4aab61531f5e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1753,\n      \"updatedBy\": \"string\",\n      \"version\": 8831,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2811,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6e376366-7c79-1688-508b-e7938d2d1f4f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3794,\n      \"updatedBy\": \"string\",\n      \"version\": 2095,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6409,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"22e9b4bd-6e16-e0ee-b036-676c62276a3f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5999,\n      \"updatedBy\": \"string\",\n      \"version\": 9033,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2655,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"361a3ac0-126e-ff1e-259f-af0906b1e7b9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 6675,\n      \"updatedBy\": \"string\",\n      \"version\": 2856,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 2760,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"728d4a30-159a-3b2d-046d-3bf923ab7628\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7644,\n      \"updatedBy\": \"string\",\n      \"version\": 4115,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 4423,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"de3458d0-e3c8-0802-14b7-176eeef7d097\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7971,\n      \"updatedBy\": \"string\",\n      \"version\": 9797,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2047,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"952a59c3-abd7-82d8-3776-fd6147755e31\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 763,\n      \"updatedBy\": \"string\",\n      \"version\": 7279,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4202,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"ef3b9738-ed10-738a-6f80-badb469fd859\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9346,\n      \"updatedBy\": \"string\",\n      \"version\": 3064,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 2165,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4887449b-e84f-8409-3892-d78473a15c99\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9752,\n      \"updatedBy\": \"string\",\n      \"version\": 5445,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a8f8b108-c0b2-f1bb-7cc5-f4d1fe30080d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3363,\n      \"updatedBy\": \"string\",\n      \"version\": 1093,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 870,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2d791937-8313-a50f-2d08-fda35f1ea76c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5452,\n      \"updatedBy\": \"string\",\n      \"version\": 8196,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 6761,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a1416fd1-e66a-f357-5b03-f7083a8542ec\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7088,\n      \"updatedBy\": \"string\",\n      \"version\": 3177,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8bfa1d32-de3f-45ed-ab52-c85aeb165f51",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"businessMetadataDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 806,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"838b01dc-c5c1-2e38-6f21-5cc3d552c44d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1149,\n      \"updatedBy\": \"string\",\n      \"version\": 3262,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"PRIMITIVE\",\n      \"createTime\": 840,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"cdff617f-81c5-82da-77b4-672927dbea94\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": \"string\",\n        \"key_3\": \"string\",\n        \"key_4\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 4169,\n      \"updatedBy\": \"string\",\n      \"version\": 5845,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"classificationDefs\": [\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 751,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"e671b3c5-c62d-cb03-e0a2-4aab61531f5e\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 1753,\n      \"updatedBy\": \"string\",\n      \"version\": 8831,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2811,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"6e376366-7c79-1688-508b-e7938d2d1f4f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3794,\n      \"updatedBy\": \"string\",\n      \"version\": 2095,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"entityDefs\": [\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6409,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"22e9b4bd-6e16-e0ee-b036-676c62276a3f\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5999,\n      \"updatedBy\": \"string\",\n      \"version\": 9033,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENUM\",\n      \"createTime\": 2655,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"361a3ac0-126e-ff1e-259f-af0906b1e7b9\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 6675,\n      \"updatedBy\": \"string\",\n      \"version\": 2856,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"enumDefs\": [\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 2760,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"728d4a30-159a-3b2d-046d-3bf923ab7628\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7644,\n      \"updatedBy\": \"string\",\n      \"version\": 4115,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"TERM_TEMPLATE\",\n      \"createTime\": 4423,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"de3458d0-e3c8-0802-14b7-176eeef7d097\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7971,\n      \"updatedBy\": \"string\",\n      \"version\": 9797,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"relationshipDefs\": [\n    {\n      \"category\": \"STRUCT\",\n      \"createTime\": 2047,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"952a59c3-abd7-82d8-3776-fd6147755e31\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 763,\n      \"updatedBy\": \"string\",\n      \"version\": 7279,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ARRAY\",\n      \"createTime\": 4202,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"ef3b9738-ed10-738a-6f80-badb469fd859\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9346,\n      \"updatedBy\": \"string\",\n      \"version\": 3064,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"structDefs\": [\n    {\n      \"category\": \"RELATIONSHIP\",\n      \"createTime\": 2165,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"4887449b-e84f-8409-3892-d78473a15c99\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 9752,\n      \"updatedBy\": \"string\",\n      \"version\": 5445,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"ENTITY\",\n      \"createTime\": 6036,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a8f8b108-c0b2-f1bb-7cc5-f4d1fe30080d\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 3363,\n      \"updatedBy\": \"string\",\n      \"version\": 1093,\n      \"lastModifiedTS\": \"string\"\n    }\n  ],\n  \"termTemplateDefs\": [\n    {\n      \"category\": \"MAP\",\n      \"createTime\": 870,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"2d791937-8313-a50f-2d08-fda35f1ea76c\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 5452,\n      \"updatedBy\": \"string\",\n      \"version\": 8196,\n      \"lastModifiedTS\": \"string\"\n    },\n    {\n      \"category\": \"CLASSIFICATION\",\n      \"createTime\": 6761,\n      \"createdBy\": \"string\",\n      \"dateFormatter\": {},\n      \"description\": \"string\",\n      \"guid\": \"a1416fd1-e66a-f357-5b03-f7083a8542ec\",\n      \"name\": \"string\",\n      \"options\": {\n        \"key_0\": \"string\"\n      },\n      \"typeVersion\": \"string\",\n      \"updateTime\": 7088,\n      \"updatedBy\": \"string\",\n      \"version\": 3177,\n      \"lastModifiedTS\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1a83c717-67e6-4f50-98ce-26a09d3c35ec",
+          "name": "Microsoft Purview List type definition headers",
+          "request": {
+            "name": "Microsoft Purview List type definition headers",
+            "description": {
+              "content": "List all type definitions returned as a list of minimal information header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "types",
+                "typedefs",
+                "headers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeTermTemplate",
+                  "value": "false"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fc5cc964-0073-4b76-921e-eaf09c50f370",
+              "name": "Type definition headers retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs",
+                    "headers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeTermTemplate",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"category\": \"string\",\n    \"guid\": \"f686d7b2-e745-4ce6-bddb-03f7a333c8a6\",\n    \"name\": \"string\"\n  },\n  {\n    \"category\": \"string\",\n    \"guid\": \"5a8195a4-a718-e022-39a2-195522858a41\",\n    \"name\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38a15a8b-fcf7-41cf-aae4-20b7cfdeb420",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedefs",
+                    "headers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeTermTemplate",
+                      "value": "false"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61655371-33c1-40aa-90ec-47942fa87343",
+          "name": "Microsoft Purview Get type definition by GUID",
+          "request": {
+            "name": "Microsoft Purview Get type definition by GUID",
+            "description": {
+              "content": "Get the type definition for the given GUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "types",
+                "typedef",
+                "guid",
+                ":guid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "guid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6bbd9703-0c13-41af-aedd-095981a81f11",
+              "name": "Type definition retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedef",
+                    "guid",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"category\": \"OBJECT_ID_TYPE\",\n  \"createTime\": 9380,\n  \"createdBy\": \"string\",\n  \"dateFormatter\": {},\n  \"description\": \"string\",\n  \"guid\": \"86c47bb1-46bb-536b-ccc1-ebd7bbe4c160\",\n  \"name\": \"string\",\n  \"options\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"typeVersion\": \"string\",\n  \"updateTime\": 4911,\n  \"updatedBy\": \"string\",\n  \"version\": 1738,\n  \"lastModifiedTS\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c371f1d1-f93c-49bc-bc78-44621d964f95",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedef",
+                    "guid",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b2221873-6ea5-41f5-9cd7-cf13fb6cdb27",
+              "name": "Type definition not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedef",
+                    "guid",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f29c6ad4-9182-43db-b7eb-a07a5df32df8",
+          "name": "Microsoft Purview Get type definition by name",
+          "request": {
+            "name": "Microsoft Purview Get type definition by name",
+            "description": {
+              "content": "Get the type definition by its name (unique).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "types",
+                "typedef",
+                "name",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc725ace-68d0-48ec-9b69-eac104b07c9b",
+              "name": "Type definition retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedef",
+                    "name",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"category\": \"OBJECT_ID_TYPE\",\n  \"createTime\": 9380,\n  \"createdBy\": \"string\",\n  \"dateFormatter\": {},\n  \"description\": \"string\",\n  \"guid\": \"86c47bb1-46bb-536b-ccc1-ebd7bbe4c160\",\n  \"name\": \"string\",\n  \"options\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"typeVersion\": \"string\",\n  \"updateTime\": 4911,\n  \"updatedBy\": \"string\",\n  \"version\": 1738,\n  \"lastModifiedTS\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "47ac6827-8925-468f-983d-4669309864e8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedef",
+                    "name",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f2c11559-db7f-4fd2-9cd0-357d938e834a",
+              "name": "Type definition not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedef",
+                    "name",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28799ed8-ac2f-4824-bada-1c27b70d114a",
+          "name": "Microsoft Purview Delete type definition by name",
+          "request": {
+            "name": "Microsoft Purview Delete type definition by name",
+            "description": {
+              "content": "Delete API for type identified by its name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "types",
+                "typedef",
+                "name",
+                ":name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1578a6ca-0015-41d6-8adb-eb3e05f400d4",
+              "name": "Type definition deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedef",
+                    "name",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "35acd5fb-309a-4e0d-89e2-f4ffde9be298",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedef",
+                    "name",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5d5b835b-c930-488b-a016-9ff8aa28c4e6",
+              "name": "Type definition not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "types",
+                    "typedef",
+                    "name",
+                    ":name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9f60d0f5-1997-495d-9c6b-39240d57f8e9",
+    "name": "Microsoft Purview Account Accounts Type API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

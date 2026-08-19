@@ -1,0 +1,125 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Lineage API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Lineage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview Get lineage by GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/lineage/:guid",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "The direction of lineage (INPUT, OUTPUT, BOTH)"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query",
+                "description": "The number of hops for lineage"
+              }
+            ]
+          },
+          "docs": "Get lineage info of the entity specified by GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get next page of lineage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/lineage/:guid/next",
+            "params": [
+              {
+                "name": "guid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return immediate next page lineage info about entity with pagination."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get lineage by unique attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/lineage/uniqueAttribute/type/:typeName",
+            "params": [
+              {
+                "name": "typeName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "depth",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Return lineage info about entity. In addition to the typeName path parameter, attribute key-value pair(s) can be provided."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

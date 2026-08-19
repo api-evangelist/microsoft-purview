@@ -1,0 +1,695 @@
+{
+  "item": [
+    {
+      "id": "ef658b78-d716-40cd-9312-1ba6e65c175c",
+      "name": "Lineage",
+      "description": {
+        "content": "Operations for tracking data lineage",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1acab4c7-e0bd-4de6-8b0f-4cdb88a040ba",
+          "name": "Microsoft Purview Get lineage by GUID",
+          "request": {
+            "name": "Microsoft Purview Get lineage by GUID",
+            "description": {
+              "content": "Get lineage info of the entity specified by GUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "lineage",
+                ":guid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>",
+                  "description": "(Required) The direction of lineage (INPUT, OUTPUT, BOTH)"
+                },
+                {
+                  "disabled": false,
+                  "key": "depth",
+                  "value": "3",
+                  "description": "The number of hops for lineage"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "guid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b037d565-c2a7-446b-b22d-8c8ce1973b1f",
+              "name": "Lineage info retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "lineage",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "depth",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"baseEntityGuid\": \"66f360b0-2162-609f-43af-44897882cad7\",\n  \"childrenCount\": 3617,\n  \"guidEntityMap\": {\n    \"key_0\": {\n      \"attributes\": {\n        \"key_0\": 823\n      },\n      \"typeName\": \"string\",\n      \"lastModifiedTS\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"classifications\": [\n        {\n          \"attributes\": {\n            \"key_0\": \"string\"\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"58e9f4a3-8137-74c2-005c-ed065ada1382\",\n          \"entityStatus\": \"ACTIVE\",\n          \"propagate\": true,\n          \"removePropagationsOnEntityDelete\": false,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"attributes\": {\n            \"key_0\": 1666.3113617951542\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"403fba5c-41ad-5373-b384-3d605995a973\",\n          \"entityStatus\": \"DELETED\",\n          \"propagate\": true,\n          \"removePropagationsOnEntityDelete\": false,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"18113aa2-d88c-90c3-71d5-3f597e80cca1\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meaningNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meanings\": [\n        {\n          \"confidence\": 5873,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"4dc9a10f-0808-d250-3901-f6fa2207ae83\",\n          \"status\": \"OTHER\",\n          \"steward\": \"string\",\n          \"termGuid\": \"94112943-7a77-6937-77de-9fdaea47ce68\"\n        },\n        {\n          \"confidence\": 8009,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"0f25807c-383f-a10d-ed6f-440591e928ae\",\n          \"status\": \"VALIDATED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"ed7bf57c-cfda-b763-8b8c-5c6d9f0f33ab\"\n        }\n      ],\n      \"status\": \"ACTIVE\"\n    },\n    \"key_1\": {\n      \"attributes\": {\n        \"key_0\": 9984,\n        \"key_1\": true,\n        \"key_2\": 2122\n      },\n      \"typeName\": \"string\",\n      \"lastModifiedTS\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"classifications\": [\n        {\n          \"attributes\": {\n            \"key_0\": \"string\"\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"6f3a95f6-6e52-a5e6-9a6c-89de83f3619a\",\n          \"entityStatus\": \"DELETED\",\n          \"propagate\": true,\n          \"removePropagationsOnEntityDelete\": false,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"attributes\": {\n            \"key_0\": 5855.828036122376,\n            \"key_1\": true\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"4e7ec80d-14de-6a92-8a5a-26cc5ea54a29\",\n          \"entityStatus\": \"DELETED\",\n          \"propagate\": true,\n          \"removePropagationsOnEntityDelete\": true,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"6d6dd555-0134-84df-12ae-345ca7bdfdd8\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meaningNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meanings\": [\n        {\n          \"confidence\": 8351,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"a223dff4-05a3-4201-2031-aaefcd979428\",\n          \"status\": \"OBSOLETE\",\n          \"steward\": \"string\",\n          \"termGuid\": \"8a01fc9a-c789-de06-3e3d-90c857da193d\"\n        },\n        {\n          \"confidence\": 4516,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"33b6dcaf-eff2-28b3-33eb-447282e3d765\",\n          \"status\": \"PROPOSED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"fd2e66f1-03b8-5fa4-28c2-4a31b640dcf8\"\n        }\n      ],\n      \"status\": \"ACTIVE\"\n    },\n    \"key_2\": {\n      \"attributes\": {\n        \"key_0\": 5673,\n        \"key_1\": 6640.025861555256\n      },\n      \"typeName\": \"string\",\n      \"lastModifiedTS\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"classifications\": [\n        {\n          \"attributes\": {\n            \"key_0\": false,\n            \"key_1\": 3342,\n            \"key_2\": 4042,\n            \"key_3\": 3666.5090228831787\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"d6cab488-f1d7-d1ec-3450-d8011ca8e2fb\",\n          \"entityStatus\": \"ACTIVE\",\n          \"propagate\": false,\n          \"removePropagationsOnEntityDelete\": false,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": 2519,\n            \"key_2\": false,\n            \"key_3\": \"string\"\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"6b06394c-fd28-8057-d5eb-cc6e1566234b\",\n          \"entityStatus\": \"ACTIVE\",\n          \"propagate\": false,\n          \"removePropagationsOnEntityDelete\": true,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"b531ddd5-3d64-d199-aeb1-4c5d1b410ec0\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meaningNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meanings\": [\n        {\n          \"confidence\": 9783,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"b553ef0b-94ba-cd2d-1f7d-62fbafcc480c\",\n          \"status\": \"DEPRECATED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"802a7037-b2c6-3e6b-7f87-1d952c5b27b7\"\n        },\n        {\n          \"confidence\": 4482,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"81719ed9-146f-5fd2-cdb2-d17982cf7023\",\n          \"status\": \"DISCOVERED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"27c4e6ef-5703-aead-9e8e-e11eaf8be860\"\n        }\n      ],\n      \"status\": \"ACTIVE\"\n    }\n  },\n  \"lineageDepth\": 6331,\n  \"lineageDirection\": \"OUTPUT\",\n  \"lineageWidth\": 3650,\n  \"parentRelations\": [\n    {\n      \"childEntityId\": \"6fbbae85-673d-067d-8dd0-a7fa11eb50cc\",\n      \"parentEntityId\": \"56e3ee41-0ce4-2612-2477-b3432e32bda2\",\n      \"relationshipId\": \"a356b378-c621-a06a-9200-195c4a9a04dc\"\n    },\n    {\n      \"childEntityId\": \"c7ac1c47-b15b-a9ed-3e17-7e018cafd608\",\n      \"parentEntityId\": \"e32923f9-fb13-21c5-4e08-08bf101ca908\",\n      \"relationshipId\": \"2a8c4e17-3147-ae18-da8c-0961bdd5107b\"\n    }\n  ],\n  \"relations\": [\n    {\n      \"fromEntityId\": \"8a47a988-4744-9ec6-c1a5-e18f0457fae5\",\n      \"relationshipId\": \"09cac65a-9603-278b-4dab-1c5c1140feac\",\n      \"toEntityId\": \"d3a8e92c-9130-fbd1-415e-1b9ab62d3b7d\"\n    },\n    {\n      \"fromEntityId\": \"37c704eb-9d5c-d64a-7bb2-caa6ccfbb013\",\n      \"relationshipId\": \"499d8409-a0c6-fe61-8a5d-714724e40bf8\",\n      \"toEntityId\": \"523fa673-64fe-e8fa-ede7-b5c30c5bf63c\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2b75c44b-720c-432b-a31f-86c726799924",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "lineage",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "depth",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3593ea17-0c33-4dee-b3cf-1a79639006f5",
+              "name": "Entity not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "lineage",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "depth",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fdf1f60-e132-4a20-a1af-cd75191aecc4",
+          "name": "Microsoft Purview Get next page of lineage",
+          "request": {
+            "name": "Microsoft Purview Get next page of lineage",
+            "description": {
+              "content": "Return immediate next page lineage info about entity with pagination.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "lineage",
+                ":guid",
+                "next"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "guid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "acc93d7a-e10e-42cb-ad52-d8652e745b4f",
+              "name": "Next page of lineage retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "lineage",
+                    ":guid",
+                    "next"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"baseEntityGuid\": \"66f360b0-2162-609f-43af-44897882cad7\",\n  \"childrenCount\": 3617,\n  \"guidEntityMap\": {\n    \"key_0\": {\n      \"attributes\": {\n        \"key_0\": 823\n      },\n      \"typeName\": \"string\",\n      \"lastModifiedTS\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"classifications\": [\n        {\n          \"attributes\": {\n            \"key_0\": \"string\"\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"58e9f4a3-8137-74c2-005c-ed065ada1382\",\n          \"entityStatus\": \"ACTIVE\",\n          \"propagate\": true,\n          \"removePropagationsOnEntityDelete\": false,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"attributes\": {\n            \"key_0\": 1666.3113617951542\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"403fba5c-41ad-5373-b384-3d605995a973\",\n          \"entityStatus\": \"DELETED\",\n          \"propagate\": true,\n          \"removePropagationsOnEntityDelete\": false,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"18113aa2-d88c-90c3-71d5-3f597e80cca1\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meaningNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meanings\": [\n        {\n          \"confidence\": 5873,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"4dc9a10f-0808-d250-3901-f6fa2207ae83\",\n          \"status\": \"OTHER\",\n          \"steward\": \"string\",\n          \"termGuid\": \"94112943-7a77-6937-77de-9fdaea47ce68\"\n        },\n        {\n          \"confidence\": 8009,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"0f25807c-383f-a10d-ed6f-440591e928ae\",\n          \"status\": \"VALIDATED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"ed7bf57c-cfda-b763-8b8c-5c6d9f0f33ab\"\n        }\n      ],\n      \"status\": \"ACTIVE\"\n    },\n    \"key_1\": {\n      \"attributes\": {\n        \"key_0\": 9984,\n        \"key_1\": true,\n        \"key_2\": 2122\n      },\n      \"typeName\": \"string\",\n      \"lastModifiedTS\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"classifications\": [\n        {\n          \"attributes\": {\n            \"key_0\": \"string\"\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"6f3a95f6-6e52-a5e6-9a6c-89de83f3619a\",\n          \"entityStatus\": \"DELETED\",\n          \"propagate\": true,\n          \"removePropagationsOnEntityDelete\": false,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"attributes\": {\n            \"key_0\": 5855.828036122376,\n            \"key_1\": true\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"4e7ec80d-14de-6a92-8a5a-26cc5ea54a29\",\n          \"entityStatus\": \"DELETED\",\n          \"propagate\": true,\n          \"removePropagationsOnEntityDelete\": true,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"6d6dd555-0134-84df-12ae-345ca7bdfdd8\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meaningNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meanings\": [\n        {\n          \"confidence\": 8351,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"a223dff4-05a3-4201-2031-aaefcd979428\",\n          \"status\": \"OBSOLETE\",\n          \"steward\": \"string\",\n          \"termGuid\": \"8a01fc9a-c789-de06-3e3d-90c857da193d\"\n        },\n        {\n          \"confidence\": 4516,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"33b6dcaf-eff2-28b3-33eb-447282e3d765\",\n          \"status\": \"PROPOSED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"fd2e66f1-03b8-5fa4-28c2-4a31b640dcf8\"\n        }\n      ],\n      \"status\": \"ACTIVE\"\n    },\n    \"key_2\": {\n      \"attributes\": {\n        \"key_0\": 5673,\n        \"key_1\": 6640.025861555256\n      },\n      \"typeName\": \"string\",\n      \"lastModifiedTS\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"classifications\": [\n        {\n          \"attributes\": {\n            \"key_0\": false,\n            \"key_1\": 3342,\n            \"key_2\": 4042,\n            \"key_3\": 3666.5090228831787\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"d6cab488-f1d7-d1ec-3450-d8011ca8e2fb\",\n          \"entityStatus\": \"ACTIVE\",\n          \"propagate\": false,\n          \"removePropagationsOnEntityDelete\": false,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"attributes\": {\n            \"key_0\": \"string\",\n            \"key_1\": 2519,\n            \"key_2\": false,\n            \"key_3\": \"string\"\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"6b06394c-fd28-8057-d5eb-cc6e1566234b\",\n          \"entityStatus\": \"ACTIVE\",\n          \"propagate\": false,\n          \"removePropagationsOnEntityDelete\": true,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"b531ddd5-3d64-d199-aeb1-4c5d1b410ec0\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meaningNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meanings\": [\n        {\n          \"confidence\": 9783,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"b553ef0b-94ba-cd2d-1f7d-62fbafcc480c\",\n          \"status\": \"DEPRECATED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"802a7037-b2c6-3e6b-7f87-1d952c5b27b7\"\n        },\n        {\n          \"confidence\": 4482,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"81719ed9-146f-5fd2-cdb2-d17982cf7023\",\n          \"status\": \"DISCOVERED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"27c4e6ef-5703-aead-9e8e-e11eaf8be860\"\n        }\n      ],\n      \"status\": \"ACTIVE\"\n    }\n  },\n  \"lineageDepth\": 6331,\n  \"lineageDirection\": \"OUTPUT\",\n  \"lineageWidth\": 3650,\n  \"parentRelations\": [\n    {\n      \"childEntityId\": \"6fbbae85-673d-067d-8dd0-a7fa11eb50cc\",\n      \"parentEntityId\": \"56e3ee41-0ce4-2612-2477-b3432e32bda2\",\n      \"relationshipId\": \"a356b378-c621-a06a-9200-195c4a9a04dc\"\n    },\n    {\n      \"childEntityId\": \"c7ac1c47-b15b-a9ed-3e17-7e018cafd608\",\n      \"parentEntityId\": \"e32923f9-fb13-21c5-4e08-08bf101ca908\",\n      \"relationshipId\": \"2a8c4e17-3147-ae18-da8c-0961bdd5107b\"\n    }\n  ],\n  \"relations\": [\n    {\n      \"fromEntityId\": \"8a47a988-4744-9ec6-c1a5-e18f0457fae5\",\n      \"relationshipId\": \"09cac65a-9603-278b-4dab-1c5c1140feac\",\n      \"toEntityId\": \"d3a8e92c-9130-fbd1-415e-1b9ab62d3b7d\"\n    },\n    {\n      \"fromEntityId\": \"37c704eb-9d5c-d64a-7bb2-caa6ccfbb013\",\n      \"relationshipId\": \"499d8409-a0c6-fe61-8a5d-714724e40bf8\",\n      \"toEntityId\": \"523fa673-64fe-e8fa-ede7-b5c30c5bf63c\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f673ef7-2a69-4f23-8495-6dbfd90d16b5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "lineage",
+                    ":guid",
+                    "next"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cd0ef78e-aeb8-48b7-a6c3-81adf6407e04",
+          "name": "Microsoft Purview Get lineage by unique attribute",
+          "request": {
+            "name": "Microsoft Purview Get lineage by unique attribute",
+            "description": {
+              "content": "Return lineage info about entity. In addition to the typeName path parameter, attribute key-value pair(s) can be provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "lineage",
+                "uniqueAttribute",
+                "type",
+                ":typeName"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-09-01",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "depth",
+                  "value": "3"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "typeName",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "235078c2-041f-44ce-80c2-ecf2b3de925a",
+              "name": "Lineage info retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "lineage",
+                    "uniqueAttribute",
+                    "type",
+                    ":typeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "depth",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "typeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"baseEntityGuid\": \"c325080f-d6ed-cdd0-ad4f-5f4e626a7cc6\",\n  \"guidEntityMap\": {\n    \"key_0\": {\n      \"attributes\": {\n        \"key_0\": 3029.8924153319394\n      },\n      \"typeName\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"88a43896-7e8d-4435-67c2-e0b4c3e0cae6\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"DELETED\"\n    },\n    \"key_1\": {\n      \"attributes\": {\n        \"key_0\": 4746.591175083108,\n        \"key_1\": true\n      },\n      \"typeName\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"04524620-ce4e-7ee2-3c31-fa5fabdb109d\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"ACTIVE\"\n    },\n    \"key_2\": {\n      \"attributes\": {\n        \"key_0\": 3465,\n        \"key_1\": 8286\n      },\n      \"typeName\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"a5f3c203-4a58-9dd9-8a8e-2fb81f8d1e47\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"DELETED\"\n    },\n    \"key_3\": {\n      \"attributes\": {\n        \"key_0\": 5703,\n        \"key_1\": 549\n      },\n      \"typeName\": \"string\",\n      \"classificationNames\": [\n        \"string\",\n        \"string\"\n      ],\n      \"displayText\": \"string\",\n      \"guid\": \"6f6951b8-a6ca-2ee6-6289-21065439d906\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"status\": \"ACTIVE\"\n    }\n  },\n  \"lineageDepth\": 9652,\n  \"lineageDirection\": \"OUTPUT\",\n  \"relations\": [\n    {\n      \"fromEntityId\": \"d6a3695b-7d56-d2ef-2af4-4b4b2e7dbc0e\",\n      \"relationshipId\": \"0d9ce050-4b4e-2fa1-65b7-6fc86f77fa4e\",\n      \"toEntityId\": \"ab6c0654-de14-16a9-c06b-1f7f66280ee0\"\n    },\n    {\n      \"fromEntityId\": \"b392c3e8-0ab6-7d56-137e-73dfd80f64c5\",\n      \"relationshipId\": \"8b3ab52e-51a8-1d47-b13e-aa3f06a3f079\",\n      \"toEntityId\": \"2d45f1c3-ebf4-b7ca-31f9-b54825c8d946\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0160737f-8b30-4d1f-a375-bd3276e5bec3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "lineage",
+                    "uniqueAttribute",
+                    "type",
+                    ":typeName"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-09-01"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "depth",
+                      "value": "3"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "typeName",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "581f7519-d21c-4e12-810f-178e88829a73",
+    "name": "Microsoft Purview Account Accounts Lineage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

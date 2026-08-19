@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Retention Labels API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Retention Labels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List retention labels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/security/labels/retentionLabels",
+            "params": [
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Expand related entities (e.g., retentionEventType, descriptors)"
+              }
+            ]
+          },
+          "docs": "Get a list of retention labels configured in the organization."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create a retention label",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/security/labels/retentionLabels",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new retention label for data lifecycle management."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get a retention label",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/security/labels/retentionLabels/:retentionLabelId",
+            "params": [
+              {
+                "name": "retentionLabelId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a retention label by its identifier."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update a retention label",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://management.azure.com/security/labels/retentionLabels/:retentionLabelId",
+            "params": [
+              {
+                "name": "retentionLabelId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of a retention label."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a retention label",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/security/labels/retentionLabels/:retentionLabelId",
+            "params": [
+              {
+                "name": "retentionLabelId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a retention label that is no longer needed."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

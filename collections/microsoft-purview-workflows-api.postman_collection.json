@@ -1,0 +1,183 @@
+{
+  "item": [
+    {
+      "id": "20cca784-9385-4c98-bc1f-fb24bbb1abf4",
+      "name": "Workflows",
+      "description": {
+        "content": "Operations for listing workflows",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fc0a93ed-b477-4d83-978c-875020652498",
+          "name": "Microsoft Purview List all workflows",
+          "request": {
+            "name": "Microsoft Purview List all workflows",
+            "description": {
+              "content": "List all workflows in the Purview account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "workflows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "2023-10-01-preview",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38e998a7-c17c-4e03-9dda-882d991d1d90",
+              "name": "Workflows listed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"b861d1fa-1426-a25a-1295-62dad2d7f14a\",\n      \"triggers\": [\n        {\n          \"type\": \"when_data_access_grant_is_requested\",\n          \"underGlossaryHierarchy\": \"string\",\n          \"underCollection\": \"string\"\n        },\n        {\n          \"type\": \"when_term_creation_is_requested\",\n          \"underGlossaryHierarchy\": \"string\",\n          \"underCollection\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"isEnabled\": true,\n      \"description\": \"string\",\n      \"actionDag\": {}\n    },\n    {\n      \"id\": \"0ab0fc7c-f4f1-9022-6c87-78481ee12be2\",\n      \"triggers\": [\n        {\n          \"type\": \"when_data_access_grant_is_requested\",\n          \"underGlossaryHierarchy\": \"string\",\n          \"underCollection\": \"string\"\n        },\n        {\n          \"type\": \"when_asset_update_is_requested\",\n          \"underGlossaryHierarchy\": \"string\",\n          \"underCollection\": \"string\"\n        }\n      ],\n      \"name\": \"string\",\n      \"isEnabled\": false,\n      \"description\": \"string\",\n      \"actionDag\": {}\n    }\n  ],\n  \"nextLink\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c9d86fd-c3a7-487e-8444-3307c8f90edb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "2023-10-01-preview"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d94797f5-7db7-40c6-b337-d41fe1f8883e",
+    "name": "Microsoft Purview Account Accounts Workflows API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

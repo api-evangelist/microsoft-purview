@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Data Quality Scores API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data Quality Scores",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List data quality scores",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/dataquality/scores",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "assetId",
+                "value": "",
+                "type": "query",
+                "description": "Filter scores by data asset identifier"
+              },
+              {
+                "name": "maxpagesize",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve data quality scores for data assets."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get a data quality score",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/dataquality/scores/:scoreId",
+            "params": [
+              {
+                "name": "scoreId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a specific data quality score by its identifier."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

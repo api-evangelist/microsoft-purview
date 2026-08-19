@@ -1,0 +1,887 @@
+{
+  "item": [
+    {
+      "id": "1b5e5620-1800-464d-bbdd-29538abcce82",
+      "name": "Relationship",
+      "description": {
+        "content": "Operations for managing relationships between entities",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8413d674-19f1-4a64-b61f-42c98e0ce77c",
+          "name": "Microsoft Purview Create a relationship",
+          "request": {
+            "name": "Microsoft Purview Create a relationship",
+            "description": {
+              "content": "Create a new relationship between entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "relationship"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"typeName\": \"<string>\",\n  \"lastModifiedTS\": \"<string>\",\n  \"createTime\": \"<long>\",\n  \"createdBy\": \"<string>\",\n  \"end1\": {\n    \"guid\": \"<uuid>\",\n    \"typeName\": \"<string>\",\n    \"uniqueAttributes\": {\n      \"key_0\": 6507.5688684275665\n    }\n  },\n  \"end2\": {\n    \"guid\": \"<uuid>\",\n    \"typeName\": \"<string>\",\n    \"uniqueAttributes\": {\n      \"key_0\": 9951.977293439111\n    }\n  },\n  \"guid\": \"<uuid>\",\n  \"homeId\": \"<string>\",\n  \"label\": \"<string>\",\n  \"provenanceType\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"updateTime\": \"<long>\",\n  \"updatedBy\": \"<string>\",\n  \"version\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1d2fb1c7-a4e5-4675-84c4-7975352cddc9",
+              "name": "Relationship created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3501.8500646009243\n  },\n  \"typeName\": \"<string>\",\n  \"lastModifiedTS\": \"<string>\",\n  \"createTime\": \"<long>\",\n  \"createdBy\": \"<string>\",\n  \"end1\": {\n    \"guid\": \"c716ab4c-7df8-a167-2e7d-9c0b3ad6ab4d\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    }\n  },\n  \"end2\": {\n    \"guid\": \"0d42ef0e-3e76-999f-0b0f-7a3a4a57eba3\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": 5899.613192367143\n    }\n  },\n  \"guid\": \"<uuid>\",\n  \"homeId\": \"<string>\",\n  \"label\": \"<string>\",\n  \"provenanceType\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"updateTime\": \"<long>\",\n  \"updatedBy\": \"<string>\",\n  \"version\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attributes\": {\n    \"key_0\": 6407.000026692653,\n    \"key_1\": 3052,\n    \"key_2\": 4577\n  },\n  \"typeName\": \"string\",\n  \"lastModifiedTS\": \"string\",\n  \"createTime\": 5070,\n  \"createdBy\": \"string\",\n  \"end1\": {\n    \"guid\": \"95d1fcfb-849c-67c0-559e-2b1f521f3525\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": 125,\n      \"key_1\": 243.89910565909446\n    }\n  },\n  \"end2\": {\n    \"guid\": \"9efc5d88-cc8a-dfc7-ba87-4ab30b70572f\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": false,\n      \"key_1\": 360.8499054874159,\n      \"key_2\": true\n    }\n  },\n  \"guid\": \"e63a7d16-7c4a-2d51-6fdd-cb4f9aa8d017\",\n  \"homeId\": \"string\",\n  \"label\": \"string\",\n  \"provenanceType\": 122,\n  \"status\": \"DELETED\",\n  \"updateTime\": 5934,\n  \"updatedBy\": \"string\",\n  \"version\": 8296\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb333ee2-9e8b-4c06-93e5-35ef00e5132f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3501.8500646009243\n  },\n  \"typeName\": \"<string>\",\n  \"lastModifiedTS\": \"<string>\",\n  \"createTime\": \"<long>\",\n  \"createdBy\": \"<string>\",\n  \"end1\": {\n    \"guid\": \"c716ab4c-7df8-a167-2e7d-9c0b3ad6ab4d\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    }\n  },\n  \"end2\": {\n    \"guid\": \"0d42ef0e-3e76-999f-0b0f-7a3a4a57eba3\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": 5899.613192367143\n    }\n  },\n  \"guid\": \"<uuid>\",\n  \"homeId\": \"<string>\",\n  \"label\": \"<string>\",\n  \"provenanceType\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"updateTime\": \"<long>\",\n  \"updatedBy\": \"<string>\",\n  \"version\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ccea36ae-3b36-492e-b84d-48ae3bb5f8d1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3501.8500646009243\n  },\n  \"typeName\": \"<string>\",\n  \"lastModifiedTS\": \"<string>\",\n  \"createTime\": \"<long>\",\n  \"createdBy\": \"<string>\",\n  \"end1\": {\n    \"guid\": \"c716ab4c-7df8-a167-2e7d-9c0b3ad6ab4d\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    }\n  },\n  \"end2\": {\n    \"guid\": \"0d42ef0e-3e76-999f-0b0f-7a3a4a57eba3\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": 5899.613192367143\n    }\n  },\n  \"guid\": \"<uuid>\",\n  \"homeId\": \"<string>\",\n  \"label\": \"<string>\",\n  \"provenanceType\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"updateTime\": \"<long>\",\n  \"updatedBy\": \"<string>\",\n  \"version\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6560be8e-f475-4e9d-a66f-142fb49f334d",
+          "name": "Microsoft Purview Update a relationship",
+          "request": {
+            "name": "Microsoft Purview Update a relationship",
+            "description": {
+              "content": "Update an existing relationship between entities.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "relationship"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"typeName\": \"<string>\",\n  \"lastModifiedTS\": \"<string>\",\n  \"createTime\": \"<long>\",\n  \"createdBy\": \"<string>\",\n  \"end1\": {\n    \"guid\": \"<uuid>\",\n    \"typeName\": \"<string>\",\n    \"uniqueAttributes\": {\n      \"key_0\": 6507.5688684275665\n    }\n  },\n  \"end2\": {\n    \"guid\": \"<uuid>\",\n    \"typeName\": \"<string>\",\n    \"uniqueAttributes\": {\n      \"key_0\": 9951.977293439111\n    }\n  },\n  \"guid\": \"<uuid>\",\n  \"homeId\": \"<string>\",\n  \"label\": \"<string>\",\n  \"provenanceType\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"updateTime\": \"<long>\",\n  \"updatedBy\": \"<string>\",\n  \"version\": \"<long>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fdb497e9-7910-4320-a7d7-0bace1e2d658",
+              "name": "Relationship updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3501.8500646009243\n  },\n  \"typeName\": \"<string>\",\n  \"lastModifiedTS\": \"<string>\",\n  \"createTime\": \"<long>\",\n  \"createdBy\": \"<string>\",\n  \"end1\": {\n    \"guid\": \"c716ab4c-7df8-a167-2e7d-9c0b3ad6ab4d\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    }\n  },\n  \"end2\": {\n    \"guid\": \"0d42ef0e-3e76-999f-0b0f-7a3a4a57eba3\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": 5899.613192367143\n    }\n  },\n  \"guid\": \"<uuid>\",\n  \"homeId\": \"<string>\",\n  \"label\": \"<string>\",\n  \"provenanceType\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"updateTime\": \"<long>\",\n  \"updatedBy\": \"<string>\",\n  \"version\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"attributes\": {\n    \"key_0\": 6407.000026692653,\n    \"key_1\": 3052,\n    \"key_2\": 4577\n  },\n  \"typeName\": \"string\",\n  \"lastModifiedTS\": \"string\",\n  \"createTime\": 5070,\n  \"createdBy\": \"string\",\n  \"end1\": {\n    \"guid\": \"95d1fcfb-849c-67c0-559e-2b1f521f3525\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": 125,\n      \"key_1\": 243.89910565909446\n    }\n  },\n  \"end2\": {\n    \"guid\": \"9efc5d88-cc8a-dfc7-ba87-4ab30b70572f\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": false,\n      \"key_1\": 360.8499054874159,\n      \"key_2\": true\n    }\n  },\n  \"guid\": \"e63a7d16-7c4a-2d51-6fdd-cb4f9aa8d017\",\n  \"homeId\": \"string\",\n  \"label\": \"string\",\n  \"provenanceType\": 122,\n  \"status\": \"DELETED\",\n  \"updateTime\": 5934,\n  \"updatedBy\": \"string\",\n  \"version\": 8296\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "598f1aab-0950-40b2-ba97-c1b4355700c1",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3501.8500646009243\n  },\n  \"typeName\": \"<string>\",\n  \"lastModifiedTS\": \"<string>\",\n  \"createTime\": \"<long>\",\n  \"createdBy\": \"<string>\",\n  \"end1\": {\n    \"guid\": \"c716ab4c-7df8-a167-2e7d-9c0b3ad6ab4d\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    }\n  },\n  \"end2\": {\n    \"guid\": \"0d42ef0e-3e76-999f-0b0f-7a3a4a57eba3\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": 5899.613192367143\n    }\n  },\n  \"guid\": \"<uuid>\",\n  \"homeId\": \"<string>\",\n  \"label\": \"<string>\",\n  \"provenanceType\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"updateTime\": \"<long>\",\n  \"updatedBy\": \"<string>\",\n  \"version\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8ff57eb5-f873-46ab-84b4-dd370391419c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"attributes\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3501.8500646009243\n  },\n  \"typeName\": \"<string>\",\n  \"lastModifiedTS\": \"<string>\",\n  \"createTime\": \"<long>\",\n  \"createdBy\": \"<string>\",\n  \"end1\": {\n    \"guid\": \"c716ab4c-7df8-a167-2e7d-9c0b3ad6ab4d\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": true,\n      \"key_1\": \"string\"\n    }\n  },\n  \"end2\": {\n    \"guid\": \"0d42ef0e-3e76-999f-0b0f-7a3a4a57eba3\",\n    \"typeName\": \"string\",\n    \"uniqueAttributes\": {\n      \"key_0\": 5899.613192367143\n    }\n  },\n  \"guid\": \"<uuid>\",\n  \"homeId\": \"<string>\",\n  \"label\": \"<string>\",\n  \"provenanceType\": \"<integer>\",\n  \"status\": \"<string>\",\n  \"updateTime\": \"<long>\",\n  \"updatedBy\": \"<string>\",\n  \"version\": \"<long>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ec110114-b5af-462c-823d-e18555470cbf",
+          "name": "Microsoft Purview Get relationship by GUID",
+          "request": {
+            "name": "Microsoft Purview Get relationship by GUID",
+            "description": {
+              "content": "Get relationship information between entities by its GUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "relationship",
+                "guid",
+                ":guid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "extendedInfo",
+                  "value": "false",
+                  "description": "Whether to return extended information"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "guid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91930f56-7c5a-45c0-9142-a9aea6fdfda5",
+              "name": "Relationship retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship",
+                    "guid",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "extendedInfo",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"referredEntities\": {\n    \"key_0\": {\n      \"attributes\": {\n        \"key_0\": \"string\"\n      },\n      \"typeName\": \"string\",\n      \"lastModifiedTS\": \"string\",\n      \"businessAttributes\": {\n        \"key_0\": 1248,\n        \"key_1\": \"string\",\n        \"key_2\": false,\n        \"key_3\": \"string\"\n      },\n      \"classifications\": [\n        {\n          \"attributes\": {\n            \"key_0\": 4054.0522596614546,\n            \"key_1\": 621,\n            \"key_2\": \"string\"\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"4cde813a-79cd-f790-c70a-9a61cfb33f33\",\n          \"entityStatus\": \"ACTIVE\",\n          \"propagate\": true,\n          \"removePropagationsOnEntityDelete\": true,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        },\n        {\n          \"attributes\": {\n            \"key_0\": 8972.331784949156,\n            \"key_1\": 932.7154132371496\n          },\n          \"typeName\": \"string\",\n          \"lastModifiedTS\": \"string\",\n          \"entityGuid\": \"d15ca49d-efc6-0a12-a510-692c13e889db\",\n          \"entityStatus\": \"ACTIVE\",\n          \"propagate\": false,\n          \"removePropagationsOnEntityDelete\": true,\n          \"validityPeriods\": [\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            },\n            {\n              \"endTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"startTime\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              },\n              \"timeZone\": {\n                \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n              }\n            }\n          ]\n        }\n      ],\n      \"createTime\": 5153,\n      \"createdBy\": \"string\",\n      \"guid\": \"19df9443-9c6d-1241-ae39-4d8a88f84e3f\",\n      \"homeId\": \"string\",\n      \"labels\": [\n        \"string\",\n        \"string\"\n      ],\n      \"meanings\": [\n        {\n          \"confidence\": 3859,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"e2c07ddf-d077-2be7-7631-674d578bdbf4\",\n          \"status\": \"VALIDATED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"9ac9e3e3-7418-dd8d-e09a-e32605faf80e\"\n        },\n        {\n          \"confidence\": 113,\n          \"createdBy\": \"string\",\n          \"description\": \"string\",\n          \"displayText\": \"string\",\n          \"expression\": \"string\",\n          \"relationGuid\": \"5f51c114-b501-988f-83ca-4fe15a45b44c\",\n          \"status\": \"IMPORTED\",\n          \"steward\": \"string\",\n          \"termGuid\": \"3bb082e5-329d-ef65-cd9d-356f03a453a2\"\n        }\n      ],\n      \"provenanceType\": 9794,\n      \"proxy\": true,\n      \"relationshipAttributes\": {\n        \"key_0\": 3361,\n        \"key_1\": true,\n        \"key_2\": \"string\",\n        \"key_3\": \"string\"\n      },\n      \"status\": \"ACTIVE\",\n      \"updateTime\": 1909,\n      \"updatedBy\": \"string\",\n      \"version\": 3277,\n      \"collectionId\": \"string\"\n    }\n  },\n  \"relationship\": {\n    \"attributes\": {\n      \"key_0\": \"string\",\n      \"key_1\": 1692.0757733686619,\n      \"key_2\": 7751.081795222787,\n      \"key_3\": 5730\n    },\n    \"typeName\": \"string\",\n    \"lastModifiedTS\": \"string\",\n    \"createTime\": 7067,\n    \"createdBy\": \"string\",\n    \"end1\": {\n      \"guid\": \"dab95530-6983-7c8b-d418-04d3cb9d7957\",\n      \"typeName\": \"string\",\n      \"uniqueAttributes\": {\n        \"key_0\": 8520.85830640816,\n        \"key_1\": false,\n        \"key_2\": \"string\"\n      }\n    },\n    \"end2\": {\n      \"guid\": \"d8c530ae-ece1-ee5b-893d-235fd3d8b3f3\",\n      \"typeName\": \"string\",\n      \"uniqueAttributes\": {\n        \"key_0\": true\n      }\n    },\n    \"guid\": \"4613b361-9f66-51f7-dd2a-8c4c7e920dc2\",\n    \"homeId\": \"string\",\n    \"label\": \"string\",\n    \"provenanceType\": 7310,\n    \"status\": \"DELETED\",\n    \"updateTime\": 4880,\n    \"updatedBy\": \"string\",\n    \"version\": 99\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7b83a074-b6da-4426-a229-263f8c08f1f7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship",
+                    "guid",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "extendedInfo",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "84a1756c-9f0a-413d-973e-7c05df82796c",
+              "name": "Relationship not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship",
+                    "guid",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "extendedInfo",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59f21882-dd12-411a-95bc-68ceef1d7720",
+          "name": "Microsoft Purview Delete a relationship",
+          "request": {
+            "name": "Microsoft Purview Delete a relationship",
+            "description": {
+              "content": "Delete a relationship between entities by its GUID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "atlas",
+                "v2",
+                "relationship",
+                "guid",
+                ":guid"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "guid",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3a2b2e1-f7c8-4684-877c-ccb9e307c497",
+              "name": "Relationship deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship",
+                    "guid",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2c7b397e-afd8-499a-a692-26b8ce063b88",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship",
+                    "guid",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b7a255c-c7f9-4559-9cae-56763e1f5e6d",
+              "name": "Relationship not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "atlas",
+                    "v2",
+                    "relationship",
+                    "guid",
+                    ":guid"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "guid",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://management.azure.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://management.azure.com/.default"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6ea4fadb-df66-4af6-ba60-bb314bcc5276",
+    "name": "Microsoft Purview Account Accounts Relationship API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.\n\nContact Support:\n Name: Microsoft Purview Support",
+      "type": "text/plain"
+    }
+  }
+}

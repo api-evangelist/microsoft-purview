@@ -1,0 +1,456 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Purview Account Accounts Glossary API",
+    "version": "2021-12-01"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Glossary",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Microsoft Purview List all glossaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/glossary",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The page size - by default there is no paging"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The offset for pagination purpose"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "The sort order - ASC or DESC"
+              },
+              {
+                "name": "ignoreTermsAndCategories",
+                "value": "",
+                "type": "query",
+                "description": "Whether to ignore terms and categories"
+              }
+            ]
+          },
+          "docs": "Get all glossaries. Recommend using limit/offset to get pagination result."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create a glossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/glossary",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a glossary."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get glossary by GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/:glossaryId",
+            "params": [
+              {
+                "name": "glossaryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a specific Glossary by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update a glossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/:glossaryId",
+            "params": [
+              {
+                "name": "glossaryId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the given glossary."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a glossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/:glossaryId",
+            "params": [
+              {
+                "name": "glossaryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a glossary. Will delete underlying terms/categories together."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List terms in glossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/:glossaryId/terms",
+            "params": [
+              {
+                "name": "glossaryId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get terms belonging to a specific glossary."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List categories in glossary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/:glossaryId/categories",
+            "params": [
+              {
+                "name": "glossaryId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get the categories belonging to a specific glossary."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create a glossary term",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/term",
+            "params": [
+              {
+                "name": "includeTermHierarchy",
+                "value": "",
+                "type": "query",
+                "description": "Whether to include the term hierarchy"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a glossary term."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get glossary term by GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/term/:termId",
+            "params": [
+              {
+                "name": "termId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a specific glossary term by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update a glossary term",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/term/:termId",
+            "params": [
+              {
+                "name": "termId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "includeTermHierarchy",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the given glossary term by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a glossary term",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/term/:termId",
+            "params": [
+              {
+                "name": "termId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a glossary term."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create glossary terms in bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/terms",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create glossary terms in bulk."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Create a glossary category",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/category",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a glossary category."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Get glossary category by GUID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/category/:categoryId",
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get specific glossary category by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Update a glossary category",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/category/:categoryId",
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the given glossary category by its GUID."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Delete a glossary category",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/category/:categoryId",
+            "params": [
+              {
+                "name": "categoryId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a glossary category."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview List entities assigned with term",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/terms/:termId/assignedEntities",
+            "params": [
+              {
+                "name": "termId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all related objects assigned with the specified term."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Assign term to entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/terms/:termId/assignedEntities",
+            "params": [
+              {
+                "name": "termId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Assign the given term to the provided list of related objects."
+        },
+        {
+          "info": {
+            "name": "Microsoft Purview Remove term assignment from entities",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://management.azure.com/api/atlas/v2/glossary/terms/:termId/assignedEntities",
+            "params": [
+              {
+                "name": "termId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete the term assignment for the given list of related objects."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
