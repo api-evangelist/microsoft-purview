@@ -35,6 +35,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/purview/catalog-api
   baseURL: https://{account-name}.purview.azure.com
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -1690,7 +1692,8 @@ apis:
   description: Operations available on the Purview resource provider
   humanURL: https://learn.microsoft.com/en-us/purview/catalog-api
   baseURL: https://{account-name}.purview.azure.com
-  tags:
+  tags: []
+  tags_raw:
   - Operations
   properties:
   - type: OpenAPI
@@ -1760,6 +1763,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/purview/catalog-api
   baseURL: https://{account-name}.purview.azure.com
   tags:
+  - PrivateEndpointConnections
+  tags_raw:
   - Private Endpoint Connections
   properties:
   - type: OpenAPI
@@ -2795,6 +2800,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/purview/catalog-api
   baseURL: https://{account-name}.purview.azure.com
   tags:
+  - Workflows
+  tags_raw:
   - Workflow
   properties:
   - type: OpenAPI
