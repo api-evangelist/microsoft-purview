@@ -3,6 +3,18 @@ name: Microsoft Purview
 description: >-
   Microsoft Purview is a comprehensive data governance service that helps organizations discover, catalog, classify, and
   manage their data estate across on-premises, multi-cloud, and SaaS environments.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: self-serve
@@ -3073,6 +3085,9 @@ apis:
   - type: Reference
     url: https://learn.microsoft.com/en-us/graph/compliance-concept-overview
 common:
+  - type: CapabilityMap
+    url: capabilities/microsoft-purview-capability-edges.yml
+    name: Microsoft Purview Business Capability Map
   - type: AgenticAccess
     url: agentic-access/microsoft-purview-agentic-access.yml
   - type: VulnerabilityDisclosure
