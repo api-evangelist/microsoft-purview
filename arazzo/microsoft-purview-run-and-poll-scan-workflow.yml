@@ -13,8 +13,8 @@ info:
     opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: scanningApi
-  url: ../openapi/microsoft-purview-scanning-openapi.yml
+- name: scanResultApi
+  url: ../openapi/microsoft-purview-scan-result-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: run-and-poll-scan

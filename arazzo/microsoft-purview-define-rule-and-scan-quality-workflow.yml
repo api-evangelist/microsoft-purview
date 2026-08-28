@@ -12,8 +12,11 @@ info:
     OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: dataQualityApi
-  url: ../openapi/microsoft-purview-data-quality-openapi.yml
+- name: dataQualityRulesApi
+  url: ../openapi/microsoft-purview-data-quality-rules-api-openapi.yml
+  type: openapi
+- name: dataQualityScansApi
+  url: ../openapi/microsoft-purview-data-quality-scans-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: define-rule-and-scan-quality

@@ -13,8 +13,14 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: catalogApi
-  url: ../openapi/microsoft-purview-catalog-openapi.yml
+- name: discoveryApi
+  url: ../openapi/microsoft-purview-discovery-api-openapi.yml
+  type: openapi
+- name: entityApi
+  url: ../openapi/microsoft-purview-entity-api-openapi.yml
+  type: openapi
+- name: lineageApi
+  url: ../openapi/microsoft-purview-lineage-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: trace-asset-lineage

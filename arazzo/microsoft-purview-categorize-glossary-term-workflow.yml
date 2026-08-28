@@ -12,8 +12,8 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: catalogApi
-  url: ../openapi/microsoft-purview-catalog-openapi.yml
+- name: glossaryApi
+  url: ../openapi/microsoft-purview-glossary-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: categorize-glossary-term

@@ -12,8 +12,14 @@ info:
     executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: scanningApi
-  url: ../openapi/microsoft-purview-scanning-openapi.yml
+- name: dataSourcesApi
+  url: ../openapi/microsoft-purview-data-sources-api-openapi.yml
+  type: openapi
+- name: scanResultApi
+  url: ../openapi/microsoft-purview-scan-result-api-openapi.yml
+  type: openapi
+- name: scansApi
+  url: ../openapi/microsoft-purview-scans-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: register-source-and-scan

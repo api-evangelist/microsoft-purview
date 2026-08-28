@@ -12,8 +12,11 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: scanningApi
-  url: ../openapi/microsoft-purview-scanning-openapi.yml
+- name: scansApi
+  url: ../openapi/microsoft-purview-scans-api-openapi.yml
+  type: openapi
+- name: triggersApi
+  url: ../openapi/microsoft-purview-triggers-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: schedule-recurring-scan

@@ -12,8 +12,11 @@ info:
     underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: scanningApi
-  url: ../openapi/microsoft-purview-scanning-openapi.yml
+- name: classificationRulesApi
+  url: ../openapi/microsoft-purview-classification-rules-api-openapi.yml
+  type: openapi
+- name: scanRulesetsApi
+  url: ../openapi/microsoft-purview-scan-rulesets-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: provision-scan-ruleset

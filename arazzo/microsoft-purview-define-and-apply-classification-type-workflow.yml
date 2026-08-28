@@ -12,8 +12,11 @@ info:
     description.
   version: 1.0.0
 sourceDescriptions:
-- name: catalogApi
-  url: ../openapi/microsoft-purview-catalog-openapi.yml
+- name: entityApi
+  url: ../openapi/microsoft-purview-entity-api-openapi.yml
+  type: openapi
+- name: typeApi
+  url: ../openapi/microsoft-purview-type-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: define-and-apply-classification-type
