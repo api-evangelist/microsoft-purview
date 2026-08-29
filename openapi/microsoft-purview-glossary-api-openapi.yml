@@ -1,17 +1,27 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Microsoft Purview Account Accounts Glossary API
-  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
-  version: 2021-12-01
+  title: Microsoft Purview Glossary API
   contact:
     name: Microsoft Purview Support
     url: https://learn.microsoft.com/en-us/purview/
   license:
     name: Microsoft API License
     url: https://azure.microsoft.com/en-us/support/legal/
+  version: '1.0'
+  description: 'Operations tagged Glossary across 2 of this provider''s published API definitions: microsoft-purview-catalog-openapi.yml, microsoft-purview-data-map-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://management.azure.com
-  description: Azure Resource Manager endpoint
+- url: https://{accountName}.purview.azure.com/catalog
+  description: Microsoft Purview Catalog API endpoint
+  variables:
+    accountName:
+      description: The name of the Microsoft Purview account
+      default: myaccount
+- url: https://{accountName}.purview.azure.com/datamap
+  description: Microsoft Purview Data Map API endpoint
+  variables:
+    accountName:
+      description: The name of the Microsoft Purview account
+      default: myaccount
 security:
 - oauth2: []
 tags:
@@ -86,6 +96,13 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/atlas/v2/glossary/{glossaryId}:
     get:
       operationId: getGlossary
@@ -159,6 +176,13 @@ paths:
           description: Unauthorized
         '404':
           description: Glossary not found
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/atlas/v2/glossary/{glossaryId}/terms:
     get:
       operationId: listGlossaryTerms
@@ -201,6 +225,13 @@ paths:
                   $ref: '#/components/schemas/AtlasGlossaryTerm'
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/atlas/v2/glossary/{glossaryId}/categories:
     get:
       operationId: listGlossaryCategories
@@ -243,6 +274,13 @@ paths:
                   $ref: '#/components/schemas/AtlasGlossaryCategory'
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/atlas/v2/glossary/term:
     post:
       operationId: createGlossaryTerm
@@ -274,6 +312,13 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/atlas/v2/glossary/term/{termId}:
     get:
       operationId: getGlossaryTerm
@@ -350,6 +395,13 @@ paths:
           description: Term deleted successfully
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/atlas/v2/glossary/terms:
     post:
       operationId: createGlossaryTerms
@@ -378,6 +430,13 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/atlas/v2/glossary/category:
     post:
       operationId: createGlossaryCategory
@@ -402,6 +461,13 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/atlas/v2/glossary/category/{categoryId}:
     get:
       operationId: getGlossaryCategory
@@ -473,6 +539,13 @@ paths:
           description: Category deleted successfully
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/atlas/v2/glossary/terms/{termId}/assignedEntities:
     get:
       operationId: listEntitiesAssignedWithTerm
@@ -566,183 +639,15 @@ paths:
           description: Term assignment removed successfully
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
 components:
   schemas:
-    AtlasRelatedTermHeader:
-      type: object
-      properties:
-        description:
-          type: string
-        displayText:
-          type: string
-        expression:
-          type: string
-        relationGuid:
-          type: string
-          format: uuid
-        status:
-          type: string
-          enum:
-          - DRAFT
-          - ACTIVE
-          - DEPRECATED
-          - OBSOLETE
-          - OTHER
-        steward:
-          type: string
-        termGuid:
-          type: string
-          format: uuid
-    AtlasClassification:
-      type: object
-      description: A classification instance
-      properties:
-        attributes:
-          type: object
-          additionalProperties: true
-        typeName:
-          type: string
-        lastModifiedTS:
-          type: string
-        entityGuid:
-          type: string
-          format: uuid
-        entityStatus:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        propagate:
-          type: boolean
-        removePropagationsOnEntityDelete:
-          type: boolean
-        validityPeriods:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeBoundary'
-    TimeBoundary:
-      type: object
-      properties:
-        endTime:
-          type: string
-        startTime:
-          type: string
-        timeZone:
-          type: string
-    AtlasRelatedObjectId:
-      type: object
-      properties:
-        displayText:
-          type: string
-        guid:
-          type: string
-          format: uuid
-        relationshipAttributes:
-          type: object
-        relationshipGuid:
-          type: string
-          format: uuid
-        relationshipStatus:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        relationshipType:
-          type: string
-        typeName:
-          type: string
-        uniqueAttributes:
-          type: object
-          additionalProperties: true
-    AtlasGlossaryHeader:
-      type: object
-      properties:
-        displayText:
-          type: string
-        glossaryGuid:
-          type: string
-          format: uuid
-        relationGuid:
-          type: string
-          format: uuid
-    ResourceLink:
-      type: object
-      properties:
-        displayName:
-          type: string
-        url:
-          type: string
-          format: uri
-    AtlasRelatedCategoryHeader:
-      type: object
-      properties:
-        categoryGuid:
-          type: string
-          format: uuid
-        description:
-          type: string
-        displayText:
-          type: string
-        parentCategoryGuid:
-          type: string
-          format: uuid
-        relationGuid:
-          type: string
-          format: uuid
-    AtlasGlossary:
-      type: object
-      description: A glossary object
-      properties:
-        guid:
-          type: string
-          format: uuid
-        qualifiedName:
-          type: string
-        name:
-          type: string
-        shortDescription:
-          type: string
-        longDescription:
-          type: string
-        language:
-          type: string
-        usage:
-          type: string
-        terms:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedTermHeader'
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
-    AtlasGlossaryCategory:
-      type: object
-      description: A glossary category
-      properties:
-        guid:
-          type: string
-          format: uuid
-        qualifiedName:
-          type: string
-        name:
-          type: string
-        shortDescription:
-          type: string
-        longDescription:
-          type: string
-        anchor:
-          $ref: '#/components/schemas/AtlasGlossaryHeader'
-        parentCategory:
-          $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
-        childrenCategories:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
-        terms:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedTermHeader'
     AtlasGlossaryTerm:
       type: object
       description: A glossary term
@@ -787,6 +692,48 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ResourceLink'
+    ResourceLink:
+      type: object
+      properties:
+        displayName:
+          type: string
+        url:
+          type: string
+          format: uri
+    TimeBoundary:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
+    AtlasRelatedTermHeader:
+      type: object
+      properties:
+        description:
+          type: string
+        displayText:
+          type: string
+        expression:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - DRAFT
+          - ACTIVE
+          - DEPRECATED
+          - OBSOLETE
+          - OTHER
+        steward:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
     AtlasTermCategorizationHeader:
       type: object
       properties:
@@ -802,6 +749,212 @@ components:
           format: uuid
         status:
           type: string
+    AtlasRelatedObjectId:
+      type: object
+      properties:
+        displayText:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        relationshipAttributes:
+          type: object
+        relationshipGuid:
+          type: string
+          format: uuid
+        relationshipStatus:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        relationshipType:
+          type: string
+        typeName:
+          type: string
+        uniqueAttributes:
+          type: object
+          additionalProperties: true
+    AtlasRelatedCategoryHeader:
+      type: object
+      properties:
+        categoryGuid:
+          type: string
+          format: uuid
+        description:
+          type: string
+        displayText:
+          type: string
+        parentCategoryGuid:
+          type: string
+          format: uuid
+        relationGuid:
+          type: string
+          format: uuid
+    AtlasGlossaryHeader:
+      type: object
+      properties:
+        displayText:
+          type: string
+        glossaryGuid:
+          type: string
+          format: uuid
+        relationGuid:
+          type: string
+          format: uuid
+    AtlasClassification:
+      type: object
+      description: A classification instance
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        entityGuid:
+          type: string
+          format: uuid
+        entityStatus:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        propagate:
+          type: boolean
+        removePropagationsOnEntityDelete:
+          type: boolean
+        validityPeriods:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeBoundary'
+    AtlasGlossaryCategory:
+      type: object
+      description: A glossary category
+      properties:
+        guid:
+          type: string
+          format: uuid
+        qualifiedName:
+          type: string
+        name:
+          type: string
+        shortDescription:
+          type: string
+        longDescription:
+          type: string
+        anchor:
+          $ref: '#/components/schemas/AtlasGlossaryHeader'
+        parentCategory:
+          $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
+        childrenCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedTermHeader'
+    AtlasGlossary:
+      type: object
+      description: A glossary object
+      properties:
+        guid:
+          type: string
+          format: uuid
+        qualifiedName:
+          type: string
+        name:
+          type: string
+        shortDescription:
+          type: string
+        longDescription:
+          type: string
+        language:
+          type: string
+        usage:
+          type: string
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedTermHeader'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
+    AtlasGlossaryTerm_2:
+      type: object
+      properties:
+        guid:
+          type: string
+          format: uuid
+        qualifiedName:
+          type: string
+        name:
+          type: string
+        shortDescription:
+          type: string
+        longDescription:
+          type: string
+        abbreviation:
+          type: string
+        status:
+          type: string
+          enum:
+          - Draft
+          - Approved
+          - Alert
+          - Expired
+        anchor:
+          $ref: '#/components/schemas/AtlasGlossaryHeader'
+    AtlasRelatedTermHeader_2:
+      type: object
+      properties:
+        displayText:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        termGuid:
+          type: string
+          format: uuid
+    AtlasRelatedCategoryHeader_2:
+      type: object
+      properties:
+        categoryGuid:
+          type: string
+          format: uuid
+        displayText:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+    AtlasGlossary_2:
+      type: object
+      properties:
+        guid:
+          type: string
+          format: uuid
+        qualifiedName:
+          type: string
+        name:
+          type: string
+        shortDescription:
+          type: string
+        longDescription:
+          type: string
+        language:
+          type: string
+        usage:
+          type: string
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedTermHeader_2'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedCategoryHeader_2'
   securitySchemes:
     oauth2:
       type: oauth2
@@ -810,4 +963,7 @@ components:
         clientCredentials:
           tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
           scopes:
-            https://management.azure.com/.default: Access Azure Resource Manager
+            https://purview.azure.net/.default: Access Microsoft Purview
+x-refined-from:
+- microsoft-purview-catalog-openapi.yml
+- microsoft-purview-data-map-openapi.yml

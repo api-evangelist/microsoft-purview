@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Microsoft Purview Account Accounts Scan Result API
-  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
-  version: 2021-12-01
+  title: Microsoft Purview Scanning Scan Result API
+  description: APIs for configuring and managing scans of data sources to automatically discover and catalog data assets. Supports registering data sources and scheduling automated scans across your data estate.
+  version: 2023-09-01
   contact:
     name: Microsoft Purview Support
     url: https://learn.microsoft.com/en-us/purview/
@@ -10,8 +10,12 @@ info:
     name: Microsoft API License
     url: https://azure.microsoft.com/en-us/support/legal/
 servers:
-- url: https://management.azure.com
-  description: Azure Resource Manager endpoint
+- url: https://{accountName}.scan.purview.azure.com
+  description: Microsoft Purview Scanning API endpoint
+  variables:
+    accountName:
+      description: The name of the Microsoft Purview account
+      default: myaccount
 security:
 - oauth2: []
 tags:
@@ -140,6 +144,30 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    ScanResultList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScanResult'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    OperationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
     ScanResult:
       type: object
       description: The result of a scan run
@@ -188,30 +216,6 @@ components:
           - Incremental
         errorMessage:
           type: string
-    OperationResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
-    ScanResultList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScanResult'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
   securitySchemes:
     oauth2:
       type: oauth2
@@ -220,4 +224,4 @@ components:
         clientCredentials:
           tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
           scopes:
-            https://management.azure.com/.default: Access Azure Resource Manager
+            https://purview.azure.net/.default: Access Microsoft Purview

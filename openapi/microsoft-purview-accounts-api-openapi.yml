@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Microsoft Purview Account Accounts API
   description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
@@ -243,53 +243,12 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    PrivateEndpointConnection:
+    AccessKeys:
       type: object
       properties:
-        id:
+        atlasKafkaPrimaryEndpoint:
           type: string
-          readOnly: true
-        name:
-          type: string
-          readOnly: true
-        properties:
-          type: object
-          properties:
-            privateEndpoint:
-              type: object
-              properties:
-                id:
-                  type: string
-            privateLinkServiceConnectionState:
-              type: object
-              properties:
-                actionsRequired:
-                  type: string
-                description:
-                  type: string
-                status:
-                  type: string
-                  enum:
-                  - Unknown
-                  - Pending
-                  - Approved
-                  - Rejected
-                  - Disconnected
-            provisioningState:
-              type: string
-              readOnly: true
-        type:
-          type: string
-          readOnly: true
-    AccountEndpoints:
-      type: object
-      readOnly: true
-      properties:
-        catalog:
-          type: string
-        guardian:
-          type: string
-        scan:
+        atlasKafkaSecondaryEndpoint:
           type: string
     CheckNameAvailabilityRequest:
       type: object
@@ -298,18 +257,51 @@ components:
           type: string
         type:
           type: string
-    CheckNameAvailabilityResult:
+    AccountUpdateParameters:
       type: object
       properties:
-        message:
+        identity:
+          $ref: '#/components/schemas/Identity'
+        properties:
+          type: object
+          properties:
+            managedResourceGroupName:
+              type: string
+            publicNetworkAccess:
+              type: string
+              enum:
+              - NotSpecified
+              - Enabled
+              - Disabled
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+    Account:
+      type: object
+      description: A Microsoft Purview account resource
+      properties:
+        id:
           type: string
-        nameAvailable:
-          type: boolean
-        reason:
+          readOnly: true
+        identity:
+          $ref: '#/components/schemas/Identity'
+        location:
           type: string
-          enum:
-          - Invalid
-          - AlreadyExists
+        name:
+          type: string
+          readOnly: true
+        properties:
+          $ref: '#/components/schemas/AccountProperties'
+        sku:
+          $ref: '#/components/schemas/AccountSku'
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        type:
+          type: string
+          readOnly: true
     AccountList:
       type: object
       properties:
@@ -322,42 +314,6 @@ components:
         count:
           type: integer
           format: int64
-    AccessKeys:
-      type: object
-      properties:
-        atlasKafkaPrimaryEndpoint:
-          type: string
-        atlasKafkaSecondaryEndpoint:
-          type: string
-    Identity:
-      type: object
-      properties:
-        principalId:
-          type: string
-          readOnly: true
-        tenantId:
-          type: string
-          readOnly: true
-        type:
-          type: string
-          enum:
-          - None
-          - SystemAssigned
-          - UserAssigned
-        userAssignedIdentities:
-          type: object
-          additionalProperties:
-            type: object
-            properties:
-              clientId:
-                type: string
-              principalId:
-                type: string
-    CollectionAdminUpdate:
-      type: object
-      properties:
-        objectId:
-          type: string
     AccountProperties:
       type: object
       properties:
@@ -418,26 +374,95 @@ components:
           - NotSpecified
           - Enabled
           - Disabled
-    AccountUpdateParameters:
+    CollectionAdminUpdate:
       type: object
       properties:
-        identity:
-          $ref: '#/components/schemas/Identity'
+        objectId:
+          type: string
+    PrivateEndpointConnection:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        name:
+          type: string
+          readOnly: true
         properties:
           type: object
           properties:
-            managedResourceGroupName:
+            privateEndpoint:
+              type: object
+              properties:
+                id:
+                  type: string
+            privateLinkServiceConnectionState:
+              type: object
+              properties:
+                actionsRequired:
+                  type: string
+                description:
+                  type: string
+                status:
+                  type: string
+                  enum:
+                  - Unknown
+                  - Pending
+                  - Approved
+                  - Rejected
+                  - Disconnected
+            provisioningState:
               type: string
-            publicNetworkAccess:
-              type: string
-              enum:
-              - NotSpecified
-              - Enabled
-              - Disabled
-        tags:
+              readOnly: true
+        type:
+          type: string
+          readOnly: true
+    AccountEndpoints:
+      type: object
+      readOnly: true
+      properties:
+        catalog:
+          type: string
+        guardian:
+          type: string
+        scan:
+          type: string
+    Identity:
+      type: object
+      properties:
+        principalId:
+          type: string
+          readOnly: true
+        tenantId:
+          type: string
+          readOnly: true
+        type:
+          type: string
+          enum:
+          - None
+          - SystemAssigned
+          - UserAssigned
+        userAssignedIdentities:
           type: object
           additionalProperties:
-            type: string
+            type: object
+            properties:
+              clientId:
+                type: string
+              principalId:
+                type: string
+    CheckNameAvailabilityResult:
+      type: object
+      properties:
+        message:
+          type: string
+        nameAvailable:
+          type: boolean
+        reason:
+          type: string
+          enum:
+          - Invalid
+          - AlreadyExists
     AccountSku:
       type: object
       properties:
@@ -448,39 +473,7 @@ components:
           type: string
           enum:
           - Standard
-    Account:
-      type: object
-      description: A Microsoft Purview account resource
-      properties:
-        id:
-          type: string
-          readOnly: true
-        identity:
-          $ref: '#/components/schemas/Identity'
-        location:
-          type: string
-        name:
-          type: string
-          readOnly: true
-        properties:
-          $ref: '#/components/schemas/AccountProperties'
-        sku:
-          $ref: '#/components/schemas/AccountSku'
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-        type:
-          type: string
-          readOnly: true
   parameters:
-    ResourceGroupName:
-      name: resourceGroupName
-      in: path
-      required: true
-      description: The resource group name
-      schema:
-        type: string
     AccountName:
       name: accountName
       in: path
@@ -488,14 +481,13 @@ components:
       description: The name of the Purview account
       schema:
         type: string
-    ApiVersion:
-      name: api-version
-      in: query
+    ResourceGroupName:
+      name: resourceGroupName
+      in: path
       required: true
-      description: The API version
+      description: The resource group name
       schema:
         type: string
-        default: '2021-12-01'
     SubscriptionId:
       name: subscriptionId
       in: path
@@ -504,6 +496,14 @@ components:
       schema:
         type: string
         format: uuid
+    ApiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version
+      schema:
+        type: string
+        default: '2021-12-01'
   securitySchemes:
     oauth2:
       type: oauth2

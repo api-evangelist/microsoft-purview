@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Microsoft Purview Account Accounts Metadata Roles API
-  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
-  version: 2021-12-01
+  title: Microsoft Purview Metadata Policies Metadata Roles API
+  description: APIs for creating and managing data access policies based on metadata attributes. Enables programmatic management of collection-level permissions and role assignments within the Purview data governance framework.
+  version: 2021-07-01-preview
   contact:
     name: Microsoft Purview Support
     url: https://learn.microsoft.com/en-us/purview/
@@ -10,8 +10,12 @@ info:
     name: Microsoft API License
     url: https://azure.microsoft.com/en-us/support/legal/
 servers:
-- url: https://management.azure.com
-  description: Azure Resource Manager endpoint
+- url: https://{accountName}.purview.azure.com/policystore
+  description: Microsoft Purview Metadata Policies API endpoint
+  variables:
+    accountName:
+      description: The name of the Microsoft Purview account
+      default: myaccount
 security:
 - oauth2: []
 tags:
@@ -43,23 +47,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    AttributeMatcher:
-      type: object
-      properties:
-        attributeName:
-          type: string
-        attributeValueIncludes:
-          type: string
-        attributeValueIncludedIn:
-          type: array
-          items:
-            type: string
-        attributeValueExcludes:
-          type: string
-        attributeValueExcludedIn:
-          type: array
-          items:
-            type: string
     MetadataRole:
       type: object
       properties:
@@ -95,6 +82,23 @@ components:
             $ref: '#/components/schemas/MetadataRole'
         nextLink:
           type: string
+    AttributeMatcher:
+      type: object
+      properties:
+        attributeName:
+          type: string
+        attributeValueIncludes:
+          type: string
+        attributeValueIncludedIn:
+          type: array
+          items:
+            type: string
+        attributeValueExcludes:
+          type: string
+        attributeValueExcludedIn:
+          type: array
+          items:
+            type: string
   securitySchemes:
     oauth2:
       type: oauth2
@@ -103,4 +107,4 @@ components:
         clientCredentials:
           tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
           scopes:
-            https://management.azure.com/.default: Access Azure Resource Manager
+            https://purview.azure.net/.default: Access Microsoft Purview

@@ -1,17 +1,27 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Microsoft Purview Account Accounts Discovery API
-  description: APIs for managing Purview accounts, configurations, and administrative settings through Azure Resource Manager. Provides resource management operations for creating, updating, and deleting Purview accounts.
-  version: 2021-12-01
+  title: Microsoft Purview Discovery API
   contact:
     name: Microsoft Purview Support
     url: https://learn.microsoft.com/en-us/purview/
   license:
     name: Microsoft API License
     url: https://azure.microsoft.com/en-us/support/legal/
+  version: '1.0'
+  description: 'Operations tagged Discovery across 2 of this provider''s published API definitions: microsoft-purview-catalog-openapi.yml, microsoft-purview-data-map-openapi.yml. Each path carries the servers of the definition it was published in.'
 servers:
-- url: https://management.azure.com
-  description: Azure Resource Manager endpoint
+- url: https://{accountName}.purview.azure.com/catalog
+  description: Microsoft Purview Catalog API endpoint
+  variables:
+    accountName:
+      description: The name of the Microsoft Purview account
+      default: myaccount
+- url: https://{accountName}.purview.azure.com/datamap
+  description: Microsoft Purview Data Map API endpoint
+  variables:
+    accountName:
+      description: The name of the Microsoft Purview account
+      default: myaccount
 security:
 - oauth2: []
 tags:
@@ -42,6 +52,13 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/search/suggest:
     post:
       operationId: searchSuggest
@@ -66,6 +83,13 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
   /api/search/autocomplete:
     post:
       operationId: searchAutoComplete
@@ -90,39 +114,16 @@ paths:
           description: Bad request
         '401':
           description: Unauthorized
+    servers:
+    - url: https://{accountName}.purview.azure.com/catalog
+      description: Microsoft Purview Catalog API endpoint
+      variables:
+        accountName:
+          description: The name of the Microsoft Purview account
+          default: myaccount
 components:
   schemas:
-    TermSearchResultValue:
-      type: object
-      properties:
-        name:
-          type: string
-        glossaryName:
-          type: string
-        guid:
-          type: string
-          format: uuid
-    AutoCompleteResult:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/AutoCompleteResultValue'
-    SearchResult:
-      type: object
-      description: Search result
-      properties:
-        searchCount:
-          type: integer
-          format: int32
-        searchFacets:
-          type: object
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchResultValue'
-    AutoCompleteRequest:
+    SuggestRequest:
       type: object
       properties:
         keywords:
@@ -132,6 +133,13 @@ components:
           format: int32
         filter:
           type: object
+    AutoCompleteResult:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/AutoCompleteResultValue'
     SearchResultValue:
       type: object
       properties:
@@ -176,16 +184,20 @@ components:
           type: array
           items:
             type: string
-    SearchFacetItem:
+    SuggestResult:
       type: object
       properties:
-        count:
-          type: integer
-          format: int32
-        facet:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResultValue'
+    AutoCompleteResultValue:
+      type: object
+      properties:
+        text:
           type: string
-        sort:
-          type: object
+        queryPlusText:
+          type: string
     SearchRequest:
       type: object
       description: Search request payload
@@ -206,21 +218,20 @@ components:
             $ref: '#/components/schemas/SearchFacetItem'
         taxonomySetting:
           type: object
-    AutoCompleteResultValue:
+    SearchResult:
       type: object
+      description: Search result
       properties:
-        text:
-          type: string
-        queryPlusText:
-          type: string
-    SuggestResult:
-      type: object
-      properties:
+        searchCount:
+          type: integer
+          format: int32
+        searchFacets:
+          type: object
         value:
           type: array
           items:
             $ref: '#/components/schemas/SearchResultValue'
-    SuggestRequest:
+    AutoCompleteRequest:
       type: object
       properties:
         keywords:
@@ -230,6 +241,74 @@ components:
           format: int32
         filter:
           type: object
+    TermSearchResultValue:
+      type: object
+      properties:
+        name:
+          type: string
+        glossaryName:
+          type: string
+        guid:
+          type: string
+          format: uuid
+    SearchFacetItem:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int32
+        facet:
+          type: string
+        sort:
+          type: object
+    AutoCompleteResult_2:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              queryPlusText:
+                type: string
+    SuggestResult_2:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            type: object
+    SearchRequest_2:
+      type: object
+      properties:
+        keywords:
+          type: string
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        filter:
+          type: object
+        facets:
+          type: array
+          items:
+            type: object
+    SearchResult_2:
+      type: object
+      properties:
+        searchCount:
+          type: integer
+          format: int32
+        searchFacets:
+          type: object
+        value:
+          type: array
+          items:
+            type: object
   securitySchemes:
     oauth2:
       type: oauth2
@@ -238,4 +317,7 @@ components:
         clientCredentials:
           tokenUrl: https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token
           scopes:
-            https://management.azure.com/.default: Access Azure Resource Manager
+            https://purview.azure.net/.default: Access Microsoft Purview
+x-refined-from:
+- microsoft-purview-catalog-openapi.yml
+- microsoft-purview-data-map-openapi.yml
