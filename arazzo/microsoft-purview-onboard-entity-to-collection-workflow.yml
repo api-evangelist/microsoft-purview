@@ -11,8 +11,8 @@ info:
     and executed without opening the underlying OpenAPI description.
   version: 1.0.0
 sourceDescriptions:
-- name: dataMapApi
-  url: ../openapi/microsoft-purview-data-map-openapi.yml
+- name: entityApi
+  url: ../openapi/microsoft-purview-entity-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: onboard-entity-to-collection
@@ -47,7 +47,7 @@ workflows:
   steps:
   - stepId: createEntity
     description: Create or update the entity in the Data Map.
-    operationId: entityCreateOrUpdate
+    operationId: createOrUpdateEntity
     parameters:
     - name: Authorization
       in: header
@@ -65,7 +65,7 @@ workflows:
       guidAssignments: $response.body#/guidAssignments
   - stepId: getEntity
     description: Read the entity back by its assigned GUID to confirm it exists.
-    operationId: entityGetByGuid
+    operationId: getEntityByGuid
     parameters:
     - name: Authorization
       in: header
@@ -82,7 +82,7 @@ workflows:
       entityGuid: $response.body#/entity/guid
   - stepId: moveToCollection
     description: Move the entity into the target collection.
-    operationId: entityMoveToCollection
+    operationId: moveEntitiesToCollection
     parameters:
     - name: Authorization
       in: header
@@ -104,7 +104,7 @@ workflows:
       mutatedEntities: $response.body#/mutatedEntities
   - stepId: classify
     description: Apply the requested classification to the onboarded entity.
-    operationId: entityAddClassifications
+    operationId: addEntityClassifications
     parameters:
     - name: Authorization
       in: header
