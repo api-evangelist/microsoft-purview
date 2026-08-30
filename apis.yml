@@ -1775,7 +1775,7 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/purview/catalog-api
   baseURL: https://{account-name}.purview.azure.com
   tags:
-  - PrivateEndpointConnections
+  - Private Endpoint Connections
   tags_raw:
   - Private Endpoint Connections
   properties:
