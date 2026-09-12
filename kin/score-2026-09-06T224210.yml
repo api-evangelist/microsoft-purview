@@ -1,28 +1,31 @@
-# Kin Score artifact — microsoft-purview — 2026-08-12T193225
+# Kin Score artifact — microsoft-purview — 2026-09-06T224210
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: microsoft-purview
-  schema_version: 0.11.0
-  scored_at: '2026-08-12'
-  run_ts: 2026-08-12T193225
-  composite: 65.5
+  schema_version: 0.19.0
+  scored_at: '2026-09-06'
+  run_ts: 2026-09-06T224210
+  composite: 55.9
   band: strong
   facets:
-    discoverability: 85.2
-    contract_quality: 68.7
-    governance: 69.8
-    operational_transparency: 44.7
-    developer_ergonomics: 78.3
-    commercial_clarity: 50.0
+    discoverability: 74.1
+    contract_quality: 69.2
+    governance: 14.4
+    operational_transparency: 42.1
+    developer_ergonomics: 72.6
+    commercial_clarity: 47.4
+    contract_governance: 14.4
+    access_clarity: 47.4
   agent_readiness:
-    score: 45.0
+    score: 34.0
     band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: derived
-      mcp_server: true
-      auth_clarity: true
+      reversibility_documented: documented
+      mcp_server: documented
+      auth_clarity: served
       idempotency: false
       error_semantics: documented
       openapi_examples: false
@@ -33,6 +36,10 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: documented
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
   provenance:
     mcp: first-party
     agentic_access: derived
