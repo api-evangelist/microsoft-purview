@@ -1360,6 +1360,8 @@ apis:
   humanURL: https://learn.microsoft.com/en-us/purview/catalog-api
   baseURL: https://{account-name}.purview.azure.com
   tags:
+  - Legal Hold
+  tags_raw:
   - Legal Holds
   properties:
   - type: OpenAPI
