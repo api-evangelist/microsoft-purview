@@ -1,159 +1,78 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: Microsoft Purview
-providerId: microsoft-purview
-created: '2026-05-04'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-04, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-05'
-reconciled: true
-tags:
-  - Compliance
-  - Data Governance
-  - Data Catalog
-  - Data Loss Prevention
-  - Information Protection
-  - Microsoft
-description: Microsoft Purview is sold under two parallel commercial models. Microsoft Purview Suite is
-  user-based ($12/user/month with annual commitment, paid via M365 commerce; requires M365 E3 / EMS+E3
-  prerequisite). Pay-As-You-Go pricing covers data-estate features (data map, scanning, policy enforcement,
-  data security investigations) and is metered through an Azure subscription. Per-meter Azure prices vary
-  by region and are listed on the Azure Purview pricing detail page.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://azure.microsoft.com/en-us/pricing/details/purview/
 sources:
-  - https://www.microsoft.com/en-us/security/business/microsoft-purview
-  - https://www.microsoft.com/en-us/security/business/purview-suite-pricing
-  - https://azure.microsoft.com/en-us/pricing/details/purview/
+- https://azure.microsoft.com/en-us/pricing/details/purview/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+published: true
+note: Most per-unit rates in the pricing tables render as "$-" (region/currency-dependent placeholders
+  not resolved in the captured text); numeric prices appear only in explanatory prose ($15 per 1M audit
+  records, $6 per million text messages, $20 per GB eDiscovery, $0.003 policy hour, example totals $100
+  and $30). Page text truncated at 60,000 characters.
+plan_count: 10
+currency: USD
 plans:
-  - id: microsoft-purview-suite
-    name: Microsoft Purview Suite
-    type: subscription
-    description: User-based suite covering data security, governance and compliance modules tied to
-      Microsoft 365 user identity. Requires M365 E3 / EMS+E3.
-    entries:
-      - label: Per-user license
-        name: suite_seat
-        type: subscription
-        metric: seat
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: '12.00'
-        userMultiplied: true
-    elements:
-      - name: Data Security Posture Management
-      - name: Information Protection
-      - name: Data Loss Prevention
-      - name: Insider Risk Management
-      - name: Audit
-      - name: eDiscovery
-      - name: Data Lifecycle Management
-      - name: Compliance Manager
-      - name: Communication Compliance
-      - name: Annual commitment, paid yearly
-  - id: microsoft-purview-suite-business-premium
-    name: Microsoft Purview Suite for Business Premium
-    type: subscription
-    description: SMB-targeted variant of the Suite for Microsoft 365 Business Premium customers.
-    entries:
-      - label: Per-user license
-        name: suite_bp_seat
-        type: subscription
-        metric: seat
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: true
-    elements:
-      - name: Bundled with Business Premium prerequisite
-      - name: Suite modules tailored to SMB scope
-  - id: microsoft-purview-payg
-    name: Microsoft Purview Pay-As-You-Go (Azure)
-    type: pay-as-you-go
-    description: Azure-billed consumption pricing for Purview data-estate features; per-meter prices
-      vary by region. Includes Data Map, Data Estate Insights, scanning, classification, and policy
-      enforcement.
-    entries:
-      - label: Data Map capacity unit (active)
-        name: data_map_capacity
-        type: metered
-        metric: capacity-unit-hour
-        limit: -1
-        timeFrame: usage
-        geo: global
-        unit: 1
-        price: see Azure pricing detail page
-        userMultiplied: false
-      - label: Scan vCore (managed scan)
-        name: scan_vcore
-        type: metered
-        metric: vCore-hour
-        limit: -1
-        timeFrame: usage
-        geo: global
-        unit: 1
-        price: see Azure pricing detail page
-        userMultiplied: false
-      - label: Resource set / classification
-        name: classification
-        type: metered
-        metric: asset
-        limit: -1
-        timeFrame: usage
-        geo: global
-        unit: 1
-        price: see Azure pricing detail page
-        userMultiplied: false
-      - label: Data Estate Insights
-        name: insights
-        type: metered
-        metric: asset
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: see Azure pricing detail page
-        userMultiplied: false
-      - label: Data Security Investigations
-        name: dsi
-        type: metered
-        metric: investigation
-        limit: -1
-        timeFrame: usage
-        geo: global
-        unit: 1
-        price: see Azure pricing detail page
-        userMultiplied: false
-    elements:
-      - name: Data Map
-      - name: Data Estate Insights
-      - name: Data scanning and classification
-      - name: Policy enforcement
-      - name: Data Security Investigations
-      - name: Region-dependent meter rates
-  - id: microsoft-purview-addons
-    name: Module Add-ons
-    type: subscription
-    description: Individual Purview modules (e.g. Audit (Premium), Insider Risk Management) available as
-      add-ons to existing Microsoft 365 subscriptions; pricing varies by SKU.
-    entries:
-      - label: Per-user add-on
-        name: addon_seat
-        type: subscription
-        metric: seat
-        limit: -1
-        timeFrame: month
-        geo: global
-        unit: 1
-        price: contact sales
-        userMultiplied: true
-    elements:
-      - name: Standalone module licensing
-      - name: Mix-and-match with M365
-maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- name: Audit Standard
+  price_text: $15 per 1M records ingested
+  price: 15
+  currency: USD
+  period: per-use
+  unit: 1M records ingested
+- name: Data Lifecycle Management Premium
+  price_text: $6 per one million text messages per month
+  price: 6
+  currency: USD
+  period: month
+  unit: 1M text messages stored
+- name: eDiscovery Premium
+  price_text: $20 per GB per month
+  price: 20
+  currency: USD
+  period: month
+  unit: GB
+- name: eDiscovery Graph API Standard
+  price_text: $- per GB exported
+  currency: USD
+  period: per-use
+  unit: GB exported
+  included_quota: 50GB of Included Quantity will be included at no cost.
+- name: Data Policy - DevOps policies
+  price_text: $0.003 policy hour
+  price: 0.003
+  currency: USD
+  period: per-use
+  unit: policy hour
+- name: Data policies (data asset access)
+  price_text: No additional charge while in preview
+  period: none
+- name: Data Map Population - Power BI online
+  price_text: Free for a limited time
+  period: none
+- name: Data Map Population - other data sources
+  price_text: $- per 1 vCore Hour
+  currency: USD
+  period: per-use
+  unit: vCore hour
+- name: Data Map Capacity Unit
+  price_text: $- per Capacity Unit per Hour
+  currency: USD
+  period: per-use
+  unit: Capacity Unit per hour
+  included_quota: 1 Capacity Unit supports requests of up to 25 data map operations per second and includes
+    storage of up to 10 GB of metadata; first 1 MB of Data Map meta data storage is free
+- name: Insights Consumption
+  price_text: $- per API call
+  currency: USD
+  period: per-use
+  unit: API call (up to 10,000 rows)
+rate_limit_statements:
+- 1 Capacity Unit supports requests of up to 25 data map operations per second and includes storage of
+  up to 10 GB of metadata about data assets.
+- One API call returns up to 10,000 rows of tabular result.
+- A text record is up to 1,000 characters.

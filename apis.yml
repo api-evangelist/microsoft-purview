@@ -3087,6 +3087,8 @@ apis:
   - type: Reference
     url: https://learn.microsoft.com/en-us/graph/compliance-concept-overview
 common:
+  - type: Plans
+    url: plans/microsoft-purview-plans-pricing.yml
   - type: CapabilityMap
     url: capabilities/microsoft-purview-capability-edges.yml
     name: Microsoft Purview Business Capability Map
