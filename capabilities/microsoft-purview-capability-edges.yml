@@ -1,0 +1,137 @@
+slug: microsoft-purview
+provider: Microsoft Purview
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 13
+edges:
+- tag: Data Quality Rules
+  spec_file: microsoft-purview-data-quality-rules-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.92
+  evidence: POST /dataquality/rules 'Create a data quality rule'; schema DataQualityRule
+  reason: Explicit CRUD over data quality rules realises Data Quality Management.
+- tag: Data Profiling
+  spec_file: microsoft-purview-data-profiling-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.9
+  evidence: POST /dataquality/profiling/{assetId} 'Run data profiling'; schemas ColumnProfile, ProfilingResult
+  reason: Profiling under a /dataquality path is squarely Data Quality Management (profiling is named
+    in the capability description).
+- tag: Data Quality Scans
+  spec_file: microsoft-purview-data-quality-scans-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.9
+  evidence: POST /dataquality/scans 'Run a data quality scan'; schema DataQualityScanResult
+  reason: Running data quality scans is data quality monitoring.
+- tag: Data Quality Scores
+  spec_file: microsoft-purview-data-quality-scores-api-openapi.yml
+  capability_id: BC-610.30
+  capability_id_l1: BC-610
+  capability_name: Data Quality Management
+  confidence: 0.9
+  evidence: GET /dataquality/scores 'List data quality scores'; schemas DataQualityScore, RuleResult
+  reason: Reporting data quality scores from rule results is data quality monitoring/remediation.
+- tag: Business Domains
+  spec_file: microsoft-purview-business-domains-api-openapi.yml
+  capability_id: BC-610.10
+  capability_id_l1: BC-610
+  capability_name: Data Governance Management
+  confidence: 0.8
+  evidence: 'POST /businessdomains createBusinessDomain; schemas: BusinessDomain, GovernanceContact'
+  reason: Business domains with governance contacts are the core organising construct of Purview's data
+    governance (ownership/stewardship), fitting Data Governance Management.
+- tag: Classification Rules
+  spec_file: microsoft-purview-classification-rules-api-openapi.yml
+  capability_id: BC-610.10
+  capability_id_l1: BC-610
+  capability_name: Data Governance Management
+  confidence: 0.75
+  evidence: 'PUT /scan/classificationrules/{classificationRuleName} Create or replace a classification
+    rule; schemas: ClassificationRule, ClassificationRulePattern'
+  reason: Defining rules that classify scanned data assets is a data governance policy/standard mechanism
+    within the data estate.
+- tag: Critical Data Elements
+  spec_file: microsoft-purview-critical-data-elements-api-openapi.yml
+  capability_id: BC-610.10
+  capability_id_l1: BC-610
+  capability_name: Data Governance Management
+  confidence: 0.75
+  evidence: 'POST /criticaldataelements createCriticalDataElement; schemas: CriticalDataElement, GovernanceContact'
+  reason: Critical data elements with governance contacts are a canonical data governance artefact (stewardship
+    over key data), fitting Data Governance Management.
+- tag: Glossary
+  spec_file: microsoft-purview-glossary-api-openapi.yml
+  capability_id: BC-610.10
+  capability_id_l1: BC-610
+  capability_name: Data Governance Management
+  confidence: 0.75
+  evidence: POST /api/atlas/v2/glossary/term 'Create a glossary term'; schemas AtlasGlossary, AtlasGlossaryCategory
+  reason: Business glossary and term/category management is core data governance (business terminology
+    standards); could alternatively map to knowledge taxonomy, but the vendor context is data governance.
+- tag: Legal Holds
+  spec_file: microsoft-purview-legal-holds-api-openapi.yml
+  capability_id: BC-150.20
+  capability_id_l1: BC-150
+  capability_name: Litigation & Dispute Management
+  confidence: 0.75
+  evidence: GET /security/cases/ediscoveryCases/{ediscoveryCaseId}/legalHolds 'List legal holds'; schema
+    EdiscoveryHoldPolicy
+  reason: Legal holds inside eDiscovery cases are a litigation/dispute preservation activity; the eDiscovery
+    case scoping makes the legal-matter reading the only sensible one. Some residual ambiguity as it is
+    delivered as a records-governance feature.
+- tag: Accounts
+  spec_file: microsoft-purview-accounts-api-openapi.yml
+  capability_id: BC-600.50
+  capability_id_l1: BC-600
+  capability_name: IT Infrastructure Management
+  confidence: 0.7
+  evidence: PUT .../providers/Microsoft.Purview/accounts/{accountName} Create or update a Purview account;
+    "resource management operations for creating, updating, and deleting Purview accounts"
+  reason: This is Azure Resource Manager provisioning of a cloud service resource, not customer accounts
+    — cloud infrastructure/service resource management.
+- tag: Data Products
+  spec_file: microsoft-purview-data-products-api-openapi.yml
+  capability_id: BC-610.10
+  capability_id_l1: BC-610
+  capability_name: Data Governance Management
+  confidence: 0.7
+  evidence: POST /dataproducts 'Create a data product'; schema GovernanceContact
+  reason: Data product registration with governance contacts is data governance/stewardship of information
+    assets; L2 Data Governance chosen because of the GovernanceContact schema, though cataloguing could
+    also lean to Master Data.
+- tag: Entity
+  spec_file: microsoft-purview-entity-api-openapi.yml
+  capability_id: BC-610.10
+  capability_id_l1: BC-610
+  capability_name: Data Governance Management
+  confidence: 0.7
+  evidence: POST /api/atlas/v2/entity/guid/{guid}/classifications 'Add classifications to entity'; schemas
+    AtlasEntity, AtlasClassification
+  reason: Atlas metadata entity CRUD with classification and label assignment is catalogue metadata stewardship
+    — data governance; ambiguity between governance and data architecture/master data keeps confidence
+    moderate.
+- tag: Glossary Terms
+  spec_file: microsoft-purview-glossary-terms-api-openapi.yml
+  capability_id: BC-610.10
+  capability_id_l1: BC-610
+  capability_name: Data Governance Management
+  confidence: 0.7
+  evidence: GET /glossaryterms 'List glossary terms'; schema GlossaryTermList
+  reason: Unified business glossary term listing supports data governance vocabulary standards; single
+    read-only operation gives thinner evidence.
