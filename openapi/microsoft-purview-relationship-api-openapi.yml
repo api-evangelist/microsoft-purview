@@ -142,38 +142,6 @@ paths:
           default: myaccount
 components:
   schemas:
-    AtlasTermAssignmentHeader:
-      type: object
-      properties:
-        confidence:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        description:
-          type: string
-        displayText:
-          type: string
-        expression:
-          type: string
-        relationGuid:
-          type: string
-          format: uuid
-        status:
-          type: string
-          enum:
-          - DISCOVERED
-          - PROPOSED
-          - IMPORTED
-          - VALIDATED
-          - DEPRECATED
-          - OBSOLETE
-          - OTHER
-        steward:
-          type: string
-        termGuid:
-          type: string
-          format: uuid
     AtlasEntity:
       type: object
       description: An instance of an entity along with extended info such as classification and referenced entities
@@ -236,62 +204,6 @@ components:
           format: int64
         collectionId:
           type: string
-    TimeBoundary:
-      type: object
-      properties:
-        endTime:
-          type: string
-        startTime:
-          type: string
-        timeZone:
-          type: string
-    AtlasRelationshipWithExtInfo:
-      type: object
-      properties:
-        referredEntities:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AtlasEntity'
-        relationship:
-          $ref: '#/components/schemas/AtlasRelationship'
-    AtlasClassification:
-      type: object
-      description: A classification instance
-      properties:
-        attributes:
-          type: object
-          additionalProperties: true
-        typeName:
-          type: string
-        lastModifiedTS:
-          type: string
-        entityGuid:
-          type: string
-          format: uuid
-        entityStatus:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        propagate:
-          type: boolean
-        removePropagationsOnEntityDelete:
-          type: boolean
-        validityPeriods:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeBoundary'
-    AtlasObjectId:
-      type: object
-      properties:
-        guid:
-          type: string
-          format: uuid
-        typeName:
-          type: string
-        uniqueAttributes:
-          type: object
-          additionalProperties: true
     AtlasRelationship:
       type: object
       description: A relationship between entities
@@ -335,22 +247,94 @@ components:
         version:
           type: integer
           format: int64
-    AtlasTermAssignmentHeader_2:
+    AtlasTermAssignmentHeader:
       type: object
       properties:
         confidence:
           type: integer
           format: int32
+        createdBy:
+          type: string
+        description:
+          type: string
         displayText:
+          type: string
+        expression:
           type: string
         relationGuid:
           type: string
           format: uuid
         status:
           type: string
+          enum:
+          - DISCOVERED
+          - PROPOSED
+          - IMPORTED
+          - VALIDATED
+          - DEPRECATED
+          - OBSOLETE
+          - OTHER
+        steward:
+          type: string
         termGuid:
           type: string
           format: uuid
+    AtlasObjectId:
+      type: object
+      properties:
+        guid:
+          type: string
+          format: uuid
+        typeName:
+          type: string
+        uniqueAttributes:
+          type: object
+          additionalProperties: true
+    AtlasRelationshipWithExtInfo:
+      type: object
+      properties:
+        referredEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntity'
+        relationship:
+          $ref: '#/components/schemas/AtlasRelationship'
+    TimeBoundary:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
+    AtlasClassification:
+      type: object
+      description: A classification instance
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        entityGuid:
+          type: string
+          format: uuid
+        entityStatus:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        propagate:
+          type: boolean
+        removePropagationsOnEntityDelete:
+          type: boolean
+        validityPeriods:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeBoundary'
     AtlasEntity_2:
       type: object
       properties:
@@ -397,19 +381,6 @@ components:
         version:
           type: integer
           format: int64
-    AtlasClassification_2:
-      type: object
-      properties:
-        attributes:
-          type: object
-          additionalProperties: true
-        typeName:
-          type: string
-        entityGuid:
-          type: string
-          format: uuid
-        propagate:
-          type: boolean
     AtlasRelationship_2:
       type: object
       properties:
@@ -430,6 +401,35 @@ components:
           enum:
           - ACTIVE
           - DELETED
+    AtlasTermAssignmentHeader_2:
+      type: object
+      properties:
+        confidence:
+          type: integer
+          format: int32
+        displayText:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
+    AtlasClassification_2:
+      type: object
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        entityGuid:
+          type: string
+          format: uuid
+        propagate:
+          type: boolean
   securitySchemes:
     oauth2:
       type: oauth2

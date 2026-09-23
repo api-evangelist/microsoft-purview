@@ -141,27 +141,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ClassificationRuleList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ClassificationRule'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
-    ClassificationRulePattern:
-      type: object
-      properties:
-        kind:
-          type: string
-          enum:
-          - Regex
-        pattern:
-          type: string
     ClassificationRule:
       type: object
       description: A classification rule definition
@@ -205,6 +184,27 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/ClassificationRulePattern'
+    ClassificationRuleList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ClassificationRule'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    ClassificationRulePattern:
+      type: object
+      properties:
+        kind:
+          type: string
+          enum:
+          - Regex
+        pattern:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

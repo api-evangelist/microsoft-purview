@@ -37,19 +37,16 @@ paths:
         '401':
           description: Unauthorized
 components:
+  parameters:
+    ApiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version
+      schema:
+        type: string
+        default: '2021-12-01'
   schemas:
-    OperationList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Operation'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
     Operation:
       type: object
       properties:
@@ -70,15 +67,18 @@ components:
           type: string
         origin:
           type: string
-  parameters:
-    ApiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version
-      schema:
-        type: string
-        default: '2021-12-01'
+    OperationList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Operation'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
   securitySchemes:
     oauth2:
       type: oauth2

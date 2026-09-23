@@ -168,6 +168,33 @@ components:
           type: string
         underCollection:
           type: string
+    ValidationResult:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              severity:
+                type: string
+              message:
+                type: string
+    WorkflowCreateOrUpdateCommand:
+      type: object
+      properties:
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowTrigger'
+        name:
+          type: string
+        isEnabled:
+          type: boolean
+        description:
+          type: string
+        actionDag:
+          type: object
     Workflow:
       type: object
       description: A workflow definition
@@ -188,33 +215,6 @@ components:
         actionDag:
           type: object
           description: The directed acyclic graph of actions
-    WorkflowCreateOrUpdateCommand:
-      type: object
-      properties:
-        triggers:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkflowTrigger'
-        name:
-          type: string
-        isEnabled:
-          type: boolean
-        description:
-          type: string
-        actionDag:
-          type: object
-    ValidationResult:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              severity:
-                type: string
-              message:
-                type: string
   securitySchemes:
     oauth2:
       type: oauth2

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Purview Information Protection Label Policy Settings API
+  title: Microsoft Purview Information Protection Label Policy…
   description: APIs for accessing and managing sensitivity labels through Microsoft Graph. Enables applications to apply, update, and delete sensitivity labels, evaluate label actions, and enforce information protection policies programmatically.
   version: v1.0
   contact:

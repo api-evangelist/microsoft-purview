@@ -125,16 +125,29 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    IdentitySet:
+    RetentionEventType:
       type: object
+      description: A retention event type
       properties:
-        user:
-          type: object
-          properties:
-            displayName:
-              type: string
-            id:
-              type: string
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+        description:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+        lastModifiedBy:
+          $ref: '#/components/schemas/IdentitySet'
     RetentionEvent:
       type: object
       description: A retention event that triggers event-based retention
@@ -189,29 +202,16 @@ components:
           $ref: '#/components/schemas/IdentitySet'
         lastModifiedBy:
           $ref: '#/components/schemas/IdentitySet'
-    RetentionEventType:
+    IdentitySet:
       type: object
-      description: A retention event type
       properties:
-        id:
-          type: string
-          readOnly: true
-        displayName:
-          type: string
-        description:
-          type: string
-        createdDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        lastModifiedDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        createdBy:
-          $ref: '#/components/schemas/IdentitySet'
-        lastModifiedBy:
-          $ref: '#/components/schemas/IdentitySet'
+        user:
+          type: object
+          properties:
+            displayName:
+              type: string
+            id:
+              type: string
   securitySchemes:
     oauth2:
       type: oauth2

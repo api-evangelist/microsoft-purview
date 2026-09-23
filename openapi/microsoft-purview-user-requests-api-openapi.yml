@@ -53,17 +53,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    UserRequestResponse:
-      type: object
-      properties:
-        requestId:
-          type: string
-          format: uuid
-        workflowRunIds:
-          type: array
-          items:
-            type: string
-            format: uuid
     UserRequestPayload:
       type: object
       properties:
@@ -78,6 +67,17 @@ components:
                 type: object
         comment:
           type: string
+    UserRequestResponse:
+      type: object
+      properties:
+        requestId:
+          type: string
+          format: uuid
+        workflowRunIds:
+          type: array
+          items:
+            type: string
+            format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

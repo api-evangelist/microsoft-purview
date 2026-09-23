@@ -632,38 +632,6 @@ paths:
           default: myaccount
 components:
   schemas:
-    AtlasTermAssignmentHeader:
-      type: object
-      properties:
-        confidence:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        description:
-          type: string
-        displayText:
-          type: string
-        expression:
-          type: string
-        relationGuid:
-          type: string
-          format: uuid
-        status:
-          type: string
-          enum:
-          - DISCOVERED
-          - PROPOSED
-          - IMPORTED
-          - VALIDATED
-          - DEPRECATED
-          - OBSOLETE
-          - OTHER
-        steward:
-          type: string
-        termGuid:
-          type: string
-          format: uuid
     AtlasEntity:
       type: object
       description: An instance of an entity along with extended info such as classification and referenced entities
@@ -726,76 +694,6 @@ components:
           format: int64
         collectionId:
           type: string
-    AtlasEntitiesWithExtInfo:
-      type: object
-      description: A collection of entities with extended info
-      properties:
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasEntity'
-        referredEntities:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AtlasEntity'
-    TimeBoundary:
-      type: object
-      properties:
-        endTime:
-          type: string
-        startTime:
-          type: string
-        timeZone:
-          type: string
-    AtlasEntityWithExtInfo:
-      type: object
-      description: An instance of an entity along with extended info
-      properties:
-        entity:
-          $ref: '#/components/schemas/AtlasEntity'
-        referredEntities:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AtlasEntity'
-    AtlasClassifications:
-      type: object
-      description: A paginated list of classifications
-      properties:
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasClassification'
-        pageSize:
-          type: integer
-          format: int32
-        sortBy:
-          type: string
-        sortType:
-          type: string
-        startIndex:
-          type: integer
-          format: int64
-        totalCount:
-          type: integer
-          format: int64
-    EntityMutationResponse:
-      type: object
-      description: The mutation response result of an entity operation
-      properties:
-        guidAssignments:
-          type: object
-          additionalProperties:
-            type: string
-        mutatedEntities:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              $ref: '#/components/schemas/AtlasEntityHeader'
-        partialUpdatedEntities:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasEntityHeader'
     AtlasEntityHeader:
       type: object
       description: An instance of an entity header
@@ -837,6 +735,50 @@ components:
           enum:
           - ACTIVE
           - DELETED
+    AtlasTermAssignmentHeader:
+      type: object
+      properties:
+        confidence:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        description:
+          type: string
+        displayText:
+          type: string
+        expression:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - DISCOVERED
+          - PROPOSED
+          - IMPORTED
+          - VALIDATED
+          - DEPRECATED
+          - OBSOLETE
+          - OTHER
+        steward:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
+    AtlasEntitiesWithExtInfo:
+      type: object
+      description: A collection of entities with extended info
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasEntity'
+        referredEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntity'
     AtlasEntityHeaders:
       type: object
       description: Collection of entity headers for bulk operations
@@ -845,6 +787,33 @@ components:
           type: object
           additionalProperties:
             $ref: '#/components/schemas/AtlasEntityHeader'
+    TimeBoundary:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
+    MoveEntitiesRequest:
+      type: object
+      properties:
+        entityGuids:
+          type: array
+          items:
+            type: string
+            format: uuid
+    AtlasEntityWithExtInfo:
+      type: object
+      description: An instance of an entity along with extended info
+      properties:
+        entity:
+          $ref: '#/components/schemas/AtlasEntity'
+        referredEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntity'
     AtlasClassification:
       type: object
       description: A classification instance
@@ -872,30 +841,45 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TimeBoundary'
-    MoveEntitiesRequest:
+    AtlasClassifications:
       type: object
+      description: A paginated list of classifications
       properties:
-        entityGuids:
+        list:
           type: array
           items:
-            type: string
-            format: uuid
-    AtlasTermAssignmentHeader_2:
-      type: object
-      properties:
-        confidence:
+            $ref: '#/components/schemas/AtlasClassification'
+        pageSize:
           type: integer
           format: int32
-        displayText:
+        sortBy:
           type: string
-        relationGuid:
+        sortType:
           type: string
-          format: uuid
-        status:
-          type: string
-        termGuid:
-          type: string
-          format: uuid
+        startIndex:
+          type: integer
+          format: int64
+        totalCount:
+          type: integer
+          format: int64
+    EntityMutationResponse:
+      type: object
+      description: The mutation response result of an entity operation
+      properties:
+        guidAssignments:
+          type: object
+          additionalProperties:
+            type: string
+        mutatedEntities:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/AtlasEntityHeader'
+        partialUpdatedEntities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasEntityHeader'
     AtlasEntity_2:
       type: object
       properties:
@@ -942,52 +926,6 @@ components:
         version:
           type: integer
           format: int64
-    AtlasEntitiesWithExtInfo_2:
-      type: object
-      properties:
-        entities:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasEntity_2'
-        referredEntities:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AtlasEntity_2'
-    AtlasEntityWithExtInfo_2:
-      type: object
-      properties:
-        entity:
-          $ref: '#/components/schemas/AtlasEntity_2'
-        referredEntities:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AtlasEntity_2'
-    AtlasClassifications_2:
-      type: object
-      properties:
-        list:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasClassification_2'
-        pageSize:
-          type: integer
-          format: int32
-        totalCount:
-          type: integer
-          format: int64
-    EntityMutationResponse_2:
-      type: object
-      properties:
-        guidAssignments:
-          type: object
-          additionalProperties:
-            type: string
-        mutatedEntities:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              $ref: '#/components/schemas/AtlasEntityHeader_2'
     AtlasEntityHeader_2:
       type: object
       properties:
@@ -1014,6 +952,42 @@ components:
           enum:
           - ACTIVE
           - DELETED
+    AtlasTermAssignmentHeader_2:
+      type: object
+      properties:
+        confidence:
+          type: integer
+          format: int32
+        displayText:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
+    AtlasEntitiesWithExtInfo_2:
+      type: object
+      properties:
+        entities:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasEntity_2'
+        referredEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntity_2'
+    AtlasEntityWithExtInfo_2:
+      type: object
+      properties:
+        entity:
+          $ref: '#/components/schemas/AtlasEntity_2'
+        referredEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntity_2'
     AtlasClassification_2:
       type: object
       properties:
@@ -1027,6 +1001,32 @@ components:
           format: uuid
         propagate:
           type: boolean
+    AtlasClassifications_2:
+      type: object
+      properties:
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasClassification_2'
+        pageSize:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
+    EntityMutationResponse_2:
+      type: object
+      properties:
+        guidAssignments:
+          type: object
+          additionalProperties:
+            type: string
+        mutatedEntities:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              $ref: '#/components/schemas/AtlasEntityHeader_2'
   securitySchemes:
     oauth2:
       type: oauth2

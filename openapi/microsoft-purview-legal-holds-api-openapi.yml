@@ -74,15 +74,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    IdentitySet:
-      type: object
-      properties:
-        application:
-          $ref: '#/components/schemas/Identity'
-        device:
-          $ref: '#/components/schemas/Identity'
-        user:
-          $ref: '#/components/schemas/Identity'
     Identity:
       type: object
       properties:
@@ -123,6 +114,15 @@ components:
           readOnly: true
         createdBy:
           $ref: '#/components/schemas/IdentitySet'
+    IdentitySet:
+      type: object
+      properties:
+        application:
+          $ref: '#/components/schemas/Identity'
+        device:
+          $ref: '#/components/schemas/Identity'
+        user:
+          $ref: '#/components/schemas/Identity'
   securitySchemes:
     oauth2:
       type: oauth2

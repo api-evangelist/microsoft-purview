@@ -169,25 +169,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ScanList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Scan'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
-    ConnectedVia:
-      type: object
-      properties:
-        referenceName:
-          type: string
-        integrationRuntimeType:
-          type: string
     Scan:
       type: object
       description: A scan configuration
@@ -223,6 +204,25 @@ components:
             lastScheduled:
               type: string
               format: date-time
+    ScanList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Scan'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    ConnectedVia:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        integrationRuntimeType:
+          type: string
     CollectionReference:
       type: object
       properties:

@@ -157,6 +157,18 @@ components:
           type: string
         integrationRuntimeType:
           type: string
+    DataSourceList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSource'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
     DataSource:
       type: object
       description: A registered data source
@@ -259,18 +271,6 @@ components:
             lastScheduled:
               type: string
               format: date-time
-    DataSourceList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSource'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
     CollectionReference:
       type: object
       properties:

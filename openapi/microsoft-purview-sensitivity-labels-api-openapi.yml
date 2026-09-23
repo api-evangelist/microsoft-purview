@@ -433,35 +433,6 @@ components:
             type: string
         hasProtection:
           type: boolean
-    ContentInfo:
-      type: object
-      properties:
-        contentFormat:
-          type: string
-        identifier:
-          type: string
-        state:
-          type: string
-          enum:
-          - rest
-          - motion
-          - use
-        metadata:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyValuePair'
-    DowngradeJustification:
-      type: object
-      properties:
-        isDowngradeJustified:
-          type: boolean
-        justificationMessage:
-          type: string
-    InformationProtectionAction:
-      type: object
-      properties:
-        '@odata.type':
-          type: string
     SensitivityLabel_2:
       type: object
       description: A sensitivity label for information protection
@@ -497,12 +468,45 @@ components:
               type: string
             name:
               type: string
-    KeyValuePair:
+    InformationProtectionAction:
       type: object
       properties:
-        name:
+        '@odata.type':
           type: string
-        value:
+    ContentInfo:
+      type: object
+      properties:
+        contentFormat:
+          type: string
+        identifier:
+          type: string
+        state:
+          type: string
+          enum:
+          - rest
+          - motion
+          - use
+        metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+    ClassificationResult:
+      type: object
+      properties:
+        sensitiveTypeId:
+          type: string
+        confidenceLevel:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+    DowngradeJustification:
+      type: object
+      properties:
+        isDowngradeJustified:
+          type: boolean
+        justificationMessage:
           type: string
     LabelingOptions:
       type: object
@@ -518,17 +522,13 @@ components:
           format: uuid
         downgradeJustification:
           $ref: '#/components/schemas/DowngradeJustification'
-    ClassificationResult:
+    KeyValuePair:
       type: object
       properties:
-        sensitiveTypeId:
+        name:
           type: string
-        confidenceLevel:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
+        value:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Purview Data Security and Governance DLP Policies API
+  title: Microsoft Purview Data Security and Governance DLP Policies…
   description: APIs for integrating data loss prevention and compliance policy enforcement into applications through Microsoft Graph. Provides compute protection scopes and process content operations to evaluate and enforce DLP policies at runtime.
   version: v1.0
   contact:
@@ -90,6 +90,11 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    InformationProtectionAction:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
     ContentInfo:
       type: object
       properties:
@@ -112,6 +117,32 @@ components:
                 type: string
               value:
                 type: string
+    ClassificationResult:
+      type: object
+      properties:
+        sensitiveTypeId:
+          type: string
+        confidenceLevel:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+    DlpAction:
+      type: object
+      properties:
+        actionType:
+          type: string
+          enum:
+          - notifyUser
+          - blockAccess
+          - auditOnly
+          - encrypt
+          - applyLabel
+        description:
+          type: string
+        policyId:
+          type: string
     DlpMatchedRule:
       type: object
       properties:
@@ -133,26 +164,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DlpAction'
-    InformationProtectionAction:
-      type: object
-      properties:
-        '@odata.type':
-          type: string
-    DlpAction:
-      type: object
-      properties:
-        actionType:
-          type: string
-          enum:
-          - notifyUser
-          - blockAccess
-          - auditOnly
-          - encrypt
-          - applyLabel
-        description:
-          type: string
-        policyId:
-          type: string
     LabelingOptions:
       type: object
       properties:
@@ -165,17 +176,6 @@ components:
         labelId:
           type: string
           format: uuid
-    ClassificationResult:
-      type: object
-      properties:
-        sensitiveTypeId:
-          type: string
-        confidenceLevel:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
   securitySchemes:
     oauth2:
       type: oauth2

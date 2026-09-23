@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Purview Records Management Retention Event Types API
+  title: Microsoft Purview Records Management Retention Event Types…
   description: APIs for managing retention labels, retention policies, and disposition review through Microsoft Graph. Helps organizations manage data retention and deletion to meet legal obligations and compliance regulations.
   version: v1.0
   contact:
@@ -142,16 +142,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    IdentitySet:
-      type: object
-      properties:
-        user:
-          type: object
-          properties:
-            displayName:
-              type: string
-            id:
-              type: string
     RetentionEventType:
       type: object
       description: A retention event type
@@ -175,6 +165,16 @@ components:
           $ref: '#/components/schemas/IdentitySet'
         lastModifiedBy:
           $ref: '#/components/schemas/IdentitySet'
+    IdentitySet:
+      type: object
+      properties:
+        user:
+          type: object
+          properties:
+            displayName:
+              type: string
+            id:
+              type: string
   securitySchemes:
     oauth2:
       type: oauth2

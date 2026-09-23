@@ -172,6 +172,26 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    BusinessDomainList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/BusinessDomain'
+        nextLink:
+          type: string
+    GovernanceContact:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        displayName:
+          type: string
+        mail:
+          type: string
+          format: email
     BusinessDomain:
       type: object
       description: A business domain in the unified catalog
@@ -204,26 +224,6 @@ components:
         updatedAt:
           type: string
           format: date-time
-    GovernanceContact:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        displayName:
-          type: string
-        mail:
-          type: string
-          format: email
-    BusinessDomainList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/BusinessDomain'
-        nextLink:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

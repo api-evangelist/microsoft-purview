@@ -74,15 +74,13 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    IdentitySet:
+    Identity:
       type: object
       properties:
-        application:
-          $ref: '#/components/schemas/Identity'
-        device:
-          $ref: '#/components/schemas/Identity'
-        user:
-          $ref: '#/components/schemas/Identity'
+        displayName:
+          type: string
+        id:
+          type: string
     EdiscoverySearch:
       type: object
       description: An eDiscovery search
@@ -109,13 +107,15 @@ components:
           $ref: '#/components/schemas/IdentitySet'
         lastModifiedBy:
           $ref: '#/components/schemas/IdentitySet'
-    Identity:
+    IdentitySet:
       type: object
       properties:
-        displayName:
-          type: string
-        id:
-          type: string
+        application:
+          $ref: '#/components/schemas/Identity'
+        device:
+          $ref: '#/components/schemas/Identity'
+        user:
+          $ref: '#/components/schemas/Identity'
   securitySchemes:
     oauth2:
       type: oauth2

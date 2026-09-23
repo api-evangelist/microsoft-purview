@@ -80,26 +80,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    CriticalDataElementList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/CriticalDataElement'
-        nextLink:
-          type: string
-    GovernanceContact:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        displayName:
-          type: string
-        mail:
-          type: string
-          format: email
     CriticalDataElement:
       type: object
       description: A critical data element definition
@@ -127,6 +107,26 @@ components:
         updatedAt:
           type: string
           format: date-time
+    GovernanceContact:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        displayName:
+          type: string
+        mail:
+          type: string
+          format: email
+    CriticalDataElementList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/CriticalDataElement'
+        nextLink:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

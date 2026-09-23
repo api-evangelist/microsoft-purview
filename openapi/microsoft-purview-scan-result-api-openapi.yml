@@ -144,18 +144,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ScanResultList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScanResult'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
     OperationResponse:
       type: object
       properties:
@@ -168,6 +156,18 @@ components:
               type: string
             message:
               type: string
+    ScanResultList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScanResult'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
     ScanResult:
       type: object
       description: The result of a scan run

@@ -139,18 +139,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ScanRulesetList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScanRuleset'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
     ScanRuleset:
       type: object
       description: A scan ruleset configuration
@@ -177,6 +165,18 @@ components:
             lastModifiedAt:
               type: string
               format: date-time
+    ScanRulesetList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScanRuleset'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
   securitySchemes:
     oauth2:
       type: oauth2

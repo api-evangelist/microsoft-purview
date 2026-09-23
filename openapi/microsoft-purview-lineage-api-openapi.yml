@@ -178,38 +178,6 @@ paths:
           default: myaccount
 components:
   schemas:
-    AtlasTermAssignmentHeader:
-      type: object
-      properties:
-        confidence:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        description:
-          type: string
-        displayText:
-          type: string
-        expression:
-          type: string
-        relationGuid:
-          type: string
-          format: uuid
-        status:
-          type: string
-          enum:
-          - DISCOVERED
-          - PROPOSED
-          - IMPORTED
-          - VALIDATED
-          - DEPRECATED
-          - OBSOLETE
-          - OTHER
-        steward:
-          type: string
-        termGuid:
-          type: string
-          format: uuid
     ParentRelation:
       type: object
       properties:
@@ -220,61 +188,6 @@ components:
           type: string
           format: uuid
         relationshipId:
-          type: string
-          format: uuid
-    AtlasLineageInfo:
-      type: object
-      description: Lineage information for an entity
-      properties:
-        baseEntityGuid:
-          type: string
-          format: uuid
-        childrenCount:
-          type: integer
-          format: int32
-        guidEntityMap:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AtlasEntityHeader'
-        lineageDepth:
-          type: integer
-          format: int32
-        lineageDirection:
-          type: string
-          enum:
-          - INPUT
-          - OUTPUT
-          - BOTH
-        lineageWidth:
-          type: integer
-          format: int32
-        parentRelations:
-          type: array
-          items:
-            $ref: '#/components/schemas/ParentRelation'
-        relations:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineageRelation'
-    TimeBoundary:
-      type: object
-      properties:
-        endTime:
-          type: string
-        startTime:
-          type: string
-        timeZone:
-          type: string
-    LineageRelation:
-      type: object
-      properties:
-        fromEntityId:
-          type: string
-          format: uuid
-        relationshipId:
-          type: string
-          format: uuid
-        toEntityId:
           type: string
           format: uuid
     AtlasEntityHeader:
@@ -318,6 +231,93 @@ components:
           enum:
           - ACTIVE
           - DELETED
+    LineageRelation:
+      type: object
+      properties:
+        fromEntityId:
+          type: string
+          format: uuid
+        relationshipId:
+          type: string
+          format: uuid
+        toEntityId:
+          type: string
+          format: uuid
+    AtlasLineageInfo:
+      type: object
+      description: Lineage information for an entity
+      properties:
+        baseEntityGuid:
+          type: string
+          format: uuid
+        childrenCount:
+          type: integer
+          format: int32
+        guidEntityMap:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntityHeader'
+        lineageDepth:
+          type: integer
+          format: int32
+        lineageDirection:
+          type: string
+          enum:
+          - INPUT
+          - OUTPUT
+          - BOTH
+        lineageWidth:
+          type: integer
+          format: int32
+        parentRelations:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParentRelation'
+        relations:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineageRelation'
+    AtlasTermAssignmentHeader:
+      type: object
+      properties:
+        confidence:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        description:
+          type: string
+        displayText:
+          type: string
+        expression:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - DISCOVERED
+          - PROPOSED
+          - IMPORTED
+          - VALIDATED
+          - DEPRECATED
+          - OBSOLETE
+          - OTHER
+        steward:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
+    TimeBoundary:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
     AtlasClassification:
       type: object
       description: A classification instance

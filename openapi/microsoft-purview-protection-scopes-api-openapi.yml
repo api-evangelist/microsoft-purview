@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Purview Data Security and Governance Protection Scopes API
+  title: Microsoft Purview Data Security and Governance Protection…
   description: APIs for integrating data loss prevention and compliance policy enforcement into applications through Microsoft Graph. Provides compute protection scopes and process content operations to evaluate and enforce DLP policies at runtime.
   version: v1.0
   contact:

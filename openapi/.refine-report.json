@@ -83,7 +83,8 @@
     "tag 'Lineage' spans 2 source specs (microsoft-purview-catalog-openapi.yml, microsoft-purview-data-map-openapi.yml): per-path servers applied",
     "tag 'Relationship' spans 2 source specs (microsoft-purview-catalog-openapi.yml, microsoft-purview-data-map-openapi.yml): per-path servers applied",
     "tag 'Type' spans 2 source specs (microsoft-purview-catalog-openapi.yml, microsoft-purview-data-map-openapi.yml): per-path servers applied",
-    "tag 'Sensitivity Labels' spans 2 source specs (microsoft-purview-data-security-governance-openapi.yml, microsoft-purview-information-protection-openapi.yml): per-path servers applied"
+    "tag 'Sensitivity Labels' spans 2 source specs (microsoft-purview-data-security-governance-openapi.yml, microsoft-purview-information-protection-openapi.yml): per-path servers applied",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "microsoft-purview-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",

@@ -47,6 +47,32 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    AttributeMatcher:
+      type: object
+      properties:
+        attributeName:
+          type: string
+        attributeValueIncludes:
+          type: string
+        attributeValueIncludedIn:
+          type: array
+          items:
+            type: string
+        attributeValueExcludes:
+          type: string
+        attributeValueExcludedIn:
+          type: array
+          items:
+            type: string
+    MetadataRoleList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataRole'
+        nextLink:
+          type: string
     MetadataRole:
       type: object
       properties:
@@ -73,32 +99,6 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/AttributeMatcher'
-    MetadataRoleList:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/MetadataRole'
-        nextLink:
-          type: string
-    AttributeMatcher:
-      type: object
-      properties:
-        attributeName:
-          type: string
-        attributeValueIncludes:
-          type: string
-        attributeValueIncludedIn:
-          type: array
-          items:
-            type: string
-        attributeValueExcludes:
-          type: string
-        attributeValueExcludedIn:
-          type: array
-          items:
-            type: string
   securitySchemes:
     oauth2:
       type: oauth2
