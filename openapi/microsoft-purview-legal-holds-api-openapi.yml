@@ -74,13 +74,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    Identity:
-      type: object
-      properties:
-        displayName:
-          type: string
-        id:
-          type: string
     EdiscoveryHoldPolicy:
       type: object
       description: A legal hold policy
@@ -123,6 +116,13 @@ components:
           $ref: '#/components/schemas/Identity'
         user:
           $ref: '#/components/schemas/Identity'
+    Identity:
+      type: object
+      properties:
+        displayName:
+          type: string
+        id:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

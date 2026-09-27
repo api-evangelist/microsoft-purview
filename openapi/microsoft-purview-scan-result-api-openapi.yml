@@ -156,18 +156,6 @@ components:
               type: string
             message:
               type: string
-    ScanResultList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScanResult'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
     ScanResult:
       type: object
       description: The result of a scan run
@@ -216,6 +204,18 @@ components:
           - Incremental
         errorMessage:
           type: string
+    ScanResultList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScanResult'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
   securitySchemes:
     oauth2:
       type: oauth2

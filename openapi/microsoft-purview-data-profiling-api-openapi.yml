@@ -87,6 +87,16 @@ paths:
           description: Not found
 components:
   schemas:
+    ProfilingRequest:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: string
+        sampleSize:
+          type: integer
+          format: int32
     ProfilingResult:
       type: object
       properties:
@@ -143,16 +153,6 @@ components:
               count:
                 type: integer
                 format: int64
-    ProfilingRequest:
-      type: object
-      properties:
-        columns:
-          type: array
-          items:
-            type: string
-        sampleSize:
-          type: integer
-          format: int32
   securitySchemes:
     oauth2:
       type: oauth2

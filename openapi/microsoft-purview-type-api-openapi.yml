@@ -257,48 +257,6 @@ paths:
           default: myaccount
 components:
   schemas:
-    AtlasTypesDef:
-      type: object
-      description: The definitions of types
-      properties:
-        businessMetadataDefs:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasTypeDef'
-        classificationDefs:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasTypeDef'
-        entityDefs:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasTypeDef'
-        enumDefs:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasTypeDef'
-        relationshipDefs:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasTypeDef'
-        structDefs:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasTypeDef'
-        termTemplateDefs:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasTypeDef'
-    AtlasTypeDefHeader:
-      type: object
-      properties:
-        category:
-          type: string
-        guid:
-          type: string
-          format: uuid
-        name:
-          type: string
     AtlasTypeDef:
       type: object
       description: A type definition
@@ -346,6 +304,62 @@ components:
           format: int64
         lastModifiedTS:
           type: string
+    AtlasTypesDef:
+      type: object
+      description: The definitions of types
+      properties:
+        businessMetadataDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTypeDef'
+        classificationDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTypeDef'
+        entityDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTypeDef'
+        enumDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTypeDef'
+        relationshipDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTypeDef'
+        structDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTypeDef'
+        termTemplateDefs:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTypeDef'
+    AtlasTypeDefHeader:
+      type: object
+      properties:
+        category:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        name:
+          type: string
+    AtlasTypeDef_2:
+      type: object
+      properties:
+        category:
+          type: string
+        description:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        name:
+          type: string
+        typeVersion:
+          type: string
     AtlasTypesDef_2:
       type: object
       properties:
@@ -373,20 +387,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AtlasTypeDef_2'
-    AtlasTypeDef_2:
-      type: object
-      properties:
-        category:
-          type: string
-        description:
-          type: string
-        guid:
-          type: string
-          format: uuid
-        name:
-          type: string
-        typeVersion:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

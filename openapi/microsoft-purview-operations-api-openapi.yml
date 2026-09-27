@@ -37,15 +37,6 @@ paths:
         '401':
           description: Unauthorized
 components:
-  parameters:
-    ApiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version
-      schema:
-        type: string
-        default: '2021-12-01'
   schemas:
     Operation:
       type: object
@@ -79,6 +70,15 @@ components:
         count:
           type: integer
           format: int64
+  parameters:
+    ApiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version
+      schema:
+        type: string
+        default: '2021-12-01'
   securitySchemes:
     oauth2:
       type: oauth2

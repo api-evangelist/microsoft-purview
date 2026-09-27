@@ -90,6 +90,18 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    LabelingOptions:
+      type: object
+      properties:
+        assignmentMethod:
+          type: string
+          enum:
+          - standard
+          - privileged
+          - auto
+        labelId:
+          type: string
+          format: uuid
     InformationProtectionAction:
       type: object
       properties:
@@ -164,18 +176,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DlpAction'
-    LabelingOptions:
-      type: object
-      properties:
-        assignmentMethod:
-          type: string
-          enum:
-          - standard
-          - privileged
-          - auto
-        labelId:
-          type: string
-          format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

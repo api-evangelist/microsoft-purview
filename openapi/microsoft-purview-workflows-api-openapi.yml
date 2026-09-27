@@ -47,21 +47,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    WorkflowTrigger:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - when_term_creation_is_requested
-          - when_term_deletion_is_requested
-          - when_term_update_is_requested
-          - when_data_access_grant_is_requested
-          - when_asset_update_is_requested
-        underGlossaryHierarchy:
-          type: string
-        underCollection:
-          type: string
     Workflow:
       type: object
       description: A workflow definition
@@ -82,6 +67,21 @@ components:
         actionDag:
           type: object
           description: The directed acyclic graph of actions
+    WorkflowTrigger:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - when_term_creation_is_requested
+          - when_term_deletion_is_requested
+          - when_term_update_is_requested
+          - when_data_access_grant_is_requested
+          - when_asset_update_is_requested
+        underGlossaryHierarchy:
+          type: string
+        underCollection:
+          type: string
     WorkflowList:
       type: object
       properties:

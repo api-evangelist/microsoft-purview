@@ -199,58 +199,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    TriggerRecurrence:
-      type: object
-      properties:
-        frequency:
-          type: string
-          enum:
-          - Week
-          - Month
-          - Day
-        interval:
-          type: integer
-          format: int32
-        startTime:
-          type: string
-          format: date-time
-        endTime:
-          type: string
-          format: date-time
-        schedule:
-          $ref: '#/components/schemas/RecurrenceSchedule'
-        timeZone:
-          type: string
-    RecurrenceSchedule:
-      type: object
-      properties:
-        hours:
-          type: array
-          items:
-            type: integer
-            format: int32
-        minutes:
-          type: array
-          items:
-            type: integer
-            format: int32
-        weekDays:
-          type: array
-          items:
-            type: string
-            enum:
-            - Sunday
-            - Monday
-            - Tuesday
-            - Wednesday
-            - Thursday
-            - Friday
-            - Saturday
-        monthDays:
-          type: array
-          items:
-            type: integer
-            format: int32
     Trigger:
       type: object
       description: A scan trigger for scheduling automated scans
@@ -284,6 +232,58 @@ components:
             incrementalScanStartTime:
               type: string
               format: date-time
+    RecurrenceSchedule:
+      type: object
+      properties:
+        hours:
+          type: array
+          items:
+            type: integer
+            format: int32
+        minutes:
+          type: array
+          items:
+            type: integer
+            format: int32
+        weekDays:
+          type: array
+          items:
+            type: string
+            enum:
+            - Sunday
+            - Monday
+            - Tuesday
+            - Wednesday
+            - Thursday
+            - Friday
+            - Saturday
+        monthDays:
+          type: array
+          items:
+            type: integer
+            format: int32
+    TriggerRecurrence:
+      type: object
+      properties:
+        frequency:
+          type: string
+          enum:
+          - Week
+          - Month
+          - Day
+        interval:
+          type: integer
+          format: int32
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        schedule:
+          $ref: '#/components/schemas/RecurrenceSchedule'
+        timeZone:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

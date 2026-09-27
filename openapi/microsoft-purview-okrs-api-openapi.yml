@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Microsoft Purview Unified Catalog OK Rs API
+  title: Microsoft Purview Unified Catalog OKRs API
   description: APIs for programmatically integrating and managing the Microsoft Purview Unified Catalog. Supports operations on business domains, glossary terms, data products, OKRs, critical data elements, and data access policies.
   version: 2024-03-01-preview
   contact:

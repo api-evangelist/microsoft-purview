@@ -53,17 +53,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    DataQualityScanRequest:
-      type: object
-      properties:
-        assetIds:
-          type: array
-          items:
-            type: string
-        ruleIds:
-          type: array
-          items:
-            type: string
     DataQualityScanResult:
       type: object
       properties:
@@ -79,6 +68,17 @@ components:
         startTime:
           type: string
           format: date-time
+    DataQualityScanRequest:
+      type: object
+      properties:
+        assetIds:
+          type: array
+          items:
+            type: string
+        ruleIds:
+          type: array
+          items:
+            type: string
   securitySchemes:
     oauth2:
       type: oauth2

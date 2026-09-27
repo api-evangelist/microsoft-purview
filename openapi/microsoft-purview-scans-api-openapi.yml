@@ -169,6 +169,13 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    CollectionReference:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        type:
+          type: string
     Scan:
       type: object
       description: A scan configuration
@@ -222,13 +229,6 @@ components:
         referenceName:
           type: string
         integrationRuntimeType:
-          type: string
-    CollectionReference:
-      type: object
-      properties:
-        referenceName:
-          type: string
-        type:
           type: string
   securitySchemes:
     oauth2:

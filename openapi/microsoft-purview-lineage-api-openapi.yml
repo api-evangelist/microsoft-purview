@@ -178,71 +178,15 @@ paths:
           default: myaccount
 components:
   schemas:
-    ParentRelation:
+    TimeBoundary:
       type: object
       properties:
-        childEntityId:
+        endTime:
           type: string
-          format: uuid
-        parentEntityId:
+        startTime:
           type: string
-          format: uuid
-        relationshipId:
+        timeZone:
           type: string
-          format: uuid
-    AtlasEntityHeader:
-      type: object
-      description: An instance of an entity header
-      properties:
-        attributes:
-          type: object
-          additionalProperties: true
-        typeName:
-          type: string
-        lastModifiedTS:
-          type: string
-        classificationNames:
-          type: array
-          items:
-            type: string
-        classifications:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasClassification'
-        displayText:
-          type: string
-        guid:
-          type: string
-          format: uuid
-        labels:
-          type: array
-          items:
-            type: string
-        meaningNames:
-          type: array
-          items:
-            type: string
-        meanings:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasTermAssignmentHeader'
-        status:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-    LineageRelation:
-      type: object
-      properties:
-        fromEntityId:
-          type: string
-          format: uuid
-        relationshipId:
-          type: string
-          format: uuid
-        toEntityId:
-          type: string
-          format: uuid
     AtlasLineageInfo:
       type: object
       description: Lineage information for an entity
@@ -309,15 +253,59 @@ components:
         termGuid:
           type: string
           format: uuid
-    TimeBoundary:
+    ParentRelation:
       type: object
       properties:
-        endTime:
+        childEntityId:
           type: string
-        startTime:
+          format: uuid
+        parentEntityId:
           type: string
-        timeZone:
+          format: uuid
+        relationshipId:
           type: string
+          format: uuid
+    AtlasEntityHeader:
+      type: object
+      description: An instance of an entity header
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        classificationNames:
+          type: array
+          items:
+            type: string
+        classifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasClassification'
+        displayText:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        labels:
+          type: array
+          items:
+            type: string
+        meaningNames:
+          type: array
+          items:
+            type: string
+        meanings:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasTermAssignmentHeader'
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
     AtlasClassification:
       type: object
       description: A classification instance
@@ -345,6 +333,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TimeBoundary'
+    LineageRelation:
+      type: object
+      properties:
+        fromEntityId:
+          type: string
+          format: uuid
+        relationshipId:
+          type: string
+          format: uuid
+        toEntityId:
+          type: string
+          format: uuid
     AtlasLineageInfo_2:
       type: object
       properties:

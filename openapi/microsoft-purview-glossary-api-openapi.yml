@@ -648,17 +648,133 @@ paths:
           default: myaccount
 components:
   schemas:
-    AtlasGlossaryHeader:
+    ResourceLink:
       type: object
       properties:
+        displayName:
+          type: string
+        url:
+          type: string
+          format: uri
+    TimeBoundary:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
+    AtlasTermCategorizationHeader:
+      type: object
+      properties:
+        categoryGuid:
+          type: string
+          format: uuid
+        description:
+          type: string
         displayText:
           type: string
-        glossaryGuid:
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+    AtlasGlossary:
+      type: object
+      description: A glossary object
+      properties:
+        guid:
+          type: string
+          format: uuid
+        qualifiedName:
+          type: string
+        name:
+          type: string
+        shortDescription:
+          type: string
+        longDescription:
+          type: string
+        language:
+          type: string
+        usage:
+          type: string
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedTermHeader'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
+    AtlasRelatedCategoryHeader:
+      type: object
+      properties:
+        categoryGuid:
+          type: string
+          format: uuid
+        description:
+          type: string
+        displayText:
+          type: string
+        parentCategoryGuid:
           type: string
           format: uuid
         relationGuid:
           type: string
           format: uuid
+    AtlasRelatedObjectId:
+      type: object
+      properties:
+        displayText:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        relationshipAttributes:
+          type: object
+        relationshipGuid:
+          type: string
+          format: uuid
+        relationshipStatus:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        relationshipType:
+          type: string
+        typeName:
+          type: string
+        uniqueAttributes:
+          type: object
+          additionalProperties: true
+    AtlasGlossaryCategory:
+      type: object
+      description: A glossary category
+      properties:
+        guid:
+          type: string
+          format: uuid
+        qualifiedName:
+          type: string
+        name:
+          type: string
+        shortDescription:
+          type: string
+        longDescription:
+          type: string
+        anchor:
+          $ref: '#/components/schemas/AtlasGlossaryHeader'
+        parentCategory:
+          $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
+        childrenCategories:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedTermHeader'
     AtlasRelatedTermHeader:
       type: object
       properties:
@@ -684,6 +800,44 @@ components:
         termGuid:
           type: string
           format: uuid
+    AtlasGlossaryHeader:
+      type: object
+      properties:
+        displayText:
+          type: string
+        glossaryGuid:
+          type: string
+          format: uuid
+        relationGuid:
+          type: string
+          format: uuid
+    AtlasClassification:
+      type: object
+      description: A classification instance
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        entityGuid:
+          type: string
+          format: uuid
+        entityStatus:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        propagate:
+          type: boolean
+        removePropagationsOnEntityDelete:
+          type: boolean
+        validityPeriods:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeBoundary'
     AtlasGlossaryTerm:
       type: object
       description: A glossary term
@@ -728,50 +882,8 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ResourceLink'
-    AtlasRelatedCategoryHeader:
+    AtlasGlossary_2:
       type: object
-      properties:
-        categoryGuid:
-          type: string
-          format: uuid
-        description:
-          type: string
-        displayText:
-          type: string
-        parentCategoryGuid:
-          type: string
-          format: uuid
-        relationGuid:
-          type: string
-          format: uuid
-    AtlasRelatedObjectId:
-      type: object
-      properties:
-        displayText:
-          type: string
-        guid:
-          type: string
-          format: uuid
-        relationshipAttributes:
-          type: object
-        relationshipGuid:
-          type: string
-          format: uuid
-        relationshipStatus:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        relationshipType:
-          type: string
-        typeName:
-          type: string
-        uniqueAttributes:
-          type: object
-          additionalProperties: true
-    AtlasGlossary:
-      type: object
-      description: A glossary object
       properties:
         guid:
           type: string
@@ -791,97 +903,22 @@ components:
         terms:
           type: array
           items:
-            $ref: '#/components/schemas/AtlasRelatedTermHeader'
+            $ref: '#/components/schemas/AtlasRelatedTermHeader_2'
         categories:
           type: array
           items:
-            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
-    TimeBoundary:
-      type: object
-      properties:
-        endTime:
-          type: string
-        startTime:
-          type: string
-        timeZone:
-          type: string
-    AtlasTermCategorizationHeader:
+            $ref: '#/components/schemas/AtlasRelatedCategoryHeader_2'
+    AtlasRelatedCategoryHeader_2:
       type: object
       properties:
         categoryGuid:
           type: string
           format: uuid
-        description:
-          type: string
         displayText:
           type: string
         relationGuid:
           type: string
           format: uuid
-        status:
-          type: string
-    AtlasClassification:
-      type: object
-      description: A classification instance
-      properties:
-        attributes:
-          type: object
-          additionalProperties: true
-        typeName:
-          type: string
-        lastModifiedTS:
-          type: string
-        entityGuid:
-          type: string
-          format: uuid
-        entityStatus:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        propagate:
-          type: boolean
-        removePropagationsOnEntityDelete:
-          type: boolean
-        validityPeriods:
-          type: array
-          items:
-            $ref: '#/components/schemas/TimeBoundary'
-    AtlasGlossaryCategory:
-      type: object
-      description: A glossary category
-      properties:
-        guid:
-          type: string
-          format: uuid
-        qualifiedName:
-          type: string
-        name:
-          type: string
-        shortDescription:
-          type: string
-        longDescription:
-          type: string
-        anchor:
-          $ref: '#/components/schemas/AtlasGlossaryHeader'
-        parentCategory:
-          $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
-        childrenCategories:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
-        terms:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedTermHeader'
-    ResourceLink:
-      type: object
-      properties:
-        displayName:
-          type: string
-        url:
-          type: string
-          format: uri
     AtlasRelatedTermHeader_2:
       type: object
       properties:
@@ -918,43 +955,6 @@ components:
           - Expired
         anchor:
           $ref: '#/components/schemas/AtlasGlossaryHeader'
-    AtlasRelatedCategoryHeader_2:
-      type: object
-      properties:
-        categoryGuid:
-          type: string
-          format: uuid
-        displayText:
-          type: string
-        relationGuid:
-          type: string
-          format: uuid
-    AtlasGlossary_2:
-      type: object
-      properties:
-        guid:
-          type: string
-          format: uuid
-        qualifiedName:
-          type: string
-        name:
-          type: string
-        shortDescription:
-          type: string
-        longDescription:
-          type: string
-        language:
-          type: string
-        usage:
-          type: string
-        terms:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedTermHeader_2'
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedCategoryHeader_2'
   securitySchemes:
     oauth2:
       type: oauth2

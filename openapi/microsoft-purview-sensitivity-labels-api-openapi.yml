@@ -433,6 +433,53 @@ components:
             type: string
         hasProtection:
           type: boolean
+    LabelingOptions:
+      type: object
+      properties:
+        assignmentMethod:
+          type: string
+          enum:
+          - standard
+          - privileged
+          - auto
+        labelId:
+          type: string
+          format: uuid
+        downgradeJustification:
+          $ref: '#/components/schemas/DowngradeJustification'
+    ContentInfo:
+      type: object
+      properties:
+        contentFormat:
+          type: string
+        identifier:
+          type: string
+        state:
+          type: string
+          enum:
+          - rest
+          - motion
+          - use
+        metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
+    InformationProtectionAction:
+      type: object
+      properties:
+        '@odata.type':
+          type: string
+    ClassificationResult:
+      type: object
+      properties:
+        sensitiveTypeId:
+          type: string
+        confidenceLevel:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
     SensitivityLabel_2:
       type: object
       description: A sensitivity label for information protection
@@ -468,66 +515,19 @@ components:
               type: string
             name:
               type: string
-    InformationProtectionAction:
-      type: object
-      properties:
-        '@odata.type':
-          type: string
-    ContentInfo:
-      type: object
-      properties:
-        contentFormat:
-          type: string
-        identifier:
-          type: string
-        state:
-          type: string
-          enum:
-          - rest
-          - motion
-          - use
-        metadata:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyValuePair'
-    ClassificationResult:
-      type: object
-      properties:
-        sensitiveTypeId:
-          type: string
-        confidenceLevel:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
-    DowngradeJustification:
-      type: object
-      properties:
-        isDowngradeJustified:
-          type: boolean
-        justificationMessage:
-          type: string
-    LabelingOptions:
-      type: object
-      properties:
-        assignmentMethod:
-          type: string
-          enum:
-          - standard
-          - privileged
-          - auto
-        labelId:
-          type: string
-          format: uuid
-        downgradeJustification:
-          $ref: '#/components/schemas/DowngradeJustification'
     KeyValuePair:
       type: object
       properties:
         name:
           type: string
         value:
+          type: string
+    DowngradeJustification:
+      type: object
+      properties:
+        isDowngradeJustified:
+          type: boolean
+        justificationMessage:
           type: string
   securitySchemes:
     oauth2:

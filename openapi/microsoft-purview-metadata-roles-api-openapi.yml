@@ -47,6 +47,15 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    MetadataRoleList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataRole'
+        nextLink:
+          type: string
     AttributeMatcher:
       type: object
       properties:
@@ -64,15 +73,6 @@ components:
           type: array
           items:
             type: string
-    MetadataRoleList:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/MetadataRole'
-        nextLink:
-          type: string
     MetadataRole:
       type: object
       properties:

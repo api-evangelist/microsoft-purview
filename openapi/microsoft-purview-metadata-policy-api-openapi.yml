@@ -119,74 +119,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    AttributeRule:
-      type: object
-      properties:
-        kind:
-          type: string
-          enum:
-          - attributerule
-        id:
-          type: string
-        name:
-          type: string
-        dnfCondition:
-          type: array
-          items:
-            type: array
-            items:
-              $ref: '#/components/schemas/AttributeMatcher'
-    MetadataPolicyList:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/MetadataPolicy'
-        nextLink:
-          type: string
-    DecisionRule:
-      type: object
-      properties:
-        kind:
-          type: string
-          enum:
-          - decisionrule
-        effect:
-          type: string
-          enum:
-          - Permit
-          - Deny
-        dnfCondition:
-          type: array
-          items:
-            type: array
-            items:
-              $ref: '#/components/schemas/AttributeMatcher'
-    AttributeMatcher:
-      type: object
-      properties:
-        attributeName:
-          type: string
-        attributeValueIncludes:
-          type: string
-        attributeValueIncludedIn:
-          type: array
-          items:
-            type: string
-        attributeValueExcludes:
-          type: string
-        attributeValueExcludedIn:
-          type: array
-          items:
-            type: string
-    CollectionReference:
-      type: object
-      properties:
-        referenceName:
-          type: string
-        type:
-          type: string
     MetadataPolicy:
       type: object
       description: A metadata policy for controlling data access
@@ -215,6 +147,74 @@ components:
               $ref: '#/components/schemas/CollectionReference'
             parentCollectionName:
               type: string
+    DecisionRule:
+      type: object
+      properties:
+        kind:
+          type: string
+          enum:
+          - decisionrule
+        effect:
+          type: string
+          enum:
+          - Permit
+          - Deny
+        dnfCondition:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/AttributeMatcher'
+    AttributeRule:
+      type: object
+      properties:
+        kind:
+          type: string
+          enum:
+          - attributerule
+        id:
+          type: string
+        name:
+          type: string
+        dnfCondition:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/AttributeMatcher'
+    CollectionReference:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        type:
+          type: string
+    MetadataPolicyList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataPolicy'
+        nextLink:
+          type: string
+    AttributeMatcher:
+      type: object
+      properties:
+        attributeName:
+          type: string
+        attributeValueIncludes:
+          type: string
+        attributeValueIncludedIn:
+          type: array
+          items:
+            type: string
+        attributeValueExcludes:
+          type: string
+        attributeValueExcludedIn:
+          type: array
+          items:
+            type: string
   securitySchemes:
     oauth2:
       type: oauth2

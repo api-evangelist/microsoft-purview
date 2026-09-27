@@ -243,6 +243,23 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    CollectionAdminUpdate:
+      type: object
+      properties:
+        objectId:
+          type: string
+    CheckNameAvailabilityResult:
+      type: object
+      properties:
+        message:
+          type: string
+        nameAvailable:
+          type: boolean
+        reason:
+          type: string
+          enum:
+          - Invalid
+          - AlreadyExists
     AccountProperties:
       type: object
       properties:
@@ -327,10 +344,52 @@ components:
                 type: string
               principalId:
                 type: string
-    CollectionAdminUpdate:
+    AccountUpdateParameters:
       type: object
       properties:
-        objectId:
+        identity:
+          $ref: '#/components/schemas/Identity'
+        properties:
+          type: object
+          properties:
+            managedResourceGroupName:
+              type: string
+            publicNetworkAccess:
+              type: string
+              enum:
+              - NotSpecified
+              - Enabled
+              - Disabled
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+    AccountSku:
+      type: object
+      properties:
+        capacity:
+          type: integer
+          format: int32
+        name:
+          type: string
+          enum:
+          - Standard
+    AccountEndpoints:
+      type: object
+      readOnly: true
+      properties:
+        catalog:
+          type: string
+        guardian:
+          type: string
+        scan:
+          type: string
+    AccessKeys:
+      type: object
+      properties:
+        atlasKafkaPrimaryEndpoint:
+          type: string
+        atlasKafkaSecondaryEndpoint:
           type: string
     CheckNameAvailabilityRequest:
       type: object
@@ -339,6 +398,43 @@ components:
           type: string
         type:
           type: string
+    AccountList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    Account:
+      type: object
+      description: A Microsoft Purview account resource
+      properties:
+        id:
+          type: string
+          readOnly: true
+        identity:
+          $ref: '#/components/schemas/Identity'
+        location:
+          type: string
+        name:
+          type: string
+          readOnly: true
+        properties:
+          $ref: '#/components/schemas/AccountProperties'
+        sku:
+          $ref: '#/components/schemas/AccountSku'
+        tags:
+          type: object
+          additionalProperties:
+            type: string
+        type:
+          type: string
+          readOnly: true
     PrivateEndpointConnection:
       type: object
       properties:
@@ -377,111 +473,7 @@ components:
         type:
           type: string
           readOnly: true
-    AccountList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Account'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
-    AccountEndpoints:
-      type: object
-      readOnly: true
-      properties:
-        catalog:
-          type: string
-        guardian:
-          type: string
-        scan:
-          type: string
-    AccountUpdateParameters:
-      type: object
-      properties:
-        identity:
-          $ref: '#/components/schemas/Identity'
-        properties:
-          type: object
-          properties:
-            managedResourceGroupName:
-              type: string
-            publicNetworkAccess:
-              type: string
-              enum:
-              - NotSpecified
-              - Enabled
-              - Disabled
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-    AccessKeys:
-      type: object
-      properties:
-        atlasKafkaPrimaryEndpoint:
-          type: string
-        atlasKafkaSecondaryEndpoint:
-          type: string
-    CheckNameAvailabilityResult:
-      type: object
-      properties:
-        message:
-          type: string
-        nameAvailable:
-          type: boolean
-        reason:
-          type: string
-          enum:
-          - Invalid
-          - AlreadyExists
-    Account:
-      type: object
-      description: A Microsoft Purview account resource
-      properties:
-        id:
-          type: string
-          readOnly: true
-        identity:
-          $ref: '#/components/schemas/Identity'
-        location:
-          type: string
-        name:
-          type: string
-          readOnly: true
-        properties:
-          $ref: '#/components/schemas/AccountProperties'
-        sku:
-          $ref: '#/components/schemas/AccountSku'
-        tags:
-          type: object
-          additionalProperties:
-            type: string
-        type:
-          type: string
-          readOnly: true
-    AccountSku:
-      type: object
-      properties:
-        capacity:
-          type: integer
-          format: int32
-        name:
-          type: string
-          enum:
-          - Standard
   parameters:
-    ApiVersion:
-      name: api-version
-      in: query
-      required: true
-      description: The API version
-      schema:
-        type: string
-        default: '2021-12-01'
     SubscriptionId:
       name: subscriptionId
       in: path
@@ -504,6 +496,14 @@ components:
       description: The resource group name
       schema:
         type: string
+    ApiVersion:
+      name: api-version
+      in: query
+      required: true
+      description: The API version
+      schema:
+        type: string
+        default: '2021-12-01'
   securitySchemes:
     oauth2:
       type: oauth2

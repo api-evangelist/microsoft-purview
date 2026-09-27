@@ -166,6 +166,15 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    DataProductList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataProduct'
+        nextLink:
+          type: string
     GovernanceContact:
       type: object
       properties:
@@ -177,15 +186,6 @@ components:
         mail:
           type: string
           format: email
-    DataProductList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataProduct'
-        nextLink:
-          type: string
     DataProduct:
       type: object
       description: A data product in the unified catalog
