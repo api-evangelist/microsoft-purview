@@ -150,41 +150,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    Scan:
-      type: object
-      description: A scan configuration
-      properties:
-        id:
-          type: string
-          readOnly: true
-        name:
-          type: string
-        kind:
-          type: string
-          description: The scan type
-        properties:
-          type: object
-          properties:
-            scanRulesetName:
-              type: string
-            scanRulesetType:
-              type: string
-              enum:
-              - Custom
-              - System
-            collection:
-              $ref: '#/components/schemas/CollectionReference'
-            connectedVia:
-              $ref: '#/components/schemas/ConnectedVia'
-            createdAt:
-              type: string
-              format: date-time
-            lastModifiedAt:
-              type: string
-              format: date-time
-            lastScheduled:
-              type: string
-              format: date-time
     DataSourceList:
       type: object
       properties:
@@ -197,6 +162,20 @@ components:
         count:
           type: integer
           format: int64
+    CollectionReference:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        type:
+          type: string
+    ConnectedVia:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        integrationRuntimeType:
+          type: string
     DataSource:
       type: object
       description: A registered data source
@@ -264,20 +243,41 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Scan'
-    CollectionReference:
+    Scan:
       type: object
+      description: A scan configuration
       properties:
-        referenceName:
+        id:
           type: string
-        type:
+          readOnly: true
+        name:
           type: string
-    ConnectedVia:
-      type: object
-      properties:
-        referenceName:
+        kind:
           type: string
-        integrationRuntimeType:
-          type: string
+          description: The scan type
+        properties:
+          type: object
+          properties:
+            scanRulesetName:
+              type: string
+            scanRulesetType:
+              type: string
+              enum:
+              - Custom
+              - System
+            collection:
+              $ref: '#/components/schemas/CollectionReference'
+            connectedVia:
+              $ref: '#/components/schemas/ConnectedVia'
+            createdAt:
+              type: string
+              format: date-time
+            lastModifiedAt:
+              type: string
+              format: date-time
+            lastScheduled:
+              type: string
+              format: date-time
   securitySchemes:
     oauth2:
       type: oauth2

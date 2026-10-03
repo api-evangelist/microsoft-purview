@@ -74,6 +74,22 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    IdentitySet:
+      type: object
+      properties:
+        application:
+          $ref: '#/components/schemas/Identity'
+        device:
+          $ref: '#/components/schemas/Identity'
+        user:
+          $ref: '#/components/schemas/Identity'
+    Identity:
+      type: object
+      properties:
+        displayName:
+          type: string
+        id:
+          type: string
     EdiscoveryHoldPolicy:
       type: object
       description: A legal hold policy
@@ -107,22 +123,6 @@ components:
           readOnly: true
         createdBy:
           $ref: '#/components/schemas/IdentitySet'
-    IdentitySet:
-      type: object
-      properties:
-        application:
-          $ref: '#/components/schemas/Identity'
-        device:
-          $ref: '#/components/schemas/Identity'
-        user:
-          $ref: '#/components/schemas/Identity'
-    Identity:
-      type: object
-      properties:
-        displayName:
-          type: string
-        id:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

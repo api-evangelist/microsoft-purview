@@ -125,6 +125,29 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    RetentionEventType:
+      type: object
+      description: A retention event type
+      properties:
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+        description:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+        lastModifiedBy:
+          $ref: '#/components/schemas/IdentitySet'
     RetentionEvent:
       type: object
       description: A retention event that triggers event-based retention
@@ -167,29 +190,6 @@ components:
               - error
               - success
               - unknownFutureValue
-        createdDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        lastModifiedDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        createdBy:
-          $ref: '#/components/schemas/IdentitySet'
-        lastModifiedBy:
-          $ref: '#/components/schemas/IdentitySet'
-    RetentionEventType:
-      type: object
-      description: A retention event type
-      properties:
-        id:
-          type: string
-          readOnly: true
-        displayName:
-          type: string
-        description:
-          type: string
         createdDateTime:
           type: string
           format: date-time

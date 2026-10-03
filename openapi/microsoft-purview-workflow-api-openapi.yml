@@ -153,6 +153,48 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    ValidationResult:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              severity:
+                type: string
+              message:
+                type: string
+    WorkflowTrigger:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - when_term_creation_is_requested
+          - when_term_deletion_is_requested
+          - when_term_update_is_requested
+          - when_data_access_grant_is_requested
+          - when_asset_update_is_requested
+        underGlossaryHierarchy:
+          type: string
+        underCollection:
+          type: string
+    WorkflowCreateOrUpdateCommand:
+      type: object
+      properties:
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowTrigger'
+        name:
+          type: string
+        isEnabled:
+          type: boolean
+        description:
+          type: string
+        actionDag:
+          type: object
     Workflow:
       type: object
       description: A workflow definition
@@ -173,48 +215,6 @@ components:
         actionDag:
           type: object
           description: The directed acyclic graph of actions
-    WorkflowTrigger:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - when_term_creation_is_requested
-          - when_term_deletion_is_requested
-          - when_term_update_is_requested
-          - when_data_access_grant_is_requested
-          - when_asset_update_is_requested
-        underGlossaryHierarchy:
-          type: string
-        underCollection:
-          type: string
-    ValidationResult:
-      type: object
-      properties:
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              severity:
-                type: string
-              message:
-                type: string
-    WorkflowCreateOrUpdateCommand:
-      type: object
-      properties:
-        triggers:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkflowTrigger'
-        name:
-          type: string
-        isEnabled:
-          type: boolean
-        description:
-          type: string
-        actionDag:
-          type: object
   securitySchemes:
     oauth2:
       type: oauth2

@@ -90,22 +90,57 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    LabelingOptions:
+    ClassificationResult:
       type: object
       properties:
-        assignmentMethod:
+        sensitiveTypeId:
           type: string
-          enum:
-          - standard
-          - privileged
-          - auto
-        labelId:
-          type: string
-          format: uuid
+        confidenceLevel:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
     InformationProtectionAction:
       type: object
       properties:
         '@odata.type':
+          type: string
+    DlpMatchedRule:
+      type: object
+      properties:
+        ruleId:
+          type: string
+        ruleName:
+          type: string
+        policyId:
+          type: string
+        policyName:
+          type: string
+        severity:
+          type: string
+          enum:
+          - low
+          - medium
+          - high
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/DlpAction'
+    DlpAction:
+      type: object
+      properties:
+        actionType:
+          type: string
+          enum:
+          - notifyUser
+          - blockAccess
+          - auditOnly
+          - encrypt
+          - applyLabel
+        description:
+          type: string
+        policyId:
           type: string
     ContentInfo:
       type: object
@@ -129,53 +164,18 @@ components:
                 type: string
               value:
                 type: string
-    ClassificationResult:
+    LabelingOptions:
       type: object
       properties:
-        sensitiveTypeId:
-          type: string
-        confidenceLevel:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
-    DlpAction:
-      type: object
-      properties:
-        actionType:
+        assignmentMethod:
           type: string
           enum:
-          - notifyUser
-          - blockAccess
-          - auditOnly
-          - encrypt
-          - applyLabel
-        description:
+          - standard
+          - privileged
+          - auto
+        labelId:
           type: string
-        policyId:
-          type: string
-    DlpMatchedRule:
-      type: object
-      properties:
-        ruleId:
-          type: string
-        ruleName:
-          type: string
-        policyId:
-          type: string
-        policyName:
-          type: string
-        severity:
-          type: string
-          enum:
-          - low
-          - medium
-          - high
-        actions:
-          type: array
-          items:
-            $ref: '#/components/schemas/DlpAction'
+          format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

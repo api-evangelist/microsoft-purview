@@ -170,28 +170,29 @@ paths:
           description: Retention label not found
 components:
   schemas:
-    IdentitySet:
+    RetentionEventType:
       type: object
-      properties:
-        user:
-          type: object
-          properties:
-            displayName:
-              type: string
-            id:
-              type: string
-    CitationTemplate:
-      type: object
+      description: A retention event type
       properties:
         id:
           type: string
+          readOnly: true
         displayName:
           type: string
-        citationUrl:
+        description:
           type: string
-          format: uri
-        citationJurisdiction:
+        createdDateTime:
           type: string
+          format: date-time
+          readOnly: true
+        lastModifiedDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
+        lastModifiedBy:
+          $ref: '#/components/schemas/IdentitySet'
     RetentionLabel:
       type: object
       description: A retention label for records management
@@ -270,35 +271,31 @@ components:
               $ref: '#/components/schemas/DepartmentTemplate'
             filePlanReferenceTemplate:
               $ref: '#/components/schemas/FilePlanReferenceTemplate'
-    RetentionEventType:
-      type: object
-      description: A retention event type
-      properties:
-        id:
-          type: string
-          readOnly: true
-        displayName:
-          type: string
-        description:
-          type: string
-        createdDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        lastModifiedDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        createdBy:
-          $ref: '#/components/schemas/IdentitySet'
-        lastModifiedBy:
-          $ref: '#/components/schemas/IdentitySet'
     FilePlanReferenceTemplate:
       type: object
       properties:
         id:
           type: string
         displayName:
+          type: string
+    DepartmentTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+    CitationTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        citationUrl:
+          type: string
+          format: uri
+        citationJurisdiction:
           type: string
     CategoryTemplate:
       type: object
@@ -307,14 +304,17 @@ components:
           type: string
         displayName:
           type: string
-    AuthorityTemplate:
+    IdentitySet:
       type: object
       properties:
-        id:
-          type: string
-        displayName:
-          type: string
-    DepartmentTemplate:
+        user:
+          type: object
+          properties:
+            displayName:
+              type: string
+            id:
+              type: string
+    AuthorityTemplate:
       type: object
       properties:
         id:

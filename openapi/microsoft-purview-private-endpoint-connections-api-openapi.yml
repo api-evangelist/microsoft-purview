@@ -69,14 +69,6 @@ paths:
           description: Not found
 components:
   parameters:
-    SubscriptionId:
-      name: subscriptionId
-      in: path
-      required: true
-      description: The Azure subscription ID
-      schema:
-        type: string
-        format: uuid
     ResourceGroupName:
       name: resourceGroupName
       in: path
@@ -91,6 +83,14 @@ components:
       description: The name of the Purview account
       schema:
         type: string
+    SubscriptionId:
+      name: subscriptionId
+      in: path
+      required: true
+      description: The Azure subscription ID
+      schema:
+        type: string
+        format: uuid
     ApiVersion:
       name: api-version
       in: query
@@ -100,18 +100,6 @@ components:
         type: string
         default: '2021-12-01'
   schemas:
-    PrivateEndpointConnectionList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/PrivateEndpointConnection'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
     PrivateEndpointConnection:
       type: object
       properties:
@@ -150,6 +138,18 @@ components:
         type:
           type: string
           readOnly: true
+    PrivateEndpointConnectionList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/PrivateEndpointConnection'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
   securitySchemes:
     oauth2:
       type: oauth2

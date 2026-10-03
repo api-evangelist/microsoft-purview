@@ -123,36 +123,6 @@ paths:
           default: myaccount
 components:
   schemas:
-    TermSearchResultValue:
-      type: object
-      properties:
-        name:
-          type: string
-        glossaryName:
-          type: string
-        guid:
-          type: string
-          format: uuid
-    SearchRequest:
-      type: object
-      description: Search request payload
-      properties:
-        keywords:
-          type: string
-        offset:
-          type: integer
-          format: int32
-        limit:
-          type: integer
-          format: int32
-        filter:
-          type: object
-        facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchFacetItem'
-        taxonomySetting:
-          type: object
     SearchResultValue:
       type: object
       properties:
@@ -197,6 +167,16 @@ components:
           type: array
           items:
             type: string
+    AutoCompleteRequest:
+      type: object
+      properties:
+        keywords:
+          type: string
+        limit:
+          type: integer
+          format: int32
+        filter:
+          type: object
     SuggestResult:
       type: object
       properties:
@@ -204,6 +184,16 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SearchResultValue'
+    TermSearchResultValue:
+      type: object
+      properties:
+        name:
+          type: string
+        glossaryName:
+          type: string
+        guid:
+          type: string
+          format: uuid
     SuggestRequest:
       type: object
       properties:
@@ -213,6 +203,33 @@ components:
           type: integer
           format: int32
         filter:
+          type: object
+    AutoCompleteResultValue:
+      type: object
+      properties:
+        text:
+          type: string
+        queryPlusText:
+          type: string
+    SearchRequest:
+      type: object
+      description: Search request payload
+      properties:
+        keywords:
+          type: string
+        offset:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+        filter:
+          type: object
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchFacetItem'
+        taxonomySetting:
           type: object
     SearchFacetItem:
       type: object
@@ -237,13 +254,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SearchResultValue'
-    AutoCompleteResultValue:
-      type: object
-      properties:
-        text:
-          type: string
-        queryPlusText:
-          type: string
     AutoCompleteResult:
       type: object
       properties:
@@ -251,16 +261,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AutoCompleteResultValue'
-    AutoCompleteRequest:
+    SuggestResult_2:
       type: object
       properties:
-        keywords:
-          type: string
-        limit:
-          type: integer
-          format: int32
-        filter:
-          type: object
+        value:
+          type: array
+          items:
+            type: object
     SearchRequest_2:
       type: object
       properties:
@@ -275,13 +282,6 @@ components:
         filter:
           type: object
         facets:
-          type: array
-          items:
-            type: object
-    SuggestResult_2:
-      type: object
-      properties:
-        value:
           type: array
           items:
             type: object

@@ -119,6 +119,41 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    DecisionRule:
+      type: object
+      properties:
+        kind:
+          type: string
+          enum:
+          - decisionrule
+        effect:
+          type: string
+          enum:
+          - Permit
+          - Deny
+        dnfCondition:
+          type: array
+          items:
+            type: array
+            items:
+              $ref: '#/components/schemas/AttributeMatcher'
+    AttributeMatcher:
+      type: object
+      properties:
+        attributeName:
+          type: string
+        attributeValueIncludes:
+          type: string
+        attributeValueIncludedIn:
+          type: array
+          items:
+            type: string
+        attributeValueExcludes:
+          type: string
+        attributeValueExcludedIn:
+          type: array
+          items:
+            type: string
     MetadataPolicy:
       type: object
       description: A metadata policy for controlling data access
@@ -147,24 +182,22 @@ components:
               $ref: '#/components/schemas/CollectionReference'
             parentCollectionName:
               type: string
-    DecisionRule:
+    MetadataPolicyList:
       type: object
       properties:
-        kind:
-          type: string
-          enum:
-          - decisionrule
-        effect:
-          type: string
-          enum:
-          - Permit
-          - Deny
-        dnfCondition:
+        values:
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/AttributeMatcher'
+            $ref: '#/components/schemas/MetadataPolicy'
+        nextLink:
+          type: string
+    CollectionReference:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        type:
+          type: string
     AttributeRule:
       type: object
       properties:
@@ -182,39 +215,6 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/AttributeMatcher'
-    CollectionReference:
-      type: object
-      properties:
-        referenceName:
-          type: string
-        type:
-          type: string
-    MetadataPolicyList:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/MetadataPolicy'
-        nextLink:
-          type: string
-    AttributeMatcher:
-      type: object
-      properties:
-        attributeName:
-          type: string
-        attributeValueIncludes:
-          type: string
-        attributeValueIncludedIn:
-          type: array
-          items:
-            type: string
-        attributeValueExcludes:
-          type: string
-        attributeValueExcludedIn:
-          type: array
-          items:
-            type: string
   securitySchemes:
     oauth2:
       type: oauth2

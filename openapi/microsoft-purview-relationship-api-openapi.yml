@@ -142,58 +142,6 @@ paths:
           default: myaccount
 components:
   schemas:
-    TimeBoundary:
-      type: object
-      properties:
-        endTime:
-          type: string
-        startTime:
-          type: string
-        timeZone:
-          type: string
-    AtlasRelationship:
-      type: object
-      description: A relationship between entities
-      properties:
-        attributes:
-          type: object
-          additionalProperties: true
-        typeName:
-          type: string
-        lastModifiedTS:
-          type: string
-        createTime:
-          type: integer
-          format: int64
-        createdBy:
-          type: string
-        end1:
-          $ref: '#/components/schemas/AtlasObjectId'
-        end2:
-          $ref: '#/components/schemas/AtlasObjectId'
-        guid:
-          type: string
-          format: uuid
-        homeId:
-          type: string
-        label:
-          type: string
-        provenanceType:
-          type: integer
-          format: int32
-        status:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        updateTime:
-          type: integer
-          format: int64
-        updatedBy:
-          type: string
-        version:
-          type: integer
-          format: int64
     AtlasTermAssignmentHeader:
       type: object
       properties:
@@ -237,6 +185,67 @@ components:
         uniqueAttributes:
           type: object
           additionalProperties: true
+    TimeBoundary:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
+    AtlasRelationshipWithExtInfo:
+      type: object
+      properties:
+        referredEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntity'
+        relationship:
+          $ref: '#/components/schemas/AtlasRelationship'
+    AtlasRelationship:
+      type: object
+      description: A relationship between entities
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        createTime:
+          type: integer
+          format: int64
+        createdBy:
+          type: string
+        end1:
+          $ref: '#/components/schemas/AtlasObjectId'
+        end2:
+          $ref: '#/components/schemas/AtlasObjectId'
+        guid:
+          type: string
+          format: uuid
+        homeId:
+          type: string
+        label:
+          type: string
+        provenanceType:
+          type: integer
+          format: int32
+        status:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        updateTime:
+          type: integer
+          format: int64
+        updatedBy:
+          type: string
+        version:
+          type: integer
+          format: int64
     AtlasEntity:
       type: object
       description: An instance of an entity along with extended info such as classification and referenced entities
@@ -326,15 +335,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TimeBoundary'
-    AtlasRelationshipWithExtInfo:
+    AtlasTermAssignmentHeader_2:
       type: object
       properties:
-        referredEntities:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AtlasEntity'
-        relationship:
-          $ref: '#/components/schemas/AtlasRelationship'
+        confidence:
+          type: integer
+          format: int32
+        displayText:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
     AtlasRelationship_2:
       type: object
       properties:
@@ -355,22 +371,6 @@ components:
           enum:
           - ACTIVE
           - DELETED
-    AtlasTermAssignmentHeader_2:
-      type: object
-      properties:
-        confidence:
-          type: integer
-          format: int32
-        displayText:
-          type: string
-        relationGuid:
-          type: string
-          format: uuid
-        status:
-          type: string
-        termGuid:
-          type: string
-          format: uuid
     AtlasEntity_2:
       type: object
       properties:

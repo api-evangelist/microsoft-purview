@@ -50,6 +50,17 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    ProtectionScope:
+      type: object
+      properties:
+        id:
+          type: string
+        scopeType:
+          type: string
+        policyId:
+          type: string
+        policyName:
+          type: string
     ContentInfo:
       type: object
       properties:
@@ -72,17 +83,6 @@ components:
                 type: string
               value:
                 type: string
-    ProtectionScope:
-      type: object
-      properties:
-        id:
-          type: string
-        scopeType:
-          type: string
-        policyId:
-          type: string
-        policyName:
-          type: string
   securitySchemes:
     oauth2:
       type: oauth2

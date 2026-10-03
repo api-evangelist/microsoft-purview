@@ -87,37 +87,6 @@ paths:
           description: Not found
 components:
   schemas:
-    ProfilingRequest:
-      type: object
-      properties:
-        columns:
-          type: array
-          items:
-            type: string
-        sampleSize:
-          type: integer
-          format: int32
-    ProfilingResult:
-      type: object
-      properties:
-        assetId:
-          type: string
-        status:
-          type: string
-          enum:
-          - InProgress
-          - Completed
-          - Failed
-        profiledAt:
-          type: string
-          format: date-time
-        rowCount:
-          type: integer
-          format: int64
-        columnProfiles:
-          type: array
-          items:
-            $ref: '#/components/schemas/ColumnProfile'
     ColumnProfile:
       type: object
       properties:
@@ -153,6 +122,37 @@ components:
               count:
                 type: integer
                 format: int64
+    ProfilingRequest:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: string
+        sampleSize:
+          type: integer
+          format: int32
+    ProfilingResult:
+      type: object
+      properties:
+        assetId:
+          type: string
+        status:
+          type: string
+          enum:
+          - InProgress
+          - Completed
+          - Failed
+        profiledAt:
+          type: string
+          format: date-time
+        rowCount:
+          type: integer
+          format: int64
+        columnProfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ColumnProfile'
   securitySchemes:
     oauth2:
       type: oauth2

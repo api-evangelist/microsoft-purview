@@ -106,15 +106,6 @@ components:
           format: float
         details:
           type: string
-    DataQualityScoreList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataQualityScore'
-        nextLink:
-          type: string
     DataQualityScore:
       type: object
       description: A data quality score for a data asset
@@ -158,6 +149,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RuleResult'
+    DataQualityScoreList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataQualityScore'
+        nextLink:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

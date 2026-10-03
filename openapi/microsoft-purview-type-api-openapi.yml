@@ -257,6 +257,16 @@ paths:
           default: myaccount
 components:
   schemas:
+    AtlasTypeDefHeader:
+      type: object
+      properties:
+        category:
+          type: string
+        guid:
+          type: string
+          format: uuid
+        name:
+          type: string
     AtlasTypeDef:
       type: object
       description: A type definition
@@ -336,16 +346,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AtlasTypeDef'
-    AtlasTypeDefHeader:
-      type: object
-      properties:
-        category:
-          type: string
-        guid:
-          type: string
-          format: uuid
-        name:
-          type: string
     AtlasTypeDef_2:
       type: object
       properties:

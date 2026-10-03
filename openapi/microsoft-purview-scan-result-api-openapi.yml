@@ -144,18 +144,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    OperationResponse:
-      type: object
-      properties:
-        status:
-          type: string
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-            message:
-              type: string
     ScanResult:
       type: object
       description: The result of a scan run
@@ -204,6 +192,18 @@ components:
           - Incremental
         errorMessage:
           type: string
+    OperationResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+            message:
+              type: string
     ScanResultList:
       type: object
       properties:
