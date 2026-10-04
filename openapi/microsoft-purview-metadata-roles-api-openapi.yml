@@ -73,15 +73,6 @@ components:
                 type: array
                 items:
                   $ref: '#/components/schemas/AttributeMatcher'
-    MetadataRoleList:
-      type: object
-      properties:
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/MetadataRole'
-        nextLink:
-          type: string
     AttributeMatcher:
       type: object
       properties:
@@ -99,6 +90,15 @@ components:
           type: array
           items:
             type: string
+    MetadataRoleList:
+      type: object
+      properties:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataRole'
+        nextLink:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

@@ -159,6 +159,13 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    Identity:
+      type: object
+      properties:
+        displayName:
+          type: string
+        id:
+          type: string
     EdiscoveryCase:
       type: object
       description: An eDiscovery case for litigation or investigation
@@ -197,13 +204,6 @@ components:
           format: date-time
         lastModifiedBy:
           $ref: '#/components/schemas/IdentitySet'
-    Identity:
-      type: object
-      properties:
-        displayName:
-          type: string
-        id:
-          type: string
     IdentitySet:
       type: object
       properties:

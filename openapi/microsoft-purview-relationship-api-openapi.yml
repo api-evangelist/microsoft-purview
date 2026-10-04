@@ -142,49 +142,6 @@ paths:
           default: myaccount
 components:
   schemas:
-    AtlasTermAssignmentHeader:
-      type: object
-      properties:
-        confidence:
-          type: integer
-          format: int32
-        createdBy:
-          type: string
-        description:
-          type: string
-        displayText:
-          type: string
-        expression:
-          type: string
-        relationGuid:
-          type: string
-          format: uuid
-        status:
-          type: string
-          enum:
-          - DISCOVERED
-          - PROPOSED
-          - IMPORTED
-          - VALIDATED
-          - DEPRECATED
-          - OBSOLETE
-          - OTHER
-        steward:
-          type: string
-        termGuid:
-          type: string
-          format: uuid
-    AtlasObjectId:
-      type: object
-      properties:
-        guid:
-          type: string
-          format: uuid
-        typeName:
-          type: string
-        uniqueAttributes:
-          type: object
-          additionalProperties: true
     TimeBoundary:
       type: object
       properties:
@@ -194,15 +151,6 @@ components:
           type: string
         timeZone:
           type: string
-    AtlasRelationshipWithExtInfo:
-      type: object
-      properties:
-        referredEntities:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AtlasEntity'
-        relationship:
-          $ref: '#/components/schemas/AtlasRelationship'
     AtlasRelationship:
       type: object
       description: A relationship between entities
@@ -308,6 +256,38 @@ components:
           format: int64
         collectionId:
           type: string
+    AtlasTermAssignmentHeader:
+      type: object
+      properties:
+        confidence:
+          type: integer
+          format: int32
+        createdBy:
+          type: string
+        description:
+          type: string
+        displayText:
+          type: string
+        expression:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - DISCOVERED
+          - PROPOSED
+          - IMPORTED
+          - VALIDATED
+          - DEPRECATED
+          - OBSOLETE
+          - OTHER
+        steward:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
     AtlasClassification:
       type: object
       description: A classification instance
@@ -335,22 +315,26 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TimeBoundary'
-    AtlasTermAssignmentHeader_2:
+    AtlasRelationshipWithExtInfo:
       type: object
       properties:
-        confidence:
-          type: integer
-          format: int32
-        displayText:
-          type: string
-        relationGuid:
+        referredEntities:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntity'
+        relationship:
+          $ref: '#/components/schemas/AtlasRelationship'
+    AtlasObjectId:
+      type: object
+      properties:
+        guid:
           type: string
           format: uuid
-        status:
+        typeName:
           type: string
-        termGuid:
-          type: string
-          format: uuid
+        uniqueAttributes:
+          type: object
+          additionalProperties: true
     AtlasRelationship_2:
       type: object
       properties:
@@ -417,6 +401,22 @@ components:
         version:
           type: integer
           format: int64
+    AtlasTermAssignmentHeader_2:
+      type: object
+      properties:
+        confidence:
+          type: integer
+          format: int32
+        displayText:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
     AtlasClassification_2:
       type: object
       properties:

@@ -47,20 +47,14 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    WorkflowTrigger:
+    WorkflowList:
       type: object
       properties:
-        type:
-          type: string
-          enum:
-          - when_term_creation_is_requested
-          - when_term_deletion_is_requested
-          - when_term_update_is_requested
-          - when_data_access_grant_is_requested
-          - when_asset_update_is_requested
-        underGlossaryHierarchy:
-          type: string
-        underCollection:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workflow'
+        nextLink:
           type: string
     Workflow:
       type: object
@@ -82,14 +76,20 @@ components:
         actionDag:
           type: object
           description: The directed acyclic graph of actions
-    WorkflowList:
+    WorkflowTrigger:
       type: object
       properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/Workflow'
-        nextLink:
+        type:
+          type: string
+          enum:
+          - when_term_creation_is_requested
+          - when_term_deletion_is_requested
+          - when_term_update_is_requested
+          - when_data_access_grant_is_requested
+          - when_asset_update_is_requested
+        underGlossaryHierarchy:
+          type: string
+        underCollection:
           type: string
   securitySchemes:
     oauth2:

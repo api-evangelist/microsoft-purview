@@ -90,22 +90,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ClassificationResult:
-      type: object
-      properties:
-        sensitiveTypeId:
-          type: string
-        confidenceLevel:
-          type: integer
-          format: int32
-        count:
-          type: integer
-          format: int32
-    InformationProtectionAction:
-      type: object
-      properties:
-        '@odata.type':
-          type: string
     DlpMatchedRule:
       type: object
       properties:
@@ -127,6 +111,18 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DlpAction'
+    LabelingOptions:
+      type: object
+      properties:
+        assignmentMethod:
+          type: string
+          enum:
+          - standard
+          - privileged
+          - auto
+        labelId:
+          type: string
+          format: uuid
     DlpAction:
       type: object
       properties:
@@ -164,18 +160,22 @@ components:
                 type: string
               value:
                 type: string
-    LabelingOptions:
+    ClassificationResult:
       type: object
       properties:
-        assignmentMethod:
+        sensitiveTypeId:
           type: string
-          enum:
-          - standard
-          - privileged
-          - auto
-        labelId:
+        confidenceLevel:
+          type: integer
+          format: int32
+        count:
+          type: integer
+          format: int32
+    InformationProtectionAction:
+      type: object
+      properties:
+        '@odata.type':
           type: string
-          format: uuid
   securitySchemes:
     oauth2:
       type: oauth2

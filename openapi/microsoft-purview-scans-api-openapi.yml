@@ -169,6 +169,13 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    ConnectedVia:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        integrationRuntimeType:
+          type: string
     ScanList:
       type: object
       properties:
@@ -222,13 +229,6 @@ components:
         referenceName:
           type: string
         type:
-          type: string
-    ConnectedVia:
-      type: object
-      properties:
-        referenceName:
-          type: string
-        integrationRuntimeType:
           type: string
   securitySchemes:
     oauth2:

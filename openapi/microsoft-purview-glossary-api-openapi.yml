@@ -648,57 +648,31 @@ paths:
           default: myaccount
 components:
   schemas:
-    AtlasGlossary:
+    AtlasRelatedObjectId:
       type: object
-      description: A glossary object
       properties:
+        displayText:
+          type: string
         guid:
           type: string
           format: uuid
-        qualifiedName:
-          type: string
-        name:
-          type: string
-        shortDescription:
-          type: string
-        longDescription:
-          type: string
-        language:
-          type: string
-        usage:
-          type: string
-        terms:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedTermHeader'
-        categories:
-          type: array
-          items:
-            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
-    TimeBoundary:
-      type: object
-      properties:
-        endTime:
-          type: string
-        startTime:
-          type: string
-        timeZone:
-          type: string
-    AtlasTermCategorizationHeader:
-      type: object
-      properties:
-        categoryGuid:
+        relationshipAttributes:
+          type: object
+        relationshipGuid:
           type: string
           format: uuid
-        description:
+        relationshipStatus:
           type: string
-        displayText:
+          enum:
+          - ACTIVE
+          - DELETED
+        relationshipType:
           type: string
-        relationGuid:
+        typeName:
           type: string
-          format: uuid
-        status:
-          type: string
+        uniqueAttributes:
+          type: object
+          additionalProperties: true
     AtlasGlossaryHeader:
       type: object
       properties:
@@ -710,6 +684,23 @@ components:
         relationGuid:
           type: string
           format: uuid
+    ResourceLink:
+      type: object
+      properties:
+        displayName:
+          type: string
+        url:
+          type: string
+          format: uri
+    TimeBoundary:
+      type: object
+      properties:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
     AtlasGlossaryCategory:
       type: object
       description: A glossary category
@@ -781,64 +772,21 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ResourceLink'
-    AtlasRelatedTermHeader:
+    AtlasTermCategorizationHeader:
       type: object
       properties:
+        categoryGuid:
+          type: string
+          format: uuid
         description:
           type: string
         displayText:
-          type: string
-        expression:
           type: string
         relationGuid:
           type: string
           format: uuid
         status:
           type: string
-          enum:
-          - DRAFT
-          - ACTIVE
-          - DEPRECATED
-          - OBSOLETE
-          - OTHER
-        steward:
-          type: string
-        termGuid:
-          type: string
-          format: uuid
-    AtlasRelatedObjectId:
-      type: object
-      properties:
-        displayText:
-          type: string
-        guid:
-          type: string
-          format: uuid
-        relationshipAttributes:
-          type: object
-        relationshipGuid:
-          type: string
-          format: uuid
-        relationshipStatus:
-          type: string
-          enum:
-          - ACTIVE
-          - DELETED
-        relationshipType:
-          type: string
-        typeName:
-          type: string
-        uniqueAttributes:
-          type: object
-          additionalProperties: true
-    ResourceLink:
-      type: object
-      properties:
-        displayName:
-          type: string
-        url:
-          type: string
-          format: uri
     AtlasRelatedCategoryHeader:
       type: object
       properties:
@@ -882,8 +830,9 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TimeBoundary'
-    AtlasGlossary_2:
+    AtlasGlossary:
       type: object
+      description: A glossary object
       properties:
         guid:
           type: string
@@ -903,11 +852,36 @@ components:
         terms:
           type: array
           items:
-            $ref: '#/components/schemas/AtlasRelatedTermHeader_2'
+            $ref: '#/components/schemas/AtlasRelatedTermHeader'
         categories:
           type: array
           items:
-            $ref: '#/components/schemas/AtlasRelatedCategoryHeader_2'
+            $ref: '#/components/schemas/AtlasRelatedCategoryHeader'
+    AtlasRelatedTermHeader:
+      type: object
+      properties:
+        description:
+          type: string
+        displayText:
+          type: string
+        expression:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - DRAFT
+          - ACTIVE
+          - DEPRECATED
+          - OBSOLETE
+          - OTHER
+        steward:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
     AtlasGlossaryTerm_2:
       type: object
       properties:
@@ -944,6 +918,32 @@ components:
         relationGuid:
           type: string
           format: uuid
+    AtlasGlossary_2:
+      type: object
+      properties:
+        guid:
+          type: string
+          format: uuid
+        qualifiedName:
+          type: string
+        name:
+          type: string
+        shortDescription:
+          type: string
+        longDescription:
+          type: string
+        language:
+          type: string
+        usage:
+          type: string
+        terms:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedTermHeader_2'
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/AtlasRelatedCategoryHeader_2'
     AtlasRelatedTermHeader_2:
       type: object
       properties:

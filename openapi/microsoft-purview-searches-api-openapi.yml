@@ -81,15 +81,6 @@ components:
           type: string
         id:
           type: string
-    IdentitySet:
-      type: object
-      properties:
-        application:
-          $ref: '#/components/schemas/Identity'
-        device:
-          $ref: '#/components/schemas/Identity'
-        user:
-          $ref: '#/components/schemas/Identity'
     EdiscoverySearch:
       type: object
       description: An eDiscovery search
@@ -116,6 +107,15 @@ components:
           $ref: '#/components/schemas/IdentitySet'
         lastModifiedBy:
           $ref: '#/components/schemas/IdentitySet'
+    IdentitySet:
+      type: object
+      properties:
+        application:
+          $ref: '#/components/schemas/Identity'
+        device:
+          $ref: '#/components/schemas/Identity'
+        user:
+          $ref: '#/components/schemas/Identity'
   securitySchemes:
     oauth2:
       type: oauth2

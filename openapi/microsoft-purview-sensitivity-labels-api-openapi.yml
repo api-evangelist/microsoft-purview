@@ -433,6 +433,44 @@ components:
             type: string
         hasProtection:
           type: boolean
+    LabelingOptions:
+      type: object
+      properties:
+        assignmentMethod:
+          type: string
+          enum:
+          - standard
+          - privileged
+          - auto
+        labelId:
+          type: string
+          format: uuid
+        downgradeJustification:
+          $ref: '#/components/schemas/DowngradeJustification'
+    KeyValuePair:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+    ContentInfo:
+      type: object
+      properties:
+        contentFormat:
+          type: string
+        identifier:
+          type: string
+        state:
+          type: string
+          enum:
+          - rest
+          - motion
+          - use
+        metadata:
+          type: array
+          items:
+            $ref: '#/components/schemas/KeyValuePair'
     ClassificationResult:
       type: object
       properties:
@@ -444,11 +482,6 @@ components:
         count:
           type: integer
           format: int32
-    InformationProtectionAction:
-      type: object
-      properties:
-        '@odata.type':
-          type: string
     SensitivityLabel_2:
       type: object
       description: A sensitivity label for information protection
@@ -484,23 +517,11 @@ components:
               type: string
             name:
               type: string
-    ContentInfo:
+    InformationProtectionAction:
       type: object
       properties:
-        contentFormat:
+        '@odata.type':
           type: string
-        identifier:
-          type: string
-        state:
-          type: string
-          enum:
-          - rest
-          - motion
-          - use
-        metadata:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyValuePair'
     DowngradeJustification:
       type: object
       properties:
@@ -508,27 +529,6 @@ components:
           type: boolean
         justificationMessage:
           type: string
-    KeyValuePair:
-      type: object
-      properties:
-        name:
-          type: string
-        value:
-          type: string
-    LabelingOptions:
-      type: object
-      properties:
-        assignmentMethod:
-          type: string
-          enum:
-          - standard
-          - privileged
-          - auto
-        labelId:
-          type: string
-          format: uuid
-        downgradeJustification:
-          $ref: '#/components/schemas/DowngradeJustification'
   securitySchemes:
     oauth2:
       type: oauth2

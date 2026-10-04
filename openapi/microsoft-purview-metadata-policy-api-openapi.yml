@@ -119,24 +119,15 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    DecisionRule:
+    MetadataPolicyList:
       type: object
       properties:
-        kind:
-          type: string
-          enum:
-          - decisionrule
-        effect:
-          type: string
-          enum:
-          - Permit
-          - Deny
-        dnfCondition:
+        values:
           type: array
           items:
-            type: array
-            items:
-              $ref: '#/components/schemas/AttributeMatcher'
+            $ref: '#/components/schemas/MetadataPolicy'
+        nextLink:
+          type: string
     AttributeMatcher:
       type: object
       properties:
@@ -182,22 +173,24 @@ components:
               $ref: '#/components/schemas/CollectionReference'
             parentCollectionName:
               type: string
-    MetadataPolicyList:
+    DecisionRule:
       type: object
       properties:
-        values:
+        kind:
+          type: string
+          enum:
+          - decisionrule
+        effect:
+          type: string
+          enum:
+          - Permit
+          - Deny
+        dnfCondition:
           type: array
           items:
-            $ref: '#/components/schemas/MetadataPolicy'
-        nextLink:
-          type: string
-    CollectionReference:
-      type: object
-      properties:
-        referenceName:
-          type: string
-        type:
-          type: string
+            type: array
+            items:
+              $ref: '#/components/schemas/AttributeMatcher'
     AttributeRule:
       type: object
       properties:
@@ -215,6 +208,13 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/AttributeMatcher'
+    CollectionReference:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        type:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2

@@ -165,6 +165,26 @@ components:
                 type: string
               message:
                 type: string
+    Workflow:
+      type: object
+      description: A workflow definition
+      properties:
+        id:
+          type: string
+          format: uuid
+        triggers:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowTrigger'
+        name:
+          type: string
+        isEnabled:
+          type: boolean
+        description:
+          type: string
+        actionDag:
+          type: object
+          description: The directed acyclic graph of actions
     WorkflowTrigger:
       type: object
       properties:
@@ -195,26 +215,6 @@ components:
           type: string
         actionDag:
           type: object
-    Workflow:
-      type: object
-      description: A workflow definition
-      properties:
-        id:
-          type: string
-          format: uuid
-        triggers:
-          type: array
-          items:
-            $ref: '#/components/schemas/WorkflowTrigger'
-        name:
-          type: string
-        isEnabled:
-          type: boolean
-        description:
-          type: string
-        actionDag:
-          type: object
-          description: The directed acyclic graph of actions
   securitySchemes:
     oauth2:
       type: oauth2

@@ -178,98 +178,40 @@ paths:
           default: myaccount
 components:
   schemas:
-    AtlasTermAssignmentHeader:
+    AtlasLineageInfo:
       type: object
+      description: Lineage information for an entity
       properties:
-        confidence:
+        baseEntityGuid:
+          type: string
+          format: uuid
+        childrenCount:
           type: integer
           format: int32
-        createdBy:
-          type: string
-        description:
-          type: string
-        displayText:
-          type: string
-        expression:
-          type: string
-        relationGuid:
-          type: string
-          format: uuid
-        status:
-          type: string
-          enum:
-          - DISCOVERED
-          - PROPOSED
-          - IMPORTED
-          - VALIDATED
-          - DEPRECATED
-          - OBSOLETE
-          - OTHER
-        steward:
-          type: string
-        termGuid:
-          type: string
-          format: uuid
-    ParentRelation:
-      type: object
-      properties:
-        childEntityId:
-          type: string
-          format: uuid
-        parentEntityId:
-          type: string
-          format: uuid
-        relationshipId:
-          type: string
-          format: uuid
-    TimeBoundary:
-      type: object
-      properties:
-        endTime:
-          type: string
-        startTime:
-          type: string
-        timeZone:
-          type: string
-    AtlasClassification:
-      type: object
-      description: A classification instance
-      properties:
-        attributes:
+        guidEntityMap:
           type: object
-          additionalProperties: true
-        typeName:
-          type: string
-        lastModifiedTS:
-          type: string
-        entityGuid:
-          type: string
-          format: uuid
-        entityStatus:
+          additionalProperties:
+            $ref: '#/components/schemas/AtlasEntityHeader'
+        lineageDepth:
+          type: integer
+          format: int32
+        lineageDirection:
           type: string
           enum:
-          - ACTIVE
-          - DELETED
-        propagate:
-          type: boolean
-        removePropagationsOnEntityDelete:
-          type: boolean
-        validityPeriods:
+          - INPUT
+          - OUTPUT
+          - BOTH
+        lineageWidth:
+          type: integer
+          format: int32
+        parentRelations:
           type: array
           items:
-            $ref: '#/components/schemas/TimeBoundary'
-    LineageRelation:
-      type: object
-      properties:
-        fromEntityId:
-          type: string
-          format: uuid
-        relationshipId:
-          type: string
-          format: uuid
-        toEntityId:
-          type: string
-          format: uuid
+            $ref: '#/components/schemas/ParentRelation'
+        relations:
+          type: array
+          items:
+            $ref: '#/components/schemas/LineageRelation'
     AtlasEntityHeader:
       type: object
       description: An instance of an entity header
@@ -311,40 +253,98 @@ components:
           enum:
           - ACTIVE
           - DELETED
-    AtlasLineageInfo:
+    TimeBoundary:
       type: object
-      description: Lineage information for an entity
       properties:
-        baseEntityGuid:
+        endTime:
+          type: string
+        startTime:
+          type: string
+        timeZone:
+          type: string
+    ParentRelation:
+      type: object
+      properties:
+        childEntityId:
           type: string
           format: uuid
-        childrenCount:
+        parentEntityId:
+          type: string
+          format: uuid
+        relationshipId:
+          type: string
+          format: uuid
+    AtlasTermAssignmentHeader:
+      type: object
+      properties:
+        confidence:
           type: integer
           format: int32
-        guidEntityMap:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/AtlasEntityHeader'
-        lineageDepth:
-          type: integer
-          format: int32
-        lineageDirection:
+        createdBy:
+          type: string
+        description:
+          type: string
+        displayText:
+          type: string
+        expression:
+          type: string
+        relationGuid:
+          type: string
+          format: uuid
+        status:
           type: string
           enum:
-          - INPUT
-          - OUTPUT
-          - BOTH
-        lineageWidth:
-          type: integer
-          format: int32
-        parentRelations:
+          - DISCOVERED
+          - PROPOSED
+          - IMPORTED
+          - VALIDATED
+          - DEPRECATED
+          - OBSOLETE
+          - OTHER
+        steward:
+          type: string
+        termGuid:
+          type: string
+          format: uuid
+    AtlasClassification:
+      type: object
+      description: A classification instance
+      properties:
+        attributes:
+          type: object
+          additionalProperties: true
+        typeName:
+          type: string
+        lastModifiedTS:
+          type: string
+        entityGuid:
+          type: string
+          format: uuid
+        entityStatus:
+          type: string
+          enum:
+          - ACTIVE
+          - DELETED
+        propagate:
+          type: boolean
+        removePropagationsOnEntityDelete:
+          type: boolean
+        validityPeriods:
           type: array
           items:
-            $ref: '#/components/schemas/ParentRelation'
-        relations:
-          type: array
-          items:
-            $ref: '#/components/schemas/LineageRelation'
+            $ref: '#/components/schemas/TimeBoundary'
+    LineageRelation:
+      type: object
+      properties:
+        fromEntityId:
+          type: string
+          format: uuid
+        relationshipId:
+          type: string
+          format: uuid
+        toEntityId:
+          type: string
+          format: uuid
     AtlasEntityHeader_2:
       type: object
       properties:

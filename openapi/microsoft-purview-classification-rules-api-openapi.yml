@@ -141,15 +141,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    ClassificationRulePattern:
-      type: object
-      properties:
-        kind:
-          type: string
-          enum:
-          - Regex
-        pattern:
-          type: string
     ClassificationRuleList:
       type: object
       properties:
@@ -162,6 +153,15 @@ components:
         count:
           type: integer
           format: int64
+    ClassificationRulePattern:
+      type: object
+      properties:
+        kind:
+          type: string
+          enum:
+          - Regex
+        pattern:
+          type: string
     ClassificationRule:
       type: object
       description: A classification rule definition

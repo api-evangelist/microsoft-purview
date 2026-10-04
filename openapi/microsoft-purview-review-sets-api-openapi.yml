@@ -74,6 +74,21 @@ paths:
           description: Unauthorized
 components:
   schemas:
+    EdiscoveryReviewSet:
+      type: object
+      description: A review set for reviewing collected data
+      properties:
+        id:
+          type: string
+          readOnly: true
+        displayName:
+          type: string
+        createdDateTime:
+          type: string
+          format: date-time
+          readOnly: true
+        createdBy:
+          $ref: '#/components/schemas/IdentitySet'
     Identity:
       type: object
       properties:
@@ -90,21 +105,6 @@ components:
           $ref: '#/components/schemas/Identity'
         user:
           $ref: '#/components/schemas/Identity'
-    EdiscoveryReviewSet:
-      type: object
-      description: A review set for reviewing collected data
-      properties:
-        id:
-          type: string
-          readOnly: true
-        displayName:
-          type: string
-        createdDateTime:
-          type: string
-          format: date-time
-          readOnly: true
-        createdBy:
-          $ref: '#/components/schemas/IdentitySet'
   securitySchemes:
     oauth2:
       type: oauth2

@@ -150,32 +150,6 @@ paths:
           description: Unauthorized
 components:
   schemas:
-    DataSourceList:
-      type: object
-      properties:
-        value:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataSource'
-        nextLink:
-          type: string
-        count:
-          type: integer
-          format: int64
-    CollectionReference:
-      type: object
-      properties:
-        referenceName:
-          type: string
-        type:
-          type: string
-    ConnectedVia:
-      type: object
-      properties:
-        referenceName:
-          type: string
-        integrationRuntimeType:
-          type: string
     DataSource:
       type: object
       description: A registered data source
@@ -243,6 +217,13 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Scan'
+    ConnectedVia:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        integrationRuntimeType:
+          type: string
     Scan:
       type: object
       description: A scan configuration
@@ -278,6 +259,25 @@ components:
             lastScheduled:
               type: string
               format: date-time
+    DataSourceList:
+      type: object
+      properties:
+        value:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSource'
+        nextLink:
+          type: string
+        count:
+          type: integer
+          format: int64
+    CollectionReference:
+      type: object
+      properties:
+        referenceName:
+          type: string
+        type:
+          type: string
   securitySchemes:
     oauth2:
       type: oauth2
