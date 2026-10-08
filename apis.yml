@@ -3087,6 +3087,10 @@ apis:
   - type: Reference
     url: https://learn.microsoft.com/en-us/graph/compliance-concept-overview
 common:
+  - type: RateLimits
+    url: rate-limits/microsoft-purview-rate-limits.yml
+  - type: FinOps
+    url: finops/microsoft-purview-finops.yml
   - type: Pricing
     url: https://azure.microsoft.com/en-us/pricing/details/purview/
   - type: Plans
