@@ -80,3 +80,94 @@ rate_limit_statements:
   up to 10 GB of metadata about data assets.
 - One API call returns up to 10,000 rows of tabular result.
 - A text record is up to 1,000 characters.
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - metered
+  - subscription
+  units:
+  - compute
+  - data
+  - message
+  - request
+  plans:
+  - name: Audit Standard
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Data Lifecycle Management Premium
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - message
+    periods:
+    - month
+  - name: eDiscovery Premium
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - month
+  - name: eDiscovery Graph API Standard
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Data Policy - DevOps policies
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Data policies (data asset access)
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Data Map Population - Power BI online
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: Data Map Population - other data sources
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Data Map Capacity Unit
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Insights Consumption
+    access: other
+    model: metered
+    model_how: derived
+    units:
+    - request
+    periods:
+    - other
